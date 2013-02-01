@@ -3,27 +3,25 @@ Template Name: Archives
 */
 get_header(); ?>
 
-	<div id="main-col">
+	<div class="main">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                        <h1>
-				<a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-<br>
+			<h1><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
-		<div class="post" id="post-<?php the_ID(); ?>">
 			<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 			<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 
-<?php wp_tag_cloud( $args ); ?>
+			<ul>
+				<?php wp_get_archives('type=monthly'); ?>
+			</ul>
 
-<?php include (TEMPLATEPATH . '/searchform.php'); ?>
+			<?php edit_post_link('[Edit]', '<p>', '</p>'); ?>
 
-<?php edit_post_link('[Edit]', '<p>', '</p>'); ?>
-		</div>
 		<?php endwhile; endif; ?>
 
 	</div>
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

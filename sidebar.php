@@ -1,5 +1,4 @@
-<div id="sidebar">
-
+<div class="aside">
 
 	<div class="widget">
 
@@ -8,26 +7,28 @@
 	</div>
 
 
-
 	<div class="widget">
 
 		<h1>How to Help</h1>
 
-		<p class="sidenav"><a href="<?php echo get_option('home'); ?>/adopt/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/Adopt24.png"> Adopt</a></p>
-		<p class="sidenav"><a href="<?php echo get_option('home'); ?>/donate/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/Donate24.png"> Donate</a></p>
-		<p class="sidenav"><a href="<?php echo get_option('home'); ?>/volunteer/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/Volunteer24.png"> Volunteer</a></p>
+		<ul class="unstyled">
+			<li><a href="<?php echo get_option('home'); ?>/adopt/"><i class="icon home"></i> Adopt</a></li>
+			<li><a href="<?php echo get_option('home'); ?>/donate/"><i class="icon heart"></i> Donate</a></li>
+			<li><a href="<?php echo get_option('home'); ?>/volunteer/"><i class="icon time"></i> Volunteer</a></li>
+		</ul>
 
 	</div>
-
 
 
 	<div class="widget">
 
 		<h1>Get Free Updates</h1>
 
-		<p><a href="http://eepurl.com/ifVL"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/Newsletter16.png"> Sign-up for our newsletter</a></p>
-		<p><a href="http://feeds.feedburner.com/pawsne"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/RSS16.png"> Subscribe to our blog</a></p>
-		<p><a href="http://www.facebook.com/PAWSNewEngland"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/Facebook16.png"> Like us on Facebook</a></p>
+		<ul class="unstyled">
+			<li><a href="http://eepurl.com/ifVL"><i class="icon email"></i> Sign-up for our newsletter</a></li>
+			<li><a href="http://feeds.feedburner.com/pawsne"><i class="icon rss"></i> Subscribe to our blog</a></li>
+			<li><a href="http://www.facebook.com/PAWSNewEngland"><i class="icon facebook"></i> Like us on Facebook</a></li>
+		</ul>
 
 	</div>
 

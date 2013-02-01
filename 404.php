@@ -1,23 +1,13 @@
 <?php get_header(); ?>
 
-<div id="lower-wrap">
-	
-	<div id="main-col">
+<div class="main">
 
-		<h1>Oh snap!</h1>
+	<h1>Uh-oh!</h1>
 
-		<p>The page you're looking for was looted by pirates! At this point, you have a few options:</p>
+	<p>The page you're looking isn't here. (<em>There's a good chance we moved the page to a new URL - sorry!</em>). You may want to try searching for it using the search box in the sidebar.</p>
 
-		<ol class="post">
-		        <li>Use the search box thingy in the sidebar.</li>
-		        <li>Become a pirate hunter and embark on a quest to reclaim the lost page.</li>
-		        <li>Give up and go make something awesome instead.</li>
-                </ol>
-
-	</div>
-
-	<?php get_sidebar(); ?>
-	
 </div>
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

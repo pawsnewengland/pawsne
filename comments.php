@@ -1,3 +1,5 @@
+<!-- This is the template for your comments section -->
+
 <?php // Do not delete these lines
 	if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
 		die ('Please do not load this page directly. Thanks!');
@@ -27,62 +29,60 @@
 
 	<?php foreach ($comments as $comment) : ?>
 
-<!--FOR TRACKBACKS-->
-<?php $comment_type = get_comment_type(); ?>
-<?php if($comment_type == 'comment') { ?>
-<!--END FOR TRACKBACKS-->
+		<!-- Trackback Links -->
+		<?php $comment_type = get_comment_type(); ?>
+		<?php if($comment_type == 'comment') { ?>
 
-		<li <?php echo $oddcomment; ?>id="comment-<?php comment_ID() ?>">
+
+		<li <?php echo $oddcomment; ?> id="comment-<?php comment_ID() ?>">
 			
-			<div class="comment-bubble">
-				<?php if ($comment->comment_approved == '0') : ?>
-					<p>Because your comment contained a link, it's awaiting moderation. As long as it's not spam, I'll approve asap!</p>
-				<?php endif; ?>
+			<?php if ($comment->comment_approved == '0') : ?>
+				<p>Your comment is being held for moderation, which means it either had a link in it, or my blog thought it was spam. If you're not sure why you're seeing this, send me an email at hello (at) gomakethings (dot) com. As long as it's not spam, I'll approve asap!</p>
 
-				<div class="comment-info">
+				<p>- The Management (aka Chris)</p>
+			<?php endif; ?>
 
-					<div class="alignleft"><?php echo get_avatar( $comment, $size = '40', $default = 'http://chrisferdinandi.com/test/wp-content/themes/PAWSNewEngland2/images/missing-gravatar.png' ); ?></div>
+			<div class="comment-info">
 
-					<p class="comment-name"><?php comment_author_link() ?></p>
-					<p class="comment-meta"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?><span class="comment-text"><?php edit_comment_link('[Edit]', ' ', ''); ?></span></p>
+				<div class="alignleft"><?php echo get_avatar( $comment, $size = '40' ); ?></div>
 
-<div class="clear"></div>
+				<h3><?php comment_author_link() ?></h3>
+				<p class="meta"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?><span class="comment-text"><?php edit_comment_link('[Edit]', ' ', ''); ?></span></p>
 
-				</div>
-	
-				<div class="comment-text"><?php comment_text() ?></div>
 			</div>
+	
+			<div id="comment-text"><?php comment_text() ?></div>
 			
 		</li>
 
-	<?php
-		/* Changes every other comment to a different class */
-		$oddcomment = ( empty( $oddcomment ) ) ? 'class="alt" ' : '';
-	?>
+		<?php
+			/* Changes every other comment to a different class */
+			$oddcomment = ( empty( $oddcomment ) ) ? 'class="alt" ' : '';
+		?>
 
-<!--FOR TRACKBACKS-->
-<?php } else { $trackback = true; } /* End of is_comment statement */ ?>
-<!--END FOR TRACKBACKS-->
+		<!-- Trackback Links -->
+		<?php } else { $trackback = true; } /* End of is_comment statement */ ?>
 
-	<?php endforeach; /* end for each comment */ ?>
+		<?php endforeach; /* end for each comment */ ?>
 
 	</ol>
 
-<!--FOR TRACKBACKS-->
-<?php if ($trackback == true) { ?>
-<h3>Places that have linked here</h3>
-<ol class="comment-text">
-<?php foreach ($comments as $comment) : ?>
-<?php $comment_type = get_comment_type(); ?>
-<?php if($comment_type != 'comment') { ?>
-<li><?php comment_author_link() ?></li>
-<?php } ?>
-<?php endforeach; ?>
-</ol>
-<?php } ?>
-<!--END FOR TRACKBACKS-->
-<br><br>
- <?php else : // this is displayed if there are no comments so far ?>
+	<!-- Trackback Links -->
+	<?php if ($trackback == true) { ?>
+	<h3>Places that have linked here</h3>
+	<ol class="comment-text">
+	<?php foreach ($comments as $comment) : ?>
+	<?php $comment_type = get_comment_type(); ?>
+	<?php if($comment_type != 'comment') { ?>
+	<li><?php comment_author_link() ?></li>
+	<?php } ?>
+	<?php endforeach; ?>
+	</ol>
+	<?php } ?>
+
+
+
+<?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ('open' == $post->comment_status) : ?>
 		<!-- If comments are open, but there are no comments. -->
@@ -97,7 +97,7 @@
 
 <?php if ('open' == $post->comment_status) : ?>
 
-<h2 id="respond">Leave a Comment</h2>
+<h2>Leave a Comment</h2>
 
 <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
 <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p>
@@ -107,27 +107,27 @@
 
 <?php if ( $user_ID ) : ?>
 
-<p class="comment-text">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
+<p class="comment-text"><em>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></em></p>
 
 <?php else : ?>
 
 <p><em>Your email address will not be published. Required fields are marked with an asterisk (<span style="color: #E0812A;">*</span>).</em></p>
 
-<p><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
-<label for="author">Name <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label></p>
+<label for="author">Name <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label>
+<input type="text" name="author" id="author" class="wide" value="<?php echo $comment_author; ?>" tabindex="1" required>
 
-<p><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
-<label for="email">Email <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label></p>
+<label for="email">Email <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label>
+<input type="email" name="email" id="email" class="wide" value="<?php echo $comment_author_email; ?>" tabindex="2" required>
 
-<p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
-<label for="url">Website</label></p>
+<label for="url">Website</label>
+<input type="url" name="url" id="url" class="wide" value="<?php echo $comment_author_url; ?>" tabindex="3">
 
 <?php endif; ?>
 
-<p><textarea name="comment" id="comment" tabindex="4"></textarea></p>
+<textarea name="comment" tabindex="4" required></textarea>
 
-<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
-<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" /></p>
+<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="btn" />
+<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
 
 <?php do_action('comment_form', $post->ID); ?>
 
