@@ -22,7 +22,7 @@
 	
 	<?php else : ?>
 	
-		<h2>Nothing found. Try a different search?</h2>
+		<h2>No posts found. Try a different search?</h2>
 	
 	<?php endif; ?>
 	

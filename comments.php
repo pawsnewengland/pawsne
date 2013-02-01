@@ -34,17 +34,24 @@
 
 		<li <?php echo $oddcomment; ?>id="comment-<?php comment_ID() ?>">
 			
-		<div class="comment-bubble">
-                <?php if ($comment->comment_approved == '0') : ?>
-                    <p>Your comment is awaiting moderation.</p>
-                <?php endif; ?>
-    
-                <div id="comment-text"><b><?php comment_author_link() ?> says...</b></div>
-<br>
-                <?php comment_text() ?>
+			<div class="comment-bubble">
+				<?php if ($comment->comment_approved == '0') : ?>
+					<p>Because your comment contained a link, it's awaiting moderation. As long as it's not spam, I'll approve asap!</p>
+				<?php endif; ?>
 
-                <div id="comment-text"><i><?php comment_date('F jS, Y') ?> at <?php comment_time() ?></i></div>
-		</div>
+				<div class="comment-info">
+
+					<div class="alignleft"><?php echo get_avatar( $comment, $size = '40', $default = 'http://chrisferdinandi.com/test/wp-content/themes/PAWSNewEngland2/images/missing-gravatar.png' ); ?></div>
+
+					<p class="comment-name"><?php comment_author_link() ?></p>
+					<p class="comment-meta"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?><span class="comment-text"><?php edit_comment_link('[Edit]', ' ', ''); ?></span></p>
+
+<div class="clear"></div>
+
+				</div>
+	
+				<div class="comment-text"><?php comment_text() ?></div>
+			</div>
 			
 		</li>
 
@@ -60,11 +67,11 @@
 	<?php endforeach; /* end for each comment */ ?>
 
 	</ol>
-<br><br>
+
 <!--FOR TRACKBACKS-->
 <?php if ($trackback == true) { ?>
 <h3>Places that have linked here</h3>
-<ol id="comment-text">
+<ol class="comment-text">
 <?php foreach ($comments as $comment) : ?>
 <?php $comment_type = get_comment_type(); ?>
 <?php if($comment_type != 'comment') { ?>
@@ -90,7 +97,7 @@
 
 <?php if ('open' == $post->comment_status) : ?>
 
-<h3 id="respond">Leave a Reply</h3>
+<h2 id="respond">Leave a Comment</h2>
 
 <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
 <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p>
@@ -100,28 +107,28 @@
 
 <?php if ( $user_ID ) : ?>
 
-<p id="comment-text-post">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
+<p class="comment-text">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
 
 <?php else : ?>
 
+<p><em>Your email address will not be published. Required fields are marked with an asterisk (<span style="color: #E0812A;">*</span>).</em></p>
+
 <p><input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" />
-<label for="author">Name <?php if ($req) echo "(required)"; ?></label></p>
+<label for="author">Name <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label></p>
 
 <p><input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" />
-<label for="email">Mail (will not be published) <?php if ($req) echo "(required)"; ?></label></p>
+<label for="email">Email <span style="color: #E0812A;"><?php if ($req) echo "*"; ?></span></label></p>
 
 <p><input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
 <label for="url">Website</label></p>
 
 <?php endif; ?>
 
-<!--<p><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
-
-<p><textarea name="comment" id="comment" cols="72" rows="10" tabindex="4"></textarea></p>
+<p><textarea name="comment" id="comment" tabindex="4"></textarea></p>
 
 <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
-<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
-</p>
+<input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" /></p>
+
 <?php do_action('comment_form', $post->ID); ?>
 
 </form>

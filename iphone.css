@@ -1,0 +1,73 @@
+/*	RESET */
+
+body { font-size: 11px; }
+img, iframe, embed, object, video, .wp-caption { max-width: 100%; height: auto; } 
+
+
+
+/*	TYPOGRAPHY */
+
+h1 { font-size: 2.0em; } 
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.6em; }
+
+
+/*	FORMS */
+
+.petfinder { display: none; } /* Petfinder widget */
+.cform { width: 90%; } /* Cform plugin formatting */
+.testform { width: 90%; height: 2500px; }
+
+
+
+/*	STRUCTURE */
+
+#page-wrap { width: 100%; }
+#main-col { width: 90%; float: none; margin: 0 auto; }
+#main-col-nosidebar { width: 90%; float: none; margin: 0 auto; }
+#sidebar { width: 90%; margin: 20px auto 0 auto; padding: 20px 0 0 0; border-top: 1px dotted #a9a9a9; float: none; }
+
+
+
+/*	HEADER */
+
+#logo { font-size: 2.6em; }
+#top-bar { width: 100%; }
+#top-bar-1 { width: 90%; float: none; margin: 0 auto; }
+#top-bar-2 { width: 90%; float: none; margin: 0 auto }
+
+
+
+/*	MENU */
+
+#main-nav { display: none; }
+#drop-nav { display: inline-block; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; font-size: 1.5em; margin: 10px 0;  }
+
+
+
+/*	CONTENT BOXES */
+
+.landing-third { width: 90%; margin: 40px auto; float: none;  }
+.landing-half { width: 90%; margin: 40px auto; float: none; }
+.third-box { width: 90%; margin: 40px auto; float: none; }
+
+
+
+/* 	SIDEBAR */ 
+
+.widget { width: 100%; margin: 0 auto 20px auto; }
+#searchform { margin: 0 auto 20px auto; }
+
+
+
+/* 	SOCIAL BOOKMARKS */ 
+
+.social { width: 100%; }
+.social-left { width: 100; float: left; }
+.social-right { width: 100%; float: left; margin: 10px 0 20px 0; text-align: left; }
+
+
+
+/*	FOOTER */
+
+#footer-inside { width: 90%; float: none; margin: 0 auto; }

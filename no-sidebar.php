@@ -1,9 +1,9 @@
 <?php /*
-Template Name: RHR Product
+Template Name: No Sidebar
 */
 get_header(); ?>
 
-	<div id="main-col-product">
+	<div id="main-col-nosidebar">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

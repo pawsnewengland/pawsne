@@ -4,12 +4,16 @@
 	
 	<div id="main-col">
 
-		<h1>Uh oh!</h1>
+		<h1>Oh snap!</h1>
 
-		<p class="post">The page your looking for doesn't exist. You can either <a href="<?php echo get_option('home'); ?>/">go back to the homepage</a> and try again, or use the search box below.</p>
+		<p>The page you're looking for was looted by pirates! At this point, you have a few options:</p>
 
-		<center><?php include (TEMPLATEPATH . '/searchform.php'); ?></center>
-	
+		<ol class="post">
+		        <li>Use the search box thingy in the sidebar.</li>
+		        <li>Become a pirate hunter and embark on a quest to reclaim the lost page.</li>
+		        <li>Give up and go make something awesome instead.</li>
+                </ol>
+
 	</div>
 
 	<?php get_sidebar(); ?>

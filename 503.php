@@ -1,21 +1,26 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-<title>PAWS New England | All-Breed Dog Rescue</title>
+	<title>Go Make Things</title>
+
+	<style type="text/css">
+
+		h1 { font-size:52px; font-family: Georgia, Times, serif;  text-align: center; color: #6AA120; margin: 120px 0 30px 0; font-weight: normal; }
+		p { font-size: 20px; font-family: Helvetica, Arial, sans-serif; text-align: center; color: #808080; margin: 0 0 20px 0; }
+		a { color: #E0812A; text-decoration: none; }
+		a:hover { color: #272727; text-decoration: underline; }
+
+	</style>
+
 </head>
 
 <body>
 
-<center>
-	<table>
-		<tr height="120px"><td><span style="font-size:120px;">&nbsp;</span></td></tr>
-		<tr><td><td><center><span style="font-size:52px; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; color: #6AA120;"><b>PAWS New England<b></span></center></td></tr>
-		<tr><td><td><center><span style="font-size:24px; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; color: #000;">We're making a few quick updates. Be back soon.</span></center></td></tr>
-		<tr><td><td><span style="font-size:24px;">&nbsp;</span></td></tr>
-		<tr><td><td><center><span style="font-size:20px; font-family: Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; color: #F28907;"><a style="color: #F28907;" href="http://eepurl.com/ifVL">Sign-Up for our free newsletter</a></span></center></td></tr>
-		<tr height="48px"><td><td><span style="font-size:48px;">&nbsp;</span></td></tr>
-	</table>
-</center>
+	<h1>PAWS New England</h1>
+	<p>We're doing some routine maintenance, but we'll be back soon!</p>
+
+	<p>In the meantime, why not <a href="http://eepurl.com/ifVL">join our newsletter</a>, <a href="http://feeds.feedburner.com/pawsne">subscribe to our blog</a>, or <a href="http://www.facebook.com/PAWSNewEngland">like us on Facebook</a>?</p>
 
 </body>
 

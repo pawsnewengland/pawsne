@@ -1,19 +1,29 @@
 /*
 
-
-	PAWS NEW ENGLAND FOR WORDPRESS
+	PAWS NEW ENGLAND MODERN THEME
 		 
-	Theme Name: PAWS New England
+	Theme Name: PAWS New England Modern
 	Author: Chris Ferdinandi
-	Author URI: http://chrisferdinandi.com
+	Author URI: http://gomakethings.com
 		 
-	-- Special thanks to Chris Coyier of http://css-tricks.com for providing the template upon which this theme is based.
-		 
-	Dark Gray: #272727
-	Post Gray: #808080
-	Light Gray: #A9A9A9
+
+	FONT COLORS
+
+	Black: #272727
 	Green: #6AA120
-	Orange: #F28907
+	Hover Green: #507A18
+	Orange: #E0812A
+	Tan: #ECE9E1
+	Meta Gray: #808080
+	Border Gray: #A9A9A9
+	Header Hover: #E1ECD2
+
+
+	FONT STACKS
+
+	"MuseoSlab500", Georgia, Times, serif;
+	"MuseoSans500", Helvetica, Arial, sans-serif;
+
 		 
 */
 
@@ -24,184 +34,191 @@
 * { margin: 0; padding: 0; } 
 html { overflow-y: scroll; } 
 html, body { height: 100%; } 
-body { font-size: 10px; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; color: #272727; background: url(images/body-bg.png) top center repeat-x white; }
+body { font-size: 10px; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; color: #272727; background: white; }
 ul { list-style: square outside; } 
 ol { list-style: decimal outside; } 
 a { outline: none; text-decoration: none; } 
 a img { border: none; background: none; } 
+a:hover img { border: none; background: none; opacity:0.8; filter:alpha(opacity=80); } 
 img { vertical-align: middle; } 
-table { border-collapse: collapse; } 
+table { border-collapse: collapse; }
 
 
 
 /*	UTILITY */
 
-.floatLeft { float: left; } 
-.floatRight { float: right; } 
+.floatleft { float: left; } 
+.floatright { float: right; }
+.floatcenter { display: block; text-align: center; margin: 0 auto; }
 .clear { clear: both; } 
-.button { border: 1px solid #272727; background: white; padding: 3px 8px; -moz-border-radius: 5px; -webkit-border-radius: 5px; color: #272727; } 
-.button:hover { background: #6AA120; color: white; } 
-img.alignleft, div.alignleft { float:left; margin: 0 15px 15px 0; }
-img.alignright, div.alignright { float:right; margin: 0 0 15px 15px; }
-img.aligncenter, div.aligncenter { display: block; text-align:center; margin:0 auto; }
-img.alignnone, div.alignnone { margin: 0 15px 15px 0; }
-.wp-caption-text { font-size: 1.3em; font-style: italic; color: #808080; padding: 6px 0 0 6px; }
+.button { border: 1px solid #6AA120; background: #6AA120; padding: 3px 8px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -webkit-appearance: none; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; color: white; } 
+.button:hover { border: 1px solid #507A18; background: #507A18; }
+.alignleft { float:left; margin: 0 15px 20px 0; }
+.alignright { float:right; margin: 0 0 20px 15px; }
+.aligncenter { display: block; text-align:center; margin:0 auto 15px auto; }
+.alignnone { margin: 0 15px 15px 0; }
+.wp-caption-text { font-size: 1.3em; font-style: italic; color: #808080; padding: 6px 0 0 6px; text-align: center; }
 
 
 
-/*	TYPGROGRAPHY */
+/*	TYPOGRAPHY */
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2011 Fontspring
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      exljbris
+ * License URL: http://www.fontspring.com/fflicense/exljbris
+ */
+
+@font-face { font-family: 'MuseoSlab500'; src: url('fonts/Museo_Slab_500-webfont.eot'); src: local('‚ò∫'), url('fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/Museo_Slab_500-webfont.woff') format('woff'), url('fonts/Museo_Slab_500-webfont.ttf') format('truetype'), url('fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'MuseoSans500'; src: url('fonts/MuseoSans_500-webfont.eot'); src: local('‚ò∫'), url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/MuseoSans_500-webfont.woff') format('woff'), url('fonts/MuseoSans_500-webfont.ttf') format('truetype'), url('fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'GoodDogRegular'; src: local('‚ò∫'), url('fonts/GoodDog-webfont.eot'); src: url('fonts/GoodDog-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/GoodDog-webfont.woff') format('woff'), url('fonts/GoodDog-webfont.ttf') format('truetype'), url('fonts/GoodDog-webfont.svg#GoodDogRegular') format('svg'); font-weight: normal; font-style: normal; }
 
 p { font-size: 1.5em; line-height: 1.5em; margin: 0 0 20px 0; }
-p#intro-paragraph { font-size: 2.0em; line-height: 2.0em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; }
 li { font-size: 1.5em; line-height: 1.5em; margin: 0 0 10px 0; }
-h1 { font-size: 3.0em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-weight: bold; margin: 0 0 10px 0; } 
-h1 a { text-decoration: none; color: #F28907; }
+h1 { font-size: 2.6em; font-family: "MuseoSlab500", Georgia, Times, serif; font-weight: normal; margin: 0 0 10px 0; } 
+h1 a { text-decoration: none; color: #E0812A; }
 h1 a:hover { color: #272727;}
-h2 { font-size: 2.6em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-weight: bold; margin: 0 0 20px 0; padding: 10px 0 0 0; }
-h2 a { text-decoration: none; color: #F28907; }
-h2 a:hover { text-decoration: none; color: #272727;} 
-h3 { font-size: 2.2em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-weight: bold; margin: 0 0 20px 0; padding: 10px 0 0 0; } 
-h4 { color: white; font-size: 2.0em; margin-bottom: 15px; }   
-.underline { border-bottom: 1px dotted #A9A9A9; }
+h2 { font-size: 2.0em; font-family: "MuseoSlab500", Georgia, Times, serif; font-weight: normal; margin: 0 0 20px 0; padding: 10px 0 0 0; }
+h2 a { text-decoration: none; color: #E0812A; }
+h2 a:hover { text-decoration: none; color: #272727;}
+h3 { font-size: 1.6em; font-family: "MuseoSlab500", Georgia, Times, serif; font-weight: normal; margin: 0 0 20px 0; padding: 10px 0 0 0; }
 
 
 
 /*	FORMS */
 
 input { padding: 3px; }
+.petfinder { width: 550px; height: 2700px; margin: 0 auto; } /* Petfinder widget */
+.cform { width: 450px; margin: 0 auto; } /* Cform plugin formatting */
+.testform { width: 640px; height: 1500px; }
+.spacing { margin-bottom: 40px; }
+
 
 
 
 /*	STRUCTURE */
 
-#page-wrap { width: 960px; margin: 0px auto -285px; min-height: 100%; height: auto !important; height: 100%;}
+#page-wrap { width: 960px; margin: 20px auto; min-height: 100%; height: auto !important; height: 100%;}
 #main-col { width: 640px; float: left; }
-#main-col ul, ol { margin: -10px 0 10px 0; padding: 0px 0px 5px 50px; }	
-#main-col-landing-page { width: 960px; float: left; }
-#main-col-landing-page ul, ol { margin: -10px 0 10px 0; padding: 0px 0px 5px 50px; }		
-#sidebar { width: 275px; float: right; }
-#push { height: 285px; }
-
-#landing-page-content-1 { width: 960px; margin: 50px 0 0 0; }
-#landing-page-1 { width: 300px; float: left; margin-right: 30px; }
-#landing-page-2 { width: 300px; float: left; margin-right: 30px; }
-#landing-page-3 { width: 300px; float: left; }
-
-#landing-page-content-2 { width: 960px; margin: 20px 0 0 0; }
-#landing-page-4 { width: 350px; float: left; margin-left: 350px; }
+#main-col-nosidebar { width: 960px; float: left; }
+#sidebar { width: 260px; float: right; }
 
 
 
 /*	HEADER */
 
-#header { width: 960px; height: 110px; margin: 0px auto 0 auto; background: none; position: relative; } 
-#header a { color: white; text-decoration: none; }
-#logo { width: 200px; float: left; margin: 0 0 0 0; }
-#logo h1 { font-size: 2.0em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; }
-#logo h1 a { color: white; text-decoration: none; }
+#logo { font-size: 3.0em; font-family: "GoodDogRegular", "MuseoSlab500", Georgia, Times, serif; font-weight: normal; margin: -5px 0 6px 0; }
+#logo a { color: white; text-decoration: none; }
+#logo a:hover { color: #E1ECD2; text-decoration: none; }
+#top-bar-bg { background: #6AA120; padding: 15px 0 5px 0; }
+#top-bar { width: 960px; margin: 0 auto; padding: 0; position: relative; }
+#top-bar-1 { width: 340px; float: left; }
+#top-bar-2 { width: 620px; float: left; }
 
 
 
 /*	MENU */
 
-#menu-bar { width: 760px; padding-top: 4px; padding-bottom: 4px; margin: 0 0 0 0; }
-ul#nav { position: absolute; top: 30px; right: 0; margin: 0 0 0 0; } 
-ul#nav li { float: right; display: inline; }
-ul#nav li a { font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; text-transform: none; color: #FFFFFF; font-size: 1.1em; padding: 5px 0 5px 30px; }
-ul#nav li a:hover { text-decoration: underline; }
+#main-nav { width: 600px; float: left; text-align: right; margin: 0 0 0 0; } 
+#main-nav li { display: inline; }
+#main-nav li a { font-family: "MuseoSans500", Helvetica, Arial, sans-serif; text-transform: lowercase; color: white; font-size: 1.1em; padding: 5px 15px 5px 15px; }
 
-ul#nav li a:hover,
-body#default ul#nav li.home a,
-body#about ul#nav li.about a,
-body#adopt ul#nav li.adopt a,
-body#donate ul#nav li.donate a,
-body#help ul#nav li.help a,
-body#news ul#nav li.news a,
-body#resources ul#nav li.resources a,
-body#contact ul#nav li.contact a { text-decoration: underline; }
+#main-nav li a:hover,
+#default #main-nav .home a,
+#about #main-nav .about a,
+#resources #main-nav .resources a,
+#blog #main-nav .blog a,
+#contact #main-nav .contact a { color: white; text-decoration: underline; }
+
+#drop-nav { display: none; }
 
 
 
-/* 	SIDEBAR */ 
+/*	CONTENT BOXES */
 
-.widget { width: 275px; margin: 0 0 20px 0; }
-.widget .inside { padding: 10px; }
-.widget a { color: #F28907; text-decoration: none; } 
-.widget a:hover { color: #F28907; text-decoration: underline; }
-.widget h1 { font-size: 2.0em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-weight: bold; margin: 0 0 10px 0; }
+.landing-full { padding: 20px 0; }
+.landing-third { width: 300px; margin: 10px; float: left;  }
+.landing-half { width: 460px; margin: 10px; float: left; }
 
-#adopt-button-sb { font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.1em; }
-ul#adopt-button-sb { clear: both; list-style: none; margin: 0 0 55px 0; }
-ul#adopt-button-sb li { float: left; margin: 0 20px 10px 0; }
-ul#adopt-button-sb li a { display: block; width: 200px; padding: 10px 10px 10px 10px; color: white; background: #F28907; text-decoration: none; font-weight: bold; border-right: 1px solid #A9A9A9; border-bottom: 1px solid #A9A9A9; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+.nospace { margin: 0; }
+.textcenter { text-align: center; }
 
-#connect { font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.1em; }
-ul#connect { clear: both; list-style: none; }
-ul#connect li { margin: 0 0 0 0; width: 200px; }
-ul#connect li a { display: block; padding: 5px 5px 10px 5px; color: #272727; background: none; text-decoration: none; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
-ul#connect li a:hover { color: #F28907; }
+.third-box { width: 193px; text-align: center; margin: 0 10px 10px 10px; float: left; }
+
+.big-button { border: 1px solid #6AA120; background: #6AA120; padding: 8px 12px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; font-size: 1.5em; text-align: center; color: white; margin: 0 0 10px 0; } 
+.big-button:hover { border: 1px solid #507A18; background: #507A18; color: white; }
+
+.post .action-button { border: 1px solid #6AA120; background: #6AA120; padding: 8px 12px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; color: white; margin: 20px 0 30px 0; }
+.post .action-button:hover { border: 1px solid #507A18; background: #507A18; text-decoration: none; color: white; }
+
+.callout { background: #ECE9E1; margin: 20px 0; padding: 20px; border: 1px solid #E0812A; }
 
 
 
 /*	BLOG ENTRIES */
 
-.postmetadata { text-transform: uppercase; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.2em; line-height: 1.2em; color: #808080; padding: 0 0 20px 0; margin: 5px 0 0 0; }
+.postmetadata { font-family: "MuseoSans500", Helvetica, Arial, sans-serif; color: #808080; font-size: 1.2em; line-height: 1.2em; padding: 0 0 20px 0; margin: 0 0 0 0; }
 .postmetadata a { text-decoration: none; color: #808080; }
-.postmetadata a:hover { text-decoration: underline; color: #F28907;}
+.postmetadata a:hover { text-decoration: underline; color: #E0812A; }
 
-.post { margin: 0 0 15px 0; }
-#post-index { border-bottom: 1px dotted #A9A9A9; }
-.post a { color: #F28907; text-decoration: none; } 
-.post a:hover { color: #F28907; text-decoration: underline; }
+.post { margin: 0 0 0 0; }
+.post a { color: #E0812A; text-decoration: none; } 
+.post a:hover { color: #272727; text-decoration: underline; }
+.post ul, ol { margin: -10px 0 10px 0; padding: 0 0 5px 50px; }
 
-ol.commentlist { list-style: none; margin: 20px 0 0 -50px; }
-.comment-bubble { background: #6AA120; color: white; padding: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
-ol.commentlist li { margin: 0 0 30px 0; }
-ol.commentlist li p { font-size: 1.0em; }
-ol.commentlist li a { color: #FFF; text-decoration: underline; }
-ol.commentlist li a:hover { color: #FFF; text-decoration: none; }
-
-#comment-text p { font-size: 1.0em; }
-#comment-text a { color: #FFF; text-decoration: none; } 
-#comment-text a:hover { color: #FFF; text-decoration: underline; }
-
-#comment-text-post p { font-size: 1.0em; }
-#comment-text-post a { color: #F28907; text-decoration: none; } 
-#comment-text-post a:hover { color: #F28907; text-decoration: underline; }
-
-table.donate-table { border-width: 0px; margin: 0 0 10px 0; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.5em; line-height: 1.5em; }
-table.donate-table tr { border-bottom: 1px dotted #A9A9A9; }
-table.donate-table td { padding: 10px 5px 10px 0; }
-
-table.donate-table-other { border-width: 0px; margin: 0 0 35px 0; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.5em; line-height: 1.5em; }
-table.donate-table-other td { vertical-align: top; padding: 10px 5px 10px 0; }
-
-
-/*	BUTTONS & CALLOUTS */
-
-.callout { float: left; margin: 0 0 25px 15px; width: 550px; padding: 15px 20px 3px 20px; border: 1px solid #A9A9A9; }
-
-#adopt-button { font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.1em; }
-ul#adopt-button { clear: both; list-style: none; margin: 0 0 55px -50px; }
-ul#adopt-button li { float: left; margin: 0 20px 0 0; }
-ul#adopt-button li a { display: block; width: 200px; padding: 10px 10px 10px 10px; color: white; background: #F28907; text-decoration: none; font-weight: bold; border-right: 1px solid #A9A9A9; border-bottom: 1px solid #A9A9A9; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+.dotted { width: 100%; margin: 0 0 20px 0; border-bottom: 1px solid #A9A9A9; clear: both; }
 
 
 
 /* 	BLOCKQUOTE */ 
 
-blockquote { margin: 10px 20px 10px 40px; padding: 0 0 0 15px; font-style: italic; border-left: 3px solid #6AA120; }
+blockquote { background: #ECE9E1; margin: 0 0 20px 0; padding: 20px 20px 1px 20px; font-style: italic; border-left: 8px solid #E0812A; }
 .clearboth { clear: both; }
+
+
+
+/*	COMMENTS */
+
+ol.commentlist { list-style: none; margin: 30px 0 0 -50px; }
+.comment-bubble { border-bottom: 1px solid #A9A9A9; }
+ol.commentlist li { margin: 0 0 30px 0; }
+
+#comment-info { position: relative; }
+.comment-name { font-family: "MuseoSlab500", Georgia, Times, serif; font-size: 1.2em; line-height: 1.2em; margin: 0; }
+.comment-name a { color: #E0812A; text-decoration: none; }
+.comment-name a:hover { color: #272727; text-decoration: underline; }
+.comment-meta { font-size: 1.0em; line-height: 1.0em; color: #808080; padding: 0 0 0 0; }
+
+.comment-text p { font-size: 1.0em; color: #272727; }
+.comment-text a { color: #E0812A; text-decoration: none; }
+.comment-text a:hover { color: #272727; text-decoration: underline; }
+
+#comment { width: 100%; height: 200px; }
 
 
 
 /* 	PAGE NAVIGATION */ 
 
-.page-nav { clear: both; /* To clear any floats */ margin: 15px 0px; padding: 2px 0px; height: 22px; }
-.nav-previous { float: left; text-align: left; margin: 2px 0px; }
-.nav-next { float: right; text-align: right; margin: 2px 0px; }
-.page-nav a { color: #F28907; text-decoration: none; }
-.page-nav a:hover { color: #F28907; text-decoration: underline; }
+.page-nav { clear: both; /* To clear any floats */ margin: 15px 0; padding: 2px 0; }
+.nav-previous { float: left; text-align: left; margin: 2px 0; }
+.nav-next { float: right; text-align: right; margin: 2px 0; }
+.page-nav a { color: #E0812A; text-decoration: none; }
+.page-nav a:hover { color: #272727; text-decoration: underline; }
 .nav-previous a { padding-left: 10px; }
 .nav-next a { padding-right: 10px; }
 
@@ -209,27 +226,47 @@ blockquote { margin: 10px 20px 10px 40px; padding: 0 0 0 15px; font-style: itali
 
 /* 	SOCIAL BOOKMARKS */ 
 
-#social { width: 600px; height: 45px; padding: 25px 0 15px 0; }
-#social ul{ list-style: none; margin: 0 0 0 -50px; }
-#social li{ display: inline; padding-right: 10px; }
+.social { width: 640px; padding: 10px 0 20px 0; }
+.social-left { width: 400px; float: left; }
+.social-right { width: 240px; float: right; font-size: 1.5em; line-height: 1.5em; margin: 0 0 20px 0; text-align: right; }
+.social-right a { color: #808080; text-decoration: none; }
+.social-right a:hover { color: #E0812A; text-decoration: underline; }
+.social ul{ list-style: none; margin: 0; }
+.social li{ display: inline; padding-right: 10px; }
+
+
+
+/* 	SIDEBAR */ 
+
+.widget { width: 260px; margin: 0 0 20px 0; padding: 0 0 20px 0; border-bottom: 1px solid #A9A9A9; }
+.widget a { color: #E0812A; text-decoration: none; } 
+.widget a:hover { color: #272727; text-decoration: underline; }
+.widget h1 { font-size: 1.6em; font-family: "MuseoSlab500", Georgia, Times, serif; font-weight: normal; margin: 0 0 10px 0; }
+.widget p { font-size: 1.4em; line-height: 1.4em; margin: 0 0 3px 0; }
+p.sidenav { font-size: 1.5em; }
+
+#searchform { position: relative; float: left; }
 
 
 
 /*	FOOTER */
 
-#footer { height: 285px; background: #6AA120; padding-top: 20px; }
-#footer-inside { width: 960px; margin: 0 auto; }
-#footer p { color: white; }
-#footer-1 { width: 350px; float: left; margin-right: 50px; }
-#footer-2 { width: 250px; float: left; margin-right: 50px; }
-#footer-3 { width: 200px; float: left; }
-#footer-4 { width: 960px; float: left; margin-top: 50px; }
-#footer a { color: white; text-decoration: underline; } 
-#footer a:hover	{ text-decoration: none; }
-#footer ul { color: white; }
-#footer h1 { font-size: 2.0em; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; color: white; font-weight: bold; margin: 0 0 10px 0; }
+#footer { background: #6AA120; padding: 20px 0; margin-top: 20px; }
+#footer-inside { width: 640px; margin: 0 auto; color: white; text-align: center; }
+#footer p { font-size: 1.4em; line-height: 1.4em; margin: 0 0 20px 0; }
+#footer a { color: white; text-decoration: none; } 
+#footer a:hover	{ color: white; text-decoration: underline; }
 
-#connect-footer { font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif; font-size: 1.1em; }
-ul#connect-footer { clear: both; list-style: none; }
-ul#connect-footer li { margin: 0 0 0 0; width: 200px; }
-ul#connect-footer li a { display: block; padding: 5px 5px 10px 5px; color: white; background: none; text-decoration: none; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+
+
+/*	TEMPORARY CONTENT */
+
+table.donate-table { border-width: 0; margin: 0 0 10px 0; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; font-size: 1.4em; line-height: 1.4em; }
+table.donate-table tr { border-bottom: 1px solid #A9A9A9; }
+table.donate-table td { padding: 10px 5px 10px 0; }
+
+table.donate-table-other { border-width: 0; margin: 0 0 35px 0; font-family: "MuseoSans500", Helvetica, Arial, sans-serif; font-size: 1.4em; line-height: 1.4em; }
+table.donate-table-other td { vertical-align: top; padding: 10px 5px 10px 0; }
+
+table.gallery { border-width: 0; margin: 0; }
+table.gallery td { vertical-align: top; padding: 10px; }

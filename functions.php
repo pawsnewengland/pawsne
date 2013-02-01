@@ -357,8 +357,8 @@ function kubrick_theme_page_head() {
 // Ondemand function to generate dynamic bit.ly urls
 function getBitlyUrl($url) {
     // fill up this 2 lines below with your login and api key
-    $bitlylogin = 'cferdinandi';
-    $bitlyapikey= 'R_a001afa9b755215f25ca83d923957720 ';
+    $bitlylogin = 'pawsne';
+    $bitlyapikey= 'R_bde6d180e3a6d217ea52fe80444ba3a7';
 
     // you dont need to change below this line
     $bitlyurl = file_get_contents("http://api.bit.ly/shorten?version=2.0.1&longUrl=".$url."&login=".$bitlylogin."&apiKey=".$bitlyapikey);  
