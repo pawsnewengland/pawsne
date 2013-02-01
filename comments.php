@@ -34,17 +34,17 @@
 
 		<li <?php echo $oddcomment; ?>id="comment-<?php comment_ID() ?>">
 			
-			<div class="comment-bubble">
-				<?php if ($comment->comment_approved == '0') : ?>
-					<p>Your comment is awaiting moderation.</p>
-				<?php endif; ?>
-	
-				<div id="comment-text"><?php echo get_avatar( $comment, $size = '40' ); ?> <b><?php comment_author_link() ?> says...</b></div>
+		<div class="comment-bubble">
+                <?php if ($comment->comment_approved == '0') : ?>
+                    <p>Your comment is awaiting moderation.</p>
+                <?php endif; ?>
+    
+                <div id="comment-text"><b><?php comment_author_link() ?> says...</b></div>
 <br>
-				<?php comment_text() ?>
+                <?php comment_text() ?>
 
-				<div id="comment-text"><i><?php comment_date('F jS, Y') ?> at <?php comment_time() ?></i></div>
-			</div>
+                <div id="comment-text"><i><?php comment_date('F jS, Y') ?> at <?php comment_time() ?></i></div>
+		</div>
 			
 		</li>
 
@@ -100,7 +100,7 @@
 
 <?php if ( $user_ID ) : ?>
 
-<p id="comment-post">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
+<p id="comment-text-post">Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></p>
 
 <?php else : ?>
 
@@ -118,8 +118,6 @@
 <!--<p><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
 
 <p><textarea name="comment" id="comment" cols="72" rows="10" tabindex="4"></textarea></p>
-
-<p id="comment-post"><strong>Looking for a place to add a personal image?</strong> Visit <a href="http://www.gravatar.com">gravatar.com</a> to get your own gravatar, a globally recognized avatar. After you're all setup, your personal image will be attached every time you comment.</p>
 
 <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
 <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />

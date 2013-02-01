@@ -4,8 +4,11 @@
 	
 	<div id="main-col">
 
-		<h2>Oh snap!</h2>
-		<p>The page your looking for doesn't exist. You may want to check the URL, or try searching for what you're looking for.</p>
+		<h1>Uh oh!</h1>
+
+		<p class="post">The page your looking for doesn't exist. You can either <a href="<?php echo get_option('home'); ?>/">go back to the homepage</a> and try again, or use the search box below.</p>
+
+		<center><?php include (TEMPLATEPATH . '/searchform.php'); ?></center>
 	
 	</div>
 

@@ -1,10 +1,15 @@
-<?php get_header(); ?>
+<?php /*
+Template Name: RHR Product
+*/
+get_header(); ?>
 
-	<div id="main-col">
+	<div id="main-col-product">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></h1></a></h1>
+                        <h1>
+				<a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			</h1>
 <br>
 
 		<div class="post" id="post-<?php the_ID(); ?>">
@@ -16,7 +21,5 @@
 		<?php endwhile; endif; ?>
 
 	</div>
-
-	<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
