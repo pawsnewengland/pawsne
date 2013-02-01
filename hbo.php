@@ -25,7 +25,7 @@ get_header(); ?>
 				<div class="callout textleft">
 					<h2 class="textcenter">A Note from PAWS Founder Kelly Parker</h2>
 
-					<img class="alignleft" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/kelly.png">
+					<i class="spritehbo-kelly alignleft"></i>
 
 					<p>When accomplished film director Ellen Goosenberg Kent first contacted PAWS New England in late 2010 and said, "I want to do a documentary about euthanasia of shelter animals in America and I am looking for a rescue group to feature," I nearly fell off my chair.</p>
 
@@ -69,7 +69,7 @@ get_header(); ?>
 
 <div class="dotted"></div>
 
-<div class="row">
+<!--<div class="row">
 	<br>
 	<h1 class="textcenter">Screening Parties</h1>
 
@@ -91,7 +91,7 @@ get_header(); ?>
 
 </div>
 
-<div class="dotted"></div>
+<div class="dotted"></div>-->
 
 <div class="row textcenter">
 	<br>
@@ -99,7 +99,7 @@ get_header(); ?>
 
 	<div class="span4">
 		<a data-toggle="modal" href="#julie">
-			<img class="drop-shadow" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/julie.png">
+			<i class="spritehbo-julie aligncenter drop-shadow"></i>
 			<h3 class="nospace">Julie Adams</h3>
 		</a>
 		<p>Julie has spent the last thirty years saving the lives of thousands of animals who make their way to her home.</p>
@@ -107,7 +107,7 @@ get_header(); ?>
 
 	<div class="span4">
 		<a data-toggle="modal" href="#john">
-			<img class="drop-shadow" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/john.png">
+			<i class="spritehbo-john aligncenter drop-shadow"></i>
 			<h3 class="nospace">John Gagnon</h3>
 		</a>
 		<p>John's Pet Resort is a sanctuary for rescue dogs that may require special levels of training and rehabilitation.</p>
@@ -115,7 +115,7 @@ get_header(); ?>
 
 	<div class="span4">
 		<a data-toggle="modal" href="#cherokee">
-			<img class="drop-shadow" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/cherokee.png">
+			<i class="spritehbo-cherokee aligncenter drop-shadow"></i>
 			<h3 class="nospace">Cherokee</h3>
 		</a>
 		<p>Cherokee is a highly adoptable but overlooked dog who finds the perfect forever home.</p>
@@ -126,7 +126,7 @@ get_header(); ?>
 <div class="row textcenter">
 	<div class="span4">
 		<a data-toggle="modal" href="#hope">
-			<img class="drop-shadow" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/hope.png">
+			<i class="spritehbo-hope aligncenter drop-shadow"></i>
 			<h3 class="nospace">Hope</h3>
 		</a>
 		<p>Hope's journey from discarded pitpull to dedicate family pet is powerful and heartwarming.</p>
@@ -134,7 +134,7 @@ get_header(); ?>
 
 	<div class="span4">
 		<a data-toggle="modal" href="#crystal">
-			<img class="drop-shadow" src="<?php bloginfo('stylesheet_directory'); ?>/images/hbo/crystal.png">
+			<i class="spritehbo-crystal aligncenter drop-shadow"></i>
 			<h3 class="nospace">Crystal</h3>
 		</a>
 		<p>Crystal's transformation from scared shelter dog to supportive foster sister is emotional and uplifting.</p>

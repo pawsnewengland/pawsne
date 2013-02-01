@@ -45,7 +45,9 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 
-			<a class="logo" href="<?php echo get_option('home'); ?>/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/ThePAW.png" style="height: 18px; width: 18px;"> <?php bloginfo('name'); ?></a>
+			<a class="logo" href="<?php echo get_option('home'); ?>/"><i class="sprite-pawprint"></i> <?php bloginfo('name'); ?></a>
+
+			<a class="screen-reader" href="#skipnav">Skip over navigation</a>
 
 			<ul class="nav hide-mobile">
 				<li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
@@ -53,6 +55,7 @@
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#about-nav">About <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
+						<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
 						<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
 					</ul>
 				</li>
@@ -74,7 +77,6 @@
 					</ul>
 				</li>
 				<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
-				<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special <span class="label">NEW!</span></a></li>
 			</ul>
 
 
@@ -86,6 +88,7 @@
 						<li class="divider"></li>
 						<li><h3 class="nospace">About</h3></li>
 						<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
+						<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
 						<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
 						<li class="divider"></li>
 						<li><h3 class="nospace">Adopt</h3></li>
@@ -100,7 +103,6 @@
 						<li><a href="<?php echo get_option('home'); ?>/paws-partners/">PAWS Partners</a></li>
 						<li class="divider"></li>
 						<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special <span class="label">NEW!</span></a></li>
 					</ul>
 				</li>
 			</ul>
@@ -108,4 +110,4 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container" id="skipnav">

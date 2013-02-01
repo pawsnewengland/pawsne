@@ -635,3 +635,141 @@ function centeredPopup(url,winName,w,h,scroll){
 	popupWindow = window.open(url,winName,settings)
 
 }
+
+
+
+/* =============================================================
+ * ios-orientation-change-fix.js v1.0.0
+ * Script by @scottjehl, rebound by @wilto
+ * https://github.com/scottjehl/iOS-Orientationchange-Fix
+ * MIT / GPLv2 License
+ * ============================================================= */
+
+(function(w){
+	
+	// This fix addresses an iOS bug, so return early if the UA claims it's something else.
+	var ua = navigator.userAgent;
+	if( !( /iPhone|iPad|iPod/.test( navigator.platform ) && /OS [1-5]_[0-9_]* like Mac OS X/i.test(ua) && ua.indexOf( "AppleWebKit" ) > -1 ) ){
+		return;
+	}
+
+    var doc = w.document;
+
+    if( !doc.querySelector ){ return; }
+
+    var meta = doc.querySelector( "meta[name=viewport]" ),
+        initialContent = meta && meta.getAttribute( "content" ),
+        disabledZoom = initialContent + ",maximum-scale=1",
+        enabledZoom = initialContent + ",maximum-scale=10",
+        enabled = true,
+		x, y, z, aig;
+
+    if( !meta ){ return; }
+
+    function restoreZoom(){
+        meta.setAttribute( "content", enabledZoom );
+        enabled = true;
+    }
+
+    function disableZoom(){
+        meta.setAttribute( "content", disabledZoom );
+        enabled = false;
+    }
+	
+    function checkTilt( e ){
+		aig = e.accelerationIncludingGravity;
+		x = Math.abs( aig.x );
+		y = Math.abs( aig.y );
+		z = Math.abs( aig.z );
+				
+		// If portrait orientation and in one of the danger zones
+        if( (!w.orientation || w.orientation === 180) && ( x > 7 || ( ( z > 6 && y < 8 || z < 8 && y > 6 ) && x > 5 ) ) ){
+			if( enabled ){
+				disableZoom();
+			}        	
+        }
+		else if( !enabled ){
+			restoreZoom();
+        }
+    }
+	
+	w.addEventListener( "orientationchange", restoreZoom, false );
+	w.addEventListener( "devicemotion", checkTilt, false );
+
+})( this );
+
+
+
+/* =============================================================
+ * fitvids.js v1.0.0
+ * Copyright 2011, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
+ * Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
+ * Released under the WTFPL license - http://sam.zoy.org/wtfpl/
+ * ============================================================= */
+
+(function( $ ){
+
+  $.fn.fitVids = function( options ) {
+    var settings = {
+      customSelector: null
+    }
+    
+    var div = document.createElement('div'),
+        ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+        
+  	div.className = 'fit-vids-style';
+    div.innerHTML = '&shy;<style>         \
+      .fluid-width-video-wrapper {        \
+         width: 100%;                     \
+         position: relative;              \
+         padding: 0;                      \
+      }                                   \
+                                          \
+      .fluid-width-video-wrapper iframe,  \
+      .fluid-width-video-wrapper object,  \
+      .fluid-width-video-wrapper embed {  \
+         position: absolute;              \
+         top: 0;                          \
+         left: 0;                         \
+         width: 100%;                     \
+         height: 100%;                    \
+      }                                   \
+    </style>';
+                      
+    ref.parentNode.insertBefore(div,ref);
+    
+    if ( options ) { 
+      $.extend( settings, options );
+    }
+    
+    return this.each(function(){
+      var selectors = [
+        "iframe[src*='player.vimeo.com']", 
+        "iframe[src*='www.youtube.com']",  
+        "iframe[src*='www.kickstarter.com']", 
+        "object", 
+        "embed"
+      ];
+      
+      if (settings.customSelector) {
+        selectors.push(settings.customSelector);
+      }
+      
+      var $allVideos = $(this).find(selectors.join(','));
+
+      $allVideos.each(function(){
+        var $this = $(this);
+        if (this.tagName.toLowerCase() == 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; } 
+        var height = this.tagName.toLowerCase() == 'object' ? $this.attr('height') : $this.height(),
+            aspectRatio = height / $this.width();
+		if(!$this.attr('id')){
+			var videoID = 'fitvid' + Math.floor(Math.random()*999999);
+			$this.attr('id', videoID);
+		}
+        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%");
+        $this.removeAttr('height').removeAttr('width');
+      });
+    });
+  
+  }
+})( jQuery );

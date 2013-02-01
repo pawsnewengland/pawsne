@@ -30,7 +30,8 @@
 
 
 	<!-- Javascript -->
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/paws.js"></script>
+	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/paws-min.js"></script>
+	<script>$(".container").fitVids();</script>
 
 </body>
 

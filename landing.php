@@ -4,12 +4,6 @@ Template Name: Landing
 get_header(); ?>
 
 	<div class="row">
-		<div class="callout textcenter">
-			<p class="grande">We've been featured in <em>One Nation Under Dog</em>, a moving HBO documentary that explores the complicated and unwavering story behind our relationship with dogs.</p>
-
-			<a class="btn btn-large" href="<?php echo get_option('home'); ?>/hbo/">Learn more</a>
-		</div>
-
 		<br>
 
 		<h1 class="textcenter">We've saved the lives of over 3,500 dogs.</h1>
@@ -50,7 +44,7 @@ get_header(); ?>
 		</div>
 
 		<div class="span6 textcenter">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/main.png" title="A PAWS Rescue Dog" />
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" title="A PAWS Rescue Dog">
 		</div>
 
 	</div>
@@ -64,19 +58,19 @@ get_header(); ?>
 		<h1>How We Work</h1>
 
 		<div class="span4">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/Rescue.png"  title="A shelter dog" />
+			<i class="sprite-rescue"></i>
 			<h2 class="nospace">1. Rescue</h2>
 			<p>We rescue abandoned, neglected, and abused dogs from high-kill shelters.</p>
 		</div>
 
 		<div class="span4">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/Rehab.png" title="Dogs giving each other TLC" />
+			<i class="sprite-rehab"></i>
 			<h2 class="nospace">2. Rehabilitate</h2>
 			<p>Next, we provide veterinary care and much needed TLC.</p>
 		</div>
 
 		<div class="span4">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/Rehome.png" title="A dog in his new home" />
+			<i class="sprite-rehome"></i>
 			<h2 class="nospace">3. Rehome</h2>
 			<p>When they're ready, we place our dogs in safe and loving homes.</p>
 		</div>
