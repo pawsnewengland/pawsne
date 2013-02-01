@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5" />
 
 	<!-- Icons -->
-	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.ico" />
+	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico" />
 
 	<!-- Feeds & Pings -->
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne" />
@@ -33,11 +33,10 @@
 <body id="<?php echo $page ?>">
 
 	<!-- Old Browser Warning -->
-	<!--[if lte IE 6]>
+	<!--[if lte IE 7]>
 	<div class="old-browser">
 		<div class="old-browser-inner">
-			<p>Did you know that your web browser (<em>the program you're using to access the internet</em>) is a bit old? Upgrading to a new browser will provide you with a faster, better, and safer web experience.</p>
-			<p>Take a look at <a href="https://www.google.com/chrome" target="_new">Google Chrome</a>, <a href="http://www.mozilla.org/firefox/" target="_new">Firefox</a>, or <a href="http://www.apple.com/safari/" target="_new">Safari</a>.</p>
+			<p>Did you know that your web browser (<em>the program you're using to access the internet</em>) is a bit old? Some of the content on this site might look a bit funny as a result. <a href="http://browsehappy.com/">Upgrade your browser</a> for a faster, better, and safer web experience.</p>
 		</div>
 	</div>
 	<![endif]-->
@@ -45,67 +44,50 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 
-			<a class="logo" href="<?php echo get_option('home'); ?>/"><i class="sprite-pawprint"></i> <?php bloginfo('name'); ?></a>
+			<a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon paw-print"></i> <?php bloginfo('name'); ?></a>
 
 			<a class="screen-reader" href="#skipnav">Skip over navigation</a>
 
-			<ul class="nav hide-mobile">
-				<li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
-				<li class="dropdown" id="about-nav">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#about-nav">About <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
-					</ul>
-				</li>
-				<li class="dropdown" id="adopt-nav">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#adopt-nav">Adopt <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
-					</ul>
-				</li>
-				<li class="dropdown" id="help-nav">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#help-nav">How to Help <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/paws-partners/">PAWS Partners</a></li>
-					</ul>
-				</li>
-				<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
-			</ul>
-
-
 			<ul class="nav hide-desktop">
-				<li class="dropdown" id="mobile-nav">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#mobile-nav">Go to... <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
-						<li class="divider"></li>
-						<li><h3 class="nospace">About</h3></li>
-						<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
-						<li class="divider"></li>
-						<li><h3 class="nospace">Adopt</h3></li>
-						<li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
-						<li class="divider"></li>
-						<li><h3 class="nospace">How to Help</h3></li>
-						<li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
-						<li><a href="<?php echo get_option('home'); ?>/paws-partners/">PAWS Partners</a></li>
-						<li class="divider"></li>
-						<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
-					</ul>
-				</li>
+				<li><a data-toggle="collapse" href="#" data-target=".nav-mobile">Menu</a></li>
 			</ul>
+
+			<div class="nav-mobile">
+				<ul class="nav">
+					<div class="dotted hide-desktop"></div>
+					<li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
+					<div class="dotted hide-desktop"></div>
+					<li class="dropdown" id="about-nav">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#about-nav">About <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
+						</ul>
+					</li>
+					<div class="dotted hide-desktop"></div>
+					<li class="dropdown hide-desktop" id="adopt-nav">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#adopt-nav">Adopt <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
+						</ul>
+					</li>
+					<div class="dotted hide-desktop"></div>
+					<li class="dropdown" id="help-nav">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#help-nav">How to Help <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
+							<li><a href="<?php echo get_option('home'); ?>/paws-partners/">PAWS Partners</a></li>
+						</ul>
+					</li>
+					<div class="dotted hide-desktop"></div>
+					<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
+				</ul>
+			</div>
 
 		</div>
 	</div>

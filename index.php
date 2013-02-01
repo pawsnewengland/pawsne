@@ -6,7 +6,7 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
-			<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+			<h1 class="instapaper_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 			<p class="meta">On <?php the_time('F j, Y') ?> <?php edit_post_link('[Edit]', '  ', ''); ?></p>
 
 			<div class="instapaper_body">
@@ -25,11 +25,8 @@
 
 		<?php endwhile; ?>
 
-    <!-- Previous/Next page navigation -->
-    <div class="page-nav">
-	    <div class="nav-new"><p><?php previous_posts_link('&larr; Newer') ?></p></div>
-            <div class="nav-old"><p><?php next_posts_link('Older &rarr;') ?></p></div>
-    </div>
+	<!-- Previous/Next page navigation -->
+	<p class="textcenter"><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
 
 	<?php else : ?>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Go Make Things</title>
+	<title>PAWS New England</title>
 
 	<style type="text/css">
 

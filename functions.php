@@ -1,11 +1,16 @@
 <?php
 // Don't touch anything in here or the sky will fall on your head
-// Use Google-hosted jQuery
-if( !is_admin()){
-   wp_deregister_script('jquery');
-   wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"), false, '1.3.2');
-   wp_enqueue_script('jquery');
+
+// Use CDN-hosted jQuery
+function my_scripts_method() {
+	wp_deregister_script('jquery'); 
+	wp_register_script('jquery', 'http://code.jquery.com/jquery.min.js', false, null); 
+	wp_enqueue_script('jquery');
+
 }
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+
+
 // Sidebar Widgets
 if ( function_exists('register_sidebar') )
     register_sidebar(array(
@@ -14,6 +19,8 @@ if ( function_exists('register_sidebar') )
         'before_title' => '<h1>',
         'after_title' => '</h1>',
     ));
+
+
 // HTML Minify
 // http://www.intert3chmedia.net/2011/12/minify-html-javascript-css-without.html
 class WP_HTML_Compression {

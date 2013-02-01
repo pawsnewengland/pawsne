@@ -3,10 +3,53 @@ Template Name: Landing
 */
 get_header(); ?>
 
+<!--
+    <div class="row">
+	<br>
+        <h1 class="ginormous textcenter">Foster a Lonely Pet for the Holidays</h1>
+
+        <div class="span6">
+            <iframe src="http://player.vimeo.com/video/53821644?title=0&amp;byline=0&amp;portrait=0&amp;badge=0" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	</div>
+
+	<div class="span6">
+            <p class="grande">Join PAWS and 13,000 other rescue organizations in helping empty the nation's shelters this holiday season.</p>
+
+	    <p>We're once again participating in PetFinder's “Foster A Lonely Pet for the Holidays” initiative, and this year, we want to prevent any dogs from being euthanized at Tipton Animal Shelter during the month of December. You can help!</p>
+
+            <p class="textcenter"><a class="btn btn-large" href="http://www.pawsnewengland.com/foster-a-lonely-pet-for-the-holidays-2012/">Learn More</a></p>
+        </div>
+    
+    </div>
+
+
+	<div class="dotted"></div>
+-->
+
+    <div class="row">
+	<br>
+        <h1 class="ginormous textcenter">Happy New Year from PAWS New England!</h1>
+
+        <div class="span6">
+            <iframe src="http://player.vimeo.com/video/56563143?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="560" height="315" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	</div>
+
+	<div class="span6">
+            <p class="grande">We saved the lives of nearly 700 dogs in 2012. That's almost two dogs a day, every day for the entire year.</p>
+
+            <p class="grande">Here's to a wonderful 2013. Happy New Year!</p>
+        </div>
+    
+    </div>
+
+
+	<div class="dotted"></div>
+
+
 	<div class="row">
 		<br>
 
-		<h1 class="textcenter">We've saved the lives of over 3,500 dogs.</h1>
+		<h1 class="ginormous textcenter">We save lives, one dog at a time.</h1>
 
 		<div class="span6">
 			<h2>Here's how you can help...</h2>
@@ -44,7 +87,7 @@ get_header(); ?>
 		</div>
 
 		<div class="span6 textcenter">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" title="A PAWS Rescue Dog">
+			<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" title="A PAWS Rescue Dog">
 		</div>
 
 	</div>
