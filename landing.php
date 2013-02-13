@@ -26,6 +26,7 @@ get_header(); ?>
 	<div class="dotted"></div>
 -->
 
+<!--
     <div class="row">
 	<br>
         <h1 class="ginormous textcenter">Happy New Year from PAWS New England!</h1>
@@ -44,6 +45,7 @@ get_header(); ?>
 
 
 	<div class="dotted"></div>
+-->
 
 
 	<div class="row">
