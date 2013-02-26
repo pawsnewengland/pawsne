@@ -1,38 +1,27 @@
-<div class="aside">
+<hr class="no-space-bottom show-mobile">
 
-	<div class="widget">
+<p class="space-top hide-mobile">PAWS New England saves lives, one dog at a time. <a href="<?php echo get_option('home'); ?>/about/">Learn more...</a>
 
-		<p><strong>PAWS New England</strong> has saved the lives of more than 3,500 dogs. <a href="<?php echo get_option('home'); ?>/about/">Learn more...</a></p>
+<hr class="no-space hide-mobile">
 
-	</div>
+<h3>How to Help</h3>
 
+<ul class="unstyled">
+    <li><a href="<?php echo get_option('home'); ?>/adopt/"><i class="icon-home"></i> Adopt</a></li>
+    <li><a href="<?php echo get_option('home'); ?>/donate/"><i class="icon-heart"></i> Donate</a></li>
+    <li><a href="<?php echo get_option('home'); ?>/volunteer/"><i class="icon-time"></i> Volunteer</a></li>
+</ul>
 
-	<div class="widget">
+<hr class="no-space">
 
-		<h1>How to Help</h1>
+<h3>Get Free Updates</h3>
 
-		<ul class="unstyled">
-			<li><a href="<?php echo get_option('home'); ?>/adopt/"><i class="icon home"></i> Adopt</a></li>
-			<li><a href="<?php echo get_option('home'); ?>/donate/"><i class="icon heart"></i> Donate</a></li>
-			<li><a href="<?php echo get_option('home'); ?>/volunteer/"><i class="icon time"></i> Volunteer</a></li>
-		</ul>
+<ul class="unstyled">
+    <li><a href="http://eepurl.com/ifVL"><i class="icon-email"></i> Sign-up for our newsletter</a></li>
+    <li><a href="http://feeds.feedburner.com/pawsne"><i class="icon-rss"></i> Subscribe to our blog</a></li>
+    <li><a href="http://www.facebook.com/PAWSNewEngland"><i class="icon-facebook"></i> Like us on Facebook</a></li>
+</ul>
 
-	</div>
+<hr class="space-bottom">
 
-
-	<div class="widget">
-
-		<h1>Get Free Updates</h1>
-
-		<ul class="unstyled">
-			<li><a href="http://eepurl.com/ifVL"><i class="icon email"></i> Sign-up for our newsletter</a></li>
-			<li><a href="http://feeds.feedburner.com/pawsne"><i class="icon rss"></i> Subscribe to our blog</a></li>
-			<li><a href="http://www.facebook.com/PAWSNewEngland"><i class="icon facebook"></i> Like us on Facebook</a></li>
-		</ul>
-
-	</div>
-
-
-	<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-
-</div>
+<?php echo pne_wpsearch(); ?>

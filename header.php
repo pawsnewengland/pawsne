@@ -1,95 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Conditional class for older versions of IE -->
+<!--[if lt IE 9 & !IEMobile]><html class="ie" lang="en"><![endif]-->
+<!--[if gt IE 8 | IEMobile]><!--><html lang="en"><!--<![endif]-->
 
-<head>
-	<meta charset="<?php bloginfo('charset'); ?>" />
-	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
-	<title><?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
+    <head>
+        <!-- Meta Info -->
+	    <meta charset="<?php bloginfo('charset'); ?>">
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" />
+	    <!-- Force latest available IE rendering engine and Chrome Frame (if installed) -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<!-- Mobile Screen Resizing -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5" />
+        <!-- Smart Titles -->
+	    <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' |'; } ?> <?php bloginfo('name'); ?></title>
 
-	<!-- Icons -->
-	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico" />
+	    <!-- Add a description on the homepage -->
+	    <?php if (is_home ()) : ?><meta name="description" content="<?php bloginfo('description'); ?>"><?php endif; ?>
 
-	<!-- Feeds & Pings -->
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne" />
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+        <!-- Preferred page URL for search engines -->
+	    <link rel="canonical" href="<?php the_permalink() ?>">
 	
-	<?php wp_head(); ?>
+	    <!-- Mobile Screen Resizing -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
 
-<?php
-	$page = $_SERVER['REQUEST_URI'];
-	$page = str_replace("/","",$page);
-	$page = str_replace(".php","",$page);
-	$page = $page ? $page : 'default'
-?>
+	    <!-- Stylesheet -->
+	    <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
 
-<body id="<?php echo $page ?>">
+        <!-- HTML5 Shim for IE 6-8 -->
+	    <!--[if lt IE 9]>    
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
 
-	<!-- Old Browser Warning -->
-	<!--[if lte IE 7]>
-	<div class="old-browser">
-		<div class="old-browser-inner">
-			<p>Did you know that your web browser (<em>the program you're using to access the internet</em>) is a bit old? Some of the content on this site might look a bit funny as a result. <a href="http://browsehappy.com/">Upgrade your browser</a> for a faster, better, and safer web experience.</p>
-		</div>
-	</div>
-	<![endif]-->
 
-	<div class="navbar">
-		<div class="navbar-inner">
+	    <!-- Favicon -->
+	    <link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
 
-			<a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon paw-print"></i> <?php bloginfo('name'); ?></a>
+	    <!-- Apple Touch Icons -->
+	    <link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon.png">
+	    <link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-72.png">
+	    <link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-114.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-144.png">
 
-			<a class="screen-reader" href="#skipnav">Skip over navigation</a>
+        <!-- MS Homescreen Icons -->
+        <meta name="msapplication-TileColor" content="#0088cc">
+        <meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/img/ms-touch-icon.png">
 
-			<ul class="nav hide-desktop">
-				<li><a data-toggle="collapse" href="#" data-target=".nav-mobile">Menu</a></li>
-			</ul>
+	    <!-- Feeds & Pings -->
+	    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne">
+	    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+	
+	    <?php wp_head(); ?>
 
-			<div class="nav-mobile">
-				<ul class="nav">
-					<div class="dotted hide-desktop"></div>
-					<li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
-					<div class="dotted hide-desktop"></div>
-					<li class="dropdown" id="about-nav">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#about-nav">About <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
-						</ul>
-					</li>
-					<div class="dotted hide-desktop"></div>
-					<li class="dropdown hide-desktop" id="adopt-nav">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#adopt-nav">Adopt <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
-						</ul>
-					</li>
-					<div class="dotted hide-desktop"></div>
-					<li class="dropdown" id="help-nav">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#help-nav">How to Help <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
-							<li><a href="<?php echo get_option('home'); ?>/paws-partners/">PAWS Partners</a></li>
-						</ul>
-					</li>
-					<div class="dotted hide-desktop"></div>
-					<li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
-				</ul>
-			</div>
+    </head>
 
-		</div>
-	</div>
+    <body>
 
-	<div class="container" id="skipnav">
+        <div class="nav-bg">
+            <nav class="nav-wrap container">
+                <a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon-logo"></i> PAWS New England</a>
+                <a class="nav-toggle" href="#nav-menu">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <span class="screen-reader">Menu Toggle</span>
+                </a>
+                <div class="nav-collapse" id="nav-menu">
+                    <ul class="nav">
+                        <li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="<?php echo get_option('home'); ?>/about/">About</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="<?php echo get_option('home'); ?>/adopt/">Adopt</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="<?php echo get_option('home'); ?>/help/">How to Help</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/paws-partners/">Support Our Partners</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+	    <section class="container space-bottom-big">

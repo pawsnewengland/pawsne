@@ -1,42 +1,55 @@
 <?php get_header(); ?>
 
-<div class="main">
+<div class="row">
+    <div class="grid-4">
 
-	<?php if (have_posts()) : ?>
+        <?php if (have_posts()) : ?>
 
-		<?php while (have_posts()) : the_post(); ?>
+	        <?php while (have_posts()) : the_post(); ?>
+		        <article>
 
-			<h1 class="instapaper_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-			<p class="meta">On <?php the_time('F j, Y') ?> <?php edit_post_link('[Edit]', '  ', ''); ?></p>
+			        <header>
+				        <h1 class="no-space-bottom"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+				        <aside>
+					        <p class="text-muted"><time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_time('F j, Y') ?></time><?php edit_post_link('[Edit]', ' - ', ''); ?></p>
+				        </aside>
+			        </header>
 
-			<div class="instapaper_body">
-				<?php the_content('<p>Keep reading...</p>'); ?>
-			</div>
+			        <?php the_content('<p>Keep reading...</p>'); ?>
+
+                    <p>
+	                    <a class="btn-sm" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon-twitter"></i> Tweet</a>
+	                    <a class="btn-sm" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon-facebook"></i> Like</a>
+                        <a class="btn-sm" href="<?php comments_link(); ?>"><i class="icon-chat"></i> <?php comments_number( 'Leave a Comment', '1 Comment', '% Comments' ); ?></a>
+                    </p>
+
+		        </article>
+
+		        <hr>
+
+	        <?php endwhile; ?>
 
 
-			<p>
-				<a class="btn-sm" id="twitter" rel="nofollow" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>" onclick="centeredPopup(this.href,'myWindow', '550','450','yes');return false"><i class="icon twitter-alt"></i> Tweet</a>
-				<a class="btn-sm" id="facebook" rel="nofollow" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>" onclick="centeredPopup(this.href,'myWindow','675','450','yes');return false"><i class="icon facebook"></i> Like</a>
-				<a class="btn-sm" id="chat" rel="nofollow" href="<?php comments_link(); ?>"><i class="icon chat"></i> Comment</a>
-			</p>
+	        <!-- Previous/Next page navigation -->
+	        <nav>
+		        <p class="text-muted text-center"><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
+	        </nav>
 
 
-			<div class="dotted"></div>
+        <?php else : ?>
+	        <article>
+		        <header>
+			        <h1>No Posts to Display</h1>
+		        </header>
+	        </article>
+        <?php endif; ?>
 
-		<?php endwhile; ?>
+    </div>
 
-	<!-- Previous/Next page navigation -->
-	<p class="textcenter"><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
+    <div class="grid-2">
+        <?php get_sidebar(); ?>
+    </div>
 
-	<?php else : ?>
-
-		<h2>Uh-oh!</h2>
-		<p>The page your looking for doesn't exist. Check the URL, or try using the search function.</p>
-
-	<?php endif; ?>
-	
 </div>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

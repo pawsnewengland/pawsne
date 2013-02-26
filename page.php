@@ -1,19 +1,31 @@
 <?php get_header(); ?>
 
-<div class="main" id="post-<?php the_ID(); ?>">
+<div class="row">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <div class="grid-4">
 
-		<h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<?php the_content('<p>Read the rest of this page &raquo;</p>'); ?>
+            <article>
 
-		<?php edit_post_link('[Edit]', '<p>', '</p>'); ?>
+	            <header>
+		            <h1><?php the_title(); ?></h1>
+	            </header>
 
-	<?php endwhile; endif; ?>
+	            <?php the_content(); ?>
+
+	            <?php edit_post_link('[Edit]', '<p>', '</p>'); ?>
+
+            </article>
+
+        <?php endwhile; endif; ?>
+
+    </div>
+
+    <div class="grid-2">
+        <?php get_sidebar(); ?>
+    </div>
 
 </div>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

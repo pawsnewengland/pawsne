@@ -1,30 +1,44 @@
-<?php get_header(); ?>
+<?php get_header();
+/* ======================================================================
+ * Single.php
+ * Template for individual blog posts.
+ * ====================================================================== */
+?>
 
-<div class="main" id="post-<?php the_ID(); ?>">
+<div class="row">
+    <div class="grid-4">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<h1 class="instapaper_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-		<p class="meta">On <?php the_time('F j, Y') ?> <?php edit_post_link('[Edit]', '  ', ''); ?></p>
+            <article>
 
-		<div class="instapaper_body">
-			<?php the_content('<p>Read the rest of this entry &raquo;</p>'); ?>
-		</div>
+	            <header>
+		            <h1 class="no-space-bottom"><?php the_title(); ?></h1>
+		            <aside>
+			            <p class="text-muted"><time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_time('F j, Y') ?></time><?php edit_post_link('[Edit]', ' - ', ''); ?></p>
+		            </aside>
+	            </header>
 
-		<p>
-			<a class="btn-sm" id="twitter" rel="nofollow" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>" onclick="centeredPopup(this.href,'myWindow', '550','450','yes');return false"><i class="icon twitter-alt"></i> Tweet</a>
-			<a class="btn-sm" id="facebook" rel="nofollow" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>" onclick="centeredPopup(this.href,'myWindow','675','450','yes');return false"><i class="icon facebook"></i> Like</a>
-		</p>
+	            <?php the_content(); ?>
 
-		<?php comments_template(); ?>
+                <p>
+	                <a class="btn-sm" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon-twitter"></i> Tweet</a>
+	                <a class="btn-sm" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>%20"><i class="icon-facebook"></i> Like</a>
+                </p>
 
-	
-	<?php endwhile; else: ?>
-		<p>Sorry, no posts matched your criteria.</p>
-	<?php endif; ?>
-	
+	            <?php comments_template(); ?>
+
+            </article>
+
+        <?php endwhile; endif; ?>
+
+    </div>
+
+    <div class="grid-2">
+        <?php get_sidebar(); ?>
+    </div>
+
 </div>
-	
-<?php get_sidebar(); ?>
 
+	
 <?php get_footer(); ?>

@@ -1,33 +1,70 @@
-<?php get_header(); ?>
+<?php get_header(); 
+/* ======================================================================
+ * Search.php
+ * Template for search results.
+ * ====================================================================== */
+?>
 
-<div class="main">
 
-	<?php if (have_posts()) : ?>
-	
-		<h2>Search Results</h2>
-	
-		<?php while (have_posts()) : the_post(); ?>
-	
-			<ul>
-				<li id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-			</ul>
-	
-		<?php endwhile; ?>
-	
-	<!-- Previous/Next page navigation -->
-	<div class="page-nav">
-		<div class="nav-new"><p><?php previous_posts_link('&larr; Newer') ?></p></div>
-		<div class="nav-old"><p><?php next_posts_link('Older &rarr;') ?></p></div>
-	</div>
-	
-	<?php else : ?>
-	
-		<h2>No posts found. Try a different search?</h2>
-	
-	<?php endif; ?>
-	
+<div class="row">
+    <div class="grid-4">
+
+        <?php if (have_posts()) : ?>
+	        <header>
+		        <h1>Search Results for "<?php the_search_query(); ?>"</h1>
+		        <hr>
+	        </header>
+
+	        <?php while (have_posts()) : the_post(); ?>
+
+		        <article>
+
+			        <header>
+				        <h1 class="no-space-bottom"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+				        <aside>
+					        <p class="text-muted"><time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_time('F j, Y') ?></time><?php edit_post_link('[Edit]', ' - ', ''); ?></p>
+				        </aside>
+			        </header>
+
+			        <?php the_content('<p>Keep reading...</p>'); ?>
+
+                    <p>
+	                    <a class="btn-sm" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon-twitter"></i> Tweet</a>
+	                    <a class="btn-sm" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon-facebook"></i> Like</a>
+                        <a class="btn-sm" href="<?php comments_link(); ?>"><i class="icon-chat"></i> <?php comments_number( 'Leave a Comment', '1 Comment', '% Comments' ); ?></a>
+                    </p>
+
+		        </article>
+
+		        <hr>
+
+	        <?php endwhile; ?>
+
+
+	        <!-- Previous/Next page navigation -->
+	        <nav>
+		        <p><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
+	        </nav>
+
+
+        <?php else : ?>
+	        <article>
+		        <header>
+			        <h1>No Results Found for "<?php the_search_query(); ?>"</h1>
+		        </header>
+		        <p>Sorry, your search didn't turn up any results. Maybe try using different keywords?</p>
+
+		        <?php echo pne_wpsearch(); ?>
+	        </article>
+        <?php endif; ?>
+
+    </div>
+
+    <div class="grid-2">
+        <?php get_sidebar(); ?>
+    </div>
+
 </div>
-
-<?php get_sidebar(); ?>
+	
 
 <?php get_footer(); ?>

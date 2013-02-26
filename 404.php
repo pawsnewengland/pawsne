@@ -1,13 +1,29 @@
 <?php get_header(); ?>
 
-<div class="main">
+<div class="row">
+    <div class="grid-4">
+    
+        <article>
+	        <header>
+		        <h1>Page Not Found</h1>
+	        </header>
 
-	<h1>Uh-oh!</h1>
+	        <p>Sorry, but the page you were looking for doesn't exist. It looks like this was the result of either:</p>
 
-	<p>The page you're looking isn't here. (<em>There's a good chance we moved the page to a new URL - sorry!</em>). You may want to try searching for it using the search box in the sidebar.</p>
+            <ol>
+                <li>A mistyped address.</li>
+                <li>An out-of-date link.</li>
+            </ol>
 
-</div>
+            <?php echo pne_wpsearch(); ?>
 
-<?php get_sidebar(); ?>
+        </article>
+
+    </div>
+
+    <div class="grid-2">
+        <?php get_sidebar(); ?>
+    </div>
+
 
 <?php get_footer(); ?>
