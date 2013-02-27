@@ -192,8 +192,8 @@ $(function () {
     $('.modal').click(function(e) {
         e.preventDefault();
         var dataID = $(this).attr('data-target');
-        $('.modal-menu').removeClass('active');
-        $(dataID).addClass('active');
+        $('.modal-menu').not(dataID).removeClass('active');
+        $(dataID).toggleClass('active');
     });
     $('.modal-close').click(function(e) {
         e.preventDefault();

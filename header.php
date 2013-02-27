@@ -55,6 +55,13 @@
 
     <body>
 
+        <!-- Old Browser Warning for IE 6-7 -->
+        <!--[if lt IE 8]>
+            <div class="container">
+                <span class="text-small text-muted">Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.</span>
+            </div>
+        <![endif]-->
+
         <div class="nav-bg">
             <nav class="nav-wrap container">
                 <a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon-logo"></i> PAWS New England</a>

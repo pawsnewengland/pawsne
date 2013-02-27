@@ -242,6 +242,75 @@ a:hover, a:active {
 }
 
 
+/*  IE Fallbacks */
+
+.ie .row {
+    margin-left: -1.515151515152%;
+    margin-right: -1.515151515152%;
+}
+
+.ie [class^="grid-"], 
+.ie [class*=" grid-"] {
+    float: left;
+    width:96.969696969697%;
+    margin-left: 1.515151515152%;
+    margin-right: 1.515151515152%;
+}
+
+.ie .grid-1 {
+    width: 13.636363636364%;
+}
+
+.ie .grid-2,
+.ie .grid-third,
+.ie .grid-img {
+    width: 30.30303030303%;
+}
+
+.ie .grid-3,
+.ie .grid-half { 
+    width: 46.969696969697%;
+}
+
+.ie .grid-4,
+.ie .grid-two-thirds { 
+    width: 63.636363636364%;
+}
+
+.ie .grid-5 { 
+    width: 80.30303030303%;
+}
+
+.ie .grid-6,
+.ie .grid-full { 
+    width: 96.969696969697%;
+}
+
+.ie .offset-1 {
+    margin-left: 18.181818181818%;
+}
+
+.ie .offset-2 {
+    margin-left: 34.848484848485%;
+}
+
+.ie .offset-3 {
+    margin-left: 51.515151515152%;
+}
+
+.ie .offset-4 {
+    margin-left: 68.181818181818%;
+}
+
+.ie .offset-5 {
+    margin-left: 84.848484848485%;
+}
+
+.ie .grid-img {
+    width: 21.969696969697%;
+}
+
+
 
 
 
@@ -301,6 +370,13 @@ p {
 }
 
 
+/* IE Fallback */
+
+.ie body {
+    line-height: 1.588235294;
+}
+
+
 /*  Sizes 
  *  For smaller and larger text */
 
@@ -329,6 +405,16 @@ p {
     .text-hero {
         font-size: 2em;
     }
+}
+
+/* IE Fallbacks */
+
+.ie .text-tall {
+    font-size: 1.352941176em;
+}
+
+.ie .text-hero {
+    font-size: 2em;
 }
 
 
@@ -442,6 +528,12 @@ h3 a:hover {
     h1, .h1 {
         font-size: 1.764705882em;
     }
+}
+
+/* IE Fallback */
+
+.ie h1, .ie .h1 {
+    font-size: 1.764705882em;
 }
 
 
@@ -743,17 +835,20 @@ select:focus {
     }
 }
 
+/* IE Fallbacks */
+
+.ie input, .ie textarea, .ie select {
+    line-height: 1.588235294;
+}
 
 
 
 
-/*  CFORM PLUGIN */
-/*  Styling for contact forms */
 
+/*	CFORMS PLUGIN */
 .cform { width: 450px; margin: 0 auto; }
 
 /* main 'top-level' form elements */
-@import "calendar.css";
 .cform .cf_hidden { display: none; border: none; background: none; padding:0; margin:0; }
 ol.cf-ol { margin: 0; padding: 0; }
 ol.cf-ol li { background: none; margin: 0; padding: 0; list-style: none; text-align: left; }
@@ -980,6 +1075,18 @@ a:hover .icon-twitter { color: #272727; }
 	}
 }
 
+/* IE Fallbacks */
+
+.ie .alignleft { 
+    float: left; 
+    margin-right: .823529412em; 
+}
+
+.ie .alignright { 
+    float: right; 
+    margin-left: .823529412em; 
+}
+
 
 
 
@@ -1101,7 +1208,7 @@ table {
 .logo {
     display: inline-block;
     font-size: 1.529411765em;
-    font-family: "IcoMoon", "MuseoSlab500", Georgia, Times, serif;
+    font-family: "icomoon", "MuseoSlab500", Georgia, Times, serif;
     line-height: 1;
     color: #ffffff;
     margin-bottom: .235294118em;
@@ -1262,6 +1369,24 @@ table {
         margin-bottom: 0;
     }
 
+}
+
+/* IE Fallbacks */
+
+.ie .nav-wrap {
+    text-align: left;
+}
+
+.ie .logo {
+    display: inline-block;
+    float: left;
+    font-size: 2em;
+    margin-right: 1.176470588em;
+}
+
+.ie .nav {
+    margin-top: .470588235em;
+    margin-bottom: 0;
 }
 
 
@@ -1586,6 +1711,22 @@ table {
         visibility: hidden;
     }
 
+}
+
+/* IE Fallbacks */
+
+.ie .hide-mobile,
+.ie .hide-tablet,
+.ie .show-desktop {
+    display: block;
+    visibility: visible;
+}
+
+.ie .hide-desktop,
+.ie .show-mobile,
+.ie .show-tablet {
+    display: none;
+    visibility: hidden;
 }
 
 
