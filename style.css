@@ -751,6 +751,11 @@ legend, label {
     margin-bottom: .294117647em; 
 }
 
+legend {
+    font-family: "MuseoSlab500", Georgia, Times, serif;
+    font-size: 1.176470588em;
+}
+
 input, textarea, select {
     display: block;
     width: 100%;
@@ -846,7 +851,7 @@ select:focus {
 
 
 /*	CFORMS PLUGIN */
-.cform { width: 450px; margin: 0 auto; }
+.cform { width: 88%; margin: 0 auto; }
 
 /* main 'top-level' form elements */
 .cform .cf_hidden { display: none; border: none; background: none; padding:0; margin:0; }
@@ -857,34 +862,34 @@ ol.cf-ol li { background: none; margin: 0; padding: 0; list-style: none; text-al
 ol.cf-ol li.textonly { margin: 0; padding: 0; text-align: left; font-style: italic; display: block; color: #808080; }
 
 /* global definitions for field labels */
-label.cf-before { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:4px 5px 0 0; }
+label.cf-before { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em .3125em 0 0; }
 label.cf-before span { width:100%; display:block; }
-label.cf-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:4px 0 0 4px; width:auto; text-align:left; }
+label.cf-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em 0 0 .25em; width:auto; text-align:left; }
 label.cf-after span { width: auto; display: inline-block; }
-label.cf-group-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:4px 6px 0 4px; width:auto; text-align:left; }
+label.cf-group-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em .375em 0 .25em; width:auto; text-align:left; }
 label.cf-group-after span { width: auto; display: block; }
 
 /* FORM FIELDS general formatting */
-.cform input { width:100% }
-.cform select { width: 100%; }
-.cform select.cfselectmulti { height:65px; }
+/*.cform input { width:100% }*/
+/*.cform select { width: 100%; }*/
+.cform select.cfselectmulti { height:4.0625em; }
 .cform input.cf_date { width:100%; }
 
 /* radio button title */
-ol.cf-ol li.cf-box-title { width:100%; margin: 0px 10px 0 0; text-align: left; display: block; color: #272727; background: #ffffff; padding: 2px; border-bottom: 1px solid #ccc;  }
+ol.cf-ol li.cf-box-title { width:100%; margin: 0px .625em 0 0; text-align: left; display: block; color: #272727; background: #ffffff; padding: .125em; border-bottom: 1px solid #ccc;  }
 
 /* check boxes */
-input.cf-box-a, input.cf-box-b { width: auto; height: auto; padding: 0; margin: 3px 0; *margin-top: 0; /* IE7 */ line-height: normal; border: 0; cursor: pointer; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; vertical-align: baseline;  /* alignment fix for subscribe to comments */ /*margin: 3px 0 0 0; width: 16px; height: 22px; vertical-align: baseline; border:none; background:none;*/ }
+input.cf-box-a, input.cf-box-b { width: auto; height: auto; padding: 0; margin: .1875em 0; *margin-top: 0; /* IE7 */ line-height: normal; border: 0; cursor: pointer; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; vertical-align: baseline; }
 
 /* check box groups */
-ol.cf-ol li.cf-box-group { padding: 0 0 14px 0; }
+ol.cf-ol li.cf-box-group { padding: 0 0 .875em 0; }
 
 /* Breaks for checkboxes and radio buttons */
 .cf-inline:before, .cf-inline:after { display: table; content: ""; }
 .cf-inline:after { clear: both; }
 
 /* formatting for text: "(required)" & other */
-span.reqtxt, span.emailreqtxt { display: block; /*for mozilla*/ width:100%; font-size: 13px; vertical-align: top; color: #888888; text-align:right; margin:0; height:13px; line-height:13px; }
+span.reqtxt, span.emailreqtxt { display: block; /*for mozilla*/ width:100%; font-size: .875em; vertical-align: top; color: #888888; text-align:right; margin:0; height:1em; line-height:1; }
 .cform textarea.fldemail, .cform textarea.fldrequired, .cform input.fldemail, .cform input.fldrequired { margin:0; }
 
 /* FORM submit button */
@@ -892,22 +897,22 @@ p.cf-sb { padding: 0; margin: 0; }
 .cform .btn { width: auto; height: auto; }
 
 /* FORM FIELDS enhanced error display */
-ol.cf-ol li.cf_li_err { background: #FFDFDF; padding: 5px 20px; display: block; }
-ol.cf-ol li ul.cf_li_text_err { padding: 0 0 0 10px; margin: 0; color: #272727; display: inline-block; }
-ol.cf-ol ul.cf_li_text_err li { list-style:none; font-weight:bold; text-indent:0; margin:0 0 2px; padding-left:15px; }
+ol.cf-ol li.cf_li_err { background: #FFDFDF; padding: .3125em 1.25em; display: block; }
+ol.cf-ol li ul.cf_li_text_err { padding: 0 0 0 .625em; margin: 0; color: #272727; display: inline-block; }
+ol.cf-ol ul.cf_li_text_err li { list-style:none; font-weight:bold; text-indent:0; margin:0 0 .125em; padding-left:1em; }
 ol.cf-ol ul.cf_li_text_err li:before { content:''; }
 
 /* change formatting of response msgs here */
-div.cf_info { color:#272727; display:none; padding:10px 15px; width:100%; margin: 0 auto 20px auto; }
-div.cf_info ol { margin:0; padding:5px 15px 0 30px; }
-div.cf_info ol li { padding:1px 0; margin:2px 0; }
+div.cf_info { color:#272727; display:none; padding: .3125em 1.25em; width:100%; margin: 0 auto 1.25em auto; }
+div.cf_info ol { margin:0; padding:.3125em .9375em 0 1.875em; }
+div.cf_info ol li { padding:.071428571em 0; margin:.117647059em 0; }
 div.cf_info a	{ color:red!important; text-decoration:underline!important; }
 div.success { background:#F9F9F9 none repeat scroll 0%; color:#AAAAAA; display:block; }
 div.failure { display:block; background:#FFDFDF repeat!important; }
 div.waiting { background:#F9F9F9 none repeat scroll 0%; color:#AAAAAA; display:block; }
 
 /* formatting for invalid user inputs */
-.cform .cf_error { color:#ad2929; border:1px solid #ad2929; }
+.cform .cf_error { color:#ad2929; border:.071428571em solid #ad2929; }
 div.mailerr { display:block; }
 .mailerr, .cform .cf_errortxt { color:#ad2929; }
 
@@ -916,7 +921,7 @@ div.mailerr { display:block; }
 .disabled { background-color: #f5f5f5; border-color: #ddd; cursor: not-allowed; }
 
 /* upload box styling */
-.cform input.cf_upload  { width:220px; background: #f9f9f9; border:1px solid #888888; }
+.cform input.cf_upload  { width:88%; background: #f9f9f9; border:1px solid #888888; }
 
 
 
@@ -1445,7 +1450,8 @@ table {
 .dropdown-menu a {
     display: block;
     color: #272727;
-    margin-bottom: .235294118em;
+    margin-top: .117647059em;
+    margin-bottom: .117647059em;
     padding-left: .470588235em;
     padding-right: .470588235em;
 }
@@ -1483,6 +1489,7 @@ table {
     /*  Override default link color on small screens. */
     .dropdown-menu a {
         color: #e5e5e5;
+	margin-top: 0;
         margin-bottom: 0;
     }
 
