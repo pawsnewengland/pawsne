@@ -19,7 +19,7 @@ get_header(); ?>
             <div class="hero">
 			    <h2 class="text-center">A Note from PAWS Founder Kelly Parker</h2>
 
-			    <img class="alignleft" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-kelly.jpg" height="260" width="200" title="A photo of Kelly Parker">
+			    <p><img class="alignleft" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-kelly.jpg" height="260" width="200" title="A photo of Kelly Parker"></p>
 
 			    <p>When accomplished film director Ellen Goosenberg Kent first contacted PAWS New England in late 2010 and said, "I want to do a documentary about euthanasia of shelter animals in America and I am looking for a rescue group to feature," I nearly fell off my chair.</p>
 
