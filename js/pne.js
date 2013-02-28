@@ -213,7 +213,7 @@ $(function () {
  * ============================================================= */
 
 $(function () {
-    $('.pf-sort').click(function(e) {
+    $('.pf-sort').click(function() {
         $('.grid-img').show();
         $('.pf-sort').each(function (i) {
             var sortTarget = $(this).attr('data-target');
