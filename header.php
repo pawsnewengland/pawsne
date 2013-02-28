@@ -88,7 +88,8 @@
                             <a href="<?php echo get_option('home'); ?>/adopt/">Adopt</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a href="<?php echo get_option('home'); ?>/adopt/">Our Dogs</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/adopt/">The Process</a></li>
+                                    <li><a href="<?php echo get_option('home'); ?>/our-dogs/">Our Dogs</a></li>
                                     <li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
                                     <li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
                                 </ul>
