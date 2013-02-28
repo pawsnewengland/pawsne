@@ -1,9 +1,4 @@
-<?php get_header();
-/* ======================================================================
- * Single.php
- * Template for individual blog posts.
- * ====================================================================== */
-?>
+<?php get_header(); ?>
 
 <div class="row">
     <div class="grid-4">
