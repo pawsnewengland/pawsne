@@ -16,7 +16,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }
@@ -134,7 +134,7 @@ function petf_shelter_list( $atts ) {
         $output_buffer = "";
         if( count( $xml->pets->pet ) > 0 ){
             $output_buffer .= "<p><a class='btn collapse-toggle' href='#sort-options'><i class='icon-filter'></i> Filter Results +</a></p>
-                              <div class='collapse' id='sort-options'>
+                              <div class='collapse hide-no-js' id='sort-options'>
                                   <form>
                                     <div class='row'>
                                         <div class='grid-img space-bottom-small'>
