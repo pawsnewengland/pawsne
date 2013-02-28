@@ -1231,6 +1231,7 @@ table {
  *  Only needed for expand-and-collapse option. */
 .nav-toggle {
     display: none;
+    visibility: hidden;
 }
 
 
@@ -1261,8 +1262,12 @@ table {
     /*  Display navigation toggle button if javascript is supported */
     .js .nav-toggle {
         display: block;
+        visibility: visible;
         float: right;
-        margin-top: .470588235em;
+    }
+
+    .nav-toggle.btn {
+        font-size: 1em;
     }
 
     /*  Hide navigation items if javascript is supported */
