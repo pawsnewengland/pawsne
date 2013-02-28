@@ -209,7 +209,8 @@ function petf_shelter_list( $atts ) {
 
                 // Variables
                 $pet_name = $pet->name;
-                $pet_name = array_shift(explode(' ', $pet_name));
+                $pet_name = array_shift(explode('-', $pet_name));
+                $pet_name = array_shift(explode('(', $pet_name));
                 $pet_name = strtolower($pet_name);
                 $pet_name = ucwords($pet_name);
                 $pet_url = "http://www.petfinder.com/petdetail/" . $pet->id;
@@ -255,13 +256,6 @@ function petf_shelter_list( $atts ) {
                                         foreach( $pet->options->option as $pet_option ) {
                                             $output_buffer .= " " . $pet_option;
                                         }
-                                        foreach( $pet->breeds->breed as $this_breed ) {
-                                            $breed_clean = array(' ' => '-');
-                                            $breed_class = strtr($this_breed, $breed_clean);
-                                            $output_buffer .= " " . $breed_class;
-                                            $breed_list .= $this_breed;
-                                        }
-
                 $output_buffer .=   "'>
                                         <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>
                                             <img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>
