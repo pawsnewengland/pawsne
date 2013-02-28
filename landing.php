@@ -43,7 +43,7 @@ get_header(); ?>
 		</div>
 
 		<div class="grid-3 text-center">
-			<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" title="A PAWS Rescue Dog">
+			<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" title="A photo of a PAWS rescue dog">
 		</div>
 
 	</div>
@@ -56,19 +56,19 @@ get_header(); ?>
 		<h2 class="h1">How We Work</h2>
 
 		<div class="grid-2">
-			<i class="ir-rescue"></i>
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/rescue.jpg" title="">
 			<h2 class="nospace">1. Rescue</h2>
 			<p>We rescue abandoned, neglected, and abused dogs from high-kill shelters.</p>
 		</div>
 
 		<div class="grid-2">
-			<i class="ir-rehab"></i>
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/rehab.jpg" title="">
 			<h2 class="nospace">2. Rehabilitate</h2>
 			<p>Next, we provide veterinary care and much needed TLC.</p>
 		</div>
 
 		<div class="grid-2">
-			<i class="ir-rehome"></i>
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/rehome.jpg" title="">
 			<h2 class="nospace">3. Rehome</h2>
 			<p>When they're ready, we place our dogs in safe and loving homes.</p>
 		</div>

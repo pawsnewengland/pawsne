@@ -1,7 +1,7 @@
 /*
 
-    Theme Name: PAWS New England v4.0
-    Version: 4.0
+    Theme Name: PAWS New England v4.1
+    Version: 4.1
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -389,8 +389,6 @@ p {
     font-size: 1.166666667em; 
     line-height: 1.4;
 }
-
-
 
 .text-hero {
     font-size: 1.764705882em;
@@ -995,7 +993,6 @@ div.mailerr { display:block; }
 .icon-location:before { content: "\e00a"; }
 .icon-search:before { content: "\e00b"; }
 .icon-filter:before { content: "\e00c"; }
-.icon-sort:before { content: "\e00d"; }
 
 a .icon-home { color: #453f27; }
 a .icon-heart { color: #e7a2b0; }
@@ -1023,7 +1020,7 @@ a:hover .icon-twitter { color: #272727; }
 }
 
 .icon-bar + .icon-bar {
-  margin-top: 3px;
+  margin-top: .1875em;
 }
 
 
@@ -1032,15 +1029,6 @@ a:hover .icon-twitter { color: #272727; }
 
 /*  IMAGES */
 /*  Image styling. */
-
-/*  Comment Avatar Styling 
- *  Class automatically applied to comment avatars. */
-.avatar { 
-    float: left; 
-    margin-right: .823529412em;
-    height: 50%;
-    width: 50%;
-}
 
 /*  Display all images as centered block elements.
  *  Mobile-first default styling. */
@@ -1091,37 +1079,6 @@ a:hover .icon-twitter { color: #272727; }
     float: right; 
     margin-left: .823529412em; 
 }
-
-
-
-
-
-/*	IMAGE SPRITES */
-
-[class^="ir-"] { 
-    display: inline-block; 
-    vertical-align: text-top; 
-    background-image: url(img/landing-sprite.png); 
-}
-
-[class^="ir-hbo-"] { 
-    display: inline-block; 
-    vertical-align: text-top; 
-    background-image: url(img/hbo-sprite.png); 
-}
-
-.ir-rehab { background-position: 0 0; width: 150px; height: 150px; } 
-.ir-rehome { background-position: 0 -151px; width: 150px; height: 150px; } 
-.ir-rescue { background-position: 0 -302px; width: 150px; height: 150px; } 
-.ir-main { background-position: 0 -453px; width: 459px; height: 346px; } 
-.ir-pawprint { background-position: 0 -800px; width: 23px; height: 24px; }
-
-.ir-hbo-cherokee{ background-position: 0 0; width: 200px; height: 260px; } 
-.ir-hbo-crystal{ background-position: 0 -261px; width: 200px; height: 260px; } 
-.ir-hbo-hope{ background-position: 0 -522px; width: 200px; height: 260px; } 
-.ir-hbo-john{ background-position: 0 -783px; width: 200px; height: 260px; } 
-.ir-hbo-julie{ background-position: 0 -1044px; width: 200px; height: 260px; } 
-.ir-hbo-kelly{ background-position: 0 -1305px; width: 200px; height: 260px; } 
 
 
 
@@ -1204,7 +1161,8 @@ table {
 /*  Center all navigation elements */
 .nav-wrap {
     text-align: center;
-    padding-top: .235294118em;
+    padding-top: .470588235em;
+    padding-bottom: .235294118em;
 }
 
 /*  For text-based logo, override default link styling.
@@ -1359,6 +1317,8 @@ table {
     /*  Align text to the left */
     .nav-wrap {
         text-align: left;
+        padding-top: .235294118em;
+        padding-bottom: 0;
     }
 
     /*  Float logo to the left, display as inline-block, and adjust margins */
@@ -1380,6 +1340,8 @@ table {
 
 .ie .nav-wrap {
     text-align: left;
+    padding-top: .235294118em;
+    padding-bottom: 0;
 }
 
 .ie .logo {
@@ -1669,6 +1631,10 @@ table {
     padding-top: 1em;
 }
 
+.space-top-small {
+    padding-top: .470588235em;
+}
+
 
 /*  Hides */
 
@@ -1676,6 +1642,21 @@ table {
     position: absolute; 
     top: -9999px; 
     left:-9999px; 
+}
+
+.hide-no-js {
+    display: none;
+    visibility: hidden;
+}
+
+.js .hide-no-js {
+    display: block;
+    visibility: visible;
+}
+
+.js .hide-js {
+    display: none;
+    visibility: hidden;
 }
 
 .hide-mobile,

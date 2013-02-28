@@ -19,7 +19,7 @@ get_header(); ?>
             <div class="hero">
 			    <h2 class="text-center">A Note from PAWS Founder Kelly Parker</h2>
 
-			    <i class="ir-hbo-kelly alignleft"></i>
+			    <img class="alignleft" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-kelly.jpg" title="A photo of Kelly Parker">
 
 			    <p>When accomplished film director Ellen Goosenberg Kent first contacted PAWS New England in late 2010 and said, "I want to do a documentary about euthanasia of shelter animals in America and I am looking for a rescue group to feature," I nearly fell off my chair.</p>
 
@@ -88,7 +88,7 @@ get_header(); ?>
 
 	<div class="grid-2">
 		<a class="modal" data-target="#julie" href="#">
-			<i class="ir-hbo-julie aligncenter"></i>
+			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-julie.jpg" title="A photo of Julie Adams">
 			<h3 class="space-bottom-small">Julie Adams</h3>
 		</a>
         <div class="modal-menu" id="julie">
@@ -129,7 +129,7 @@ get_header(); ?>
 
 	<div class="grid-2">
 		<a class="modal" data-target="#john" href="#">
-			<i class="ir-hbo-john aligncenter"></i>
+			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-john.jpg" title="A photo of John Gagnon">
 			<h3 class="space-bottom-small">John Gagnon</h3>
 		</a>
         <div class="modal-menu" id="john">
@@ -178,7 +178,7 @@ get_header(); ?>
 
 	<div class="grid-2">
 		<a class="modal" data-target="#cherokee" href="#">
-			<i class="ir-hbo-cherokee aligncenter"></i>
+			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-cherokee.jpg" title="A photo of Cherokee">
 			<h3 class="space-bottom-small">Cherokee</h3>
 		</a>
         <div class="modal-menu" id="cherokee">
@@ -224,7 +224,7 @@ get_header(); ?>
 <div class="row text-center">
 	<div class="grid-2">
 		<a class="modal" data-target="#hope" href="#">
-			<i class="ir-hbo-hope aligncenter drop-shadow"></i>
+			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-hope.jpg" title="A photo of Hope">
 			<h3 class="space-bottom-small">Hope</h3>
 		</a>
         <div class="modal-menu" id="hope">
@@ -271,7 +271,7 @@ get_header(); ?>
 
 	<div class="grid-2">
 		<a class="modal" data-target="#crystal" href="#">
-			<i class="ir-hbo-crystal aligncenter drop-shadow"></i>
+			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/img/hbo-crystal.jpg" title="A photo of Crystal">
 			<h3 class="space-bottom-small">Crystal</h3>
 		</a>
         <div class="modal-menu" id="crystal">

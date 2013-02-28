@@ -138,7 +138,7 @@ function petf_shelter_list( $atts ) {
                                   <form>
                                     <div class='row'>
                                         <div class='grid-img space-bottom-small'>
-                                            <h3 class='no-space-top'>Age</h3>
+                                            <h3>Age</h3>
                                             <label>
                                                 <input type='checkbox' class='pf-sort' data-target='.Baby' checked>
                                                 Puppies
@@ -157,7 +157,7 @@ function petf_shelter_list( $atts ) {
                                             </label>
                                         </div>
                                         <div class='grid-img space-bottom-small'>
-                                            <h3 class='no-space-top'>Size</h3>
+                                            <h3>Size</h3>
                                             <label>
                                                 <input type='checkbox' class='pf-sort' data-target='.Small' checked>
                                                 Small
@@ -172,7 +172,7 @@ function petf_shelter_list( $atts ) {
                                             </label>
                                         </div>
                                         <div class='grid-img space-bottom-small'>
-                                            <h3 class='no-space-top'>Gender</h3>
+                                            <h3>Gender</h3>
                                             <label>
                                                 <input type='checkbox' class='pf-sort' data-target='.Male' checked>
                                                 Male
@@ -183,7 +183,7 @@ function petf_shelter_list( $atts ) {
                                             </label>
                                         </div>
                                         <div class='grid-img space-bottom-small'>
-                                            <h3 class='no-space-top'>Home Without...</h3>
+                                            <h3>Special Requirements</h3>
                                             <label>
                                                 <input type='checkbox' class='pf-sort' data-target='.noDogs' checked>
                                                 No Other Dogs
@@ -195,6 +195,10 @@ function petf_shelter_list( $atts ) {
                                             <label>
                                                 <input type='checkbox' class='pf-sort' data-target='.noKids' checked>
                                                 No Kids
+                                            </label>
+                                            <label>
+                                                <input type='checkbox' class='pf-sort' data-target='.specialNeeds' checked>
+                                                Special Needs
                                             </label>
                                         </div>
                                     </div>
@@ -225,11 +229,29 @@ function petf_shelter_list( $atts ) {
 	                    break;
                 }
 
+                switch ($pet->age){
+                    case "Baby":
+	                    $pet_age = "Puppy";
+	                    break;
+                    case "Young":
+	                    $pet_age = "Young";
+	                    break;
+                    case "Adult":
+	                    $pet_age = "Adult";
+	                    break;
+                    case "Senior":
+	                    $pet_age = "Senior";
+	                    break;
+                    default:
+	                    $pet_age = "Not known";
+	                    break;
+                }
+
                 $pet_sex = (($pet->sex == "M") ? "Male" : "Female");
 
                 // Output to Display
                 $output_buffer .=   "<div class='grid-img text-center space-bottom pf "
-                                        . $pet->age . " " . $pet_sex . " " . $pet_size;
+                                        . $pet_age . " " . $pet_sex . " " . $pet_size;
                                         foreach( $pet->options->option as $pet_option ) {
                                             $output_buffer .= " " . $pet_option;
                                         }
@@ -241,11 +263,78 @@ function petf_shelter_list( $atts ) {
                                         }
 
                 $output_buffer .=   "'>
-                                        <a target='_blank' href='" . $pet_url . "'>
+                                        <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>
                                             <img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>
                                             <h3 class='no-space-top space-bottom-small'>" . $pet_name . "</h3>
-                                        </a>" . 
-                                        $pet_size . ", " . $pet->age . ", " . $pet_sex;
+                                        </a>
+                                        <div class='modal-menu' id='modal-" . $pet->id . "'>
+                                            <div class='container'>
+                                                <div class='group'>
+                                                    <a class='close modal-close h2' href='#'>×</a>
+                                                </div>
+                                                <div class='row'>
+                                                    <div class='grid-2'>
+                                                        <p>
+                                                            <strong>Size:</strong> ". $pet_size . "<br>
+                                                            <strong>Age:</strong> " . $pet_age ."<br>
+                                                            <strong>Gender:</strong> " . $pet_sex ."
+                                                        </p>
+                                                        <p>
+                                                        <strong>Breed(s)</strong>";
+                                                        foreach( $pet->breeds->breed as $this_breed ) {
+                                                            $output_buffer .= "<br>" . $this_breed;
+                                                        }
+                $output_buffer .=                       "</p>
+                                                        <p>
+                                                            <strong>Special Requirements</strong>";
+                                                            foreach( $pet->options->option as $option ){
+                                                                switch($option){
+                                                                    case "noCats":
+                                                                        $icons .= "<span class='pf-icon'>Cats</span>";
+                                                                        break;
+                                                                    case "noDogs":
+                                                                        $icons .= "<span class='pf-icon'>Dogs</span>";
+                                                                        break;
+                                                                    case "noKids":
+                                                                        $icons .= "<span class='pf-icon'>Kids</span>";
+                                                                        break;
+                                                                    case "specialNeeds":
+                                                                        $special .= "Special Needs";
+                                                                    case "altered":
+                                                                        $output_buffer .= "";
+                                                                        break;
+                                                                    case "hasShots":
+                                                                        $output_buffer .= "";
+                                                                        break;
+                                                                    case "housebroken":
+                                                                        $output_buffer .= "";
+                                                                        break;
+                                                                }
+                                                            }
+                                                            if($icons != ""){
+                                                                $output_buffer .= "<br>No " . $icons;
+                                                            }
+                                                            if($special != ""){
+                                                                $output_buffer .= "<br>" . $special;
+                                                            }
+                                                            if($icons == "" && $special == ""){
+                                                                $output_buffer .= "<br>None";
+                                                            }
+                $output_buffer .=                       "</p>
+                                                        <p>
+                                                            <a class='btn' href='http://www.pawsnewengland.com/adoption-form/'>Fill Out an Adoption Form</a><br>
+                                                            <a target='_blank' href='" . $pet_url . "'>Or see more photos on PetFinder...</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class='grid-4'>
+                                                        <h3 class='no-space-top'>About " . $pet_name . "</h3>" .
+                                                        $pet->description .
+                                                        "<button class='btn modal-close'>Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>" . 
+                                        $pet_size . ", " . $pet_age . ", " . $pet_sex;
                                         $icons = "";
                                         foreach( $pet->options->option as $option ){
                                             switch($option){

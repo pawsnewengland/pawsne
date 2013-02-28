@@ -15,6 +15,15 @@
 
 	    <?php wp_footer(); ?>
 
+        <!-- PetFinder API Redirect -->
+        <?php if (is_page('our-dogs')) : ?>
+            <script>
+                $(document).ready(function() {
+                    setTimeout("window.location='<?php echo get_option('home'); ?>/our-dogs-list/'", 500);
+                });
+            </script>
+        <?php endif; ?>
+
         <!-- Google Analytics -->
         <script>
             var _gaq=[['_setAccount','UA-16807859-1'],['_trackPageview']];

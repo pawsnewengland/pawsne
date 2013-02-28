@@ -5,7 +5,7 @@
     
         <article>
 	        <header>
-		        <h1>Page Not Found</h1>
+		        <h1>Sad puppy!</h1>
 	        </header>
 
 	        <p>Sorry, but the page you were looking for doesn't exist. It looks like this was the result of either:</p>
@@ -14,6 +14,8 @@
                 <li>A mistyped address.</li>
                 <li>An out-of-date link.</li>
             </ol>
+
+            <p>Try searching for it?</p>
 
             <?php echo pne_wpsearch(); ?>
 
