@@ -21,7 +21,3 @@
     <li><a href="http://feeds.feedburner.com/pawsne"><i class="icon-rss"></i> Subscribe to our blog</a></li>
     <li><a href="http://www.facebook.com/PAWSNewEngland"><i class="icon-facebook"></i> Like us on Facebook</a></li>
 </ul>
-
-<hr class="space-bottom">
-
-<?php echo pne_wpsearch(); ?>
