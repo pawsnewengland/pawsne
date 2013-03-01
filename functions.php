@@ -60,7 +60,8 @@ add_shortcode( 'searchform', 'pne_wpsearch' );
  * Rebounded by Chris Ferdinandi - http://gomakethings.com
  * ====================================================================== */
 
-function flexslider_slideshow( $attr ) {
+function flexslider_slideshow() {
+
 	global $post;
 
 	// Set up the defaults for the slideshow shortcode.
@@ -105,49 +106,24 @@ function flexslider_slideshow( $attr ) {
 		return $output;
 	}
 
-	$slideshow = '<div class="slideshow-set"><div class="slideshow-items">';
+    // Slideshow wrapper
+	$slideshow = '<div class="flexslider">
+                    <ul class="slides">';
 
 	$i = 0;
 
 	foreach ( $attachments as $attachment ) {
-
-		// Open item.
-		$slideshow .= '<div class="slideshow-item item item-' . ++$i . '">';
-
-		// Get image.
-		$slideshow .= wp_get_attachment_link( $attachment->ID, $size, true, false );
-
-		// Check for caption.
-		if ( !empty( $attachment->post_excerpt ) )
-			$caption = $attachment->post_excerpt;
-		elseif ( !empty( $attachment->post_content ) )
-			$caption = $attachment->post_content;
-		else
-			$caption = '';
-
-		if ( !empty( $caption ) ) {
-			$slideshow .= '<div class="slideshow-caption">';
-			$slideshow .= '<a class="slideshow-caption-control">' . __( 'Caption', 'slideshow' ) . '</a>';
-			$slideshow .= '<div class="slideshow-caption-text">' . $caption . '</div>';
-			$slideshow .= '</div>';
-		}
-
-		$slideshow .= '</div>';
+        $flex_img = wp_get_attachment_link( $attachment->ID, $size, true, false );
+		// Individual Image
+		$slideshow .= '<li>' . $flex_img . '</li>';
 	}
 
-	$slideshow .= '</div><div class="slideshow-controls">';
+    // End slideshow wrapper
+	$slideshow .=   '</ul>
+                  </div>';
 
-		$slideshow .= '<div class="slideshow-pager"></div>';
-		$slideshow .= '<div class="slideshow-nav">';
-			$slideshow .= '<a class="slider-prev">' . __( 'Previous', 'slideshow' ) . '</a>';
-			$slideshow .= '<a class="slider-next">' . __( 'Next', 'slideshow' ) . '</a>';
-		$slideshow .= '</div>';
+	return apply_filters( 'slideshow_shortcode', $slideshow );
 
-	$slideshow .= '</div>';
-
-	$slideshow .= '</div><!-- End slideshow. -->';
-
-	return $slideshow;
 }
 
 add_shortcode( 'slideshow', 'flexslider_slideshow' );
