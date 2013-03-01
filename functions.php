@@ -53,6 +53,111 @@ add_shortcode( 'searchform', 'pne_wpsearch' );
 
 
 /* ======================================================================
+ * Flexslider.php
+ * An image slider shortcode.
+ * Function code by DevPress - http://devpress.com/plugins/slideshow
+ * CSS and script by by WooThemes - https://github.com/cferdinandi/FlexSlider
+ * Rebounded by Chris Ferdinandi - http://gomakethings.com
+ * ====================================================================== */
+
+function flexslider_slideshow( $attr ) {
+	global $post;
+
+	// Set up the defaults for the slideshow shortcode.
+	$defaults = array(
+		'order' => 'ASC',
+		'orderby' => 'menu_order ID',
+		'id' => $post->ID,
+		'size' => 'large',
+		'include' => '',
+		'exclude' => '',
+		'numberposts' => -1,
+	);
+	$attr = shortcode_atts( $defaults, $attr );
+
+	// Allow users to overwrite the default args.
+	extract( apply_filters( 'slideshow_shortcode_args', $attr ) );
+
+	// Arguments for get_children().
+	$children = array(
+		'post_parent' => intval( $id ),
+		'post_status' => 'inherit',
+		'post_type' => 'attachment',
+		'post_mime_type' => 'image',
+		'order' => $order,
+		'orderby' => $orderby,
+		'exclude' => absint( $exclude ),
+		'include' => absint( $include ),
+		'numberposts' => intval( $numberposts ),
+	);
+
+	// Get image attachments. If none, return.
+	$attachments = get_children( $children );
+
+	if ( empty( $attachments ) )
+		return '';
+
+	// If is feed, leave the default WP settings. We're only worried about on-site presentation.
+	if ( is_feed() ) {
+		$output = "\n";
+		foreach ( $attachments as $id => $attachment )
+			$output .= wp_get_attachment_link( $id, $size, true ) . "\n";
+		return $output;
+	}
+
+	$slideshow = '<div class="slideshow-set"><div class="slideshow-items">';
+
+	$i = 0;
+
+	foreach ( $attachments as $attachment ) {
+
+		// Open item.
+		$slideshow .= '<div class="slideshow-item item item-' . ++$i . '">';
+
+		// Get image.
+		$slideshow .= wp_get_attachment_link( $attachment->ID, $size, true, false );
+
+		// Check for caption.
+		if ( !empty( $attachment->post_excerpt ) )
+			$caption = $attachment->post_excerpt;
+		elseif ( !empty( $attachment->post_content ) )
+			$caption = $attachment->post_content;
+		else
+			$caption = '';
+
+		if ( !empty( $caption ) ) {
+			$slideshow .= '<div class="slideshow-caption">';
+			$slideshow .= '<a class="slideshow-caption-control">' . __( 'Caption', 'slideshow' ) . '</a>';
+			$slideshow .= '<div class="slideshow-caption-text">' . $caption . '</div>';
+			$slideshow .= '</div>';
+		}
+
+		$slideshow .= '</div>';
+	}
+
+	$slideshow .= '</div><div class="slideshow-controls">';
+
+		$slideshow .= '<div class="slideshow-pager"></div>';
+		$slideshow .= '<div class="slideshow-nav">';
+			$slideshow .= '<a class="slider-prev">' . __( 'Previous', 'slideshow' ) . '</a>';
+			$slideshow .= '<a class="slider-next">' . __( 'Next', 'slideshow' ) . '</a>';
+		$slideshow .= '</div>';
+
+	$slideshow .= '</div>';
+
+	$slideshow .= '</div><!-- End slideshow. -->';
+
+	return $slideshow;
+}
+
+add_shortcode( 'slideshow', 'flexslider_slideshow' );
+
+
+
+
+
+
+/* ======================================================================
  * Remove-Header-Junk.php
  * Removes unneccessary junk WordPress adds to the header.
  * Script by ThemeLab.
