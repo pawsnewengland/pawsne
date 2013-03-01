@@ -113,8 +113,9 @@ function flexslider_slideshow() {
 	$i = 0;
 
 	foreach ( $attachments as $attachment ) {
-        $flex_img = wp_get_attachment_link( $attachment->ID, $size, true, false );
-		// Individual Image
+	    // Get image
+        $flex_img = wp_get_attachment_image( $attachment->ID, $size, false );
+		// Insert image into list item
 		$slideshow .= '<li>' . $flex_img . '</li>';
 	}
 
@@ -127,6 +128,18 @@ function flexslider_slideshow() {
 }
 
 add_shortcode( 'slideshow', 'flexslider_slideshow' );
+
+
+
+
+
+/* ======================================================================
+ * Image-URL-Default.php
+ * Overrides default image-URL behavior
+ * http://wordpress.org/support/topic/insert-image-default-to-no-link
+ * ====================================================================== */
+
+update_option('image_default_link_type','none');
 
 
 
