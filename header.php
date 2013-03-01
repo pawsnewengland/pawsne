@@ -65,14 +65,14 @@
         <div class="nav-bg">
             <nav class="nav-wrap container">
                 <a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon-logo"></i> PAWS New England</a>
-                <a class="btn nav-toggle" href="#nav-menu">
+                <a class="btn nav-toggle astro-toggle" href="#nav-menu">
                     <i class="icon-bar"></i>
                     <i class="icon-bar"></i>
                     <i class="icon-bar"></i>
                     <span class="screen-reader">Menu Toggle</span>
                 </a>
                 <div class="nav-collapse" id="nav-menu">
-                    <ul class="nav">
+                    <ul class="nav group">
                         <li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
                         <li class="dropdown">
                             <a href="<?php echo get_option('home'); ?>/about/">About</a>
@@ -107,7 +107,11 @@
                             </div>
                         </li>
                         <li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
+                        <li class="float-right"><a class="search-toggle astro-toggle" href="#search-menu"><i class="icon-search"></i> Search</a></li>
                     </ul>
+                    <div class="search-collapse" id="search-menu">
+                        <?php echo pne_wpsearch(); ?>
+                    </div>
                 </div>
             </nav>
         </div>
