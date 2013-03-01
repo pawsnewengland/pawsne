@@ -1,7 +1,7 @@
 /*
 
-    Theme Name: PAWS New England v4.1
-    Version: 4.1
+    Theme Name: PAWS New England v4.2
+    Version: 4.2
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -925,13 +925,8 @@ div.mailerr { display:block; }
 
 
 
-/*  PETFINDER WIDGET */
-
-.petfinder { 
-    width: 100%;
-    height: 134em;
-    margin: 0 auto;
-}
+/*  PETFINDER API */
+/*  Styling for list of our dogs */
 
 .pf {
     min-height: 16.706588235em;
@@ -1236,9 +1231,10 @@ table {
     color: #ffffff;
 }
 
-/*  Hide the navigation toggle menu button by default.
- *  Only needed for expand-and-collapse option. */
-.nav-toggle {
+/*  Hide the navigation toggle menu button 
+ *  and search toggle button by default. */
+.nav-toggle,
+.search-toggle {
     display: none;
     visibility: hidden;
 }
@@ -1275,6 +1271,7 @@ table {
         float: right;
     }
 
+    /* Increase base size of nav toggle button */
     .nav-toggle.btn {
         font-size: 1em;
     }
@@ -1303,6 +1300,7 @@ table {
         max-height: 600em;
     }
 
+    /* When JavaScript is enabled, float .nav text to the left */
     .js .nav {
         text-align: left;
     }
@@ -1323,9 +1321,37 @@ table {
 }
 
 
-/*  Styling for Bigger Screens.
- *  (Astro is built mobile-first.)
- *  Change min-width to fit your project. */
+/*  Nav styling for bigger screens. */
+@media (min-width: 42.5em) {
+
+    /* When JavaScript is enabled, show the search toggle button */
+    .js .search-toggle {
+        display: block;
+        visibility: visible;
+    }
+
+    /*  When JavaScript is enabled, hide search bar. */
+    .js .search-collapse {
+        max-height: 0;
+        overflow: hidden;
+        /*  Add animation when content expands and collapses */
+        -webkit-transition: all 0.35s ease;
+           -moz-transition: all 0.35s ease;
+            -ms-transition: all 0.35s ease;
+             -o-transition: all 0.35s ease;
+                transition: all 0.35s ease;
+    }
+
+    /*  When JavaScript is enabled and active class present,
+     *  show .search-collapse content */
+    .js .search-collapse.active {
+        max-height: 600em;
+    }
+
+}
+
+
+/*  Nav styling for even bigger screens. */
 @media (min-width: 60em) {
 
     /*  Align text to the left */
@@ -1343,9 +1369,15 @@ table {
         margin-right: 1.176470588em;
     }
 
+    /*  Reduce the top margin and remove the bottom margin */
     .nav {
         margin-top: .470588235em;
         margin-bottom: 0;
+    }
+
+    /*  Float .float-right list items to the right */
+    .nav > li.float-right {
+        float: right;
     }
 
 }
@@ -1368,6 +1400,29 @@ table {
 .ie .nav {
     margin-top: .470588235em;
     margin-bottom: 0;
+}
+
+.ie .nav > li.float-right {
+    float: right;
+}
+
+.ie .js .search-toggle {
+    display: block;
+    visibility: visible;
+}
+
+.ie .js .search-collapse {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.35s ease;
+        -moz-transition: all 0.35s ease;
+        -ms-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+            transition: all 0.35s ease;
+}
+
+.ie .js .search-collapse.active {
+    max-height: 600em;
 }
 
 
