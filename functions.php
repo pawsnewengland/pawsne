@@ -32,14 +32,14 @@ add_action('wp_enqueue_scripts', 'my_scripts_method');
  * Script by Elliot Jay Stocks.
  * http://viewportindustries.com/products/starkers/
  *
- * Add a search form anywhere on your site by adding <?php echo kraken_wpsearch(); ?> to a template file.
+ * Add a search form anywhere on your site by adding <?php echo pne_wpsearch(); ?> to a template file.
  * You can also use the [searchform] shortcode in the WordPress content editor.
  * The `.screen-reader` class hides the search form label if you're using the Kraken CSS boilerplate.
  * Add additional classes and styling as needed.
  * ====================================================================== */
 
 function pne_wpsearch() {
-    $form = '<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
+    $form = '<form method="get" class="no-space-bottom text-center" id="searchform" action="' . home_url( '/' ) . '" >
             <label class="screen-reader" for="s">Search this site:</label>
             <input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
             <button type="submit" class="btn-search" id="searchsubmit"><i class="icon-search"></i><span class="screen-reader">Search</span></button>
