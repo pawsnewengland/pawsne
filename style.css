@@ -1392,6 +1392,7 @@ table {
     position: absolute;
     top: 100%;
     display: none;
+    visibility: hidden;
     float: left;
     min-width: 12em;
     margin-top: .470588235em;
@@ -1438,6 +1439,7 @@ table {
 /*  When a dropdown is active, display it. */
 .dropdown-menu.active {
     display: block;
+    visibility: visible;
     padding-top: .470588235em;
     padding-bottom: .470588235em;
 }
