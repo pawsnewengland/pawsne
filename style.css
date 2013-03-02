@@ -1233,8 +1233,7 @@ table {
 
 /*  Hide the navigation toggle menu button 
  *  and search toggle button by default. */
-.nav-toggle,
-.search-toggle {
+.nav-toggle {
     display: none;
     visibility: hidden;
 }
@@ -1321,36 +1320,6 @@ table {
 }
 
 
-/*  Nav styling for bigger screens. */
-@media (min-width: 42.5em) {
-
-    /* When JavaScript is enabled, show the search toggle button */
-    .js .search-toggle {
-        display: block;
-        visibility: visible;
-    }
-
-    /*  When JavaScript is enabled, hide search bar. */
-    .js .search-collapse {
-        max-height: 0;
-        overflow: hidden;
-        /*  Add animation when content expands and collapses */
-        -webkit-transition: all 0.35s ease;
-           -moz-transition: all 0.35s ease;
-            -ms-transition: all 0.35s ease;
-             -o-transition: all 0.35s ease;
-                transition: all 0.35s ease;
-    }
-
-    /*  When JavaScript is enabled and active class present,
-     *  show .search-collapse content */
-    .js .search-collapse.active {
-        max-height: 600em;
-    }
-
-}
-
-
 /*  Nav styling for even bigger screens. */
 @media (min-width: 60em) {
 
@@ -1375,11 +1344,6 @@ table {
         margin-bottom: 0;
     }
 
-    /*  Float .float-right list items to the right */
-    .nav > li.float-right {
-        float: right;
-    }
-
 }
 
 /* IE Fallbacks */
@@ -1400,29 +1364,6 @@ table {
 .ie .nav {
     margin-top: .470588235em;
     margin-bottom: 0;
-}
-
-.ie .nav > li.float-right {
-    float: right;
-}
-
-.ie .js .search-toggle {
-    display: block;
-    visibility: visible;
-}
-
-.ie .js .search-collapse {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: all 0.35s ease;
-        -moz-transition: all 0.35s ease;
-        -ms-transition: all 0.35s ease;
-            -o-transition: all 0.35s ease;
-            transition: all 0.35s ease;
-}
-
-.ie .js .search-collapse.active {
-    max-height: 600em;
 }
 
 

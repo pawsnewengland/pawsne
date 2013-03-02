@@ -131,7 +131,7 @@ $(function () {
  * ============================================================= */
 
 $(function () {
-    $('.astro-toggle').click(function(e) { // When a link or button with the .nav-toggle class is clicked
+    $('.nav-toggle').click(function(e) { // When a link or button with the .nav-toggle class is clicked
         e.preventDefault(); // Prevent the default action from occurring
 
         // Set Variables
