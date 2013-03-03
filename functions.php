@@ -16,7 +16,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03032013.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }
@@ -344,6 +344,8 @@ function petf_shelter_list( $atts ) {
 
                 $pet_sex = (($pet->sex == "M") ? "Male" : "Female");
 
+                $theme_url = get_template_directory_uri();
+
                 // Output to Display
                 $output_buffer .=   "<div class='grid-img text-center space-bottom pf "
                                         . $pet_age . " " . $pet_sex . " " . $pet_size;
@@ -351,9 +353,14 @@ function petf_shelter_list( $atts ) {
                                             $output_buffer .= " " . $pet_option;
                                         }
                 $output_buffer .=   "'>
-                                        <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>
-                                            <img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>
-                                            <h3 class='no-space-top space-bottom-small'>" . $pet_name . "</h3>
+                                        <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>";
+                                            if(count($pet->media->photos) > 0){
+                                                $output_buffer .= "<img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>";
+                                            }
+                                            else {
+                                                $output_buffer .= "<img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $theme_url . "/img/nophoto.jpg'>";
+                                            }
+                $output_buffer .=           "<h3 class='no-space-top space-bottom-small'>" . $pet_name . "</h3>
                                         </a>
                                         <div class='modal-menu' id='modal-" . $pet->id . "'>
                                             <div class='container'>
