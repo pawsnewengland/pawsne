@@ -24,7 +24,7 @@
 
 
 	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style-min.css">
+	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style-min-03032013.css">
 
         <!-- HTML5 Shim for IE 6-8 -->
 	    <!--[if lt IE 9]>    
