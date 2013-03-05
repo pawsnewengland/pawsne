@@ -16,7 +16,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03032013.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03042013.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }
@@ -222,7 +222,7 @@ function petf_shelter_list( $atts ) {
     ), $atts ) );
 
 	$xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full" );
-	
+
     
     if( $xml->header->status->code == "100"){
         $output_buffer = "";
@@ -296,9 +296,57 @@ function petf_shelter_list( $atts ) {
                                             </label>
                                         </div>
                                     </div>
+                                    <h3>Breeds</h3>
+                                    <label>
+                                        <input type='checkbox' class='pf-toggle-all' data-target='.pf-breeds' checked>
+                                        Select/Unselect All
+                                    </label>
+                                    <div class='row'>";
+                                    // Get a list of breeds
+                                    foreach( $xml->pets->pet as $pet ) {
+                                        foreach( $pet->breeds->breed as $this_breed ) {
+                                            $breed_list .= $this_breed . ",";
+                                        }
+                                    }
+                                    
+                                    // Comma separated string of breeds
+                                    //$breed_list = implode(',',array_unique(explode(',', $breed_list)));
+                                    
+                                    // Breeds as an array
+                                    $breed_list = array_filter(array_unique(explode(',', $breed_list)));
+                                    asort($breed_list);
+
+                                    // Split breed list in half
+                                    $breed_count = count($breed_list);
+                                    $breed_list1 = array_slice($breed_list, 0, $breed_count / 2);
+                                    $breed_list2 = array_slice($breed_list, $breed_count / 2);
+
+                                    // Display breed filters
+                                    foreach( $breed_list1 as $breed ) {
+                                        $breed_concat_values = array('(' => '', ')' => '', '  ' => '-', ' ' => '-');
+                                        $breed_concat = strtr($breed, $breed_concat_values);
+                                        $output_buffer .= "<div class='grid-3'>
+                                                            <label>
+                                                                <input type='checkbox' class='pf-breeds' data-target='." . $breed_concat . "' checked>" .
+                                                                $breed . "
+                                                            </label>
+                                                          </div>";
+                                    }
+                                    foreach( $breed_list2 as $breed ) {
+                                        $breed_concat_values = array('(' => '', ')' => '', '  ' => '-', ' ' => '-');
+                                        $breed_concat = strtr($breed, $breed_concat_values);
+                                        $output_buffer .= "<div class='grid-3'>
+                                                            <label>
+                                                                <input type='checkbox' class='pf-breeds' data-target='." . $breed_concat . "' checked>" .
+                                                                $breed . "
+                                                            </label>
+                                                          </div>";
+                                    }
+            $output_buffer .=       "</div>
                                 </form>
                             </div>
                             <div class='row'>";
+
             foreach( $xml->pets->pet as $pet ) {
 
                 // Variables
@@ -351,6 +399,12 @@ function petf_shelter_list( $atts ) {
                                         . $pet_age . " " . $pet_sex . " " . $pet_size;
                                         foreach( $pet->options->option as $pet_option ) {
                                             $output_buffer .= " " . $pet_option;
+                                        }
+                                        foreach( $pet->breeds->breed as $this_breed ) {
+                                            //$breed_concat = array(' ' => '-');
+                                            $breed_concat = array('(' => '', ')' => '', ' ' => '-');
+                                            $breed_class = strtr($this_breed, $breed_concat);
+                                            $output_buffer .= " " . $breed_class;
                                         }
                 $output_buffer .=   "'>
                                         <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>";

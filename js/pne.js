@@ -213,19 +213,37 @@ $(function () {
  * ============================================================= */
 
 $(function () {
-    $('.pf-sort').click(function() {
-        $('.grid-img').show();
-        $('.pf-sort').each(function (i) {
-            var sortTarget = $(this).attr('data-target');
+    function petfinderSort() {
+        $('.pf').hide();
+        $('.pf-breeds').each(function () {
+            var sortBreed = $(this).attr('data-target');
             if ($(this).prop('checked')) {
-
+                $(sortBreed).show();
             }
+        });
+        $('.pf-sort').each(function () {
+            var sortTarget = $(this).attr('data-target');
+            if ($(this).prop('checked')) { }
             else {
                 $(sortTarget).hide();
             }
         });
+    }
+    $('.pf-toggle-all').click(function() {
+        var toggleTarget = $(this).attr('data-target');
+        if($(this).prop('checked')) {
+            $(toggleTarget).prop('checked',true);
+            petfinderSort();
+        }
+        else {
+            $(toggleTarget).prop('checked',false);
+            petfinderSort();
+        }
     });
+    $('.pf-sort, .pf-breeds').click(petfinderSort);
 });
+
+
 
 
 
