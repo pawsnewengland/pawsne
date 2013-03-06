@@ -211,13 +211,7 @@ function petf_shelter_list( $atts ) {
     extract( shortcode_atts( array(
         'shelter_id' => 'RI77',
         'api_key' => '1369e3e2548d4db98adab733c2fbb7ac',
-        'breed' => '',
         'count' => 150,
-        'animal' => '',
-        'include_info' => 'yes',
-        'css_class' => 'pets',
-        'contact' => '',
-        'include_mixes' => 'no',
         'status' => 'A'
     ), $atts ) );
 
@@ -412,7 +406,7 @@ function petf_shelter_list( $atts ) {
                                                 $output_buffer .= "<img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>";
                                             }
                                             else {
-                                                $output_buffer .= "<img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $theme_url . "/img/nophoto.jpg'>";
+                                                $output_buffer .= "<img class='space-bottom-small pf-img' alt='No photo available yet for " . $pet_name . "' src='" . $theme_url . "/img/nophoto.jpg'>";
                                             }
                 $output_buffer .=           "<h3 class='no-space-top space-bottom-small'>" . $pet_name . "</h3>
                                         </a>
