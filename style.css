@@ -991,6 +991,7 @@ div.mailerr { display:block; }
 .icon-cart:before { content: "\e00d"; }
 .icon-people:before { content: "\e00e"; }
 .icon-horn:before { content: "\e00f"; }
+.icon-loading:before { content: "\e010"; }
 
 a .icon-home { color: #453f27; }
 a .icon-heart { color: #e7a2b0; }
@@ -1016,15 +1017,15 @@ a:hover .icon-horn { color: #272727; }
 /*  CSS3 Icons */
 
 .icon-bar {
-  display: block;
-  width: 1.176470588em;
-  height: .125em;
-  background-color: #ffffff;
-  border-radius: .071428571em;
+    display: block;
+    width: 1.176470588em;
+    height: .125em;
+    background-color: #ffffff;
+    border-radius: .071428571em;
 }
 
 .icon-bar + .icon-bar {
-  margin-top: .1875em;
+    margin-top: .1875em;
 }
 
 
