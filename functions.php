@@ -215,13 +215,17 @@ function petf_shelter_list( $atts ) {
         'status' => 'A'
     ), $atts ) );
 
-	$xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full" );
+    if (file_exists("http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full")) {
+        $xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full" );
+    } 
 
-    
+
     if( $xml->header->status->code == "100"){
         $output_buffer = "";
         if( count( $xml->pets->pet ) > 0 ){
-            $output_buffer .= "<p><a class='btn collapse-toggle' href='#sort-options'><i class='icon-filter'></i> Filter Results +</a></p>
+            $output_buffer .= "<div class='hide-no-js'><p>Your perfect companion could be just a click away. Use the filters to narrow your search, and click on a dog to learn more.</p></div>
+                              <div class='hide-js'><p>Your perfect companion could be just a click away. Click on a dog to learn more.</p></div>
+                              <p><a class='btn collapse-toggle' href='#sort-options'><i class='icon-filter'></i> Filter Results +</a></p>
                               <div class='collapse hide-no-js' id='sort-options'>
                                   <form>
                                     <div class='row'>
@@ -513,10 +517,11 @@ function petf_shelter_list( $atts ) {
             }
             $output_buffer .= "</div>";
         }else{
-            $output_buffer .= "We don't have any dogs available for adoption at this time. Sorry! Please check back soon.";
+            $output_buffer .= "<p class='text-tall text-center'>We don't have any dogs available for adoption at this time. Sorry! Please check back soon.</p>";
         }
     }else{
-        $output_buffer = "Petfinder is down for the moment. Please check back shortly.";
+        $output_buffer = "<p class='text-tall text-center'>Sorry, our pet list is down at the moment.</p>
+                         <p class='text-center'><a class='btn btn-large' target='_blank' href='http://www.petfinder.com/pet-search?shelterid=RI77'>View our dogs on Petfinder</a></p>";
     }
 
     return $output_buffer;
