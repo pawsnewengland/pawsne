@@ -206,18 +206,15 @@ function stripTrackback($var) {
  * Adapted from the Petfinder Listings plugin - http://wordpress.org/extend/plugins/petfinder-listings/
  * ====================================================================== */
 
-function petf_shelter_list( $atts ) {
+function petf_shelter_list() {
 
-    extract( shortcode_atts( array(
-        'shelter_id' => 'RI77',
-        'api_key' => '1369e3e2548d4db98adab733c2fbb7ac',
-        'count' => 150,
-        'status' => 'A'
-    ), $atts ) );
+    // API Attributes
+    $api_key = '1369e3e2548d4db98adab733c2fbb7ac';
+    $count = '20';
+    $shelter_id = 'RI77';
 
-    if (file_exists("http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full")) {
-        $xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . intval($count) . "&id=" . $shelter_id . "&status=" . $status . "&output=full" );
-    } 
+    // Request shelter data
+    $xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full" );
 
 
     if( $xml->header->status->code == "100"){
