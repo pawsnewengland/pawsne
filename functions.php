@@ -212,9 +212,13 @@ function petf_shelter_list() {
     $api_key = '1369e3e2548d4db98adab733c2fbb7ac';
     $count = '20';
     $shelter_id = 'RI77';
+    $url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
 
-    // Request shelter data
-    $xml = simplexml_load_file( "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full" );
+    // If URL exists
+    if ($url) {
+        // Request shelter data
+        $xml = simplexml_load_file( $url );
+    }
 
 
     if( $xml->header->status->code == "100"){
