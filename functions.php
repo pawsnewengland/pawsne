@@ -210,7 +210,7 @@ function petf_shelter_list() {
 
     // API Attributes
     $api_key = '1369e3e2548d4db98adab733c2fbb7ac';
-    $count = '20';
+    $count = '150';
     $shelter_id = 'RI77';
     $url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
 
