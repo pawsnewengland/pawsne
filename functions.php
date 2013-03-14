@@ -214,11 +214,10 @@ function petf_shelter_list() {
     $shelter_id = 'RI77';
     $url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
 
-    // If the URL exists
-    if ($url) {
-        // Convert to string
-        $xml = simplexml_load_string($url);
-    }
+    // Request shelter data
+    $xml = @simplexml_load_file( $url );
+    // If data not available
+    if ($xml === false) {}
 
 
     if( $xml->header->status->code == "100"){
