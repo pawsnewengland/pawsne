@@ -63,10 +63,10 @@ add_shortcode( 'searchform', 'pne_wpsearch' );
 
 function css_btn($atts) {  
     extract(shortcode_atts(array(  
-        "url" => 'http://www.pawsnewengland.com/donate/',
+        "link" => 'http://www.pawsnewengland.com/donate/',
         "label" => 'Donate'
     ), $atts));  
-    return '<p><a class="btn btn-large" href="'.$url.'">' . $label . '</a></p>';  
+    return '<p><a class="btn btn-large" href="'.$link.'">' . $label . '</a></p>';  
 }
 add_shortcode("btn", "css_btn");
 
