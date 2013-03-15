@@ -264,9 +264,11 @@ a:hover .icon-horn{color:#272727;}
 .wp-caption-text{font-size:.882352941em;font-style:italic;color:#808080;padding-top:.470588235em;text-align:center;}
 @media (min-width:30em){.alignleft{float:left;margin-right:.823529412em;}
 .alignright{float:right;margin-left:.823529412em;}
+.alignnone{margin-left:0;margin-right:0;}
 }
 .ie .alignleft{float:left;margin-right:.823529412em;}
 .ie .alignright{float:right;margin-left:.823529412em;}
+.ie .alignnone{margin-left:0;margin-right:0;}
 table{max-width:100%;border-collapse:collapse;border-spacing:0;}
 .table{width:100%;margin-bottom:1.529411765em;}
 .table th, .table td{padding:.470588235em;text-align:left;border-top:.071428571em solid #b8b8b8;}

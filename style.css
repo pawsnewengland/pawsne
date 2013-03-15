@@ -1,7 +1,7 @@
 /*
 
-    Theme Name: PAWS New England v4.2
-    Version: 4.2
+    Theme Name: PAWS New England v4.3
+    Version: 4.3
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -991,7 +991,6 @@ div.mailerr { display:block; }
 .icon-cart:before { content: "\e00d"; }
 .icon-people:before { content: "\e00e"; }
 .icon-horn:before { content: "\e00f"; }
-.icon-loading:before { content: "\e010"; }
 
 a .icon-home { color: #453f27; }
 a .icon-heart { color: #e7a2b0; }
@@ -1017,15 +1016,15 @@ a:hover .icon-horn { color: #272727; }
 /*  CSS3 Icons */
 
 .icon-bar {
-    display: block;
-    width: 1.176470588em;
-    height: .125em;
-    background-color: #ffffff;
-    border-radius: .071428571em;
+  display: block;
+  width: 1.176470588em;
+  height: .125em;
+  background-color: #ffffff;
+  border-radius: .071428571em;
 }
 
 .icon-bar + .icon-bar {
-    margin-top: .1875em;
+  margin-top: .1875em;
 }
 
 
@@ -1071,6 +1070,12 @@ a:hover .icon-horn { color: #272727; }
 	    float: right; 
 	    margin-left: .823529412em; 
 	}
+
+    /*  On bigger screens, remove left and right margins from .alignnone */
+	.alignnone {
+	    margin-left: 0;
+	    margin-right: 0;
+	}
 }
 
 /* IE Fallbacks */
@@ -1083,6 +1088,11 @@ a:hover .icon-horn { color: #272727; }
 .ie .alignright { 
     float: right; 
     margin-left: .823529412em; 
+}
+
+.ie .alignnone {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 

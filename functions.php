@@ -16,7 +16,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03042013-2.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03152013.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }
@@ -47,6 +47,28 @@ function pne_wpsearch() {
     return $form;
 }
 add_shortcode( 'searchform', 'pne_wpsearch' );
+
+
+
+
+
+/* ======================================================================
+ * Button-Shortcode.php
+ * A PHP script and shortcode for the CSS buttons.
+ * Script by Chris Ferdinandi - http://gomakethings.com
+ *
+ * Add a button in the content editor using the following pattern:
+ * [btn url="http://wherever.com"]Click Me[/btn]
+ * ====================================================================== */
+
+function css_btn($atts) {  
+    extract(shortcode_atts(array(  
+        "url" => 'http://www.pawsnewengland.com/donate/',
+        "label" => 'Donate'
+    ), $atts));  
+    return '<p><a class="btn btn-large" href="'.$url.'">' . $label . '</a></p>';  
+}
+add_shortcode("btn", "css_btn");
 
 
 
@@ -140,6 +162,34 @@ add_shortcode( 'slideshow', 'flexslider_slideshow' );
  * ====================================================================== */
 
 update_option('image_default_link_type','none');
+
+
+
+
+
+/* ======================================================================
+ * Disable-Inline-Styles.php
+ * Removes inline styles and other coding junk added by the WYSIWYG editor.
+ * Script by Chris Ferdinandi - http://gomakethings.com
+ * ====================================================================== */
+
+add_filter( 'the_content', 'clean_post_content' );
+function clean_post_content($content) {
+
+    // Remove inline styling
+    $content = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
+
+    // Remove font tag
+    $content = preg_replace('/<font[^>]+>/', '', $content);
+
+    // Remove empty tags
+    $post_cleaners = array('<p></p>' => '', '<p> </p>' => '', '<p>&nbsp;</p>' => '', '<span></span>' => '', '<span> </span>' => '', '<span>&nbsp;</span>' => '', '<font>' => '', '</font>' => '');
+    $content = strtr($content, $post_cleaners);
+
+    return $content;
+}
+
+
 
 
 
