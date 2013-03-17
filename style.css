@@ -1,7 +1,7 @@
 /*
 
-    Theme Name: PAWS New England v4.3
-    Version: 4.3
+    Theme Name: PAWS New England v4.4
+    Version: 4.4
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -393,6 +393,11 @@ p {
 .text-hero {
     font-size: 1.764705882em;
     line-height: 1.2;
+}
+
+.text-monsterous {
+    font-size: 6em;
+    line-height: 1;
 }
 
 @media (min-width: 42.5em) {
@@ -991,6 +996,7 @@ div.mailerr { display:block; }
 .icon-cart:before { content: "\e00d"; }
 .icon-people:before { content: "\e00e"; }
 .icon-horn:before { content: "\e00f"; }
+.icon-loading:before { content: "\e010"; }
 
 a .icon-home { color: #453f27; }
 a .icon-heart { color: #e7a2b0; }
@@ -1025,6 +1031,52 @@ a:hover .icon-horn { color: #272727; }
 
 .icon-bar + .icon-bar {
   margin-top: .1875em;
+}
+
+
+
+
+
+/*  SPINNERS */
+/*  Styling for CSS3 rotation animations */
+
+/*  The class that applies the animation. */
+.spinner {
+    display: inline-block;
+    -webkit-animation: spin 2s infinite linear;
+       -moz-animation: spin 2s infinite linear;
+        -ms-animation: spin 2s infinite linear;
+         -o-animation: spin 2s infinite linear;
+            animation: spin 2s infinite linear;
+}
+
+
+/*  The vendor-specific and generic animation keyframes.
+ *  These control the direction and nature of the animation. */
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 

@@ -92,6 +92,7 @@ p{margin-bottom:1.529411765em;}
 .text-small{font-size:.9375em;line-height:1.533333333;}
 .text-tall{font-size:1.166666667em;line-height:1.4;}
 .text-hero{font-size:1.764705882em;line-height:1.2;}
+.text-monsterous{font-size:6em;line-height:1;}
 @media (min-width:42.5em){.text-tall{font-size:1.352941176em;}
 .text-hero{font-size:2em;}
 }
@@ -237,6 +238,7 @@ url('fonts/icomoon.svg#IcoMoon') format('svg');font-weight:normal;font-style:nor
 .icon-cart:before{content:"\e00d";}
 .icon-people:before{content:"\e00e";}
 .icon-horn:before{content:"\e00f";}
+.icon-loading:before{content:"\e010";}
 a .icon-home{color:#453f27;}
 a .icon-heart{color:#e7a2b0;}
 a .icon-time,
@@ -257,6 +259,22 @@ a:hover .icon-people,
 a:hover .icon-horn{color:#272727;}
 .icon-bar{display:block;width:1.176470588em;height:.125em;background-color:#ffffff;border-radius:.071428571em;}
 .icon-bar + .icon-bar{margin-top:.1875em;}
+.spinner{display:inline-block;-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-ms-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear;}
+@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg);}
+100%{-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes spin{0%{-moz-transform:rotate(0deg);}
+100%{-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spin{0%{-ms-transform:rotate(0deg);}
+100%{-ms-transform:rotate(360deg);}
+}
+@-o-keyframes spin{0%{-o-transform:rotate(0deg);}
+100%{-o-transform:rotate(360deg);}
+}
+@keyframes spin{0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
 .alignleft,
 .alignright,
 .aligncenter,
