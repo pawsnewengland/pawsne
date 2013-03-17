@@ -183,14 +183,11 @@ function clean_post_content($content) {
     $content = preg_replace('/<font[^>]+>/', '', $content);
 
     // Remove empty tags
-    $post_cleaners = array('<p></p>' => '', '<p> </p>' => '', '<p>&nbsp;</p>' => '', '<span></span>' => '', '<span> </span>' => '', '<span>&nbsp;</span>' => '', '<font>' => '', '</font>' => '');
+    $post_cleaners = array('<p></p>' => '', '<p> </p>' => '', '<p>&nbsp;</p>' => '', '<span></span>' => '', '<span> </span>' => '', '<span>&nbsp;</span>' => '', '<span>' => '', '</span>' => '', '<font>' => '', '</font>' => '');
     $content = strtr($content, $post_cleaners);
 
     return $content;
 }
-
-
-
 
 
 
@@ -574,6 +571,18 @@ function petf_shelter_list() {
         $output_buffer = "<p class='text-tall text-center'>Sorry, our pet list is down at the moment.</p>
                          <p class='text-center'><a class='btn btn-large' target='_blank' href='http://www.petfinder.com/pet-search?shelterid=RI77'>View our dogs on Petfinder</a></p>";
     }
+
+
+    // Remove inline styling
+    $output_buffer = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $output_buffer);
+
+    // Remove font tag
+    $output_buffer = preg_replace('/<font[^>]+>/', '', $output_buffer);
+
+    // Remove empty tags
+    $petlist_cleaners = array('<p></p>' => '', '<p> </p>' => '', '<p>&nbsp;</p>' => '', '<span></span>' => '', '<span> </span>' => '', '<span>&nbsp;</span>' => '', '<span>' => '', '</span>' => '', '<font>' => '', '</font>' => '');
+    $output_buffer = strtr($output_buffer, $petlist_cleaners);
+
 
     return $output_buffer;
     
