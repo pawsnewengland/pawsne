@@ -95,6 +95,7 @@ p{margin-bottom:1.529411765em;}
 .text-monsterous{font-size:6em;line-height:1;}
 @media (min-width:42.5em){.text-tall{font-size:1.352941176em;}
 .text-hero{font-size:2em;}
+.text-monsterous{font-size: 8em;}
 }
 .ie .text-tall{font-size:1.352941176em;}
 .ie .text-hero{font-size:2em;}

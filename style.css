@@ -408,6 +408,10 @@ p {
     .text-hero {
         font-size: 2em;
     }
+
+    .text-monsterous {
+        font-size: 8em;
+    }
 }
 
 /* IE Fallbacks */
