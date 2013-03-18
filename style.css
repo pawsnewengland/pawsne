@@ -22,8 +22,8 @@
     "MuseoSans500", "Helvetica Neue", Arial, sans-serif
 
 
-	TYPOGRAPHIC SCALE
-	4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
+    TYPOGRAPHIC SCALE
+    4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
 
 	
 */
@@ -781,7 +781,6 @@ input, textarea, select {
     padding: .294117647em; 
     border: .071428571em solid #b8b8b8; 
     border-radius: .176470588em;
-    -webkit-appearance: none;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;

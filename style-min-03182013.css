@@ -166,7 +166,7 @@ button, .btn{cursor:pointer;text-align:center;vertical-align:middle;-webkit-appe
 form, fieldset{margin-bottom:1.529411765em;}
 legend, label{display:block;font-weight:normal;padding:0;margin-bottom:.294117647em;}
 legend{font-family:"MuseoSlab500", Georgia, Times, serif;font-size:1.176470588em;}
-input, textarea, select{display:block;width:100%;font:inherit;line-height:1.470588235;color:#555555;vertical-align:middle;margin-bottom:1.176470588em;padding:.294117647em;border:.071428571em solid #b8b8b8;border-radius:.176470588em;-webkit-appearance:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+input, textarea, select{display:block;width:100%;font:inherit;line-height:1.470588235;color:#555555;vertical-align:middle;margin-bottom:1.176470588em;padding:.294117647em;border:.071428571em solid #b8b8b8;border-radius:.176470588em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
 form button, form .btn{margin-bottom:1.176470588em;}
 textarea{height:12em;}
 input[type="image"],
