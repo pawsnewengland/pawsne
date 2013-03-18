@@ -140,7 +140,7 @@ q:before, q:after{content:'';content:none;}
 .url-action [class*=" icon-"]{float:left;font-size:3em;line-height:1.2;margin-right:.235294118em;}
 .url-action .h2{font-family:"MuseoSlab500", Georgia, Times, serif;color:#e0812a;}
 .url-action:hover .h2{color:#272727;}
-.btn{display:inline-block;font-size:.882352941em;padding:.4em .666666667em .2em;line-height:1.333333333;font-weight:normal;background-color:#6aa120;border:.071428571em solid #6aa120;border-radius:.235294118em;margin-left:.3em;margin-bottom:.3em;}
+.btn{display:inline-block;font-size:.882352941em;padding:.4em .666666667em;line-height:1.333333333;font-weight:normal;background-color:#6aa120;border:.071428571em solid #6aa120;border-radius:.235294118em;margin-left:.3em;margin-bottom:.3em;}
 .btn,
 .btn:hover,
 a .btn:hover{color:#ffffff;}
@@ -156,7 +156,7 @@ a .btn-fb:hover{background:#2c4370;border-color:#2c4370;}
 .btn-comment:hover,
 a .btn-comment:hover{background:#595959;border-color:#595959;}
 .btn:active{-webkit-box-shadow:inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);box-shadow:inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);outline:0;}
-.btn-large{padding:.588235294em .882352941em .48em;font-size:1em;line-height:normal;border-radius:.294117647em;}
+.btn-large{padding:.588235294em .882352941em;font-size:1em;line-height:normal;border-radius:.294117647em;}
 .btn-block,
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
@@ -453,3 +453,4 @@ pre, blockquote{border-color:#999;page-break-inside:avoid;}
 thead{display:table-header-group;}
 tr, img{page-break-inside:avoid;}
 }
+

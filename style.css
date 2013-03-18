@@ -654,7 +654,7 @@ q:before, q:after {
 .btn {
     display: inline-block;
     font-size: .882352941em;
-    padding: .4em .666666667em .2em;
+    padding: .4em .666666667em;
     line-height: 1.333333333;
     font-weight: normal;
     background-color: #6aa120;
@@ -717,7 +717,7 @@ a .btn-comment:hover {
 }
 
 .btn-large {
-    padding: .588235294em .882352941em .48em;
+    padding: .588235294em .882352941em;
     font-size: 1em;
     line-height: normal;
     border-radius: .294117647em;
