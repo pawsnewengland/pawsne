@@ -583,9 +583,14 @@ sub {
 }
 
 /*  Highlighting colors */
-::selection, ::-moz-selection { 
-    color: #ffffff; 
-    background: #3892d0; 
+::selection { 
+    color: #ffffff;
+    background: #6aa120; 
+}
+
+::moz-selection { 
+    color: #ffffff;
+    background: #6aa120; 
 }
 
 /*  Blockquotes */
@@ -812,7 +817,9 @@ input[type="image"] {
 
 input:focus, 
 textarea:focus { 
-    border-color: #0088cc;
+    border-color: rgba(82, 168, 236, 0.8); 
+    -webkit-box-shadow: inset 0 .071428571em .071428571em rgba(0, 0, 0, 0.075), 0 0 .470588235em rgba(82, 168, 236, 0.6);
+            box-shadow: inset 0 .071428571em .071428571em rgba(0, 0, 0, 0.075), 0 0 .470588235em rgba(82, 168, 236, 0.6);
     outline: 0; 
     outline: thin dotted \9; 
 }
