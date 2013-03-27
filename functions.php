@@ -16,7 +16,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne-min-03152013.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.03272013.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }
@@ -452,7 +452,7 @@ function petf_shelter_list() {
                                             $output_buffer .= " " . $breed_class;
                                         }
                 $output_buffer .=   "'>
-                                        <a class='modal' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>";
+                                        <a class='modal-toggle' data-target='#modal-" . $pet->id . "' target='_blank' href='" . $pet_url . "'>";
                                             if(count($pet->media->photos) > 0){
                                                 $output_buffer .= "<img class='space-bottom-small pf-img' alt='Photo of " . $pet_name . "' src='" . $pet->media->photos->photo . "'>";
                                             }
@@ -461,7 +461,7 @@ function petf_shelter_list() {
                                             }
                 $output_buffer .=           "<h3 class='no-space-top space-bottom-small'>" . $pet_name . "</h3>
                                         </a>
-                                        <div class='modal-menu' id='modal-" . $pet->id . "'>
+                                        <div class='modal text-left' id='modal-" . $pet->id . "'>
                                             <div class='container'>
                                                 <div class='group'>
                                                     <a class='close modal-close h2' href='#'>×</a>
@@ -524,7 +524,7 @@ function petf_shelter_list() {
                                                     <div class='grid-4'>
                                                         <h3 class='no-space-top'>About " . $pet_name . "</h3>" .
                                                         $pet->description .
-                                                        "<button class='btn modal-close'>Close</button>
+                                                        "<p><button class='btn modal-close'>Close</button></p>
                                                     </div>
                                                 </div>
                                             </div>
