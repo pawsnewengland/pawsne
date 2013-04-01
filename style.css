@@ -957,14 +957,6 @@ div.mailerr { display:block; }
     max-height: 9.375em;
 }
 
-.pf-icon:after {
-    content: "/";
-}
-
-.pf-icon:last-child:after {
-    content: "";
-}
-
 
 
 
