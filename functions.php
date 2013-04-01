@@ -481,17 +481,20 @@ function petf_shelter_list() {
                 $output_buffer .=                       "</p>
                                                         <p>
                                                             <strong>Special Requirements</strong>";
-                                                            $icons = "";
+                                                            $noCats = "";
+                                                            $noDogs = "";
+                                                            $noKids = "";
+                                                            $special = "";
                                                             foreach( $pet->options->option as $option ){
                                                                 switch($option){
                                                                     case "noCats":
-                                                                        $icons .= "<span class='pf-icon'>Cats</span>";
+                                                                        $noCats = "Cats";
                                                                         break;
                                                                     case "noDogs":
-                                                                        $icons .= "<span class='pf-icon'>Dogs</span>";
+                                                                        $noDogs .= "Dogs";
                                                                         break;
                                                                     case "noKids":
-                                                                        $icons .= "<span class='pf-icon'>Kids</span>";
+                                                                        $noKids .= "Kids";
                                                                         break;
                                                                     case "specialNeeds":
                                                                         $special .= "Special Needs";
@@ -506,13 +509,31 @@ function petf_shelter_list() {
                                                                         break;
                                                                 }
                                                             }
-                                                            if($icons != ""){
-                                                                $output_buffer .= "<br>No " . $icons;
+                                                            if($noCats != "" && $noDogs != "" && $noKids != ""){
+                                                                $output_buffer .= "<br>No " . $noCats . "/" . $noDogs . "/" . $noKids;
+                                                            }
+                                                            else if ($noCats != "" && $noDogs != "") {
+                                                                $output_buffer .= "<br>No " . $noCats . "/" . $noDogs;
+                                                            }
+                                                            else if ($noCats != "" && $noKids != "") {
+                                                                $output_buffer .= "<br>No " . $noCats . "/" . $noKids;
+                                                            }
+                                                            else if ($noDogs != "" && $noKids != "") {
+                                                                $output_buffer .= "<br>No " . $noDogs . "/" . $noKids;
+                                                            }
+                                                            else if ($noCats != "") {
+                                                                $output_buffer .= "<br>No " . $noCats;
+                                                            }
+                                                            else if ($noDogs != "") {
+                                                                $output_buffer .= "<br>No " . $noDogs;
+                                                            }
+                                                            else if ($noKids != "") {
+                                                                $output_buffer .= "<br>No " . $noKids;
                                                             }
                                                             if($special != ""){
                                                                 $output_buffer .= "<br>" . $special;
                                                             }
-                                                            if($icons == "" && $special == ""){
+                                                            if($noCats == "" && $noDogs == "" && $noKids == "" && $special == ""){
                                                                 $output_buffer .= "<br>None";
                                                             }
                 $output_buffer .=                       "</p>
@@ -530,17 +551,20 @@ function petf_shelter_list() {
                                             </div>
                                         </div>" . 
                                         $pet_size . ", " . $pet_age . ", " . $pet_sex;
-                                        $icons = "";
+                                        $noCats = "";
+                                        $noDogs = "";
+                                        $noKids = "";
+                                        $special = "";
                                         foreach( $pet->options->option as $option ){
                                             switch($option){
                                                 case "noCats":
-                                                    $icons .= "<span class='pf-icon'>Cats</span>";
+                                                    $noCats = "Cats";
                                                     break;
                                                 case "noDogs":
-                                                    $icons .= "<span class='pf-icon'>Dogs</span>";
+                                                    $noDogs .= "Dogs";
                                                     break;
                                                 case "noKids":
-                                                    $icons .= "<span class='pf-icon'>Kids</span>";
+                                                    $noKids .= "Kids";
                                                     break;
                                                 case "specialNeeds":
                                                     $special .= "Special Needs";
@@ -555,8 +579,26 @@ function petf_shelter_list() {
                                                     break;
                                             }
                                         }
-                                        if($icons != ""){
-                                            $output_buffer .= "<br>No " . $icons;
+                                        if($noCats != "" && $noDogs != "" && $noKids != ""){
+                                            $output_buffer .= "<br>No " . $noCats . "/" . $noDogs . "/" . $noKids;
+                                        }
+                                        else if ($noCats != "" && $noDogs != "") {
+                                            $output_buffer .= "<br>No " . $noCats . "/" . $noDogs;
+                                        }
+                                        else if ($noCats != "" && $noKids != "") {
+                                            $output_buffer .= "<br>No " . $noCats . "/" . $noKids;
+                                        }
+                                        else if ($noDogs != "" && $noKids != "") {
+                                            $output_buffer .= "<br>No " . $noDogs . "/" . $noKids;
+                                        }
+                                        else if ($noCats != "") {
+                                            $output_buffer .= "<br>No " . $noCats;
+                                        }
+                                        else if ($noDogs != "") {
+                                            $output_buffer .= "<br>No " . $noDogs;
+                                        }
+                                        else if ($noKids != "") {
+                                            $output_buffer .= "<br>No " . $noKids;
                                         }
                                         if($special != ""){
                                             $output_buffer .= "<br>" . $special;
