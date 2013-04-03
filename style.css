@@ -1,7 +1,7 @@
 /*
 
-    Theme Name: PAWS New England v4.5
-    Version: 4.5
+    Theme Name: PAWS New England v4.6
+    Version: 4.6
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -436,12 +436,18 @@ p {
 /*  Links 
  *  Hyperlink styling */
 
-a { 
+button {
+    background: transparent;
+}
+
+a,
+button { 
     color: #e0812a;
     text-decoration: none;
 }
 
-a:hover { 
+a:hover,
+button:hover { 
     color: #272727; 
     text-decoration: underline; 
 }
@@ -1439,6 +1445,28 @@ table {
 
 .ie .nav {
     margin-top: .470588235em;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/*  SHOPPING CART */
+/*  Styling for shopping cart navigation */
+
+.cart-bg {
+    background-color: #ece9e1;
+    margin-top: -.823529412em;
+    margin-bottom: .823529412em;
+    padding-top: .470588235em;
+    padding-bottom: .470588235em;
+}
+
+/*  Remove spacing on forms in tables */
+.cart-form, 
+.cart-form input,
+.cart-form button {
     margin-bottom: 0;
 }
 

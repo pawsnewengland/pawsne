@@ -24,7 +24,7 @@
 
 
 	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.04012013.css">
+	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css">
 
         <!-- HTML5 Shim for IE 6-8 -->
 	    <!--[if lt IE 9]>    
@@ -111,6 +111,20 @@
                 </div>
             </nav>
         </div>
+
+        <?php if (is_page('shop-3')) : ?>
+            <!-- Shop Navigation -->
+            <div class="cart-bg">
+                <div class="container">
+                    <form class="text-right cart-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" class="last" target="_blank"> 
+	                    <input type="hidden" name="business" value="paypal@pawsnewengland.com" /> 
+	                    <input type="hidden" name="cmd" value="_cart" /> 
+	                    <input type="hidden" name="display" value="1" /> 
+                        <button type="submit"><i class="icon-cart"></i> View Cart</button>
+                    </form>
+                </div>
+            </div>
+        <?php endif; ?>
 
 
 	    <section class="container space-bottom-big">

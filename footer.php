@@ -13,8 +13,8 @@
 
 	    <?php wp_footer(); ?>
 
-        <!-- PetFinder API Redirect -->
         <?php if (is_page('our-dogs')) : ?>
+            <!-- PetFinder API Redirect -->
             <script>
                 $(document).ready(function() {
                     setTimeout("window.location='<?php echo get_option('home'); ?>/our-dogs-list/'", 500);
