@@ -24,7 +24,7 @@
 
 
 	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.css">
+	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.04102013.css">
 
         <!-- HTML5 Shim for IE 6-8 -->
 	    <!--[if lt IE 9]>    
@@ -112,7 +112,7 @@
             </nav>
         </div>
 
-        <?php if (is_page('shop-4')) : ?>
+        <?php if (is_page('store')) : ?>
             <!-- Shop Navigation -->
             <div class="cart-bg">
                 <div class="container text-right">
