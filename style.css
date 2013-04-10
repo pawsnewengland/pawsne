@@ -677,10 +677,23 @@ a .btn:hover {
 }
 
 .btn:hover, 
-a .btn:hover {
+a .btn:hover,
+.btn.btn-disabled {
     background: #507a18;
     border-color: #507a18;
     text-decoration: none;
+}
+
+.btn-muted {
+    background: #808080;
+    border-color: #808080; 
+}
+
+.btn-muted:hover, 
+a .btn-muted:hover,
+.btn-muted.btn-disabled {
+    background: #595959;
+    border-color: #595959; 
 }
 
 .btn-tweet {
@@ -705,21 +718,16 @@ a .btn-fb:hover {
     border-color: #2c4370; 
 }
 
-.btn-comment {
-    background: #808080;
-    border-color: #808080; 
-}
-
-.btn-comment:hover, 
-a .btn-comment:hover {
-    background: #595959;
-    border-color: #595959; 
-}
-
 .btn:active {
     -webkit-box-shadow: inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);
             box-shadow: inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);
     outline: 0; 
+}
+
+.btn.btn-disabled {
+  cursor: default;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
 }
 
 .btn-large {
@@ -856,6 +864,20 @@ select:focus {
     border: none;
     background: none;
     margin-left: -2.352941176em;
+}
+
+
+/*  Inline Inputs */
+.input-inline {
+    display: inline;
+    width: auto;
+}
+
+
+/*  Condensed Inputs */
+.input-condensed {
+    line-height: 1;
+    padding: .117647059em;
 }
 
 
@@ -1176,7 +1198,7 @@ a:hover .icon-horn { color: #272727; }
 /*  Removes default browser settings
  *  and evens out inconsistencies. */
 table { 
-    max-width: 100%; 
+    max-width: 100%;
     border-collapse: collapse; 
     border-spacing: 0; 
 }
@@ -1193,14 +1215,13 @@ table {
  *  and adds a top border to each cell. */
 .table th, .table td { 
     padding: .470588235em; 
-    text-align: left; 
     border-top: .071428571em solid #b8b8b8; 
 }
 
 /*  Sets table header font-weight to bold.
  *  Aligns table header text to the bottom of each cell. */
 .table th { 
-    font-weight: bold; 
+    font-family: "MuseoSlab500", Georgia, Times, serif;
     vertical-align: bottom; 
 }
 
@@ -1228,7 +1249,8 @@ table {
 
 /*  Remove spacing on forms in tables */
 .table form, 
-.table input {
+.table input,
+.table button {
     margin-bottom: 0;
 }
 
@@ -1463,13 +1485,6 @@ table {
     padding-bottom: .470588235em;
 }
 
-/*  Remove spacing on forms in tables */
-.cart-form, 
-.cart-form input,
-.cart-form button {
-    margin-bottom: 0;
-}
-
 
 
 
@@ -1672,6 +1687,10 @@ table {
     font-weight: bold;
     font-size: 1.529411765em
     cursor: pointer;
+}
+
+.close-cart {
+    float: none;
 }
 
 /*  Styling for close button on hover */

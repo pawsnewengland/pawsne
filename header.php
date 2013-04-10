@@ -112,16 +112,16 @@
             </nav>
         </div>
 
-        <?php if (is_page('shop-3')) : ?>
+        <?php if (is_page('shop-4')) : ?>
             <!-- Shop Navigation -->
             <div class="cart-bg">
-                <div class="container">
-                    <form class="text-right cart-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" class="last" target="_blank"> 
-	                    <input type="hidden" name="business" value="paypal@pawsnewengland.com" /> 
-	                    <input type="hidden" name="cmd" value="_cart" /> 
-	                    <input type="hidden" name="display" value="1" /> 
-                        <button type="submit"><i class="icon-cart"></i> View Cart</button>
-                    </form>
+                <div class="container text-right">
+                    <a class="collapse-toggle" href="#cart"><i class="icon-cart"></i> Cart (<?php echo checkout_cart_count(); ?>)</a>
+                </div>
+                <div class="collapse <?php echo checkout_cart_active(); ?>" id="cart">
+                    <div class="container space-top">
+                        <?php echo checkout_cart(); ?>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
