@@ -112,7 +112,7 @@
             </nav>
         </div>
 
-        <?php if (is_page('store')) : ?>
+        <?php if ( is_page('store') || $post->post_parent == '921' ) : ?>
             <!-- Shop Navigation -->
             <div class="cart-bg">
                 <div class="container text-right">
