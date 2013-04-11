@@ -24,7 +24,7 @@
 
 
 	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.04102013.css">
+	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.04112013.css">
 
         <!-- HTML5 Shim for IE 6-8 -->
 	    <!--[if lt IE 9]>    
@@ -115,8 +115,9 @@
         <?php if ( is_page('store') || $post->post_parent == '921' ) : ?>
             <!-- Shop Navigation -->
             <div class="cart-bg">
-                <div class="container text-right">
-                    <a class="collapse-toggle" href="#cart"><i class="icon-cart"></i> Cart (<?php echo checkout_cart_count(); ?>)</a>
+                <div class="container">
+                    <a class="collapse-toggle float-right" href="#cart"><i class="icon-cart"></i> Cart (<?php echo checkout_cart_count(); ?>)</a>
+                    <a href="<?php echo get_option('home'); ?>/store/">The PAWS Store</a>
                 </div>
                 <div class="collapse <?php echo checkout_cart_active(); ?>" id="cart">
                     <div class="container space-top">
