@@ -255,7 +255,7 @@ function stripTrackback($var) {
 // VARIABLES
 
 // PayPal Account
-$paypal_account = 'paypal@pawsnewengland.com';
+$paypal_account = 'store@pawsnewengland.com';
 
 // Define image directory
 $img_directory = get_template_directory_uri() . '/img/';
@@ -524,7 +524,7 @@ function checkout_cart() {
 
         // Success message and purchase summary    
         $checkout_cart = '
-            <p>Thanks for your purchase! Your order will ship in the next three days. You should also receive an invoice confirmation by mail. If you have any questions, please contact <a href="mailto:' . $paypal_account . '">' . $paypal_account . '</a>.</p>
+            <p>Thanks for your purchase! You should receive an invoice confirmation by mail. If you have any questions, please contact <a href="mailto:' . $paypal_account . '">' . $paypal_account . '</a>.</p>
             <h3>Order Summary</h3>
             <table class="table text-center">
                 <thead>
