@@ -259,7 +259,7 @@ function stripTrackback($var) {
 // VARIABLES
 
 // PayPal Account
-$paypal_account = 'store@pawsnewengland.com';
+$paypal_account = '';
 
 // Define image directory
 $img_directory = get_template_directory_uri() . '/img/';
