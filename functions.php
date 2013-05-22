@@ -286,8 +286,6 @@ $url_success = $url_cart . '?checkout-success';
 
 
 
-
-
 // FUNCTIONS
 
 // Start browsing session (for data storage)
@@ -555,7 +553,7 @@ function checkout_cart() {
     // If checkout complete
     if ( $url_current == $url_success && isset($_SESSION['shopping_cart']) ) {
 
-        // Success message and purchase summary    
+        // Success message and purchase summary
         $checkout_cart = '
             <p>Thanks for your purchase! You should receive an invoice confirmation by mail. If you have any questions, please contact <a href="mailto:' . $paypal_account . '">' . $paypal_account . '</a>.</p>
             <h3>Order Summary</h3>
