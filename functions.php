@@ -258,7 +258,7 @@ function stripTrackback($var) {
 
 // VARIABLES
 
-// PayPal Account
+// PayPal Account (your PayPal email address)
 $paypal_account = '';
 
 // Define image directory
@@ -272,26 +272,17 @@ $url_current .= $_SERVER["REQUEST_URI"];
 // Remove URL metadata
 $url_clean = array_shift( explode('?', $url_current) );
 
+// Define the Store URL
+$url_store = get_option('home') . '/store/';
+
+// Define Shopping Cart URL
+$url_cart = get_option('home') . '/checkout-cart/';
+
 // Define "Cart Updated" URL
-$url_update = $url_clean . '?cart-updated';
+$url_update = $url_cart . '?cart-updated';
 
 // Define "Checkout Success" URL
-$url_success = $url_clean . '?checkout-success';
-
-// Checkout Cart Active Class
-function checkout_cart_active() {
-
-    // Variables
-    $checkout_cart_active = '';
-    global $url_current, $url_update, $url_success;
-    
-    if ( $url_current == $url_update || $url_current == $url_success ) {
-        $checkout_cart_active = 'active';
-    }
-
-    return $checkout_cart_active;
-    
-}
+$url_success = $url_cart . '?checkout-success';
 
 
 
@@ -361,7 +352,7 @@ function add_to_cart($atts) {
 
     // If item is sold out, disable "Add to Cart" button
     else {
-        $add_to_cart = $option_form . '<p><button type="submit" class="btn btn-disabled">' . $sold . '</button></p>';
+        $add_to_cart = '<p><strong>' . $sold . '</strong></p>';
     }
 
     // Show "Add to Cart" Button
@@ -423,6 +414,52 @@ if ($_POST['add-to-cart'] ) {
 
 
 
+// Cart Shipping Information
+
+function checkout_cart_shipping() {
+
+    // Shopping cart variables
+    $checkout_cart_subtotal = 0;
+
+    // If shopping cart session exists...
+    if ( isset($_SESSION['shopping_cart']) ) {
+    
+        // For each item in shopping cart...
+	    foreach($_SESSION['shopping_cart'] as $item) {
+
+	        // Define shopping cart variables
+            $item_price = $item['product_price'];
+            $item_quantity = $item['product_quantity'];
+            $item_total_cost = $item_price * $item_quantity;
+            $checkout_cart_subtotal += $item_total_cost;
+
+        }
+
+    }
+
+    // Shipping Variables
+    // (adjust as needed for your project)
+    $checkout_cart_shipping = 5;
+
+    // For orders over $20
+    if ($checkout_cart_subtotal > 20) {
+        // Shipping = $10
+        $checkout_cart_shipping = 10;
+    }
+
+    // For orders over $50
+    if ($checkout_cart_subtotal > 50) {
+        // Shipping = $20
+        $checkout_cart_shipping = 20;
+    }
+
+
+    // Display the shipping value
+    return $checkout_cart_shipping;
+}
+
+
+
 // Checkout Cart
 function checkout_cart() {  
 
@@ -430,7 +467,8 @@ function checkout_cart() {
     $checkout_cart = '';
     $checkout_cart_count = 0;
     $checkout_cart_subtotal = 0;
-    global $paypal_account, $url_current, $url_success, $img_directory;
+    $checkout_cart_shipping = checkout_cart_shipping();
+    global $paypal_account, $url_current, $url_store, $url_success, $img_directory;
 
     // If shopping cart session exists...
     if ( isset($_SESSION['shopping_cart']) ) {
@@ -448,7 +486,7 @@ function checkout_cart() {
             $checkout_cart_subtotal += $item_total_cost;
 
             // Remove from Cart Button
-            $remove_from_cart = '<a class="close close-cart" href="?action=remove-from-cart&id=' . $item_id . '">x <span class="screen-reader">remove from cart</span></a>';
+            $remove_from_cart = '<a href="?action=remove-from-cart&id=' . $item_id . '">remove</a>';
 
             // Item Quantity Form Element
             $item_quantity_form = '<input type="text" name="' . $item_id . '" value="' . $item_quantity . '" class="input-condensed text-center input-inline" style="width: 4em;">';
@@ -481,15 +519,6 @@ function checkout_cart() {
                 </tr>
             ';
 	    }
-
-        // Product shipping variables
-        $checkout_cart_shipping = 5;
-        if ($checkout_cart_subtotal > 20) {
-            $checkout_cart_shipping = 10;
-        }
-        if ($checkout_cart_subtotal > 50) {
-            $checkout_cart_shipping = 20;
-        }
 
         // Cart total variable
         $checkout_cart_total = $checkout_cart_subtotal + $checkout_cart_shipping;
@@ -554,7 +583,7 @@ function checkout_cart() {
 
     // If cart is empty
     elseif ( $checkout_cart_count == 0 ) {
-        $checkout_cart = '<p>Your shopping cart is empty.</p>';
+        $checkout_cart = '<p>Your shopping cart is empty. <a href="' . $url_store . '">Visit the store.</a></p>';
     }
 
    // Display checkout cart
@@ -627,6 +656,7 @@ if ($_POST['submit'] === 'cart-checkout' ) {
     // PayPal Variables
     $paypal_items = '';
     $count = 0;
+    $checkout_cart_shipping = checkout_cart_shipping();
 
     // For each item in shopping cart...
     foreach($_SESSION['shopping_cart'] as $item) {
@@ -649,18 +679,9 @@ if ($_POST['submit'] === 'cart-checkout' ) {
         $paypal_items .= $paypal_item_name . $paypal_item_price . $paypal_item_quantity . $paypal_item_shipping;
 
     }
-
-    // Product shipping variables
-    $checkout_cart_shipping = 5;
-    if ($checkout_cart_subtotal > 20) {
-        $checkout_cart_shipping = 10;
-    }
-    if ($checkout_cart_subtotal > 50) {
-        $checkout_cart_shipping = 20;
-    }
     
     // Paypal Checkout URL
-    $paypal_data = 'https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=' . $paypal_account . $paypal_items . '&shipping_1=' . $checkout_cart_shipping . '&upload=1&no_note=1&rm=1&no_shipping=2&return=' . $url_success . '&cancel_return=' . $url_update;
+    $paypal_data = 'https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=' . $paypal_account . $paypal_items . '&shipping_1=' . $checkout_cart_shipping . '&upload=1&no_note=1&rm=1&no_shipping=2&return=' . $url_success . '&cancel_return=' . $url_cart;
 
     // Redirect to PayPal for checkout
     header('Location: ' . $paypal_data);
@@ -670,12 +691,12 @@ if ($_POST['submit'] === 'cart-checkout' ) {
 
 
 
-// Number Items in Cart
-function checkout_cart_count() {
+// Link To Shopping Cart
+function checkout_cart_link() {
 
     // Variables
     $checkout_cart_count = 0;
-    global $url_current, $url_success;
+    global $url_current, $url_cart, $url_success;
 
     // If shopping cart session exists...
     if ( isset($_SESSION['shopping_cart']) ) {
@@ -692,9 +713,13 @@ function checkout_cart_count() {
         $checkout_cart_count = 0;
     }
 
-    // Display number of items in cart
-    return $checkout_cart_count;
+    // Create a link to the shopping cart, with number of items in cart
+    $checkout_cart_link = '<a href="' . $url_cart . '">Cart (' . $checkout_cart_count . ')</a>';
+
+    // Display link to the shopping cart
+    return $checkout_cart_link;
 }
+add_shortcode("checkout_cart_link", "checkout_cart_link");
 
 
 

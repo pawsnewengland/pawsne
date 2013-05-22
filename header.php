@@ -112,17 +112,11 @@
             </nav>
         </div>
 
-        <?php if ( is_page('store') || $post->post_parent == '921' ) : ?>
+        <?php if ( is_page('store') || is_page('checkout-cart') || $post->post_parent == '921' ) : ?>
             <!-- Shop Navigation -->
             <div class="cart-bg">
                 <div class="container">
-                    <a class="collapse-toggle float-right" href="#cart"><i class="icon-cart"></i> Cart (<?php echo checkout_cart_count(); ?>)</a>
-                    <a href="<?php echo get_option('home'); ?>/store/">The PAWS Store</a>
-                </div>
-                <div class="collapse <?php echo checkout_cart_active(); ?>" id="cart">
-                    <div class="container space-top">
-                        <?php echo checkout_cart(); ?>
-                    </div>
+                    <?php echo checkout_cart_link(); ?>
                 </div>
             </div>
         <?php endif; ?>
