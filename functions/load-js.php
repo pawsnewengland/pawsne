@@ -15,7 +15,7 @@ function my_scripts_method() {
 	wp_enqueue_script('jquery');
 
     // Register and load Kraken.js
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.03272013.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min-06112013.js', false, null, true);
 	wp_enqueue_script('pne-js');
 
 }

@@ -1,9 +1,9 @@
 /* =============================================================
- * ios-orientation-change-fix.js v1.0.0
- * Fixes zoom on rotation bug in iOS.
- * Script by @scottjehl, rebound by @wilto
- * https://github.com/scottjehl/iOS-Orientationchange-Fix
- * MIT / GPLv2 License
+    iOS Orientation Change Fix v1.0.0
+    Fixes zoom on rotation bug in iOS.
+    Script by @scottjehl, rebound by @wilto
+    https://github.com/scottjehl/iOS-Orientationchange-Fix
+    MIT / GPLv2 License
  * ============================================================= */
 
 (function(w){
@@ -64,11 +64,10 @@
 
 
 /* =============================================================
- * fluid-vids.js v1.0
- * Fluid and responsive YouTube and Vimeo videos.
- * Script by Todd Motto
- * https://github.com/toddmotto/fluidvids
- * MIT / GPLv2 License
+    FluidVids.js v1.0
+    Fluid and responsive YouTube and Vimeo videos, by Todd Motto.
+    https://github.com/toddmotto/fluidvids
+    MIT / GPLv2 License
  * ============================================================= */
 
 (function() {
@@ -104,131 +103,153 @@
 
 
 /* =============================================================
- * drop.js v1.0.0
- * Simple, progressively enhanced dropdown menus.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net
+
+    Drop v1.3
+    Simple, progressively enhanced dropdown menus by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-$(function () {
-    $('.dropdown > a').click(function(e) {
-        e.preventDefault();
-        $(this).toggleClass('active').next($('.dropdown-menu')).toggleClass('active');
-        $(this).parent().siblings('.dropdown').removeClass('active').children('a').removeClass('active').next($('.dropdown-menu')).removeClass('active');
-        $(this).parent('.dropdown').toggleClass('active');
+(function($) {
+    $(function () {
+        // Close dropdown menus when you click outside of them    
+        $('body').click(function(){
+          $('.dropdown > a').removeClass('active'); // Remove any '.active' classes from dropdown links
+          $('.dropdown').removeClass('active'); // Remove any '.active' classes from dropdown list items
+          $('.dropdown-menu').removeClass('active'); // Hide any visible dropdown menus
+        });
+
+        // When a dropdown menu link is clicked
+        $('.dropdown > a').click(function(e) {
+            e.stopPropagation(); // Stop the "close all dropdowns" function
+            e.preventDefault(); // Prevent the default link action
+            $(this).toggleClass('active').next($('.dropdown-menu')).toggleClass('active'); // If the dropdown menu is hidden, show it. Otherwise, hide it.
+            $(this).parent('.dropdown').toggleClass('active'); // Add/remove '.active' class to the dropdown list item
+            $(this).parent().siblings('.dropdown').removeClass('active').children('a').removeClass('active').next($('.dropdown-menu')).removeClass('active'); // Hide all other dropdown menus
+        });
+
+        // When click inside a dropdown menu
+        $('.dropdown-menu').click(function(e) {
+            e.stopPropagation(); // Stop the "close all dropdowns" function
+        });
     });
-});
+})(jQuery);
 
 
 
 
 
 /* =============================================================
- * astro.js v1.0.0
- * Mobile-first navigation patterns.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net/
+
+    Astro v2.0
+    Mobile-first navigation patterns by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-$(function () {
-    $('.nav-toggle').click(function(e) { // When a link or button with the .nav-toggle class is clicked
-        e.preventDefault(); // Prevent the default action from occurring
-
-        // Set Variables
-        var dataID = $(this).attr('data-target'); // dataID is the data-target value
-        var hrefID = $(this).attr('href'); // hrefID is the href value
-
-        // Toggle the Active Class
-        if (dataID)  { // If the clicked element has a data-target
-            $(dataID).toggleClass('active'); // Add or remove the .active class from the element whose ID matches the data-target value
-        }
-        else { // Otherwise
-            $(hrefID).toggleClass('active'); // Add or remove the .active class from the element whose ID matches the href value
-        }
+(function($) {
+    $(function () {
+        $('.nav-toggle').click(function(e) { // When a link or button with the .nav-toggle class is clicked
+            e.preventDefault(); // Prevent the default action from occurring
+            var dataID = $(this).attr('data-target'); // Get the ID of navigation menu
+            $(dataID).toggleClass('active'); // Add or remove the .active class from the navigation menu
+        });
     });
-});
+})(jQuery);
 
 
 
 
 
 /* =============================================================
- * houdini.js v1.0.0
- * A simple collapse and expand widget.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net/
+
+    Houdini v2.0
+    A simple collapse and expand widget by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-$(function () {
-    $('.collapse-toggle').click(function(e) { // When a link or button with the .collapse-toggle class is clicked
-        e.preventDefault(); // Prevent the default action from occurring
-
-        // Set Variables
-        var dataID = $(this).attr('data-target'); // dataID is the data-target value
-        var hrefID = $(this).attr('href'); // hrefID is the href value
-
-        // Toggle the Active Class
-        if (dataID)  { // If the clicked element has a data-target
-            $(dataID).toggleClass('active'); // Add or remove the .active class from the element whose ID matches the data-target value
-        }
-        else { // Otherwise
-            $(hrefID).toggleClass('active'); // Add or remove the .active class from the element whose ID matches the href value
-        }
+(function($) {
+    $(function () {
+        $('.collapse-toggle').click(function(e) { // When a link or button with the .collapse-toggle class is clicked
+            e.preventDefault(); // Prevent the default action from occurring
+            var dataID = $(this).attr('data-target'); // Get the ID of the target element
+            $(dataID).toggleClass('active'); // Add or remove the '.active' class from the target element
+        });
     });
-});
+})(jQuery);
 
 
 
 
 
 /* =============================================================
- * modals.js v1.0
- * Simple jQuery modal dialogue pop-up windows.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net
+
+    Modals v1.1
+    Simple jQuery modal dialogue pop-up windows by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-$(function () {
-    // Modal toggle button
-    $('.modal-toggle').click(function(e) {
-        e.preventDefault(); // Prevent default link behavior.
-        var modalID = $(this).attr('data-target'); // Get the target modal ID.
-        
-        $('body').append('<div class="modal-bg"></div>'); // Add modal background.
-        $(modalID).addClass('active').css('top', $(window).scrollTop() + 50 + "px"); // Add or remove the .active class from the modal.
-    });
+(function($) {
+    $(function () {
+        // Modal toggle button
+        $('.modal-toggle').click(function(e) {
+            e.preventDefault(); // Prevent default link behavior.
+            var modalID = $(this).attr('data-target'); // Get the target modal ID.
+            
+            $('body').append('<div class="modal-bg"></div>'); // Add modal background.
+            $(modalID).addClass('active').css('top', $(window).scrollTop() + 50 + "px"); // Add or remove the .active class from the modal.
+        });
 
-    // Modal close button
-    $('.modal-close').click(function(e) {
-        e.preventDefault(); // Prevent default link behavior.
-        $('.modal').removeClass('active'); // Hide modal.
-        $('.modal-bg').remove(); // Remove modal background.
-    });
-
-    // When click outside of modal
-    $('body').on('click touchstart','.modal-bg',function() {
-        $('.modal').removeClass('active'); // Hide modal.
-        $('.modal-bg').remove(); // Remove modal background.
-    });
-
-    // When escape key pressed
-    $(document).on('keydown',function(e) {
-        if ( e.keyCode === 27 ) { // If escape key pressed
+        // Modal close button
+        $('.modal-close').click(function(e) {
+            e.preventDefault(); // Prevent default link behavior.
             $('.modal').removeClass('active'); // Hide modal.
             $('.modal-bg').remove(); // Remove modal background.
-        }
+        });
+
+        // When click outside of modal
+        $('body').on('click touchstart','.modal-bg',function() {
+            $('.modal').removeClass('active'); // Hide modal.
+            $('.modal-bg').remove(); // Remove modal background.
+        });
+
+        // When escape key pressed
+        $(document).on('keydown',function(e) {
+            if ( e.keyCode === 27 ) { // If escape key pressed
+                $('.modal').removeClass('active'); // Hide modal.
+                $('.modal-bg').remove(); // Remove modal background.
+            }
+        });
     });
-});
+})(jQuery);
 
 
 
 
 
 /* =============================================================
- * petfinder-sort.js v1.0.0
- * Filter PetFinder results by a variety of categories.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net
+
+    Petfinder Sort v1.0
+    Filter PetFinder results by a variety of categories, by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+
  * ============================================================= */
 
 $(function () {
@@ -269,18 +290,29 @@ $(function () {
 
 
 /* =============================================================
- * smooth-scroll.js v1.0
- * Animated scroll to anchor links.
- * Script by Charlie Evans
- * http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
+
+    Smooth Scroll 1.1
+    Animated scroll to anchor links.
+
+    Script by Charlie Evans.
+    http://www.sycha.com/jquery-smooth-scrolling-internal-anchor-links
+
+    Rebounded by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-jQuery(document).ready(function($) {
-    $(".scroll").click(function(event){ // When a link with the .scroll class is clicked
-        event.preventDefault(); // Prevent the default action from occurring
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500); // Animate the scroll to this link's href value
+(function($) {
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){ // When a link with the .scroll class is clicked
+            event.preventDefault(); // Prevent the default action from occurring
+            $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500); // Animate the scroll to this link's href value
+        });
     });
-});
+})(jQuery);
 
 
 
@@ -288,29 +320,43 @@ jQuery(document).ready(function($) {
 
 
 /* =============================================================
- * js-accessibility.js v1.0.0
- * Adds .js class to <body> for progressive enhancement.
- * Script by Chris Ferdinandi - http://gomakethings.com
- * Licensed under WTFPL - http://www.wtfpl.net
+
+    Progressively Enhanced JS v1.0
+    Adds .js class to <body> for progressive enhancement.
+
+    Script by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Free to use under the MIT License.
+    http://gomakethings.com/mit/
+    
  * ============================================================= */
 
-$(function () {
-    $('body').addClass('js'); // On page load, add the .js class to the <body> element.
-});
+(function($) {
+    $(function () {
+        $('body').addClass('js'); // On page load, add the .js class to the <body> element.
+    });
+})(jQuery);
 
 
 
 
 
 /* =============================================================
- * jquery-flexslider.js v2.1
- * http://www.woothemes.com/flexslider/
- * 
- * Copyright 2012 WooThemes
- * Free to use under the GPLv2 license.
- * http://www.gnu.org/licenses/gpl-2.0.html
- *
- * Contributing author: Tyler Smith (@mbmufffin)
+
+    Slider v2.0
+    A simple, fluid, touch-enabled carousel forked from FlexSlider by WooThemes.
+
+    Script by WooThemes with contributing author Tyler Smith, 2012
+    http://www.woothemes.com/flexslider/
+    https://twitter.com/mbmufffin
+
+    Rebounded by Chris Ferdinandi, 2013.
+    http://gomakethings.com
+
+    Licensed under GPLv2.
+    http://www.gnu.org/licenses/gpl-2.0.html
+    
  * ============================================================= */
 
 ;(function ($) {

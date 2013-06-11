@@ -13,7 +13,7 @@ get_header(); ?>
 
 		<p>It's our hope that this film will inspire you to take action.</p>
 
-		<p class="text-center"><a class="btn btn-large collapse-toggle" href="#learn-more">A Note from Our Founder +</a></p>
+		<p class="text-center"><a class="btn btn-large collapse-toggle" data-target="#learn-more" href="#">A Note from Our Founder +</a></p>
 
 		<div class='collapse' id='learn-more'>
             <div class="hero">
@@ -37,7 +37,7 @@ get_header(); ?>
 
 			    <p>PAWS New England and animal lovers around the country would like to thank HBO for commissioning this ground breaking work. If you would like to thank HBO yourself and encourage them to produce more films about this important topic, you can contact the director at <a href="mailto:ellen.goosenberg@hbo.com">ellen.goosenberg@hbo.com</a>.</p>
 
-                <p class="text-center"><a class="btn btn-large collapse-toggle" href="#learn-more">Close</a></p>
+                <p class="text-center"><a class="btn btn-large collapse-toggle" data-target="#learn-more" href="#">Close</a></p>
             </div>
 		</div>
 

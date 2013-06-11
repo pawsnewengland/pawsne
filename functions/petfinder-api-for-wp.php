@@ -24,7 +24,7 @@
 // Your Account Info
 $api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
 $shelter_id = 'RI77'; // Change to your shelter ID
-$count = '20'; // Number of animals to return. Set to higher than total # of animals in your shelter.
+$count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
 
 // Create the request URL
 $request_url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
@@ -544,7 +544,7 @@ function get_pet_info() {
         $pet_breeds_condensed = '';
         foreach( $pet->breeds->breed as $breed ) {
             $pet_breeds .= '<br>' . $breed;
-            $pet_breeds_condensed .= '<br>' . pet_value_condensed($breed);
+            $pet_breeds_condensed .= pet_value_condensed($breed) . ' ';
         }
 
         // Get list of all pet options
@@ -601,7 +601,7 @@ function get_pet_info() {
 
         // Compile pet info
         // Add $pet_options and $pet_breeds as classes and meta info
-        $pet_info .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_options_condensed .  '">
+        $pet_info .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_breeds_condensed . ' ' . $pet_options_condensed . '">
                             <a class="modal-toggle" data-target="#modal-' . $pet->id . '" target="_blank" href="' . $pet_url . '">' .
                                 $pet_photos .
                                 '<h3 class="no-space-top space-bottom-small">' . $pet_name . '</h3>
@@ -677,7 +677,7 @@ function get_petfinder_list() {
                                 <div class="hide-js">
                                     <p>Your perfect companion could be just a click away. Click on a dog to learn more.</p>
                                 </div>
-                                <p><a class="btn collapse-toggle" href="#sort-options"><i class="icon-filter"></i> Filter Results +</a></p>
+                                <p><a class="btn collapse-toggle" data-target="#sort-options" href="#"><i class="icon-filter"></i> Filter Results +</a></p>
                                 <div class="collapse hide-no-js" id="sort-options">
 
                                     <div class="row">' .

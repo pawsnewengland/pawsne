@@ -1,7 +1,7 @@
-/*
+/* =============================================================
 
-    Theme Name: PAWS New England v4.8
-    Version: 4.8
+    Theme Name: PAWS New England v4.9
+    Version: 4.9
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -24,13 +24,14 @@
 
     TYPOGRAPHIC SCALE
     4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
+    
+ * ============================================================= */
 
-	
-*/
 
-
-/*  CSS RESET */
-/*  Meyer's CSS Reset, Normalized.css, and custom code */
+/* =============================================================
+    CSS RESET 
+    Meyer's CSS Reset, Normalized.css, and custom code.
+ * ============================================================= */
 
 /*  Mobile Screen Resizing */
 @-webkit-viewport { width: device-width; zoom: 1.0; }
@@ -123,8 +124,10 @@ a:hover, a:active {
 
 
 
-/*  THE GRID */
-/*  Structure and layout */
+/* =============================================================
+    THE GRID 
+    Structure and layout.
+ * ============================================================= */
 
 /*  Mobile-first. Single-column layout by default
  *  Container sets the maximum page width. Adjust as needed. */
@@ -314,20 +317,22 @@ a:hover, a:active {
 
 
 
-/*  TYPOGRAPHY */
-/*  Sets font styles for entire site. */
+/* =============================================================
+    TYPOGRAPHY 
+    Sets font styles for entire site. 
 
-/*  @font-face embedding
- *  Web Fonts from fontspring.com. All OpenType features
- *  and all extended glyphs have been removed. Fully installable 
- *  fonts can be purchased at http://www.fontspring.com. The fonts 
- *  included in this stylesheet are subject to the End User License 
- *  you purchased from Fontspring. The fonts are protected under domestic 
- *  and international trademark and copyright law. You are prohibited 
- *  from modifying, reverse engineering, duplicating, or distributing 
- *  this font software. (c) 2010-2011 Fontspring. 
- *  The fonts included are copyrighted by exljbris. 
- *  License URL: http://www.fontspring.com/fflicense/exljbris */
+    @font-face embedding
+    Web Fonts from fontspring.com. All OpenType features
+    and all extended glyphs have been removed. Fully installable 
+    fonts can be purchased at http://www.fontspring.com. The fonts 
+    included in this stylesheet are subject to the End User License 
+    you purchased from Fontspring. The fonts are protected under domestic 
+    and international trademark and copyright law. You are prohibited 
+    from modifying, reverse engineering, duplicating, or distributing 
+    this font software. (c) 2010-2011 Fontspring. 
+    The fonts included are copyrighted by exljbris. 
+    License URL: http://www.fontspring.com/fflicense/exljbris
+ * ============================================================= */
 
 @font-face { 
     font-family: 'MuseoSlab500'; 
@@ -621,8 +626,10 @@ q:before, q:after {
 
 
 
-/*  CALL TO ACTION LINKS */
-/*  Styling for calls to action on landing page */
+/* =============================================================
+    CALL TO ACTION LINKS 
+    Styling for calls to action on landing page.
+ * ============================================================= */
 
 .url-action {
     display: block;
@@ -654,8 +661,10 @@ q:before, q:after {
 
 
 
-/*  BUTTONS */
-/*  Styling for CSS3 buttons */
+/* =============================================================
+    BUTTONS 
+    Styling for CSS3 buttons.
+ * ============================================================= */
 
 .btn {
     display: inline-block;
@@ -770,8 +779,10 @@ button, .btn {
 
 
 
-/*  FORMS */
-/*  Styling for form elements */
+/* =============================================================
+    FORMS 
+    Styling for form elements.
+ * ============================================================= */
 
 form, fieldset { 
     margin-bottom: 1.529411765em;
@@ -897,7 +908,11 @@ select:focus {
 
 
 
-/*	CFORMS PLUGIN */
+/* =============================================================
+    CFORMS PLUGIN
+    Override default plugin styling.
+ * ============================================================= */
+
 .cform { width: 88%; margin: 0 auto; }
 
 /* main 'top-level' form elements */
@@ -974,8 +989,10 @@ div.mailerr { display:block; }
 
 
 
-/*  PETFINDER API */
-/*  Styling for list of our dogs */
+/* =============================================================
+    PETFINDER API 
+    Styling for list of our dogs.
+ * ============================================================= */
 
 .pf {
     min-height: 16.706588235em;
@@ -989,9 +1006,11 @@ div.mailerr { display:block; }
 
 
 
-/*  ICONS */
-/*  A placeholder for icon fonts.
- *  Learn more at http://gomakethings.com/icon-fonts/ */
+/* =============================================================
+    ICONS
+    Styling for the icon font.
+    Learn more at http://gomakethings.com/icon-fonts/
+ * ============================================================= */
 
 @font-face { 
     font-family: 'icomoon'; 
@@ -1016,33 +1035,33 @@ div.mailerr { display:block; }
 }
 
 
-.icon-logo:before { content: "\e000" }
-.icon-home:before { content: "\e001"; }
-.icon-heart:before { content: "\e002"; }
-.icon-time:before { content: "\e003"; }
-.icon-facebook:before { content: "\e004"; }
-.icon-twitter:before { content: "\e005"; }
-.icon-email:before { content: "\e006"; }
-.icon-chat:before { content: "\e007"; }
-.icon-rss:before { content: "\e008"; }
-.icon-download:before { content: "\e009"; }
-.icon-location:before { content: "\e00a"; }
-.icon-search:before { content: "\e00b"; }
-.icon-filter:before { content: "\e00c"; }
-.icon-cart:before { content: "\e00d"; }
-.icon-people:before { content: "\e00e"; }
-.icon-horn:before { content: "\e00f"; }
-.icon-loading:before { content: "\e010"; }
+.icon-logo:before       { content: "\e000" }
+.icon-home:before       { content: "\e001"; }
+.icon-heart:before      { content: "\e002"; }
+.icon-time:before       { content: "\e003"; }
+.icon-facebook:before   { content: "\e004"; }
+.icon-twitter:before    { content: "\e005"; }
+.icon-email:before      { content: "\e006"; }
+.icon-chat:before       { content: "\e007"; }
+.icon-rss:before        { content: "\e008"; }
+.icon-download:before   { content: "\e009"; }
+.icon-location:before   { content: "\e00a"; }
+.icon-search:before     { content: "\e00b"; }
+.icon-filter:before     { content: "\e00c"; }
+.icon-cart:before       { content: "\e00d"; }
+.icon-people:before     { content: "\e00e"; }
+.icon-horn:before       { content: "\e00f"; }
+.icon-loading:before    { content: "\e010"; }
 
-a .icon-home { color: #453f27; }
-a .icon-heart { color: #e7a2b0; }
+a .icon-home        { color: #453f27; }
+a .icon-heart       { color: #e7a2b0; }
 a .icon-time,
 a .icon-cart,
 a .icon-people,
-a .icon-horn { color: #808080; }
-a .icon-email { color: #6aa120; }
-a .icon-facebook { color: #3B5997; }
-a .icon-twitter { color: #41b7d8; }
+a .icon-horn        { color: #808080; }
+a .icon-email       { color: #6aa120; }
+a .icon-facebook    { color: #3B5997; }
+a .icon-twitter     { color: #41b7d8; }
 
 a:hover .icon-home,
 a:hover .icon-heart,
@@ -1052,7 +1071,7 @@ a:hover .icon-facebook,
 a:hover .icon-twitter,
 a:hover .icon-cart,
 a:hover .icon-people,
-a:hover .icon-horn { color: #272727; }
+a:hover .icon-horn  { color: #272727; }
 
 .btn .icon-twitter,
 .btn:hover .icon-twitter,
@@ -1078,8 +1097,10 @@ a:hover .icon-horn { color: #272727; }
 
 
 
-/*  SPINNERS */
-/*  Styling for CSS3 rotation animations */
+/* =============================================================
+    SPINNERS 
+    Styling for CSS3 rotation animations.
+ * ============================================================= */
 
 /*  The class that applies the animation. */
 .spinner {
@@ -1096,27 +1117,27 @@ a:hover .icon-horn { color: #272727; }
  *  These control the direction and nature of the animation. */
 
 @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
+    0%   { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
 }
 
 @-moz-keyframes spin {
-    0% { -moz-transform: rotate(0deg); }
+    0%   { -moz-transform: rotate(0deg); }
     100% { -moz-transform: rotate(360deg); }
 }
 
 @-ms-keyframes spin {
-    0% { -ms-transform: rotate(0deg); }
+    0%   { -ms-transform: rotate(0deg); }
     100% { -ms-transform: rotate(360deg); }
 }
 
 @-o-keyframes spin {
-    0% { -o-transform: rotate(0deg); }
+    0%   { -o-transform: rotate(0deg); }
     100% { -o-transform: rotate(360deg); }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
+    0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
@@ -1124,8 +1145,10 @@ a:hover .icon-horn { color: #272727; }
 
 
 
-/*  IMAGES */
-/*  Image styling. */
+/* =============================================================
+    IMAGES 
+    Image styling.
+ * ============================================================= */
 
 /*  Display all images as centered block elements.
  *  Mobile-first default styling. */
@@ -1192,8 +1215,10 @@ a:hover .icon-horn { color: #272727; }
 
 
 
-/*  TABLES */
-/*  Table styling */
+/* =============================================================
+    TABLES 
+    Table styling.
+ * ============================================================= */
 
 /*  Removes default browser settings
  *  and evens out inconsistencies. */
@@ -1258,8 +1283,10 @@ table {
 
 
 
-/*  NAVIGATION */
-/*  Navigation menu styling */
+/* =============================================================
+    NAVIGATION 
+    Navigation menu styling.
+ * ============================================================= */
 
 .nav-bg {
     background-color: #6aa120;
@@ -1474,23 +1501,10 @@ table {
 
 
 
-/*  SHOPPING CART */
-/*  Styling for shopping cart navigation */
-
-.cart-bg {
-    background-color: #ece9e1;
-    margin-top: -.823529412em;
-    margin-bottom: .823529412em;
-    padding-top: .470588235em;
-    padding-bottom: .470588235em;
-}
-
-
-
-
-
-/*  DROPDOWN MENUS */
-/*  Basic dropdown styling */
+/* =============================================================
+    DROPDOWN MENUS 
+    Basic dropdown styling.
+ * ============================================================= */
 
 /*  Sets dropdown link to relative positioning */
 .dropdown {
@@ -1599,8 +1613,10 @@ table {
 
 
 
-/*  HOUDINI COLLAPSE & EXPAND */
-/*  The widget styling */
+/* =============================================================
+    HOUDINI COLLAPSE & EXPAND 
+    The widget styling.
+ * ============================================================= */
 
 /*  Hide the collapase and expand link or button by default */
 .collapse-toggle {
@@ -1638,8 +1654,10 @@ table {
 
 
 
-/*  MODALS */
-/*  Modal window styling. */
+/* =============================================================
+    MODALS 
+    Modal window styling. 
+ * ============================================================= */
 
 /*  Hide modal window by default */
 .modal {
@@ -1739,8 +1757,10 @@ table {
 
 
 
-/*  FLEXSLIDER */
-/*  Image carousel styling */
+/* =============================================================
+    SLIDER
+    Image carousel styling.
+ * ============================================================= */
 
 .slides,
 .flex-control-nav,
@@ -1898,8 +1918,10 @@ table {
 
 
 
-/*  BACKGROUND COLORS */
-/*  Styling for background colors */
+/* =============================================================
+    BACKGROUND COLORS 
+    Styling for background colors.
+ * ============================================================= */
 
 .bg-color {
     color: #ffffff;
@@ -1925,7 +1947,10 @@ table {
 
 
 
-/*  ALIGNMENT, SPACING & VISIBILITY */
+/* =============================================================
+    ALIGNMENT, SPACING & VISIBILITY
+    Styling for floats, hides, text-alignment, etc.
+ * ============================================================= */
 
 /*  Text alignment */
 
@@ -2104,10 +2129,12 @@ table {
 
 
 
-/*  PRINT STYLES */
-/*  Styling for printed content. 
- *  Adapted from HTML5BP.
- *  http://html5boilerplate.com/ */
+/* =============================================================
+    PRINT STYLES 
+    Styling for printed content. 
+    Adapted from HTML5BP.
+    http://html5boilerplate.com/
+ * ============================================================= */
 
 @media print {
 

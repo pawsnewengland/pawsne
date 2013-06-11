@@ -15,7 +15,7 @@ require_once('functions/image-url-default.php'); // Overrides default image-URL 
 require_once('functions/disable-inline-styles.php'); // Removes inline styles and other coding junk added by the WYSIWYG editor
 require_once('functions/remove-header-junk.php'); // Removes unneccessary junk WordPress adds to the header
 require_once('functions/remove-trackbacks-from-comments.php'); // Remove trackbacks from WordPress comments
-require_once('functions/petfinder-api.php'); // Add PetFinder listings to the site
 require_once('functions/petfinder-api-for-wp.php'); // Add PetFinder listings to the site
+require_once('functions/html-minify.php'); // Minify the HTML output from your WordPress site
 
 ?>
