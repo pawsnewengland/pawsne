@@ -16,6 +16,6 @@ require_once('functions/disable-inline-styles.php'); // Removes inline styles an
 require_once('functions/remove-header-junk.php'); // Removes unneccessary junk WordPress adds to the header
 require_once('functions/remove-trackbacks-from-comments.php'); // Remove trackbacks from WordPress comments
 require_once('functions/petfinder-api.php'); // Add PetFinder listings to the site
-#require_once('functions/shoporific.php'); // A simple PayPal shopping cart
+require_once('functions/petfinder-api-for-wp.php'); // Add PetFinder listings to the site
 
 ?>
