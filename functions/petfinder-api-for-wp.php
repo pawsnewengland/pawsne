@@ -69,19 +69,6 @@ function get_pet_gender($pet_gender) {
     return 'Not Known';
 }
 
-// Convert Pet Animal Type
-function get_pet_type($pet_type) {
-    if ($pet_type == 'Dog') return 'Dog';
-    if ($pet_type == 'Cat') return 'Cat';
-    if ($pet_type == 'Small&amp;Furry') return 'Small & Furry';
-    if ($pet_type == 'BarnYard') return 'Barnyard';
-    if ($pet_type == 'Horse') return 'Horse';
-    if ($pet_type == 'Pig') return 'Pig';
-    if ($pet_type == 'Rabbit') return 'Rabbit';
-    if ($pet_type == 'Reptile') return 'Scales, Fins & Other';
-    return 'Not Known';
-}
-
 // Convert Special Needs & Options
 function get_pet_option($pet_option) {
     if ($pet_option == 'specialNeeds') return 'Special Needs';
@@ -531,7 +518,6 @@ function get_pet_info() {
 
         // Define Variables
         $pet_name = get_pet_name($pet->name);
-        $pet_type = get_pet_type($pet->animal);
         $pet_size = get_pet_size($pet->size);
         $pet_age = get_pet_age($pet->age);
         $pet_gender = get_pet_gender($pet->sex);
