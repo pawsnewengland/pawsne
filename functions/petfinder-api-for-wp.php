@@ -135,7 +135,7 @@ function get_pet_photos($pet) {
 
     // If no photos have been uploaded for the pet
     else {
-        $pet_photos = ''; // Add a URL for a fallback/placeholder photo
+        $pet_photos = get_template_directory_uri() . '/img/nophoto.jpg';
     }
 
     return $pet_photos;
