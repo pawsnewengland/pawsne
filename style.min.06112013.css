@@ -233,7 +233,7 @@ div.mailerr{display:block;}
 .disabled{background-color:#f5f5f5;border-color:#ddd;cursor:not-allowed;}
 .cform input.cf_upload{width:88%;background:#f9f9f9;border:1px solid #888888;}
 .pf{min-height:16.706588235em;}
-.pf-img{max-height:9.375em;}
+.pf img{max-height:9.375em;}
 @font-face{font-family:'icomoon';src:url('fonts/icomoon.eot');src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
 url('fonts/icomoon.woff') format('woff'),
 url('fonts/icomoon.ttf') format('truetype'),

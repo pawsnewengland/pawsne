@@ -117,7 +117,7 @@ function get_pet_photos($pet) {
     $pet_photo_thumbnail_large = 'fpm'; // scaled to 95px wide
 
     // Set Photo Options
-    $pet_photo_size = $pet_photo_medium; // change as desired
+    $pet_photo_size = $pet_photo_large; // change as desired
     $pet_photo_limit_number = true; // limit number of photos to just first photo? true = yes
 
     // If pet has photos
@@ -131,7 +131,7 @@ function get_pet_photos($pet) {
 
                         // If limit set on number of photos, get the first photo
                         if ( $pet_photo_limit_number == true ) {
-                            $pet_photos = '<img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '">';
+                            $pet_photos = '<img class="space-bottom-small" alt="Photo of ' . $pet_name . '" src="' . $photo . '">';
                             break;
                         }
 
@@ -634,7 +634,8 @@ function get_pet_info() {
                                             <a target="_blank" href="' . $pet_url . '">Or see more photos on PetFinder...</a>
                                         </p>
                                     </div>
-                                    <div class="grid-4">' .
+                                    <div class="grid-4">
+                                        <p class="text-center">' . $pet_photos . '</p>' .
                                         $pet_description .
                                         '<p><button class="btn modal-close">Close</button></p>
                                     </div>
