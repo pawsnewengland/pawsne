@@ -65,7 +65,7 @@
         <div class="nav-bg">
             <nav class="nav-wrap container">
                 <a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon-logo"></i> PAWS New England</a>
-                <a class="btn nav-toggle" data-toggle="#nav-menu" href="#">
+                <a class="btn nav-toggle" data-target="#nav-menu" href="#">
                     <i class="icon-bar"></i>
                     <i class="icon-bar"></i>
                     <i class="icon-bar"></i>
