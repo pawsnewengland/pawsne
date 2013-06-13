@@ -315,6 +315,7 @@ function get_size_list() {
     // Remove duplicates and convert into an array
     $sizes = array_filter(array_unique(explode('|', $sizes)));
     asort($sizes);
+    $sizes = array_reverse($sizes);
 
     // For each size of pet
     foreach( $sizes as $size ) {
@@ -363,8 +364,7 @@ function get_age_list() {
     }
 
     // Remove duplicates and convert into an array
-    $ages = array_filter(array_unique(explode('|', $ages)));
-    asort($ages);
+    $ages = array_reverse(array_filter(array_unique(explode('|', $ages))));
 
     // For each pet age
     foreach( $ages as $age ) {
@@ -414,7 +414,6 @@ function get_gender_list() {
 
     // Remove duplicates and convert into an array
     $genders = array_filter(array_unique(explode('|', $genders)));
-    asort($genders);
 
     // For each pet gender
     foreach( $genders as $gender ) {
@@ -466,7 +465,7 @@ function get_options_list() {
 
     // Remove duplicates and convert into an array
     $options = array_filter(array_unique(explode('|', $options)));
-    asort($options);
+    $options = array_reverse($options);
 
     // For each pet option
     foreach( $options as $option ) {
