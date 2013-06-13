@@ -538,7 +538,7 @@ function get_pet_info() {
         $pet_options_condensed = '';
         $pet_options_detail = '';
         $noCats = false;
-        $notDogs = false;
+        $noDogs = false;
         $noKids = false;
         $specialNeeds = false;
         foreach( $pet->options->option as $option ) {        
