@@ -55,7 +55,7 @@ function get_pet_size($pet_size) {
 
 // Convert Pet Age
 function get_pet_age($pet_age) {
-    if ($pet_age == 'Baby') return 'Baby';
+    if ($pet_age == 'Baby') return 'Puppy';
     if ($pet_age == 'Young') return 'Young';
     if ($pet_age == 'Adult') return 'Adult';
     if ($pet_age == 'Senior') return 'Senior';
