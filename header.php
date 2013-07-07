@@ -102,6 +102,8 @@
                                     <li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
                                     <li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
                                     <li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
+                                    <li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
+                                    <li><a href="<?php echo get_option('home'); ?>/owen-fund/">The Owen Fund</a></li>
                                     <li><a href="<?php echo get_option('home'); ?>/paws-partners/">Support Our Partners</a></li>
                                 </ul>
                             </div>
