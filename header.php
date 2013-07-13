@@ -114,14 +114,5 @@
             </nav>
         </div>
 
-        <?php if ( is_page('store') || is_page('checkout-cart') || $post->post_parent == '921' ) : ?>
-            <!-- Shop Navigation -->
-            <div class="cart-bg">
-                <div class="container">
-                    <?php echo checkout_cart_link(); ?>
-                </div>
-            </div>
-        <?php endif; ?>
-
 
 	    <section class="container space-bottom-big">
