@@ -21,18 +21,22 @@
     Get your shelter info from Petfinder.
  * ============================================================= */
 
-// Your Account Info
-$api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
-$shelter_id = 'RI77'; // Change to your shelter ID
-$count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
+function get_petfinder_data() {
 
-// Create the request URL
-$request_url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
+    // Your Account Info
+    $api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
+    $shelter_id = 'RI77'; // Change to your shelter ID
+    $count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
 
-// Request shelter data from Petfinder
-$petfinder_data = @simplexml_load_file( $request_url );
-// If data not available, don't display errors on page
-if ($petfinder_data === false) {}
+    // Create the request URL
+    $request_url = "http://api.petfinder.com/shelter.getPets?key=" . $api_key . "&count=" . $count . "&id=" . $shelter_id . "&status=A&output=full";
+
+    // Request shelter data from Petfinder
+    $petfinder_data = @simplexml_load_file( $request_url );
+
+    return $petfinder_data;
+
+}
 
 
 
@@ -216,17 +220,16 @@ function pet_value_condensed($pet_value) {
     List of available breeds.
  * ============================================================= */
 
-function get_breed_list() {
+function get_breed_list($pets) {
 
     // Define Variables
-    global $petfinder_data;
     $breeds = '';
     $breed_list = '';
     $breed_list_1 = '';
     $breed_list_2 = '';
 
     // Get a list of breeds for each pet
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
         foreach( $pet->breeds->breed as $pet_breed ) {
             $breeds .= $pet_breed . "|";
         }
@@ -300,15 +303,14 @@ function get_breed_list() {
     List of available size of pets.
  * ============================================================= */
 
-function get_size_list() {
+function get_size_list($pets) {
 
     // Define Variables
-    global $petfinder_data;
     $sizes = '';
     $size_list = '';
 
     // Create a list of pet sizes
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
         $sizes .= get_pet_size($pet->size) . "|";
     }
 
@@ -351,15 +353,14 @@ function get_size_list() {
     List of available pet ages.
  * ============================================================= */
 
-function get_age_list() {
+function get_age_list($pets) {
 
     // Define Variables
-    global $petfinder_data;
     $ages = '';
     $age_list = '';
 
     // Create a list of pet ages
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
         $ages .= get_pet_age($pet->age) . "|";
     }
 
@@ -400,15 +401,14 @@ function get_age_list() {
     List of available pet genders.
  * ============================================================= */
 
-function get_gender_list() {
+function get_gender_list($pets) {
 
     // Define Variables
-    global $petfinder_data;
     $genders = '';
     $gender_list = '';
 
     // Create a list available pet genders
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
         $genders .= get_pet_gender($pet->sex) . "|";
     }
 
@@ -449,15 +449,14 @@ function get_gender_list() {
     List of all available special needs and options for pets.
  * ============================================================= */
 
-function get_options_list() {
+function get_options_list($pets) {
 
     // Define Variables
-    global $petfinder_data;
     $options = '';
     $options_list = '';
 
     // Create a list of pet options and special needs
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
         foreach( $pet->options->option as $pet_option ) {
             $options .= get_pet_option($pet_option) . "|";
         }
@@ -506,13 +505,11 @@ function get_options_list() {
     Get and display information on each pet.
  * ============================================================= */
 
-function get_pet_info() {
+function get_pet_info($pets) {
 
-    // Access Petfinder Data
-    global $petfinder_data;
     $pet_info = '';
 
-    foreach( $petfinder_data->pets->pet as $pet ) {
+    foreach( $pets as $pet ) {
 
         // Define Variables
         $pet_name = get_pet_name($pet->name);
@@ -646,7 +643,7 @@ function get_pet_info() {
 function get_petfinder_list() {
 
     // Access Petfinder Data
-    global $petfinder_data;
+    $petfinder_data = get_petfinder_data();
     $petfinder_list = '';
 
     // If the API returns without errors
@@ -654,6 +651,8 @@ function get_petfinder_list() {
     
         // If there is at least one animal
         if( count( $petfinder_data->pets->pet ) > 0 ) {
+
+            $pets = $petfinder_data->pets->pet;
 
             // Compile information that you want to include
             $petfinder_list =   '<div class="hide-no-js">
@@ -666,20 +665,20 @@ function get_petfinder_list() {
                                 <div class="collapse hide-no-js" id="sort-options">
 
                                     <div class="row">' .
-                                        get_age_list() .
-                                        get_size_list() .
-                                        get_gender_list() .
-                                        get_options_list() .
+                                        get_age_list($pets) .
+                                        get_size_list($pets) .
+                                        get_gender_list($pets) .
+                                        get_options_list($pets) .
                                     '</div>
                                     
                                     <div class="row">' .
-                                        get_breed_list() .
+                                        get_breed_list($pets) .
                                     '</div>
 
                                 </div>
 
                                 <div class="row">' .
-                                    get_pet_info() .
+                                    get_pet_info($pets) .
                                 '</div>';
 
         }
