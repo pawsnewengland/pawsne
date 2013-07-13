@@ -879,7 +879,8 @@ select:focus {
 
 
 /*  Inline Inputs */
-.input-inline {
+.input-inline,
+.input-inline label {
     display: inline;
     width: auto;
 }

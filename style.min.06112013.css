@@ -188,7 +188,7 @@ input[type="checkbox"]:focus,
 select:focus{-webkit-box-shadow:none;box-shadow:none;outline:thin dotted;outline:.294117647em auto -webkit-focus-ring-color;outline-offset:-.117647059em;}
 .input-search{display:inline-block;width:85%;padding-left:.882352941em;padding-right:2.352941176em;border-radius:1.352941176em;}
 .btn-search{display:inline-block;color:#808080;border:none;background:none;margin-left:-2.352941176em;}
-.input-inline{display:inline;width:auto;}
+.input-inline, .input-inline label{display:inline;width:auto;}
 .input-condensed{line-height:1;padding:.117647059em;}
 @media (min-width:42.5em){input, textarea, select{line-height:1.588235294;}
 }
