@@ -1708,10 +1708,6 @@ table {
     cursor: pointer;
 }
 
-.close-cart {
-    float: none;
-}
-
 /*  Styling for close button on hover */
 .close:hover {
     color: #272727;
