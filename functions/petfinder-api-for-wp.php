@@ -2,7 +2,7 @@
 
 /* ======================================================================
 
-    Petfinder API for WordPress v2.0
+    Petfinder API for WordPress v3.0
     A collection of functions to help you display Petfinder listings
     on your WordPress site, by Chris Ferdinandi.
     http://gomakethings.com
@@ -21,12 +21,12 @@
     Get your shelter info from Petfinder.
  * ============================================================= */
 
-function get_petfinder_data($pet) {
+function get_petfinder_data($pet = '') {
 
     // Your Account Info
     $api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
     $shelter_id = 'RI77'; // Change to your shelter ID
-    $count = '15'; // Number of animals to return. Set to higher than total # of animals in your shelter.
+    $count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
 
     // If no specific pet is specified
     if ( $pet == '' ) {
@@ -582,7 +582,7 @@ function get_pet_list($pets) {
         $pet_age = get_pet_age($pet->age);
         $pet_gender = get_pet_gender($pet->sex);
         $pet_photo = get_pet_photos($pet);
-        $pet_url = get_permalink() . '?pet-details=' . $pet->id;
+        $pet_url = get_permalink() . '?pet-details=' . $pet->id . '&qcAC=1';
 
         // Format pet options
         $pet_options = get_pet_options_list($pet);
@@ -643,9 +643,9 @@ function get_pet_info($pet) {
     $pet_gender = get_pet_gender($pet->sex);
     $pet_photos_main = get_pet_photos($pet, 'large');
     $pet_photos_all = get_pet_photos($pet, 'large', false);
-    $pet_photos_url = get_permalink() . '?pet-details=' . $pet->id . '&view=photos';
+    $pet_photos_url = get_permalink() . '?pet-details=' . $pet->id . '&view=photos&qcAC=1';
     $pet_description = get_pet_description($pet->description);
-    $pet_profile_url = get_permalink() . '?pet-details=' . $pet->id;
+    $pet_profile_url = get_permalink() . '?pet-details=' . $pet->id . '&qcAC=1';
 
     // Get list of breed(s)
     $pet_breeds = '';
