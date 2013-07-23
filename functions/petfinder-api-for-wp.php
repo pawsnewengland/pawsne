@@ -43,6 +43,9 @@ function get_petfinder_data($pet = '') {
     // Request data from Petfinder
     $petfinder_data = @simplexml_load_file( $request_url );
 
+    // If data not available, don't display errors on page
+    if ($petfinder_data === false) {}
+
     return $petfinder_data;
 
 }
