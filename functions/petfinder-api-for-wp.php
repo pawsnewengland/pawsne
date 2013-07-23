@@ -585,7 +585,7 @@ function get_pet_list($pets) {
         $pet_age = get_pet_age($pet->age);
         $pet_gender = get_pet_gender($pet->sex);
         $pet_photo = get_pet_photos($pet);
-        $pet_url = get_permalink() . '?pet-details=' . $pet->id . '&qcAC=1';
+        $pet_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&qcAC=1';
 
         // Format pet options
         $pet_options = get_pet_options_list($pet);
@@ -646,9 +646,9 @@ function get_pet_info($pet) {
     $pet_gender = get_pet_gender($pet->sex);
     $pet_photos_main = get_pet_photos($pet, 'large');
     $pet_photos_all = get_pet_photos($pet, 'large', false);
-    $pet_photos_url = get_permalink() . '?pet-details=' . $pet->id . '&view=photos&qcAC=1';
+    $pet_photos_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&photos=all&qcAC=1';
     $pet_description = get_pet_description($pet->description);
-    $pet_profile_url = get_permalink() . '?pet-details=' . $pet->id . '&qcAC=1';
+    $pet_profile_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&qcAC=1';
 
     // Get list of breed(s)
     $pet_breeds = '';
@@ -663,7 +663,7 @@ function get_pet_info($pet) {
     }
 
 
-    if ( $_GET['view'] == 'photos' ) {
+    if ( $_GET['photos'] == 'all' ) {
         $pet_info =    '<div class="row text-center">
                             <div class="grid-4 offset-1">
                                 <h1 class="no-space-bottom">Photos of ' . $pet_name . '</h1>
@@ -736,18 +736,42 @@ function display_petfinder_list() {
     $url_current .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
     $url_current .= $_SERVER["REQUEST_URI"];
 
-    // Define output
+    // Define variables
     $petfinder_list = '';
+    $petfinder_view = $_GET['view'];
 
 
     // Display list of all available pets
-    if (stripos($url_current, '?pet-details') == false) {
-    
+    if ( $petfinder_view == 'pet-details' ) {
+
+        // Access Petfinder Data
+        $pet_id = $_GET['id'];
+        $petfinder_data = get_petfinder_data($pet_id);
+
+        // If the API returns without errors
+        if( $petfinder_data->header->status->code == '100' ) {
+
+            $pet = $petfinder_data->pet;
+
+            // Compile information that you want to include
+            $petfinder_list = get_pet_info($pet);
+        }
+
+        // If error code is returned
+        else {
+            $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
+        }
+        
+    }
+
+    // Display info on a specific pet
+    else {
+
         // Access Petfinder Data
         $petfinder_data = get_petfinder_data();
 
         // If the API returns without errors
-        if( $petfinder_data->header->status->code == "100" ) {
+        if( $petfinder_data->header->status->code == '100' ) {
         
             // If there is at least one animal
             if( count( $petfinder_data->pets->pet ) > 0 ) {
@@ -793,29 +817,6 @@ function display_petfinder_list() {
         // If error code is returned
         else {
             $petfinder_list = '<h1 class="text-center"></h1><p>Petfinder is down for the moment. Please check back shortly.</p>';
-        }
-        
-    }
-
-    // Display info on a specific pet
-    else {
-
-        // Access Petfinder Data
-        $pet_id = $_GET['pet-details'];
-        $petfinder_data = get_petfinder_data($pet_id);
-
-        // If the API returns without errors
-        if( $petfinder_data->header->status->code == "100" ) {
-
-            $pet = $petfinder_data->pet;
-
-            // Compile information that you want to include
-            $petfinder_list = get_pet_info($pet);
-        }
-
-        // If error code is returned
-        else {
-            $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
         }
 
     }
