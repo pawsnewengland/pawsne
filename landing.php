@@ -3,6 +3,8 @@ Template Name: Landing
 */
 get_header(); ?>
 
+    <div class="alert"><strong>New:</strong> The Owen Fund was created to honor the spirit and bravery of a young pup who beat the odds. <a class="scroll" href="#owen-fund">Learn more...</a></div>
+
 	<div class="row">
 
 		<h1 class="text-hero text-center">We save lives, one dog at a time.</h1>
@@ -52,7 +54,7 @@ get_header(); ?>
 	<hr>
 
 
-	<div class="row">
+	<div class="row" id="owen-fund">
 	    <br>
 
 		<div class="grid-3">
