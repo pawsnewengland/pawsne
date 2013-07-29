@@ -15,9 +15,6 @@
 
 	    <!-- Add a description on the homepage -->
 	    <?php if (is_home ()) : ?><meta name="description" content="<?php bloginfo('description'); ?>"><?php endif; ?>
-
-        <!-- Preferred page URL for search engines -->
-	    <link rel="canonical" href="<?php the_permalink() ?>">
 	
 	    <!-- Mobile Screen Resizing -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
