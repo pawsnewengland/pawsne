@@ -731,11 +731,6 @@ function get_pet_info($pet) {
 
 function display_petfinder_list() {
 
-    // Get current page URL and clean it up
-    $url_current  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
-    $url_current .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
-    $url_current .= $_SERVER["REQUEST_URI"];
-
     // Define variables
     $petfinder_list = '';
     $petfinder_view = $_GET['view'];
