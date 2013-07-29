@@ -736,7 +736,7 @@ function display_petfinder_list() {
     $petfinder_view = $_GET['view'];
 
 
-    // Display list of all available pets
+    // Display info on a specific dog
     if ( $petfinder_view == 'pet-details' ) {
 
         // Access Petfinder Data
@@ -759,7 +759,7 @@ function display_petfinder_list() {
         
     }
 
-    // Display info on a specific pet
+    // Display a list of all available dogs
     else {
 
         // Access Petfinder Data
