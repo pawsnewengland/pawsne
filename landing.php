@@ -3,7 +3,7 @@ Template Name: Landing
 */
 get_header(); ?>
 
-    <div class="alert"><strong>New:</strong> The Owen Fund was created to honor the spirit and bravery of a young pup who beat the odds. <a class="scroll" href="#owen-fund">Learn more...</a></div>
+    <div class="alert"><strong>New:</strong> The Owen Fund was created to honor the spirit and bravery of a young pup who beat the odds. <a href="http://www.pawsnewengland.com/owen-fund/">Learn more...</a></div>
 
 	<div class="row">
 
@@ -46,25 +46,6 @@ get_header(); ?>
 
 		<div class="grid-3 text-center">
 			<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" height="346" width="459" title="A photo of a PAWS rescue dog">
-		</div>
-
-	</div>
-
-
-	<hr>
-
-
-	<div class="row" id="owen-fund">
-	    <br>
-
-		<div class="grid-3">
-            <p><iframe src="http://player.vimeo.com/video/69292438?byline=0&amp;portrait=0" width="560" height="420" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>
-		</div>
-
-		<div class="grid-3">
-		    <h1>The Owen Fund</h1>
-            <p>The Owen Fund was created to honor the inspiring spirit and bravery of this young pup who beat the odds.</p>
-            <p><a class="btn btn-large" href="<?php echo get_option('home'); ?>/owen-fund/">Learn More</a>
 		</div>
 
 	</div>
