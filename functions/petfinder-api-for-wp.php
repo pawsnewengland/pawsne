@@ -12,7 +12,7 @@
 
     Free to use under the MIT License.
     http://gomakethings.com/mit/
-    
+
  * ====================================================================== */
 
 
@@ -148,7 +148,7 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
                         else {
                             $pet_photos .= '<p><img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '"></p>';
                         }
-                        
+
                     }
                 }
             }
@@ -161,7 +161,7 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
     }
 
     return $pet_photos;
-    
+
 }
 
 
@@ -184,7 +184,7 @@ function get_pet_name($pet_name) {
 
     // Return pet name
     return $pet_name;
-    
+
 }
 
 
@@ -206,7 +206,7 @@ function get_pet_description($pet_description) {
 
     // Return pet description
     return $pet_description;
-    
+
 }
 
 
@@ -226,7 +226,7 @@ function pet_value_condensed($pet_value) {
 
     // Return condensed list
     return $pet_value;
-    
+
 }
 
 
@@ -287,7 +287,7 @@ function get_breed_list($pets) {
     foreach( $breeds_2 as $breed ) {
         $breed_list_2 .= get_breed_checkbox($breed);
     }
-                        
+
 
     $breed_list =    '<div class="grid-6">
                         <h3>Breeds</h3>
@@ -309,7 +309,7 @@ function get_breed_list($pets) {
 
     // Return the list
     return $breed_list;
-    
+
 }
 
 
@@ -350,7 +350,7 @@ function get_size_list($pets) {
                         '</label>';
     }
 
-    $size_list =    '<div class="grid-img space-bottom-small">
+    $size_list =    '<div class="grid-third space-bottom-small">
                         <h3>Size</h3>
                         <form>' .
                             $size_list .
@@ -359,7 +359,7 @@ function get_size_list($pets) {
 
     // Return the list
     return $size_list;
-    
+
 }
 
 
@@ -398,7 +398,7 @@ function get_age_list($pets) {
                         '</label>';
     }
 
-    $age_list =     '<div class="grid-img space-bottom-small">
+    $age_list =     '<div class="grid-third space-bottom-small">
                         <h3>Age</h3>
                         <form>' .
                             $age_list .
@@ -407,7 +407,7 @@ function get_age_list($pets) {
 
     // Return the list
     return $age_list;
-    
+
 }
 
 
@@ -440,13 +440,13 @@ function get_gender_list($pets) {
         $gender_condensed = pet_value_condensed($gender);
 
         // Create a list
-        $gender_list .=    '<label>
+        $gender_list .= '<label>
                             <input type="checkbox" class="pf-sort" data-target=".' . $gender_condensed . '" checked>' .
                                 $gender .
                         '</label>';
     }
 
-    $gender_list =  '<div class="grid-img space-bottom-small">
+    $gender_list =  '<div class="grid-third space-bottom-small">
                         <h3>Gender</h3>
                         <form>' .
                             $gender_list .
@@ -455,7 +455,64 @@ function get_gender_list($pets) {
 
     // Return the list
     return $gender_list;
-    
+
+}
+
+
+
+
+
+/* =============================================================
+    LOCATION LIST
+    List of dog locations.
+ * ============================================================= */
+
+function get_pet_location($pets) {
+
+    // Variables
+    $out_of_state = false;
+    $local = false;
+
+    // Get available pet locations
+    foreach( $pets as $pet ) {
+        if ( stripos( $pet->name, 'local' ) === false ) {
+            $out_of_state = true;
+        } else {
+            $local = true;
+        }
+    }
+
+    // Create out-of-state field
+    if ( $out_of_state ) {
+        $out_of_state_field =   '<label>
+                                    <input type="checkbox" class="pf-sort" data-target=".out-of-state" checked>
+                                    Out-of-State
+                                </label>';
+    } else {
+        $out_of_state_field = '';
+    }
+
+    // Create local field
+    if ( $local ) {
+        $local_field =  '<label>
+                            <input type="checkbox" class="pf-sort" data-target=".local" checked>
+                            Local
+                        </label>';
+    } else {
+        $local_field = '';
+    }
+
+    // Create form
+    $locations_list =   '<div class="grid-half space-bottom-small">
+                            <h3>Location</h3>
+                            <form>' .
+                                $out_of_state_field .
+                                $local_field .
+                            '</form>
+                        </div>';
+
+    return $locations_list;
+
 }
 
 
@@ -494,14 +551,14 @@ function get_options_list($pets) {
             // Create a list
             $option_list .=    '<label>
                                 <input type="checkbox" class="pf-sort" data-target=".' . $option_condensed . '" checked>' .
-                                    $option .                            
+                                    $option .
                             '</label>';
 
         }
 
     }
 
-    $option_list =  '<div class="grid-img space-bottom-small">
+    $option_list =  '<div class="grid-half space-bottom-small">
                         <h3>Special Requirements</h3>
                         <form>' .
                             $option_list .
@@ -510,7 +567,7 @@ function get_options_list($pets) {
 
     // Return the list
     return $option_list;
-    
+
 }
 
 
@@ -521,7 +578,7 @@ function get_options_list($pets) {
     PET OPTIONS LIST
     Get a list of options for a specific pet.
  * ============================================================= */
- 
+
 function get_pet_options_list($pet) {
 
     // Define Variables
@@ -590,7 +647,7 @@ function get_pet_list($pets) {
         // Format pet options
         $pet_options = get_pet_options_list($pet);
         if ( $pet_options != '' ) {
-            $pet_options = '<br>' . $pet_options;
+            $pet_options = '<div class="text-small text-muted">' . $pet_options . '</div>';
         }
 
         // Create breed classes
@@ -601,23 +658,33 @@ function get_pet_list($pets) {
 
         // Create options classes
         $pet_options_condensed = '';
-        foreach( $pet->options->option as $option ) {        
+        foreach( $pet->options->option as $option ) {
             $option = get_pet_option($option);
             if ( $option != '' ) {
-                $pet_options_condensed .= pet_value_condensed($option) . ' ';                
+                $pet_options_condensed .= pet_value_condensed($option) . ' ';
             }
+        }
+
+        // Create location class
+        if ( stripos( $pet->name, 'local' ) === false ) {
+            $pet_location = '';
+            $pet_location_condensed = 'out-of-state';
+        } else {
+            $pet_location = '<div class="text-small text-muted">Local</div>';
+            $pet_location_condensed = 'local';
         }
 
 
         // Compile pet info
         // Add $pet_options and $pet_breeds as classes and meta info
-        $pet_list .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_breeds_condensed . ' ' . $pet_options_condensed . '">
+        $pet_list .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_breeds_condensed . ' ' . $pet_options_condensed . $pet_location_condensed . '">
                             <a href="' . $pet_url . '">' .
                                 $pet_photo .
                                 '<h3 class="no-space-top space-bottom-small">' . $pet_name . '</h3>
                             </a>' .
                             $pet_size . ', ' . $pet_age . ', ' . $pet_gender .
                             $pet_options .
+                            $pet_location .
                         '</div>';
 
     }
@@ -701,7 +768,7 @@ function get_pet_info($pet) {
                                             $pet_breeds .
                                         '</p>
                                     </div>
-                                </div>' . 
+                                </div>' .
                             $pet_options .
                             '<p>
                                 <a class="btn" href="http://www.pawsnewengland.com/adoption-form/">Fill Out an Adoption Form</a>
@@ -712,7 +779,7 @@ function get_pet_info($pet) {
                             <h2>Photos of ' . $pet_name . '<a class="close modal-close">x</a></h2>' .
                             $pet_photos_all .
                             '<p><button class="btn modal-close">Close</button></p>
-                        </div>';   
+                        </div>';
     }
 
     // Return pet info
@@ -756,7 +823,7 @@ function display_petfinder_list() {
         else {
             $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
         }
-        
+
     }
 
     // Display a list of all available dogs
@@ -767,7 +834,7 @@ function display_petfinder_list() {
 
         // If the API returns without errors
         if( $petfinder_data->header->status->code == '100' ) {
-        
+
             // If there is at least one animal
             if( count( $petfinder_data->pets->pet ) > 0 ) {
 
@@ -788,9 +855,13 @@ function display_petfinder_list() {
                                             get_age_list($pets) .
                                             get_size_list($pets) .
                                             get_gender_list($pets) .
-                                            get_options_list($pets) .
                                         '</div>
-                                        
+
+                                        <div class="row">' .
+                                            get_options_list($pets) .
+                                            get_pet_location($pets) .
+                                        '</div>
+
                                         <div class="row">' .
                                             get_breed_list($pets) .
                                         '</div>
@@ -818,7 +889,7 @@ function display_petfinder_list() {
 
 
     return $petfinder_list;
-    
+
 }
 add_shortcode('petfinder_list','display_petfinder_list');
 
