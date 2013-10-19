@@ -181,6 +181,9 @@ function get_pet_name($pet_name) {
     $pet_name = array_shift(explode('[', $pet_name)); // Remove '[...]' from animal names
     $pet_name = strtolower($pet_name); // Transform names to lowercase
     $pet_name = ucwords($pet_name); // Capitalize the first letter of each name
+    $pet_name = array_shift(explode('Local', $pet_name)); // Remove 'Local' from animal names
+    // $pet_name_scrub = array('Local' => ''); // Define strings to remove
+    // $pet_name = strtr($pet_name, $pet_name_scrub); // Remove strings
 
     // Return pet name
     return $pet_name;
