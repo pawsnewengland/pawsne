@@ -1,7 +1,7 @@
 /* =============================================================
 
-    Theme Name: PAWS New England v4.10
-    Version: 4.10
+    Theme Name: PAWS New England v4.11
+    Version: 4.11
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -24,12 +24,12 @@
 
     TYPOGRAPHIC SCALE
     4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
-    
+
  * ============================================================= */
 
 
 /* =============================================================
-    CSS RESET 
+    CSS RESET
     Meyer's CSS Reset, Normalized.css, and custom code.
  * ============================================================= */
 
@@ -41,83 +41,83 @@
         @viewport { width: device-width; zoom: 1.0; }
 
 /*  Remove browser defaults */
-html, body, div, span, applet, object, iframe, 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, 
-a, abbr, acronym, address, big, cite, code, 
-del, dfn, em, img, ins, kbd, q, s, samp, 
-small, strike, strong, sub, sup, tt, var, 
-b, u, i, center, 
-dl, dt, dd, ol, ul, li, 
-button, fieldset, form, label, legend, 
-table, caption, tbody, tfoot, thead, tr, th, td, 
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary, 
-time, mark, audio, video { 
-    margin: 0; 
-    padding: 0; 
-    border: 0; 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+button, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 100%; 
-    font: inherit; 
-    vertical-align: baseline; 
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 /*  Set display type for HTML5 semantic elements */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section { 
-    display: block; 
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
 }
 
-/*  Force scrollbar display to prevent jumping on pages. 
+/*  Force scrollbar display to prevent jumping on pages.
  *  Fix text resize bug on mobile devices. */
-html { 
-    overflow-y: scroll; 
-    -webkit-text-size-adjust: 100%; 
-        -ms-text-size-adjust: 100%; 
-} 
+html {
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
 
 /*  Display audio, canvas, and video elements as inline block elements. */
-audio, canvas, video { 
-    display: inline-block; 
-    *display: inline; 
-    *zoom: 1; 
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
 }
 
 /*  Prevent modern browsers from displaying audio without controls. */
-audio:not([controls]) { 
-    display: none; 
+audio:not([controls]) {
+    display: none;
 }
 
-/*  Prevent img and video elements from spilling 
+/*  Prevent img and video elements from spilling
  *  outside of the page on smaller screens. */
-img, video { 
-    max-width: 100%; 
-    height: auto; 
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
-/*  Prevent iframe, object, and embed elements from 
+/*  Prevent iframe, object, and embed elements from
  *  spilling outside of the page on smaller screens. */
 iframe, object, embed {
-    max-width: 100%; 
+    max-width: 100%;
 }
 
 /*  Prevents IE from making scaled images look like crap */
-img { 
-    -ms-interpolation-mode: bicubic; 
+img {
+    -ms-interpolation-mode: bicubic;
 }
 
 /*  Address outline inconsistency between Chrome and other browsers. */
 a:focus,
-button:focus { 
+button:focus {
     outline: thin dotted;
-    outline: .294117647em auto -webkit-focus-ring-color; 
-    outline-offset: -.142857143em; 
+    outline: .294117647em auto -webkit-focus-ring-color;
+    outline-offset: -.142857143em;
 }
 
 /*  Improve readability when focused and also mouse hovered in all browsers. */
-a:hover, a:active { 
-    outline: 0; 
+a:hover, a:active {
+    outline: 0;
 }
 
 
@@ -125,22 +125,22 @@ a:hover, a:active {
 
 
 /* =============================================================
-    THE GRID 
+    THE GRID
     Structure and layout.
  * ============================================================= */
 
 /*  Mobile-first. Single-column layout by default
  *  Container sets the maximum page width. Adjust as needed. */
-.container { 
+.container {
     max-width: 60em;
     width: 88%;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
 }
 
 
 /*  Still mostly single-column.
- *  Grid-third, grid-half, and grid-img 
+ *  Grid-third, grid-half, and grid-img
  *  provide sub-gridding on smaller screens.  */
 @media (min-width: 30em) {
 
@@ -149,7 +149,7 @@ a:hover, a:active {
         margin-right: -1.515151515152%;
 	}
 
-    [class^="grid-"], 
+    [class^="grid-"],
     [class*=" grid-"] {
         float: left;
         width:96.969696969697%;
@@ -192,26 +192,26 @@ a:hover, a:active {
     }
 
     .grid-3,
-    .grid-half { 
+    .grid-half {
         width: 46.969696969697%;
     }
 
     .grid-4,
-    .grid-two-thirds { 
+    .grid-two-thirds {
         width: 63.636363636364%;
     }
 
-    .grid-5 { 
+    .grid-5 {
         width: 80.30303030303%;
     }
 
     .grid-6,
-    .grid-full { 
+    .grid-full {
         width: 96.969696969697%;
     }
 
 
-    /*  Offets let you shift grid elements to the right 
+    /*  Offets let you shift grid elements to the right
      *  but stay aligned to the grid. */
     .offset-1 {
         margin-left: 18.181818181818%;
@@ -252,7 +252,7 @@ a:hover, a:active {
     margin-right: -1.515151515152%;
 }
 
-.ie [class^="grid-"], 
+.ie [class^="grid-"],
 .ie [class*=" grid-"] {
     float: left;
     width:96.969696969697%;
@@ -271,21 +271,21 @@ a:hover, a:active {
 }
 
 .ie .grid-3,
-.ie .grid-half { 
+.ie .grid-half {
     width: 46.969696969697%;
 }
 
 .ie .grid-4,
-.ie .grid-two-thirds { 
+.ie .grid-two-thirds {
     width: 63.636363636364%;
 }
 
-.ie .grid-5 { 
+.ie .grid-5 {
     width: 80.30303030303%;
 }
 
 .ie .grid-6,
-.ie .grid-full { 
+.ie .grid-full {
     width: 96.969696969697%;
 }
 
@@ -318,54 +318,54 @@ a:hover, a:active {
 
 
 /* =============================================================
-    TYPOGRAPHY 
-    Sets font styles for entire site. 
+    TYPOGRAPHY
+    Sets font styles for entire site.
 
     @font-face embedding
     Web Fonts from fontspring.com. All OpenType features
-    and all extended glyphs have been removed. Fully installable 
-    fonts can be purchased at http://www.fontspring.com. The fonts 
-    included in this stylesheet are subject to the End User License 
-    you purchased from Fontspring. The fonts are protected under domestic 
-    and international trademark and copyright law. You are prohibited 
-    from modifying, reverse engineering, duplicating, or distributing 
-    this font software. (c) 2010-2011 Fontspring. 
-    The fonts included are copyrighted by exljbris. 
+    and all extended glyphs have been removed. Fully installable
+    fonts can be purchased at http://www.fontspring.com. The fonts
+    included in this stylesheet are subject to the End User License
+    you purchased from Fontspring. The fonts are protected under domestic
+    and international trademark and copyright law. You are prohibited
+    from modifying, reverse engineering, duplicating, or distributing
+    this font software. (c) 2010-2011 Fontspring.
+    The fonts included are copyrighted by exljbris.
     License URL: http://www.fontspring.com/fflicense/exljbris
  * ============================================================= */
 
-@font-face { 
-    font-family: 'MuseoSlab500'; 
-    src: url('fonts/Museo_Slab_500-webfont.eot'); 
-    src: url('fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'), 
-         url('fonts/Museo_Slab_500-webfont.woff') format('woff'), 
-         url('fonts/Museo_Slab_500-webfont.ttf') format('truetype'), 
-         url('fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg'); 
-    font-weight: normal; 
-    font-style: normal; 
+@font-face {
+    font-family: 'MuseoSlab500';
+    src: url('fonts/Museo_Slab_500-webfont.eot');
+    src: url('fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Museo_Slab_500-webfont.woff') format('woff'),
+         url('fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+         url('fonts/Museo_Slab_500-webfont.svg#MuseoSlab500') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face { 
-    font-family: 'MuseoSans500'; 
-    src: url('fonts/MuseoSans_500-webfont.eot'); 
-    src: url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'), 
-         url('fonts/MuseoSans_500-webfont.woff') format('woff'), 
-         url('fonts/MuseoSans_500-webfont.ttf') format('truetype'), 
+@font-face {
+    font-family: 'MuseoSans500';
+    src: url('fonts/MuseoSans_500-webfont.eot');
+    src: url('fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/MuseoSans_500-webfont.woff') format('woff'),
+         url('fonts/MuseoSans_500-webfont.ttf') format('truetype'),
          url('fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg');
-    font-weight: normal; 
-    font-style: normal; 
+    font-weight: normal;
+    font-style: normal;
 }
 
-body { 
+body {
     font-family: "MuseoSans500", "Helvetica Neue", Arial, sans-serif;
-    font-size: 100%; 
-    line-height: 1.470588235; 
-    color: #272727; 
+    font-size: 100%;
+    line-height: 1.470588235;
+    color: #272727;
     background: #ffffff;
 }
 
-p { 
-    margin-bottom: 1.529411765em; 
+p {
+    margin-bottom: 1.529411765em;
 }
 
 @media (min-width: 42.5em) {
@@ -382,16 +382,16 @@ p {
 }
 
 
-/*  Sizes 
+/*  Sizes
  *  For smaller and larger text */
 
-.text-small { 
-    font-size: .9375em; 
-    line-height: 1.533333333; 
+.text-small {
+    font-size: .9375em;
+    line-height: 1.533333333;
 }
 
-.text-tall { 
-    font-size: 1.166666667em; 
+.text-tall {
+    font-size: 1.166666667em;
     line-height: 1.4;
 }
 
@@ -430,15 +430,15 @@ p {
 }
 
 
-/*  Colors 
+/*  Colors
  *  For alternate text colors */
 
-.text-muted { 
-    color: #808080; 
+.text-muted {
+    color: #808080;
 }
 
 
-/*  Links 
+/*  Links
  *  Hyperlink styling */
 
 button {
@@ -446,58 +446,58 @@ button {
 }
 
 a,
-button { 
+button {
     color: #e0812a;
     text-decoration: none;
 }
 
 a:hover,
-button:hover { 
-    color: #272727; 
-    text-decoration: underline; 
+button:hover {
+    color: #272727;
+    text-decoration: underline;
 }
 
-a img { 
-    border: none; 
-    background: none; 
-} 
+a img {
+    border: none;
+    background: none;
+}
 
 /*  Prevents border/background on linked image hover.
  *  Adds slight opacity. */
-a:hover img { 
-    border: none; 
-    background: none; 
-    opacity:0.8; 
-    filter:alpha(opacity=80); 
+a:hover img {
+    border: none;
+    background: none;
+    opacity:0.8;
+    filter:alpha(opacity=80);
 }
 
 
-/*  Lists 
+/*  Lists
  *  Styling for lists */
 
-ul, ol { 
-    margin-bottom: 1.529411765em; 
+ul, ol {
+    margin-bottom: 1.529411765em;
     margin-left: 2em;
 }
 
-ul ul, ul ol, ol ol, ol ul { 
-    margin-bottom: 0; 
+ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
 }
 
-ul { 
-    list-style: disc; 
+ul {
+    list-style: disc;
 }
 
-ol { 
-    list-style: decimal; 
+ol {
+    list-style: decimal;
 }
 
 /*  Removes list styling.
- *  For semantic reasons, should only 
+ *  For semantic reasons, should only
  *  be used on unordered lists. */
-.unstyled { 
-    margin-left: 0; 
-    list-style: none; 
+.unstyled {
+    margin-left: 0;
+    list-style: none;
 }
 
 
@@ -506,38 +506,38 @@ ol {
  *  Heading class lets you use one heading type for semantics
  *  but style it as another heading type. */
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
     font-family: "MuseoSlab500", Georgia, Times, serif;
-    line-height: 1.2; 
+    line-height: 1.2;
     font-weight: normal;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
     padding-top: 1em;
 }
 
-h1, .h1 { 
-    font-size: 1.529411765em; 
+h1, .h1 {
+    font-size: 1.529411765em;
     padding-top: .5em;
 }
 
-h2, .h2 { 
-    font-size: 1.352941176em; 
+h2, .h2 {
+    font-size: 1.352941176em;
 }
 
-h3, .h3 { 
-    font-size: 1.176470588em; 
+h3, .h3 {
+    font-size: 1.176470588em;
 }
 
 h4, h5, h6,
-.h4, .h5, .h6 { 
+.h4, .h5, .h6 {
     font-size: .882352941em;
 }
 
-h4, .h4 { 
-    text-transform: uppercase; 
+h4, .h4 {
+    text-transform: uppercase;
 }
 
 h1 a:hover,
-h2 a:hover, 
+h2 a:hover,
 h3 a:hover {
     text-decoration: none;
 }
@@ -558,56 +558,56 @@ h3 a:hover {
 /*  Lines, Quotes and Emphasis */
 
 /*  Lines */
-hr { 
-    margin: 2em auto; 
-    border: 0; 
-    border-top: .071428571em solid #e5e5e5; 
-    border-bottom: .071428571em solid #ffffff; 
+hr {
+    margin: 2em auto;
+    border: 0;
+    border-top: .071428571em solid #e5e5e5;
+    border-bottom: .071428571em solid #ffffff;
 }
 
 /*  Bold */
-strong { 
-    font-weight: bold; 
+strong {
+    font-weight: bold;
 }
 
 /*  Italics */
-em { 
-    font-style: italic; 
+em {
+    font-style: italic;
 }
 
 /*  Subscript & Superscript */
-sub, sup { 
-    position: relative; 
-    font-size: 85%; 
+sub, sup {
+    position: relative;
+    font-size: 85%;
     font-weight: bold;
-    line-height: 0; 
-    vertical-align: baseline; 
+    line-height: 0;
+    vertical-align: baseline;
     margin-left: .3em;
 }
 
-sup { 
-    top: -0.5em; 
+sup {
+    top: -0.5em;
 }
 
-sub { 
-    bottom: -0.25em; 
+sub {
+    bottom: -0.25em;
 }
 
 /*  Highlighting colors */
-::selection { 
+::selection {
     color: #ffffff;
-    background: #6aa120; 
+    background: #6aa120;
 }
 
-::moz-selection { 
+::moz-selection {
     color: #ffffff;
-    background: #6aa120; 
+    background: #6aa120;
 }
 
 /*  Blockquotes */
-blockquote { 
-    border-left: .235294118em solid #e5e5e5; 
-    margin-bottom:1.529411765em; 
+blockquote {
+    border-left: .235294118em solid #e5e5e5;
+    margin-bottom:1.529411765em;
     padding-left: 1.529411765em;
     padding-right: 1.529411765em;
 }
@@ -616,10 +616,10 @@ blockquote, q {
 	quotes: none;
 }
 
-blockquote:before, blockquote:after, 
-q:before, q:after { 
-    content: ''; 
-    content: none; 
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
 }
 
 
@@ -627,7 +627,7 @@ q:before, q:after {
 
 
 /* =============================================================
-    CALL TO ACTION LINKS 
+    CALL TO ACTION LINKS
     Styling for calls to action on landing page.
  * ============================================================= */
 
@@ -662,7 +662,7 @@ q:before, q:after {
 
 
 /* =============================================================
-    BUTTONS 
+    BUTTONS
     Styling for CSS3 buttons.
  * ============================================================= */
 
@@ -679,13 +679,13 @@ q:before, q:after {
     margin-bottom: .3em;
 }
 
-.btn, 
-.btn:hover, 
+.btn,
+.btn:hover,
 a .btn:hover {
     color: #ffffff;
 }
 
-.btn:hover, 
+.btn:hover,
 a .btn:hover,
 .btn.btn-disabled {
     background: #507a18;
@@ -695,42 +695,42 @@ a .btn:hover,
 
 .btn-muted {
     background: #808080;
-    border-color: #808080; 
+    border-color: #808080;
 }
 
-.btn-muted:hover, 
+.btn-muted:hover,
 a .btn-muted:hover,
 .btn-muted.btn-disabled {
     background: #595959;
-    border-color: #595959; 
+    border-color: #595959;
 }
 
 .btn-tweet {
     background: #41b7d8;
-    border-color: #41b7d8; 
+    border-color: #41b7d8;
 }
 
-.btn-tweet:hover, 
+.btn-tweet:hover,
 a .btn-tweet:hover {
     background: #3697b2;
-    border-color: #3697b2; 
+    border-color: #3697b2;
 }
 
 .btn-fb {
     background: #3b5997;
-    border-color: #3b5997; 
+    border-color: #3b5997;
 }
 
-.btn-fb:hover, 
+.btn-fb:hover,
 a .btn-fb:hover {
     background: #2c4370;
-    border-color: #2c4370; 
+    border-color: #2c4370;
 }
 
 .btn:active {
     -webkit-box-shadow: inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);
             box-shadow: inset 0 .142857143em .235294118em rgba(0, 0, 0, 0.15), 0 .071428571em .142857143em rgba(0, 0, 0, 0.05);
-    outline: 0; 
+    outline: 0;
 }
 
 .btn.btn-disabled {
@@ -757,22 +757,22 @@ input[type="button"].btn-block {
     padding-left: 0;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
-            box-sizing: border-box; 
+            box-sizing: border-box;
 }
 
 .btn-block + .btn-block {
-    margin-top: .333333333em; 
+    margin-top: .333333333em;
 }
 
 button, .btn {
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
 }
 
 .btn:first-child, input.btn {
-    margin-left: 0; 
+    margin-left: 0;
 }
 
 
@@ -780,19 +780,19 @@ button, .btn {
 
 
 /* =============================================================
-    FORMS 
+    FORMS
     Styling for form elements.
  * ============================================================= */
 
-form, fieldset { 
+form, fieldset {
     margin-bottom: 1.529411765em;
 }
 
-legend, label { 
+legend, label {
     display: block;
     font-weight: normal;
-    padding: 0; 
-    margin-bottom: .294117647em; 
+    padding: 0;
+    margin-bottom: .294117647em;
 }
 
 legend {
@@ -806,10 +806,10 @@ input, textarea, select {
     font: inherit;
     line-height: 1.470588235;
     color: #555555;
-    vertical-align: middle; 
-    margin-bottom: 1.176470588em; 
-    padding: .294117647em; 
-    border: .071428571em solid #b8b8b8; 
+    vertical-align: middle;
+    margin-bottom: 1.176470588em;
+    padding: .294117647em;
+    border: .071428571em solid #b8b8b8;
     border-radius: .176470588em;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -820,43 +820,43 @@ form button, form .btn {
     margin-bottom: 1.176470588em;
 }
 
-textarea { 
-    height: 12em; 
+textarea {
+    height: 12em;
 }
 
-input[type="image"], 
-input[type="checkbox"], 
+input[type="image"],
+input[type="checkbox"],
 input[type="radio"],
 input[type="image"] {
     display: inline-block;
-    width: auto; 
-    height: auto; 
-    padding: 0; 
-    margin-bottom: .294117647em; 
-    cursor: pointer; 
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-bottom: .294117647em;
+    cursor: pointer;
 }
 
 input[type="image"] {
     border: none;
 }
 
-input:focus, 
-textarea:focus { 
-    border-color: rgba(82, 168, 236, 0.8); 
+input:focus,
+textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
     -webkit-box-shadow: inset 0 .071428571em .071428571em rgba(0, 0, 0, 0.075), 0 0 .470588235em rgba(82, 168, 236, 0.6);
             box-shadow: inset 0 .071428571em .071428571em rgba(0, 0, 0, 0.075), 0 0 .470588235em rgba(82, 168, 236, 0.6);
-    outline: 0; 
-    outline: thin dotted \9; 
+    outline: 0;
+    outline: thin dotted \9;
 }
 
-input[type="file"]:focus, 
-input[type="checkbox"]:focus, 
-select:focus { 
+input[type="file"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
-    outline: thin dotted; 
-    outline: .294117647em auto -webkit-focus-ring-color; 
-    outline-offset: -.117647059em; 
+    outline: thin dotted;
+    outline: .294117647em auto -webkit-focus-ring-color;
+    outline-offset: -.117647059em;
 }
 
 
@@ -869,7 +869,7 @@ select:focus {
     border-radius: 1.352941176em;
 }
 
-.btn-search { 
+.btn-search {
     display: inline-block;
     color: #808080;
     border: none;
@@ -991,7 +991,7 @@ div.mailerr { display:block; }
 
 
 /* =============================================================
-    PETFINDER API 
+    PETFINDER API
     Styling for list of our dogs.
  * ============================================================= */
 
@@ -1013,26 +1013,26 @@ div.mailerr { display:block; }
     Learn more at http://gomakethings.com/icon-fonts/
  * ============================================================= */
 
-@font-face { 
-    font-family: 'icomoon'; 
-    src: url('fonts/icomoon.eot'); 
-    src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'), 
-         url('fonts/icomoon.woff') format('woff'), 
-         url('fonts/icomoon.ttf') format('truetype'), 
-         url('fonts/icomoon.svg#IcoMoon') format('svg'); 
-    font-weight: normal; 
-    font-style: normal; 
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot');
+    src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/icomoon.woff') format('woff'),
+         url('fonts/icomoon.ttf') format('truetype'),
+         url('fonts/icomoon.svg#IcoMoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-[class^="icon-"]:before, 
-[class*=" icon-"]:before { 
-    font-family: 'icomoon'; 
-    font-style: normal; 
-    speak: none; 
-    font-weight: normal; 
-    -webkit-font-smoothing: antialiased; 
-    font-smoothing: antialiased; 
-    text-rendering: optimizeLegibility; 
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    font-family: 'icomoon';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
@@ -1099,7 +1099,7 @@ a:hover .icon-horn  { color: #272727; }
 
 
 /* =============================================================
-    SPINNERS 
+    SPINNERS
     Styling for CSS3 rotation animations.
  * ============================================================= */
 
@@ -1165,45 +1165,45 @@ a:hover .icon-horn  { color: #272727; }
 
 
 /* =============================================================
-    IMAGES 
+    IMAGES
     Image styling.
  * ============================================================= */
 
 /*  Display all images as centered block elements.
  *  Mobile-first default styling. */
-.alignleft, 
-.alignright, 
-.aligncenter, 
-.alignnone { 
-    display: block; 
-    text-align: center; 
-    margin-left: auto; 
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone {
+    display: block;
+    text-align: center;
+    margin-left: auto;
     margin-right: auto;
 }
 
 /*  Image Caption Styling */
-.wp-caption-text { 
-    font-size: .882352941em; 
-    font-style: italic; 
-    color: #808080; 
-    padding-top: .470588235em; 
-    text-align: center; 
+.wp-caption-text {
+    font-size: .882352941em;
+    font-style: italic;
+    color: #808080;
+    padding-top: .470588235em;
+    text-align: center;
 }
 
 @media (min-width: 30em) {
 
     /*  On bigger screens, float .alignleft images
      *  to the left with a slight margin-right. */
-	.alignleft { 
-	    float: left; 
-	    margin-right: .823529412em; 
+	.alignleft {
+	    float: left;
+	    margin-right: .823529412em;
 	}
 
     /*  On bigger screens, float .alignright images
      *  to the right with a slight margin-left. */
-	.alignright { 
-	    float: right; 
-	    margin-left: .823529412em; 
+	.alignright {
+	    float: right;
+	    margin-left: .823529412em;
 	}
 
     /*  On bigger screens, remove left and right margins from .alignnone */
@@ -1215,14 +1215,14 @@ a:hover .icon-horn  { color: #272727; }
 
 /* IE Fallbacks */
 
-.ie .alignleft { 
-    float: left; 
-    margin-right: .823529412em; 
+.ie .alignleft {
+    float: left;
+    margin-right: .823529412em;
 }
 
-.ie .alignright { 
-    float: right; 
-    margin-left: .823529412em; 
+.ie .alignright {
+    float: right;
+    margin-left: .823529412em;
 }
 
 .ie .alignnone {
@@ -1235,64 +1235,64 @@ a:hover .icon-horn  { color: #272727; }
 
 
 /* =============================================================
-    TABLES 
+    TABLES
     Table styling.
  * ============================================================= */
 
 /*  Removes default browser settings
  *  and evens out inconsistencies. */
-table { 
+table {
     max-width: 100%;
-    border-collapse: collapse; 
-    border-spacing: 0; 
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /*  Sets table width to 100%.
  *  Adds bottom-margin. */
-.table { 
-    width: 100%; 
+.table {
+    width: 100%;
     margin-bottom: 1.529411765em;
 }
 
 /*  Adds table cell padding,
  *  aligns text to the left,
  *  and adds a top border to each cell. */
-.table th, .table td { 
-    padding: .470588235em; 
-    border-top: .071428571em solid #b8b8b8; 
+.table th, .table td {
+    padding: .470588235em;
+    border-top: .071428571em solid #b8b8b8;
 }
 
 /*  Sets table header font-weight to bold.
  *  Aligns table header text to the bottom of each cell. */
-.table th { 
+.table th {
     font-family: "MuseoSlab500", Georgia, Times, serif;
-    vertical-align: bottom; 
+    vertical-align: bottom;
 }
 
 /*  Aligns cell text to the top of each cell. */
-.table td { 
-    vertical-align: top; 
+.table td {
+    vertical-align: top;
 }
 
 /*  Removes the border-top from the first row. */
-.table thead:first-child tr th, 
-.table thead:first-child tr td { 
-    border-top: 0; 
+.table thead:first-child tr th,
+.table thead:first-child tr td {
+    border-top: 0;
 }
 
 /*  Adds border-top between two table-body sections. */
-.table tbody + tbody { 
-    border-top: .142857143em solid #b8b8b8; 
+.table tbody + tbody {
+    border-top: .142857143em solid #b8b8b8;
 }
 
 /*  Reduces cell padding */
-.table-condensed th, 
-.table-condensed td { 
-    padding: .470588235em .294117647em; 
+.table-condensed th,
+.table-condensed td {
+    padding: .470588235em .294117647em;
 }
 
 /*  Remove spacing on forms in tables */
-.table form, 
+.table form,
 .table input,
 .table button {
     margin-bottom: 0;
@@ -1303,7 +1303,7 @@ table {
 
 
 /* =============================================================
-    NAVIGATION 
+    NAVIGATION
     Navigation menu styling.
  * ============================================================= */
 
@@ -1341,7 +1341,7 @@ table {
 /*  For text-based logo, override default link hover styling */
 .logo:hover {
     color: #ffffff;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 /*  Remove default list styling for navigation list */
@@ -1381,7 +1381,7 @@ table {
     color: #ffffff;
 }
 
-/*  Hide the navigation toggle menu button 
+/*  Hide the navigation toggle menu button
  *  and search toggle button by default. */
 .nav-toggle {
     display: none;
@@ -1442,8 +1442,8 @@ table {
                 transition: all 0.35s ease-in;
     }
 
-    /*  When collapsed element has the .active class, show it 
-     *  Uses max-height instead of display: none to allow for 
+    /*  When collapsed element has the .active class, show it
+     *  Uses max-height instead of display: none to allow for
      *  CSS3 animations, which don't work on display values. */
     .js .nav-collapse.active {
         max-height: 600em;
@@ -1521,7 +1521,7 @@ table {
 
 
 /* =============================================================
-    DROPDOWN MENUS 
+    DROPDOWN MENUS
     Basic dropdown styling.
  * ============================================================= */
 
@@ -1531,7 +1531,7 @@ table {
 }
 
 /*  Display a caret after each dropdown link when JavaScript is supported.
- *  You can remove this or change it to a different symbol. 
+ *  You can remove this or change it to a different symbol.
  *  (For example, a "+" symbol.) */
 .js .dropdown > a:after {
     content: " \25bc";
@@ -1563,12 +1563,12 @@ table {
             background-clip: padding-box;
 }
 
-/*  Remove list-style and margin-left 
+/*  Remove list-style and margin-left
  *  from dropdown menu lists */
 .dropdown-menu ul,
 .dropdown-menu ol {
-    margin-left: 0; 
-    list-style: none; 
+    margin-left: 0;
+    list-style: none;
 }
 
 /*  Dropdrown link styling */
@@ -1625,7 +1625,7 @@ table {
         background-color: transparent;
         text-decoration: underline;
     }
-    
+
 }
 
 
@@ -1633,7 +1633,7 @@ table {
 
 
 /* =============================================================
-    HOUDINI COLLAPSE & EXPAND 
+    HOUDINI COLLAPSE & EXPAND
     The widget styling.
  * ============================================================= */
 
@@ -1662,8 +1662,8 @@ table {
             transition: all 0.35s ease;
 }
 
-/*  When collapsed element has the .active class, show it 
- *  Uses max-height instead of display: none to allow for 
+/*  When collapsed element has the .active class, show it
+ *  Uses max-height instead of display: none to allow for
  *  CSS3 animations, which don't work on display values. */
 .js .collapse.active {
     max-height: 600em;
@@ -1674,8 +1674,8 @@ table {
 
 
 /* =============================================================
-    MODALS 
-    Modal window styling. 
+    MODALS
+    Modal window styling.
  * ============================================================= */
 
 /*  Hide modal window by default */
@@ -1713,7 +1713,7 @@ table {
     left: 0;
     z-index: 9998;
     background-color: #000000;
-    opacity: .85; 
+    opacity: .85;
     filter: alpha(opacity=85);
 }
 
@@ -1746,7 +1746,7 @@ table {
         max-width: 35em;
     }
 
-    /* Set max-width on small sized modals */    
+    /* Set max-width on small sized modals */
     .modal-small.active {
         max-width: 25em;
     }
@@ -1763,7 +1763,7 @@ table {
 .ie .modal-medium.active {
     max-width: 35em;
 }
- 
+
 .ie .modal-small.active {
     max-width: 25em;
 }
@@ -1780,8 +1780,8 @@ table {
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
-    margin: 0; 
-    padding: 0; 
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -1843,13 +1843,13 @@ table {
     padding: .470588235em .235294118em .235294118em;
     z-index: 10;
     cursor: pointer;
-    opacity: .7; 
+    opacity: .7;
     filter: alpha(opacity=70);
 }
 
 .flex-direction-nav a:hover {
-    opacity: 1; 
-    filter: alpha(opacity=100); 
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 .flex-direction-nav a .screen-reader {
@@ -1875,48 +1875,48 @@ table {
 }
 
 .flex-direction-nav .flex-disabled {
-    opacity: .3!important; 
-    filter:alpha(opacity=30); 
+    opacity: .3!important;
+    filter:alpha(opacity=30);
     cursor: default;
 }
 
 /* Control Nav */
 .flex-control-nav {
-    width: 100%; 
-    position: absolute; 
-    bottom: -2.352941176em; 
+    width: 100%;
+    position: absolute;
+    bottom: -2.352941176em;
     text-align: center;
 }
 
 .flex-control-nav li {
-    margin: 0 .470588235em; 
-    display: inline-block; 
-    zoom: 1; 
+    margin: 0 .470588235em;
+    display: inline-block;
+    zoom: 1;
     *display: inline;
 }
 
 .flex-control-paging li a {
-    width: .647058824em; 
-    height: .647058824em; 
-    display: block; 
-    background: #666; 
-    background: rgba(0,0,0,0.5); 
-    cursor: pointer; 
-    text-indent: -9999px; 
-    border-radius: 1.176470588em; 
+    width: .647058824em;
+    height: .647058824em;
+    display: block;
+    background: #666;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    text-indent: -9999px;
+    border-radius: 1.176470588em;
     -webkit-box-shadow: inset 0 0 .1875em rgba(0, 0, 0, 0.3);
             box-shadow: inset 0 0 .1875em rgba(0, 0, 0, 0.3);
 }
 
 .flex-control-paging li a:hover {
-    background: #333; 
-    background: rgba(0,0,0,0.7); 
+    background: #333;
+    background: rgba(0,0,0,0.7);
 }
 
-.flex-control-paging li a.flex-active { 
-    background: #000; 
-    background: rgba(0,0,0,0.9); 
-    cursor: default; 
+.flex-control-paging li a.flex-active {
+    background: #000;
+    background: rgba(0,0,0,0.9);
+    cursor: default;
 }
 
 /* Clearfix for the .slides element */
@@ -1934,7 +1934,7 @@ table {
 
 
 /* =============================================================
-    BACKGROUND COLORS 
+    BACKGROUND COLORS
     Styling for background colors.
  * ============================================================= */
 
@@ -1951,11 +1951,11 @@ table {
     color: #ffffff;
 }
 
-.hero { 
-    background: #ece9e1; 
-    margin-bottom: 1.529411765em; 
-    padding: 1.176470588em; 
-    border-radius: .125em; 
+.hero {
+    background: #ece9e1;
+    margin-bottom: 1.529411765em;
+    padding: 1.176470588em;
+    border-radius: .125em;
 }
 
 
@@ -1969,16 +1969,16 @@ table {
 
 /*  Text alignment */
 
-.text-center { 
-    text-align: center; 
+.text-center {
+    text-align: center;
 }
 
-.text-right { 
-    text-align: right; 
+.text-right {
+    text-align: right;
 }
 
-.text-left { 
-    text-align: left; 
+.text-left {
+    text-align: left;
 }
 
 
@@ -2001,36 +2001,36 @@ table {
 
 /*  Spacing */
 
-.no-space { 
-    margin: 0; 
-    padding: 0; 
+.no-space {
+    margin: 0;
+    padding: 0;
 }
 
-.no-space-bottom { 
-    margin-bottom: 0; 
-    padding-bottom: 0; 
+.no-space-bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.no-space-top { 
-    margin-top: 0; 
-    padding-top: 0; 
+.no-space-top {
+    margin-top: 0;
+    padding-top: 0;
 }
 
-.space-bottom { 
-    margin-bottom: 2em; 
+.space-bottom {
+    margin-bottom: 2em;
 }
 
-.space-bottom-small { 
-    margin-bottom: .470588235em; 
-    padding-bottom: 0; 
+.space-bottom-small {
+    margin-bottom: .470588235em;
+    padding-bottom: 0;
 }
 
 .space-bottom-big {
     margin-bottom: 3em;
 }
 
-.space-top { 
-    padding-top: .82352941234em; 
+.space-top {
+    padding-top: .82352941234em;
 }
 
 .space-top-big {
@@ -2044,10 +2044,10 @@ table {
 
 /*  Hides */
 
-.screen-reader { 
-    position: absolute; 
-    top: -9999px; 
-    left:-9999px; 
+.screen-reader {
+    position: absolute;
+    top: -9999px;
+    left:-9999px;
 }
 
 .hide-no-js {
@@ -2126,18 +2126,18 @@ table {
 
 /*  Clearfix */
 
-.group:before, .group:after, 
-.container:before, .container:after, 
-.row:before, .row:after { 
-    display: table; 
-    content: ""; 
-    *zoom: 1; 
+.group:before, .group:after,
+.container:before, .container:after,
+.row:before, .row:after {
+    display: table;
+    content: "";
+    *zoom: 1;
 }
 
-.group:after, 
-.container:after, 
-.row:after { 
-    clear: both; 
+.group:after,
+.container:after,
+.row:after {
+    clear: both;
 }
 
 
@@ -2145,8 +2145,8 @@ table {
 
 
 /* =============================================================
-    PRINT STYLES 
-    Styling for printed content. 
+    PRINT STYLES
+    Styling for printed content.
     Adapted from HTML5BP.
     http://html5boilerplate.com/
  * ============================================================= */
@@ -2210,5 +2210,5 @@ table {
     tr, img {
         page-break-inside: avoid;
     }
-    
+
 }
