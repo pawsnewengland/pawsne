@@ -441,6 +441,10 @@ p {
 /*  Links
  *  Hyperlink styling */
 
+a {
+    word-wrap: break-word;
+}
+
 button {
     background: transparent;
 }
