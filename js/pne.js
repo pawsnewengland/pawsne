@@ -228,6 +228,7 @@ $(function () {
         else {
             $(toggleTarget).prop('checked',false);
         }
+        petfinderSortSave($(this));
         $('.pf-breeds').each(function () {
             petfinderSortSave($(this));
         });
