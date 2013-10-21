@@ -189,7 +189,19 @@
 
 $(function () {
 
-    // Show/Hide pets when filters are toggled
+    // Setup save filter settings
+    function petfinderSortSave(petfinderFilter) {
+        if ( window.sessionStorage ) {
+            var name = petfinderFilter.attr('data-target');
+            if ( !petfinderFilter.prop('checked') ) {
+              sessionStorage.setItem(name, 'unchecked');
+            } else {
+              sessionStorage.removeItem(name);
+            }
+        }
+    }
+
+    // Setup show/hide filter
     function petfinderSort() {
         $('.pf').hide();
         $('.pf-breeds').each(function () {
@@ -206,33 +218,30 @@ $(function () {
             }
         });
     }
+
+    // Toggle all breeds
     $('.pf-toggle-all').click(function() {
         var toggleTarget = $(this).attr('data-target');
         if($(this).prop('checked')) {
             $(toggleTarget).prop('checked',true);
-            petfinderSort();
         }
         else {
             $(toggleTarget).prop('checked',false);
-            petfinderSort();
         }
+        $('.pf-breeds').each(function () {
+            petfinderSortSave($(this));
+        });
+        petfinderSort();
     });
-    $('.pf-sort, .pf-breeds').click(petfinderSort);
 
-    // Save filter settings
-    if ( window.sessionStorage ) {
-      $('.pf-sort, .pf-breeds').click(function() {
-        var name = $(this).attr('data-target');
-        if ( !$(this).prop('checked') ) {
-          sessionStorage.setItem(name, 'unchecked');
-        } else {
-          sessionStorage.removeItem(name);
-        }
-      });
-    }
+    // Run sort when filter is changed
+    $('.pf-sort, .pf-breeds').click(function() {
+        petfinderSort();
+        petfinderSortSave($(this));
+    });
 
     // Load filter settings on page load
-    $('.pf-sort, .pf-breeds').each(function () {
+    $('.pf-sort, .pf-breeds, .pf-toggle-all').each(function () {
         var name = $(this).attr('data-target');
         var status = sessionStorage.getItem(name);
         if ( status === 'unchecked' ) {

@@ -15,16 +15,16 @@
 
 	    <!-- Add a description on the homepage -->
 	    <?php if (is_home ()) : ?><meta name="description" content="<?php bloginfo('description'); ?>"><?php endif; ?>
-	
+
 	    <!-- Mobile Screen Resizing -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.07292013.css">
+	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.10212013.css">
 
         <!-- HTML5 Shim for IE 6-8 -->
-	    <!--[if lt IE 9]>    
+	    <!--[if lt IE 9]>
 		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	    <![endif]-->
 
@@ -45,7 +45,7 @@
 	    <!-- Feeds & Pings -->
 	    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne">
 	    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-	
+
 	    <?php wp_head(); ?>
 
     </head>

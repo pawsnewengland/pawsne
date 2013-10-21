@@ -100,6 +100,7 @@ p{margin-bottom:1.529411765em;}
 .ie .text-tall{font-size:1.352941176em;}
 .ie .text-hero{font-size:2em;}
 .text-muted{color:#808080;}
+a{word-wrap:break-word;}
 button{background:transparent;}
 a,
 button{color:#e0812a;text-decoration:none;}
