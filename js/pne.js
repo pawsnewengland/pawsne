@@ -235,23 +235,10 @@ $(function () {
     });
 
     // Run sort when filter is changed
-    //$('.pf-sort, .pf-breeds').click(petfinderSort);
     $('.pf-sort, .pf-breeds').click(function() {
         petfinderSort();
         petfinderSortSave($(this));
     });
-
-    // // Save filter settings
-    // if ( window.sessionStorage ) {
-    //   $('.pf-sort, .pf-breeds').click(function() {
-    //     var name = $(this).attr('data-target');
-    //     if ( !$(this).prop('checked') ) {
-    //       sessionStorage.setItem(name, 'unchecked');
-    //     } else {
-    //       sessionStorage.removeItem(name);
-    //     }
-    //   });
-    // }
 
     // Load filter settings on page load
     $('.pf-sort, .pf-breeds, .pf-toggle-all').each(function () {
