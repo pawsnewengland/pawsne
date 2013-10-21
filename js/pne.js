@@ -209,7 +209,6 @@ $(function () {
             if ($(this).prop('checked')) {
                 $(sortBreed).show();
             }
-            petfinderSortSave($(this));
         });
         $('.pf-sort').each(function () {
             var sortTarget = $(this).attr('data-target');
@@ -217,7 +216,6 @@ $(function () {
             else {
                 $(sortTarget).hide();
             }
-            petfinderSortSave($(this));
         });
     }
 
@@ -226,26 +224,22 @@ $(function () {
         var toggleTarget = $(this).attr('data-target');
         if($(this).prop('checked')) {
             $(toggleTarget).prop('checked',true);
-            $('.pf-breeds').each(function () {
-                petfinderSortSave($(this));
-            });
-            petfinderSort();
         }
         else {
             $(toggleTarget).prop('checked',false);
-            $('.pf-breeds').each(function () {
-                petfinderSortSave($(this));
-            });
-            petfinderSort();
         }
+        $('.pf-breeds').each(function () {
+            petfinderSortSave($(this));
+        });
+        petfinderSort();
     });
 
     // Run sort when filter is changed
-    $('.pf-sort, .pf-breeds').click(petfinderSort);
-    // $('.pf-sort, .pf-breeds').click(function() {
-    //     petfinderSort();
-    //     petfinderSortSave($(this));
-    // });
+    //$('.pf-sort, .pf-breeds').click(petfinderSort);
+    $('.pf-sort, .pf-breeds').click(function() {
+        petfinderSort();
+        petfinderSortSave($(this));
+    });
 
     // // Save filter settings
     // if ( window.sessionStorage ) {
@@ -260,7 +254,7 @@ $(function () {
     // }
 
     // Load filter settings on page load
-    $('.pf-sort, .pf-breeds').each(function () {
+    $('.pf-sort, .pf-breeds, .pf-toggle-all').each(function () {
         var name = $(this).attr('data-target');
         var status = sessionStorage.getItem(name);
         if ( status === 'unchecked' ) {
