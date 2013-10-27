@@ -19,16 +19,6 @@
 	    <!-- Mobile Screen Resizing -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-	    <!-- Stylesheet -->
-	    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.10212013.css">
-
-        <!-- HTML5 Shim for IE 6-8 -->
-	    <!--[if lt IE 9]>
-		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	    <![endif]-->
-
-
 	    <!-- Favicon -->
 	    <link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
 
@@ -46,6 +36,14 @@
 	    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne">
 	    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
+        <!-- HTML5 Shim for IE 6-8 -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.10212013.css">
+
 	    <?php wp_head(); ?>
 
     </head>
@@ -61,7 +59,7 @@
 
         <div class="nav-bg">
             <nav class="nav-wrap container">
-                <a class="logo" href="<?php echo get_option('home'); ?>/"><i class="icon-logo"></i> PAWS New England</a>
+                <a class="logo" href="<?php echo site_url(); ?>/"><i class="icon-logo"></i> PAWS New England</a>
                 <a class="btn nav-toggle" data-target="#nav-menu" href="#">
                     <i class="icon-bar"></i>
                     <i class="icon-bar"></i>
@@ -70,42 +68,43 @@
                 </a>
                 <div class="nav-collapse" id="nav-menu">
                     <ul class="nav group">
-                        <li><a href="<?php echo get_option('home'); ?>/">Home</a></li>
+                        <li><a href="<?php echo site_url(); ?>/">Home</a></li>
                         <li class="dropdown">
-                            <a href="<?php echo get_option('home'); ?>/about/">About</a>
+                            <a href="<?php echo site_url(); ?>/about/">About</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a href="<?php echo get_option('home'); ?>/about/">Our Story</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/hbo/">HBO Special</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/contact/">Contact</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/about/">Our Story</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/hbo/">HBO Special</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="<?php echo get_option('home'); ?>/adopt/">Adopt</a>
+                            <a href="<?php echo site_url(); ?>/adopt/">Adopt</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a href="<?php echo get_option('home'); ?>/adopt/">The Process</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/our-dogs/">Our Dogs</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/adoption-form/">Adoption Form</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/resources/">Resources</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/adopt/">The Process</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/our-dogs/">Our Dogs</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/adoption-form/">Adoption Form</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/resources/">Resources</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="<?php echo get_option('home'); ?>/help/">How to Help</a>
+                            <a href="<?php echo site_url(); ?>/help/">How to Help</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a href="<?php echo get_option('home'); ?>/donate/">Donate</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/volunteer/">Volunteer</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/paws-harness-program/">Buy a Harness</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/volunteer/">Volunteer</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/paws-harness-program/">Buy a Harness</a></li>
                                     <li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
-                                    <li><a href="<?php echo get_option('home'); ?>/owen-fund/">The Owen Fund</a></li>
-                                    <li><a href="<?php echo get_option('home'); ?>/paws-partners/">Support Our Partners</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/goodsearch/">Browse the Web</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/owen-fund/">The Owen Fund</a></li>
+                                    <li><a href="<?php echo site_url(); ?>/paws-partners/">Support Our Partners</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="<?php echo get_option('home'); ?>/news/">Blog</a></li>
+                        <li><a href="<?php echo site_url(); ?>/news/">Blog</a></li>
                     </ul>
                 </div>
             </nav>
