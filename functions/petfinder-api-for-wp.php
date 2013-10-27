@@ -347,7 +347,7 @@ function get_size_list($pets) {
         $size_condensed = pet_value_condensed($size);
 
         // Create a list
-        $size_list .=    '<label>
+        $size_list .=   '<label>
                             <input type="checkbox" class="pf-sort" data-target=".' . $size_condensed . '" checked>' .
                                 $size .
                         '</label>';
