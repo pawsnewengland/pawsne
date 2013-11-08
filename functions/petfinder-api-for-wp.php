@@ -733,7 +733,7 @@ function get_pet_info($pet) {
     }
 
 
-    if ( $_GET['photos'] == 'all' ) {
+    if ( isset( $_GET['photos'] ) && $_GET['photos'] == 'all' ) {
         $pet_info =    '<div class="row text-center">
                             <div class="grid-4 offset-1">
                                 <h1 class="no-space-bottom">Photos of ' . $pet_name . '</h1>
@@ -803,11 +803,9 @@ function display_petfinder_list() {
 
     // Define variables
     $petfinder_list = '';
-    $petfinder_view = $_GET['view'];
-
 
     // Display info on a specific dog
-    if ( $petfinder_view == 'pet-details' ) {
+    if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
 
         // Access Petfinder Data
         $pet_id = $_GET['id'];
