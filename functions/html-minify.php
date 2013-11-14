@@ -5,13 +5,13 @@
     HTML Minify v1.0
     A simple PHP function to minify the HTML output from your WordPress site by Damn's Virtual Studio.
     http://www.intert3chmedia.net/2011/12/minify-html-javascript-css-without.html
-    
+
  * ====================================================================== */
 
 class WP_HTML_Compression {
     // Settings: Change to false to exclude from minification
     protected $compress_css = true;
-    protected $compress_js = true;
+    protected $compress_js = false;
     protected $info_comment = true;
     protected $remove_comments = true;
 
@@ -27,9 +27,9 @@ class WP_HTML_Compression {
     }
     protected function bottomComment($raw, $compressed) {
 	    $raw = strlen($raw);
-	    $compressed = strlen($compressed);		
-	    $savings = ($raw-$compressed) / $raw * 100;		
-	    $savings = round($savings, 2);		
+	    $compressed = strlen($compressed);
+	    $savings = ($raw-$compressed) / $raw * 100;
+	    $savings = round($savings, 2);
 	    return '<!--HTML compressed, size saved '.$savings.'%. From '.$raw.' bytes, now '.$compressed.' bytes-->';
     }
     protected function minifyHTML($html) {
