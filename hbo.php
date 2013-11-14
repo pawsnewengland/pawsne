@@ -13,7 +13,13 @@ get_header(); ?>
 
 		<p>It's our hope that this film will inspire you to take action.</p>
 
-		<p class="text-center"><a class="btn btn-large collapse-toggle" data-target="#learn-more" href="#">A Note from Our Founder +</a></p>
+		<p class="text-center">
+			<a class="btn btn-large collapse-toggle" data-target="#learn-more" href="#">
+				A Note from Our Founder&nbsp;
+				<span class="collapse-text-show">+</span>
+    			<span class="collapse-text-hide">&ndash;</span>
+			</a>
+		</p>
 
 		<div class='collapse' id='learn-more'>
             <div class="hero">
@@ -58,7 +64,7 @@ get_header(); ?>
 
 <hr>
 
-<!--	
+<!--
 <h1 class="text-center">Screening Parties</h1>
 
 <div class="row">
@@ -229,13 +235,13 @@ get_header(); ?>
             <p>He goes on to say that Hope is likely to be euthanized because no one wants a “mangy pit bull.”</p>
 
             <h3>The Turning Point</h3>
-                
+
             <p>When dog trainer John Gagnon (also featured on on this site) walks by Hope’s cage, his horror is apparent. He decides to take her into the PAWS New England rescue and Hope’s life dramatically changes course. The journey from her lonely pen at the pound to being the featured guest at the Norton, MA Tricentennial Parade is a remarkable one and we hope you will watch the film to see it firsthand.</p>
-                
+
             <p>Hope currently enjoys a life of luxury with her parents Michael and Elice, and furbrother Cody in Rhode Island. She spends her days wrestling, walking on the beach, and cuddling in bed. Her nickname is now “Hope E Potomus” and she is unrecognizable from the dog that first appeared in the film.</p>
 
             <h3>It Takes a Village</h3>
-                
+
             <p>Hope would have never landed in her extraordinary home without help from her adoring foster mom Jenn DeAguiar.</p>
 
             <p>Jenn is a long-time PAWS foster parent and profound advocate for dogs who are elderly, sick, or disabled. Along with her equally loving young sons, Jenn nursed Hope through both heartworm and mange treatment.</p>
@@ -245,7 +251,7 @@ get_header(); ?>
             <h3>The Importance of Fostering</h3>
 
             <p>While in foster care, Hope spent her time sneaking snacks on the couch with her human foster brothers, sitting in anyone's lap that she could get to, kissing and snuggling in Jenn’s 2nd grade classroom, eating out of lunch boxes, walking in line, reading in the classroom library, and playing games of tag during recess.</p>
-                
+
             <p>Hope’s story exemplifies the vital role our foster homes play in securing lifelong success and happiness for these remarkable dogs.</p>
 
             <p><a href="http://pawsnewengland.com/foster/">Become a foster parent today...</a>.</p>

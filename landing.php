@@ -3,7 +3,7 @@ Template Name: Landing
 */
 get_header(); ?>
 
-    <div class="alert"><strong>New:</strong> The Owen Fund was created to honor the spirit and bravery of a young pup who beat the odds. <a href="http://www.pawsnewengland.com/owen-fund/">Learn more...</a></div>
+    <!-- <div class="alert">Alert here...</div> -->
 
 	<div class="row">
 

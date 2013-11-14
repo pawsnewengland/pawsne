@@ -1,14 +1,20 @@
 <?php
 
 /* ======================================================================
- * Flexslider-Slideshow.php
- * An image slider shortcode.
- * Function code by DevPress - http://devpress.com/plugins/slideshow
- * CSS and script by by WooThemes - https://github.com/cferdinandi/FlexSlider
- * Rebounded by Chris Ferdinandi - http://gomakethings.com
+    Slider v3.3
+
+    Script by Brad Birdsall.
+    http://swipejs.com/
+
+    Forked by Chris Ferdinandi.
+    http://gomakethings.com
+
+    Code contributed by Ron Ilan.
+    https://github.com/bradbirdsall/Swipe/pull/277#issuecomment-26032132
  * ====================================================================== */
 
-function flexslider_slideshow() {
+// Create slider shortcode
+function slider_slideshow() {
 
 	global $post;
 
@@ -55,8 +61,8 @@ function flexslider_slideshow() {
 	}
 
     // Slideshow wrapper
-	$slideshow = '<div class="flexslider">
-                    <ul class="slides">';
+	$slideshow = '<div class="slider">
+                    <div class="slides">';
 
 	$i = 0;
 
@@ -64,17 +70,103 @@ function flexslider_slideshow() {
 	    // Get image
         $flex_img = wp_get_attachment_image( $attachment->ID, $size, false );
 		// Insert image into list item
-		$slideshow .= '<li>' . $flex_img . '</li>';
+		$slideshow .= '<div>' . $flex_img . '</div>';
 	}
 
     // End slideshow wrapper
-	$slideshow .=   '</ul>
+	$slideshow .=   '</div>
+                  </div>
+                  <div class="row">
+                    <div class="grid-half">
+	                   <p class="slide-nav no-space-bottom"></p>
+                    </div>
+                    <div class="grid-half text-right">
+	                   <p class="slide-count"></p>
+                    </div>
                   </div>';
 
 	return apply_filters( 'slideshow_shortcode', $slideshow );
 
 }
+add_shortcode( 'slideshow', 'slider_slideshow' );
 
-add_shortcode( 'slideshow', 'flexslider_slideshow' );
+// Add script to footer
+function slider_add_init_script( $query ) {
+	$script = "
+		<script>
+			if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+
+		        // Slider Variable
+		        var slider = document.querySelector('.slider');
+
+		        // If a Slider exists
+		        if (slider) {
+
+		            // Activate Slider
+		            window.mySwipe = Swipe(slider, {
+		                // Configure your options
+		                // startSlide: 1,
+		                // speed: 400,
+		                // auto: 3000,
+		                continuous: true,
+		                // disableScroll: false,
+		                // stopPropagation: false,
+		                callback: function(index, elem) {
+		                    // Update with new position on slide change
+		                    countSlides();
+		                },
+		                // transitionEnd: function(index, elem) {}
+		            });
+
+
+		            // Function to display slide count
+		            var countSlides = function () {
+		                // Variables
+		                var slideTotal = mySwipe.getNumSlides();
+		                var slideCurrent = mySwipe.getPos();
+		                var slideCount = document.querySelector('.slide-count');
+		                // Content
+		                if (slideCount) {
+		                    slideCount.innerHTML = slideCurrent + ' of ' + slideTotal;
+		                }
+		            }
+		            // Run slide count function on load
+		            countSlides();
+
+
+		            // Create Previous & Next Buttons
+		            var slideNav = document.querySelector('.slide-nav')
+		            if (slideNav) {
+		                slideNav.innerHTML = '<a class=\"slide-nav-prev\" href=\"#\">Previous</a> | <a class=\"slide-nav-next\" href=\"#\">Next</a>';
+		            }
+
+		            // Toggle Previous & Next Buttons
+		            var btnNext = document.querySelector('.slide-nav-next');
+		            var btnPrev = document.querySelector('.slide-nav-prev');
+		            if (btnNext) {
+		                btnNext.addEventListener('click', function(e) { e.preventDefault(); mySwipe.next(); }, false);
+		            }
+		            if (btnPrev) {
+		                btnPrev.addEventListener('click', function(e) { e.preventDefault(); mySwipe.prev(); }, false);
+		            }
+
+
+		            // Toggle Left & Right Keypress
+		            window.addEventListener('keydown', function (e) {
+		                if (e.keyCode == 37) {
+		                    mySwipe.prev();
+		                }
+		                if (e.keyCode == 39) {
+		                    mySwipe.next();
+		                }
+		            }, false);
+
+		        }
+
+		    }
+		</script>";
+	echo $script;
+}
+add_action('wp_footer', 'slider_add_init_script', 30);
 
 ?>

@@ -1035,28 +1035,27 @@ div.mailerr { display:block; }
     speak: none;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
 
 
-.icon-logo:before       { content: "\e000" }
-.icon-home:before       { content: "\e001"; }
-.icon-heart:before      { content: "\e002"; }
-.icon-time:before       { content: "\e003"; }
-.icon-facebook:before   { content: "\e004"; }
-.icon-twitter:before    { content: "\e005"; }
-.icon-email:before      { content: "\e006"; }
-.icon-chat:before       { content: "\e007"; }
-.icon-rss:before        { content: "\e008"; }
-.icon-download:before   { content: "\e009"; }
-.icon-location:before   { content: "\e00a"; }
-.icon-search:before     { content: "\e00b"; }
-.icon-filter:before     { content: "\e00c"; }
-.icon-cart:before       { content: "\e00d"; }
-.icon-people:before     { content: "\e00e"; }
-.icon-horn:before       { content: "\e00f"; }
-.icon-loading:before    { content: "\e010"; }
+.font-face .icon-logo:before       { content: "\e000" }
+.font-face .icon-home:before       { content: "\e001"; }
+.font-face .icon-heart:before      { content: "\e002"; }
+.font-face .icon-time:before       { content: "\e003"; }
+.font-face .icon-facebook:before   { content: "\e004"; }
+.font-face .icon-twitter:before    { content: "\e005"; }
+.font-face .icon-email:before      { content: "\e006"; }
+.font-face .icon-chat:before       { content: "\e007"; }
+.font-face .icon-rss:before        { content: "\e008"; }
+.font-face .icon-download:before   { content: "\e009"; }
+.font-face .icon-location:before   { content: "\e00a"; }
+.font-face .icon-search:before     { content: "\e00b"; }
+.font-face .icon-filter:before     { content: "\e00c"; }
+.font-face .icon-cart:before       { content: "\e00d"; }
+.font-face .icon-people:before     { content: "\e00e"; }
+.font-face .icon-horn:before       { content: "\e00f"; }
+.font-face .icon-loading:before    { content: "\e010"; }
 
 a .icon-home        { color: #453f27; }
 a .icon-heart       { color: #e7a2b0; }
@@ -1641,37 +1640,53 @@ table {
     The widget styling.
  * ============================================================= */
 
-/*  Hide the collapase and expand link or button by default */
-.collapse-toggle {
+ /*  Hide the collapse and expand link or button by default */
+ .collapse-toggle {
     display: none;
     visibility: hidden;
-}
+ }
 
-/*  If JavaScript is enabled, show the collapse and expand link or button */
-.js .collapse-toggle {
+ /*  If JavaScript is enabled, show the collapse and expand link or button */
+ .js .collapse-toggle {
     display: inline;
     visibility: visible;
     cursor: pointer;
-}
+ }
 
-/* If JavaScript is enabled, hide the collapsed element */
-.js .collapse {
+ /*  When expanded, hide "show" text.
+  *  When collapsed, hide "hide" text. */
+ .active .collapse-text-show,
+ .collapse-text-hide {
+    display: none;
+    visibility: hidden;
+ }
+
+ /*  When expanded, show "hide" text. */
+ .active .collapse-text-hide {
+    display: inline;
+    visibility: visible;
+ }
+
+ /* If JavaScript is enabled, hide the collapsed element */
+ .js .collapse {
     max-height: 0;
     overflow: hidden;
+    opacity: 0;
     /*  Add animation when content expands and collapses */
-    -webkit-transition: all 0.35s ease;
-       -moz-transition: all 0.35s ease;
-        -ms-transition: all 0.35s ease;
-         -o-transition: all 0.35s ease;
-            transition: all 0.35s ease;
-}
+    -webkit-transition: opacity 0.35s ease;
+       -moz-transition: opacity 0.35s ease;
+        -ms-transition: opacity 0.35s ease;
+         -o-transition: opacity 0.35s ease;
+            transition: opacity 0.35s ease;
+ }
 
-/*  When collapsed element has the .active class, show it
- *  Uses max-height instead of display: none to allow for
- *  CSS3 animations, which don't work on display values. */
-.js .collapse.active {
-    max-height: 600em;
-}
+ /*  When collapsed element has the .active class, show it
+  *  Uses max-height instead of display: none to allow for
+  *  CSS3 animations, which don't work on display values. */
+ .js .collapse.active {
+    max-height: 9999em;
+    opacity: 1;
+ }
 
 
 
@@ -1682,22 +1697,22 @@ table {
     Modal window styling.
  * ============================================================= */
 
-/*  Hide modal window by default */
-.modal {
+ /*  Hide modal window by default */
+ .modal {
     display: none;
-    visibility: none;
+    visibility: hidden;
     z-index: 9999;
     background-color: #ffffff;
-    border: 1px solid #999;
+    border: .071428571em solid #999;
     padding: .470588235em .823529412em;
     border-radius: .235294118em;
-    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-       -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
+    -webkit-box-shadow: 0 .235294118em .470588235em rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: 0 .235294118em .470588235em rgba(0, 0, 0, 0.3);
+            box-shadow: 0 .235294118em .470588235em rgba(0, 0, 0, 0.3);
+ }
 
-/*  When active, show modal window */
-.modal.active {
+ /*  When active, show modal window */
+ .modal.active {
     display: block;
     visibility: visible;
     position: absolute;
@@ -1706,10 +1721,10 @@ table {
     right: 3%;
     margin-left: auto;
     margin-right: auto;
-}
+ }
 
-/*  Styling for modal window background */
-.modal-bg {
+ /*  Styling for modal window background */
+ .modal-bg {
     position: fixed;
     top: 0;
     right: 0;
@@ -1719,27 +1734,27 @@ table {
     background-color: #000000;
     opacity: .85;
     filter: alpha(opacity=85);
-}
+ }
 
-/*  Styling for close button */
-.close {
+ /*  Styling for close button */
+ .close {
     float: right;
     color: #808080;
     font-weight: bold;
     font-size: 1.529411765em
     cursor: pointer;
-}
+ }
 
-/*  Styling for close button on hover */
-.close:hover {
+ /*  Styling for close button on hover */
+ .close:hover {
     color: #272727;
     text-decoration: none;
     cursor: pointer;
-}
+ }
 
 
-/*  Modal styling for bigger screens */
-@media (min-width: 40em) {
+ /*  Modal styling for bigger screens */
+ @media (min-width: 40em) {
     .modal.active {
         left: 8%;
         right: 8%;
@@ -1754,7 +1769,7 @@ table {
     .modal-small.active {
         max-width: 25em;
     }
-}
+ }
 
 
 /*  IE Specific Styling */
@@ -1781,157 +1796,48 @@ table {
     Image carousel styling.
  * ============================================================= */
 
-.slides,
-.flex-control-nav,
-.flex-direction-nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.slides > li {
-    margin-bottom: .470588235em;
-}
-
-.js .slides > li {
-    margin-bottom: 0;
-}
-
-.flexslider .slides img {
-    width: 100%;
-    display: block;
-}
-
-.flexslider {
-    margin: 0 0 4em;
-    padding: 0;
+ /*  When HTML5 JS features supported, hide slider */
+ .js .slider {
     position: relative;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    zoom: 1;
-}
-
-.flex-viewport {
-    max-height: 120em;
-    -webkit-transition: all 1s ease;
-       -moz-transition: all 1s ease;
-        -ms-transition: all 1s ease;
-         -o-transition: all 1s ease;
-            transition: all 1s ease;
-}
-
-.loading .flex-viewport {
-    max-height: 18em;
-}
-
-.flexslider .slides {
-    zoom: 1;
-}
-
-.carousel li {
-    margin-right: .294117647em;
-}
-
-
-/* Direction Nav */
-
-.flex-direction-nav a {
-    font-size: 1.529411765em;
-    line-height: 1;
-    color: #ffffff;
-    background-color: #272727;
-    text-decoration: none;
-    position: absolute;
-    top: 50%;
-    padding: .470588235em .235294118em .235294118em;
-    z-index: 10;
-    cursor: pointer;
-    opacity: .7;
-    filter: alpha(opacity=70);
-}
-
-.flex-direction-nav a:hover {
-    opacity: 1;
-    filter: alpha(opacity=100);
-}
-
-.flex-direction-nav a .screen-reader {
-    position: absolute;
-    top: -9999px;
-    left:-9999px;
-}
-
-.flex-direction-nav .flex-next {
-    right: 0;
-}
-
-.flex-direction-nav .flex-next:after {
-    content: "\25b6";
-}
-
-.flex-direction-nav .flex-prev {
-    left: 0;
-}
-
-.flex-direction-nav .flex-prev:before {
-    content: "\25c0";
-}
-
-.flex-direction-nav .flex-disabled {
-    opacity: .3!important;
-    filter:alpha(opacity=30);
-    cursor: default;
-}
-
-/* Control Nav */
-.flex-control-nav {
-    width: 100%;
-    position: absolute;
-    bottom: -2.352941176em;
-    text-align: center;
-}
-
-.flex-control-nav li {
-    margin: 0 .470588235em;
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-}
-
-.flex-control-paging li a {
-    width: .647058824em;
-    height: .647058824em;
-    display: block;
-    background: #666;
-    background: rgba(0,0,0,0.5);
-    cursor: pointer;
-    text-indent: -9999px;
-    border-radius: 1.176470588em;
-    -webkit-box-shadow: inset 0 0 .1875em rgba(0, 0, 0, 0.3);
-            box-shadow: inset 0 0 .1875em rgba(0, 0, 0, 0.3);
-}
-
-.flex-control-paging li a:hover {
-    background: #333;
-    background: rgba(0,0,0,0.7);
-}
-
-.flex-control-paging li a.flex-active {
-    background: #000;
-    background: rgba(0,0,0,0.9);
-    cursor: default;
-}
-
-/* Clearfix for the .slides element */
-.slides:after {
-    content: ".";
-    display: block;
-    clear: both;
+    overflow: hidden;
     visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
+ }
+
+ /*  When HTML5 JS features supported, hide slides */
+ .js .slides {
+    overflow: hidden;
+    position: relative;
+ }
+
+ /*  Add a margin-bottom to each slide */
+ .slides > div {
+    margin-bottom: .470588235em;
+ }
+
+ /*  When HTML5 JS features supported, set width to 100%
+  *  and float slides to the left. */
+ .js .slides > div {
+    width: 100%;
+    float: left;
+    position: relative;
+ }
+
+ /*  Make slider images fluid */
+ .slides img {
+    max-width: 100%;
+    height: auto;
+ }
+
+ /*  Remove floats */
+ .slider:before, .slider:after {
+    display: table;
+    content: "";
+ }
+
+ /*  Remove floats */
+ .slider:after {
+    clear: both;
+ }
 
 
 
@@ -1977,8 +1883,10 @@ table {
     text-align: center;
 }
 
-.text-right {
-    text-align: right;
+@media (min-width: 30em) {
+    .text-right {
+        text-align: right;
+    }
 }
 
 .text-left {
