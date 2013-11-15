@@ -61,7 +61,15 @@ function slider_slideshow() {
 	}
 
     // Slideshow wrapper
-	$slideshow = '<div class="slider">
+	$slideshow = '<div class="row">
+                    <div class="grid-half">
+	                   <p class="slide-nav no-space-bottom"></p>
+                    </div>
+                    <div class="grid-half text-right">
+	                   <p class="slide-count space-bottom-small"></p>
+                    </div>
+                  </div>
+				  <div class="slider">
                     <div class="slides">';
 
 	$i = 0;
@@ -75,14 +83,6 @@ function slider_slideshow() {
 
     // End slideshow wrapper
 	$slideshow .=   '</div>
-                  </div>
-                  <div class="row">
-                    <div class="grid-half">
-	                   <p class="slide-nav no-space-bottom"></p>
-                    </div>
-                    <div class="grid-half text-right">
-	                   <p class="slide-count"></p>
-                    </div>
                   </div>';
 
 	return apply_filters( 'slideshow_shortcode', $slideshow );
