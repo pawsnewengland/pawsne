@@ -849,7 +849,11 @@ function display_petfinder_list() {
                                     <div class="hide-js">
                                         <p>Your perfect companion could be just a click away. Click on a dog to learn more.</p>
                                     </div>
-                                    <p><a class="btn collapse-toggle" data-target="#sort-options" href="#"><i class="icon-filter"></i> Filter Results +</a></p>
+                                    <p>
+                                        <a class="btn collapse-toggle" data-target="#sort-options" href="#">
+                                            <i class="icon-filter"></i>&nbsp;Filter Results&nbsp;<span class="collapse-text-show">+</span><span class="collapse-text-hide">&ndash;</span>
+                                        </a>
+                                    </p>
                                     <div class="collapse hide-no-js" id="sort-options">
 
                                         <div class="row">' .
