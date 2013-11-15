@@ -157,7 +157,7 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
 
     // If no photos have been uploaded for the pet
     else {
-        $pet_photos = get_template_directory_uri() . '/img/nophoto.jpg';
+        $pet_photos = '<img class="space-bottom-small" alt="No photo has been posted yet for ' . $pet_name . '" src="' . get_template_directory_uri() . '/img/nophoto.jpg">';
     }
 
     return $pet_photos;
