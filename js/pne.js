@@ -643,10 +643,12 @@ window.fluidvids = (function (window, document, undefined) {
 
 		// Load filter settings on page load
 		var petfinderSortGet = function (filter) {
-			var name = filter.getAttribute('data-target');
-			var status = sessionStorage.getItem(name);
-			if ( status === 'unchecked' ) {
-				filter.checked = false;
+			if ( window.sessionStorage ) {
+				var name = filter.getAttribute('data-target');
+				var status = sessionStorage.getItem(name);
+				if ( status === 'unchecked' ) {
+					filter.checked = false;
+				}
 			}
 		};
 		[].forEach.call(petFilterBreeds, function (filter) {
@@ -659,6 +661,55 @@ window.fluidvids = (function (window, document, undefined) {
 			petfinderSortGet(filter);
 		});
 		petfinderSort();
+
+	}
+
+})();
+
+
+
+
+
+/* =============================================================
+
+	Better Adoption Forms v1.0
+	Store and load data for better adoption forms, by Chris Ferdinandi.
+	http://gomakethings.com
+
+	Free to use under the MIT License.
+	http://gomakethings.com/mit/
+
+ * ============================================================= */
+
+(function() {
+
+	'use strict';
+
+	// Pass name of pet user is interested in to the adoption form
+	if ( window.sessionStorage ) {
+
+		// Pass the name of the dog the user is interested in adopting
+		// from the "Our Dogs" page to the Adoption Form
+		var adoptToggle = document.querySelectorAll('.adopt-toggle');
+		[].forEach.call(adoptToggle, function (toggle) {
+			toggle.addEventListener('click', function(e) {
+				var name = toggle.getAttribute('data-name');
+				sessionStorage.setItem('petToAdopt', name);
+			}, false);
+		});
+
+		// Get pet name from session storage
+		var adoptionFormGetPet = function (petNameField) {
+			var petName = sessionStorage.getItem('petToAdopt');
+			petNameField.value = petName;
+			sessionStorage.removeItem('petToAdopt');
+		};
+
+		// If adoption form exists, get the pet name from storage
+		var adoptionForm = document.querySelector('#input-dog-name');
+		if ( adoptionForm ) {
+			adoptionFormGetPet(adoptionForm);
+		}
 
 	}
 

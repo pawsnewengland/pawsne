@@ -710,15 +710,16 @@ function get_pet_list($pets) {
 function get_pet_info($pet) {
 
     // Define Variables
+    $pet_id = $pet->id;
     $pet_name = get_pet_name($pet->name);
     $pet_size = get_pet_size($pet->size);
     $pet_age = get_pet_age($pet->age);
     $pet_gender = get_pet_gender($pet->sex);
     $pet_photos_main = get_pet_photos($pet, 'large');
     $pet_photos_all = get_pet_photos($pet, 'large', false);
-    $pet_photos_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&photos=all&qcAC=1';
+    $pet_photos_url = get_permalink() . '?view=pet-details&id=' . $pet_id . '&photos=all&qcAC=1';
     $pet_description = get_pet_description($pet->description);
-    $pet_profile_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&qcAC=1';
+    $pet_profile_url = get_permalink() . '?view=pet-details&id=' . $pet_id . '&qcAC=1';
 
     // Get list of breed(s)
     $pet_breeds = '';
@@ -774,7 +775,7 @@ function get_pet_info($pet) {
                                 </div>' .
                             $pet_options .
                             '<p>
-                                <a class="btn" href="http://www.pawsnewengland.com/adoption-form/">Fill Out an Adoption Form</a>
+                                <a class="btn adopt-toggle" data-name="' . $pet_name . ' (ID#: ' . $pet_id . ')' . '" href="' . site_url() . '/adoption-form/">Fill Out an Adoption Form</a>
                             </p>' .
                             $pet_description .
                         '</div>
