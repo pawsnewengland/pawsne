@@ -826,8 +826,10 @@ window.fluidvids = (function (window, document, undefined) {
 		[].forEach.call(formFieldSelect, function (field) {
 			field.value = localStorage.getItem(field.name);
 		});
-		formSaveMessage.innerHTML = sessionStorage.getItem('saveMessage');
-		sessionStorage.removeItem('saveMessage');
+		if ( formSaveMessage ) {
+			formSaveMessage.innerHTML = sessionStorage.getItem('saveMessage');
+			sessionStorage.removeItem('saveMessage');
+		}
 
 	}
 
