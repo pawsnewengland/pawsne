@@ -107,7 +107,7 @@ function get_pet_option($pet_option) {
     Set size and number of pet photos.
  * ============================================================= */
 
-function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
+function get_pet_photos($pet, $photo_size = 'medium', $limit = true, $before = '', $after = '') {
 
     // Set size
     if ( $photo_size == 'large' ) {
@@ -140,13 +140,13 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
 
                         // If limit set on number of photos, get the first photo
                         if ( $limit == true ) {
-                            $pet_photos = '<img class="space-bottom-small" alt="Photo of ' . $pet_name . '" src="' . $photo . '">';
+                            $pet_photos = $before . '<img class="space-bottom-small" alt="Photo of ' . $pet_name . '" src="' . $photo . '">' . $after;
                             break 2;
                         }
 
                         // Otherwise, get all of them
                         else {
-                            $pet_photos .= '<div><img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '"></div>';
+                            $pet_photos .= $before . '<img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '">' . $after;
                         }
 
                     }
@@ -157,7 +157,7 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
 
     // If no photos have been uploaded for the pet
     else {
-        $pet_photos = '<img class="space-bottom-small" alt="No photo has been posted yet for ' . $pet_name . '" src="' . get_template_directory_uri() . '/img/nophoto.jpg">';
+        $pet_photos = $before . '<img class="space-bottom-small" alt="No photo has been posted yet for ' . $pet_name . '" src="' . get_template_directory_uri() . '/img/nophoto.jpg">' . $after;
     }
 
     return $pet_photos;
@@ -715,8 +715,6 @@ function get_pet_info($pet) {
     $pet_size = get_pet_size($pet->size);
     $pet_age = get_pet_age($pet->age);
     $pet_gender = get_pet_gender($pet->sex);
-    $pet_photos_main = get_pet_photos($pet, 'large');
-    $pet_photos_all = get_pet_photos($pet, 'large', false);
     $pet_photos_url = get_permalink() . '?view=pet-details&id=' . $pet_id . '&photos=all&qcAC=1';
     $pet_description = get_pet_description($pet->description);
     $pet_profile_url = get_permalink() . '?view=pet-details&id=' . $pet_id . '&qcAC=1';
@@ -739,7 +737,7 @@ function get_pet_info($pet) {
                             <div class="grid-4 offset-1">
                                 <h1 class="no-space-bottom">Photos of ' . $pet_name . '</h1>
                                 <p><a href="' . $pet_profile_url . '">&larr; Back to ' . $pet_name . '\'s profile</a></p>' .
-                                $pet_photos_all .
+                                get_pet_photos($pet, 'large', false, '<p>', '</p>') .
                             '</div>
                         </div>';
     }
@@ -760,7 +758,7 @@ function get_pet_info($pet) {
                                 </div>
                                 <div class="slider" data-slider="' . $pet_id . '">
                                     <div class="slides">' .
-                                        $pet_photos_all .
+                                        get_pet_photos($pet, 'large', false, '<div>', '</div>') .
                                     '</div>
                                 </div>
                                 <p class="text-center">
