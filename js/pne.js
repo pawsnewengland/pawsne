@@ -643,10 +643,12 @@ window.fluidvids = (function (window, document, undefined) {
 
 		// Load filter settings on page load
 		var petfinderSortGet = function (filter) {
-			var name = filter.getAttribute('data-target');
-			var status = sessionStorage.getItem(name);
-			if ( status === 'unchecked' ) {
-				filter.checked = false;
+			if ( window.sessionStorage ) {
+				var name = filter.getAttribute('data-target');
+				var status = sessionStorage.getItem(name);
+				if ( status === 'unchecked' ) {
+					filter.checked = false;
+				}
 			}
 		};
 		[].forEach.call(petFilterBreeds, function (filter) {
@@ -659,6 +661,175 @@ window.fluidvids = (function (window, document, undefined) {
 			petfinderSortGet(filter);
 		});
 		petfinderSort();
+
+	}
+
+})();
+
+
+
+
+
+/* =============================================================
+
+	Better Adoption Forms v1.0
+	Store and load data for better adoption forms, by Chris Ferdinandi.
+	http://gomakethings.com
+
+	Free to use under the MIT License.
+	http://gomakethings.com/mit/
+
+ * ============================================================= */
+
+(function() {
+
+	'use strict';
+
+	// Pass name of pet user is interested in to the adoption form
+	if ( window.sessionStorage ) {
+
+		// Pass the name of the dog the user is interested in adopting
+		// from the "Our Dogs" page to the Adoption Form
+		var adoptToggle = document.querySelectorAll('.adopt-toggle');
+		[].forEach.call(adoptToggle, function (toggle) {
+			toggle.addEventListener('click', function(e) {
+				var name = toggle.getAttribute('data-name');
+				sessionStorage.setItem('petToAdopt', name);
+			}, false);
+		});
+
+		// Get pet name from session storage
+		var adoptionFormGetPet = function (petNameField) {
+			var petName = sessionStorage.getItem('petToAdopt');
+			petNameField.value = petName;
+			sessionStorage.removeItem('petToAdopt');
+		};
+
+		// If adoption form exists, get the pet name from storage
+		var adoptionForm = document.querySelector('#input-dog-name');
+		if ( adoptionForm ) {
+			adoptionFormGetPet(adoptionForm);
+		}
+
+	}
+
+	// Store form data in local storage to make it easier
+	// to complete forms in the future
+	if ( window.localStorage ) {
+
+		// Variables
+		var formSave = document.querySelectorAll('.form-save-data');
+		var formRemove = document.querySelectorAll('.form-delete-data');
+		var formSaveMessage = document.querySelector('#form-save-message');
+		var formFieldInput = document.querySelectorAll('input'); // input[text, radio, checkbox]
+		var formFieldTextarea = document.querySelectorAll('textarea'); // textarea
+		var formFieldSelect = document.querySelectorAll('select'); // select
+
+		// Setup save text input, textarea, and select options
+		var saveFormFieldText = function (field) {
+			if ( field.value !== null && field.value !== '' && !buoy.hasClass(field, 'form-no-save') ) {
+				localStorage.setItem(field.name, field.value);
+			}
+		};
+
+		// Setup save radio buttons
+		var saveFormFieldRadioCheckbox = function (field) {
+			if ( field.checked === true && !buoy.hasClass(field, 'form-no-save' && field.name !== 'terms[]' ) ) {
+				localStorage.setItem(field.name + field.value, 'on');
+			}
+		};
+
+		// Setup get form data
+		var getFormFieldData = function (field) {
+			localStorage.getItem(field);
+		};
+
+		// Setup delete form data function
+		var deleteFormFieldData = function (field) {
+			localStorage.removeItem(field);
+		};
+
+		// Save form data
+		[].forEach.call(formSave, function (save) {
+			save.addEventListener('click', function(e) {
+
+				e.preventDefault();
+
+				[].forEach.call(formFieldInput, function (field) {
+					if (  field.name != 'terms[]' && field.name != 'applied-before' ) {
+						if ( field.type == 'radio' || field.type == 'checkbox' ) {
+							saveFormFieldRadioCheckbox(field);
+						} else if ( field.type != 'hidden' && field.type != 'submit' ) {
+							saveFormFieldText(field);
+						}
+					}
+				});
+
+				[].forEach.call(formFieldTextarea, function (field) {
+					saveFormFieldText(field);
+				});
+
+				[].forEach.call(formFieldSelect, function (field) {
+					saveFormFieldText(field);
+				});
+
+				if ( formSaveMessage ) {
+					formSaveMessage.innerHTML = '<div class="alert alert-green">Your info was saved!</div>';
+				}
+
+			}, false);
+		});
+
+		// Delete form data
+		[].forEach.call(formRemove, function (remove) {
+			remove.addEventListener('click', function(e) {
+
+				e.preventDefault();
+
+				[].forEach.call(formFieldInput, function (field) {
+					if ( field.name != 'terms[]' ) {
+						if ( field.type == 'radio' || field.type == 'checkbox' ) {
+							deleteFormFieldData(field.name + field.value);
+						} else if ( field.type != 'hidden' && field.type != 'submit' ) {
+							deleteFormFieldData(field.name);
+						}
+					}
+				});
+
+				[].forEach.call(formFieldTextarea, function (field) {
+					deleteFormFieldData(field.name);
+				});
+
+				[].forEach.call(formFieldSelect, function (field) {
+					deleteFormFieldData(field.name);
+				});
+
+				sessionStorage.setItem('saveMessage', '<div class="alert alert-green">Your info was deleted!</div>');
+				location.reload(false);
+
+			}, false);
+		});
+
+		// Get form data on page load
+		[].forEach.call(formFieldInput, function (field) {
+			if ( field.type == 'radio' || field.type == 'checkbox' ) {
+				if ( localStorage.getItem(field.name + field.value) == 'on' ) {
+					field.checked = true;
+				}
+			} else if ( field.type != 'hidden' && field.type != 'submit' ) {
+				field.value = localStorage.getItem(field.name);
+			}
+		});
+		[].forEach.call(formFieldTextarea, function (field) {
+			field.value = localStorage.getItem(field.name);
+		});
+		[].forEach.call(formFieldSelect, function (field) {
+			field.value = localStorage.getItem(field.name);
+		});
+		if ( formSaveMessage ) {
+			formSaveMessage.innerHTML = sessionStorage.getItem('saveMessage');
+			sessionStorage.removeItem('saveMessage');
+		}
 
 	}
 
