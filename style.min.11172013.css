@@ -175,6 +175,10 @@ form, fieldset{margin-bottom:1.529411765em;}
 legend, label{display:block;font-weight:normal;padding:0;margin-bottom:.294117647em;}
 legend{font-family:"MuseoSlab500", Georgia, Times, serif;font-size:1.176470588em;}
 input, textarea, select{display:block;width:100%;font:inherit;line-height:1.470588235;color:#555555;vertical-align:middle;margin-bottom:1.176470588em;padding:.294117647em;border:.071428571em solid #b8b8b8;border-radius:.176470588em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+form button,
+form .btn{margin-bottom:1.176470588em;}
+form button.space-default,
+form .btn.space-default{margin-bottom:.3em;}
 textarea{height:12em;}
 input[type="image"],
 input[type="checkbox"],
@@ -188,8 +192,9 @@ input[type="checkbox"]:focus,
 select:focus{-webkit-box-shadow:none;box-shadow:none;outline:thin dotted;outline:.294117647em auto -webkit-focus-ring-color;outline-offset:-.117647059em;}
 .input-search{display:inline-block;width:85%;padding-left:.882352941em;padding-right:2.352941176em;border-radius:1.352941176em;}
 .btn-search{display:inline-block;color:#808080;border:none;background:none;margin-left:-2.352941176em;}
+.btn-search:hover{text-decoration:none;}
 .input-inline,
-.input-inline label{display:inline;width:auto;}
+.input-inline label{display:inline-block;width:auto;}
 .input-condensed{line-height:1;padding:.117647059em;}
 @media (min-width:42.5em){input, textarea, select{line-height:1.588235294;}
 }

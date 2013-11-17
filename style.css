@@ -820,6 +820,16 @@ input, textarea, select {
             box-sizing: border-box;
 }
 
+form button,
+form .btn {
+    margin-bottom: 1.176470588em;
+}
+
+form button.space-default,
+form .btn.space-default {
+    margin-bottom: .3em;
+}
+
 textarea {
     height: 12em;
 }
@@ -877,11 +887,15 @@ select:focus {
     margin-left: -2.352941176em;
 }
 
+.btn-search:hover {
+    text-decoration: none;
+}
+
 
 /*  Inline Inputs */
 .input-inline,
 .input-inline label {
-    display: inline;
+    display: inline-block;
     width: auto;
 }
 
