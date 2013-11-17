@@ -98,3 +98,8 @@ if (isFontFaceSupported && selectorSupported(':before')) {
 if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
 	document.documentElement.className += ' js';
 }
+
+// Add '.local-storage' class to the <html> element
+if ( 'localStorage' in window ) {
+	document.documentElement.className += ' local-storage';
+}

@@ -1,7 +1,7 @@
 /* =============================================================
 
-    Theme Name: PAWS New England v4.15
-    Version: 4.15
+    Theme Name: PAWS New England v4.16
+    Version: 4.16
     Author: Chris Ferdinandi
     Author URI: http://gomakethings.com
 
@@ -820,10 +820,6 @@ input, textarea, select {
             box-sizing: border-box;
 }
 
-form button, form .btn {
-    margin-bottom: 1.176470588em;
-}
-
 textarea {
     height: 12em;
 }
@@ -908,87 +904,6 @@ select:focus {
 .ie input, .ie textarea, .ie select {
     line-height: 1.588235294;
 }
-
-
-
-
-
-/* =============================================================
-    CFORMS PLUGIN
-    Override default plugin styling.
- * ============================================================= */
-
-.cform { width: 88%; margin: 0 auto; }
-
-/* main 'top-level' form elements */
-.cform .cf_hidden { display: none; border: none; background: none; padding:0; margin:0; }
-ol.cf-ol { margin: 0; padding: 0; }
-ol.cf-ol li { background: none; margin: 0; padding: 0; list-style: none; text-align: left; }
-
-/* just for text-only fields (no input) */
-ol.cf-ol li.textonly { margin: 0; padding: 0; text-align: left; font-style: italic; display: block; color: #808080; }
-
-/* global definitions for field labels */
-label.cf-before { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em .3125em 0 0; }
-label.cf-before span { width:100%; display:block; }
-label.cf-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em 0 0 .25em; width:auto; text-align:left; }
-label.cf-after span { width: auto; display: inline-block; }
-label.cf-group-after { display:-moz-inline-box; /*for mozilla*/ display:inline-block; /*for Opera & IE*/ margin:.25em .375em 0 .25em; width:auto; text-align:left; }
-label.cf-group-after span { width: auto; display: block; }
-
-/* FORM FIELDS general formatting */
-/*.cform input { width:100% }*/
-/*.cform select { width: 100%; }*/
-.cform select.cfselectmulti { height:4.0625em; }
-.cform input.cf_date { width:100%; }
-
-/* radio button title */
-ol.cf-ol li.cf-box-title { width:100%; margin: 0px .625em 0 0; text-align: left; display: block; color: #272727; background: #ffffff; padding: .125em; border-bottom: 1px solid #ccc;  }
-
-/* check boxes */
-input.cf-box-a, input.cf-box-b { width: auto; height: auto; padding: 0; margin: .1875em 0; *margin-top: 0; /* IE7 */ line-height: normal; border: 0; cursor: pointer; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; vertical-align: baseline; }
-
-/* check box groups */
-ol.cf-ol li.cf-box-group { padding: 0 0 .875em 0; }
-
-/* Breaks for checkboxes and radio buttons */
-.cf-inline:before, .cf-inline:after { display: table; content: ""; }
-.cf-inline:after { clear: both; }
-
-/* formatting for text: "(required)" & other */
-span.reqtxt, span.emailreqtxt { display: block; /*for mozilla*/ width:100%; font-size: .875em; vertical-align: top; color: #888888; text-align:right; margin:0; height:1em; line-height:1; }
-.cform textarea.fldemail, .cform textarea.fldrequired, .cform input.fldemail, .cform input.fldrequired { margin:0; }
-
-/* FORM submit button */
-p.cf-sb { padding: 0; margin: 0; }
-.cform .btn { width: auto; height: auto; }
-
-/* FORM FIELDS enhanced error display */
-ol.cf-ol li.cf_li_err { background: #FFDFDF; padding: .3125em 1.25em; display: block; }
-ol.cf-ol li ul.cf_li_text_err { padding: 0 0 0 .625em; margin: 0; color: #272727; display: inline-block; }
-ol.cf-ol ul.cf_li_text_err li { list-style:none; font-weight:bold; text-indent:0; margin:0 0 .125em; padding-left:1em; }
-ol.cf-ol ul.cf_li_text_err li:before { content:''; }
-
-/* change formatting of response msgs here */
-div.cf_info { color:#272727; display:none; padding: .3125em 1.25em; width:100%; margin: 0 auto 1.25em auto; }
-div.cf_info ol { margin:0; padding:.3125em .9375em 0 1.875em; }
-div.cf_info ol li { padding:.071428571em 0; margin:.117647059em 0; }
-div.cf_info a	{ color:red!important; text-decoration:underline!important; }
-div.success { background:#F9F9F9 none repeat scroll 0%; color:#AAAAAA; display:block; }
-div.failure { display:block; background:#FFDFDF repeat!important; }
-div.waiting { background:#F9F9F9 none repeat scroll 0%; color:#AAAAAA; display:block; }
-
-/* formatting for invalid user inputs */
-.cform .cf_error { color:#ad2929; border:.071428571em solid #ad2929; }
-div.mailerr { display:block; }
-.mailerr, .cform .cf_errortxt { color:#ad2929; }
-
-/* disabled fields [disabled] does not work on IE! */
-[disabled] { background-color: #f5f5f5; border-color: #ddd; cursor: not-allowed; }
-.disabled { background-color: #f5f5f5; border-color: #ddd; cursor: not-allowed; }
-
-/* upload box styling */
-.cform input.cf_upload  { width:88%; background: #f9f9f9; border:1px solid #888888; }
 
 
 
@@ -1161,6 +1076,24 @@ a:hover .icon-horn  { color: #272727; }
     margin-bottom: 1.529411765em;
     padding: .235294118em .823529412em;
     border-radius: .235294118em;
+}
+
+.alert-red {
+    color: #5b090e;
+    background-color: #f9c6c9;
+    border: .071428571em solid #F48E93;
+}
+
+.alert-green {
+    color: #255521;
+    background-color: #d9f0d7;
+    border: .071428571em solid #b3e0b0;
+}
+
+.alert-green {
+    color: #263B0C;
+    background-color: #BACF9D;
+    border: .071428571em solid #6aa120;
 }
 
 
@@ -1963,36 +1896,22 @@ table {
     left:-9999px;
 }
 
-.hide {
-    display: none;
-    visibility: hidden;
-}
-
-.show {
-    display: block;
-    visibility: visible;
-}
-
-.hide-no-js {
-    display: none;
-    visibility: hidden;
-}
-
-.js .hide-no-js {
-    display: block;
-    visibility: visible;
-}
-
-.js .hide-js {
-    display: none;
-    visibility: hidden;
-}
-
+.hide,
+.hide-no-js,
+.hide-no-local-storage,
+.js .hide-js,
 .hide-mobile,
 .show-tablet,
 .show-desktop {
     display: none;
     visibility: hidden;
+}
+
+.show,
+.js .hide-no-js,
+.local-storage .hide-no-local-storage {
+    display: block;
+    visibility: visible;
 }
 
 
