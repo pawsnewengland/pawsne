@@ -981,17 +981,12 @@ select:focus {
 .font-face .icon-location:before   { content: "\e00a"; }
 .font-face .icon-search:before     { content: "\e00b"; }
 .font-face .icon-filter:before     { content: "\e00c"; }
-.font-face .icon-cart:before       { content: "\e00d"; }
-.font-face .icon-people:before     { content: "\e00e"; }
-.font-face .icon-horn:before       { content: "\e00f"; }
-.font-face .icon-loading:before    { content: "\e010"; }
+.font-face .icon-photos:before     { content: "\e00d"; }
+.font-face .icon-loading:before    { content: "\e00e"; }
 
 a .icon-home        { color: #453f27; }
 a .icon-heart       { color: #e7a2b0; }
-a .icon-time,
-a .icon-cart,
-a .icon-people,
-a .icon-horn        { color: #808080; }
+a .icon-time        { color: #808080; }
 a .icon-email       { color: #6aa120; }
 a .icon-facebook    { color: #3B5997; }
 a .icon-twitter     { color: #41b7d8; }
@@ -1001,10 +996,7 @@ a:hover .icon-heart,
 a:hover .icon-time,
 a:hover .icon-email,
 a:hover .icon-facebook,
-a:hover .icon-twitter,
-a:hover .icon-cart,
-a:hover .icon-people,
-a:hover .icon-horn  { color: #272727; }
+a:hover .icon-twitter { color: #272727; }
 
 .btn .icon-twitter,
 .btn:hover .icon-twitter,
