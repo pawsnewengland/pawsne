@@ -17,6 +17,7 @@
 function slider_slideshow() {
 
 	global $post;
+	$post_id = $post->ID;
 
 	// Set up the defaults for the slideshow shortcode.
 	$defaults = array(
@@ -63,13 +64,13 @@ function slider_slideshow() {
     // Slideshow wrapper
 	$slideshow = '<div class="row">
                     <div class="grid-half">
-	                   <p class="slide-nav no-space-bottom"></p>
+	                   <p class="no-space-bottom" id="slide-nav-' . $post_id . '"></p>
                     </div>
                     <div class="grid-half text-right">
-	                   <p class="slide-count space-bottom-small"></p>
+	                   <p class="space-bottom-small" id="slide-count-' . $post_id . '"></p>
                     </div>
                   </div>
-				  <div class="slider">
+				  <div class="slider" data-slider="' . $post_id . '">
                     <div class="slides">';
 
 	$i = 0;
@@ -94,76 +95,82 @@ add_shortcode( 'slideshow', 'slider_slideshow' );
 function slider_add_init_script( $query ) {
 	$script = "
 		<script>
-			if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+			(function() {
 
-		        // Slider Variable
-		        var slider = document.querySelector('.slider');
+				'use strict';
 
-		        // If a Slider exists
-		        if (slider) {
+				if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
 
-		            // Activate Slider
-		            window.mySwipe = Swipe(slider, {
-		                // Configure your options
-		                // startSlide: 1,
-		                // speed: 400,
-		                // auto: 3000,
-		                continuous: true,
-		                // disableScroll: false,
-		                // stopPropagation: false,
-		                callback: function(index, elem) {
-		                    // Update with new position on slide change
-		                    countSlides();
-		                },
-		                // transitionEnd: function(index, elem) {}
-		            });
+			        // Slider Variable
+			        var sliders = document.querySelectorAll('.slider');
 
+			        // If a Slider exists
+			        if (sliders) {
 
-		            // Function to display slide count
-		            var countSlides = function () {
-		                // Variables
-		                var slideTotal = mySwipe.getNumSlides();
-		                var slideCurrent = mySwipe.getPos();
-		                var slideCount = document.querySelector('.slide-count');
-		                // Content
-		                if (slideCount) {
-		                    slideCount.innerHTML = slideCurrent + ' of ' + slideTotal;
-		                }
-		            }
-		            // Run slide count function on load
-		            countSlides();
+			        	[].forEach.call(sliders, function (slider) {
+
+			        		var sliderID = slider.getAttribute('data-slider');
+
+			        		// Activate Slider
+			        		window[sliderID] = Swipe(slider, {
+			        		    // Configure your options
+			        		    continuous: true,
+			        		    callback: function(index, elem) {
+			        		        // Update with new position on slide change
+			        		        countSlides();
+			        		    }
+			        		});
 
 
-		            // Create Previous & Next Buttons
-		            var slideNav = document.querySelector('.slide-nav')
-		            if (slideNav) {
-		                slideNav.innerHTML = '<a class=\"slide-nav-prev\" href=\"#\">Previous</a> | <a class=\"slide-nav-next\" href=\"#\">Next</a>';
-		            }
-
-		            // Toggle Previous & Next Buttons
-		            var btnNext = document.querySelector('.slide-nav-next');
-		            var btnPrev = document.querySelector('.slide-nav-prev');
-		            if (btnNext) {
-		                btnNext.addEventListener('click', function(e) { e.preventDefault(); mySwipe.next(); }, false);
-		            }
-		            if (btnPrev) {
-		                btnPrev.addEventListener('click', function(e) { e.preventDefault(); mySwipe.prev(); }, false);
-		            }
+			        		// Function to display slide count
+			        		var countSlides = function () {
+			        		    // Variables
+			        		    var slideTotal = window[sliderID].getNumSlides();
+			        		    var slideCurrent = window[sliderID].getPos();
+			        		    var slideCount = document.querySelector('#slide-count-' + sliderID);
+			        		    // Content
+			        		    if (slideCount) {
+			        		        slideCount.innerHTML = slideCurrent + ' of ' + slideTotal;
+			        		    }
+			        		}
+			        		// Run slide count function on load
+			        		countSlides();
 
 
-		            // Toggle Left & Right Keypress
-		            window.addEventListener('keydown', function (e) {
-		                if (e.keyCode == 37) {
-		                    mySwipe.prev();
-		                }
-		                if (e.keyCode == 39) {
-		                    mySwipe.next();
-		                }
-		            }, false);
+			        		// Create Previous & Next Buttons
+			        		var slideNav = document.querySelector('#slide-nav-' + sliderID)
+			        		if (slideNav) {
+			        		    slideNav.innerHTML = '<a id=\"slide-nav-prev-' + sliderID + '\" href=\"#\">Previous</a> | <a id=\"slide-nav-next-' + sliderID + '\" href=\"#\">Next</a>';
+			        		}
 
-		        }
+			        		// Toggle Previous & Next Buttons
+			        		var btnNext = document.querySelector('#slide-nav-next-' + sliderID);
+			        		var btnPrev = document.querySelector('#slide-nav-prev-' + sliderID);
+			        		if (btnNext) {
+			        		    btnNext.addEventListener('click', function(e) { e.preventDefault(); window[sliderID].next(); }, false);
+			        		}
+			        		if (btnPrev) {
+			        		    btnPrev.addEventListener('click', function(e) { e.preventDefault(); window[sliderID].prev(); }, false);
+			        		}
 
-		    }
+
+			        		// Toggle Left & Right Keypress
+			        		window.addEventListener('keydown', function (e) {
+			        		    if (e.keyCode == 37) {
+			        		        window[sliderID].prev();
+			        		    }
+			        		    if (e.keyCode == 39) {
+			        		        window[sliderID].next();
+			        		    }
+			        		}, false);
+
+			        	});
+
+			        }
+
+			    }
+
+			})();
 		</script>";
 	echo $script;
 }
