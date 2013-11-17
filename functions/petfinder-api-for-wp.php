@@ -26,7 +26,7 @@ function get_petfinder_data($pet = '') {
     // Your Account Info
     $api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
     $shelter_id = 'RI77'; // Change to your shelter ID
-    $count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
+    $count = '10'; // Number of animals to return. Set to higher than total # of animals in your shelter.
 
     // If no specific pet is specified
     if ( $pet == '' ) {
@@ -146,7 +146,7 @@ function get_pet_photos($pet, $photo_size = 'medium', $limit = true) {
 
                         // Otherwise, get all of them
                         else {
-                            $pet_photos .= '<p><img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '"></p>';
+                            $pet_photos .= '<div><img class="space-bottom-small pf-img" alt="Photo of ' . $pet_name . '" src="' . $photo . '"></div>';
                         }
 
                     }
@@ -750,10 +750,22 @@ function get_pet_info($pet) {
                             <h1 class="text-center no-space-bottom">' . $pet_name . '</h1>
                             <p class="text-center"><a href="' . get_permalink() . '">&larr; Back to all dogs</a></p>
                             <div class="grid-2">
+                                <div class="row">
+                                    <div class="grid-half">
+                                       <p class="no-space-bottom" id="slide-nav-' . $pet_id . '"></p>
+                                    </div>
+                                    <div class="grid-half text-right">
+                                       <p class="space-bottom-small" id="slide-count-' . $pet_id . '"></p>
+                                    </div>
+                                </div>
+                                <div class="slider" data-slider="' . $pet_id . '">
+                                    <div class="slides">' .
+                                        $pet_photos_all .
+                                    '</div>
+                                </div>
                                 <p class="text-center">
-                                    <a class="modal-toggle" data-target="#more-photos" href="' . $pet_photos_url . '">' .
-                                        $pet_photos_main .
-                                        '<br>More/Bigger Photos
+                                    <a class="modal-toggle" data-target="#more-photos" href="' . $pet_photos_url . '">
+                                        View All/Larger
                                     </a>
                                 </p>
                             </div>
