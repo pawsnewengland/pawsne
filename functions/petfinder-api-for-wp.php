@@ -815,31 +815,31 @@ function display_petfinder_list() {
     // Define variables
     $petfinder_list = '';
 
-    // Display info on a specific dog
-    if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
+    // // Display info on a specific dog
+    // if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
 
-        // Access Petfinder Data
-        $pet_id = $_GET['id'];
-        $petfinder_data = get_petfinder_data($pet_id);
+    //     // Access Petfinder Data
+    //     $pet_id = $_GET['id'];
+    //     $petfinder_data = get_petfinder_data();
 
-        // If the API returns without errors
-        if( $petfinder_data->header->status->code == '100' ) {
+    //     // If the API returns without errors
+    //     if( $petfinder_data->header->status->code == '100' ) {
 
-            $pet = $petfinder_data->pet;
+    //         $pet = $petfinder_data->pet;
 
-            // Compile information that you want to include
-            $petfinder_list = get_pet_info($pet);
-        }
+    //         // Compile information that you want to include
+    //         $petfinder_list = get_pet_info($pet);
+    //     }
 
-        // If error code is returned
-        else {
-            $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
-        }
+    //     // If error code is returned
+    //     else {
+    //         $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
+    //     }
 
-    }
+    // }
 
-    // Display a list of all available dogs
-    else {
+    // // Display a list of all available dogs
+    // else {
 
         // Access Petfinder Data
         $petfinder_data = get_petfinder_data();
@@ -852,41 +852,53 @@ function display_petfinder_list() {
 
                 $pets = $petfinder_data->pets->pet;
 
-                // Compile information that you want to include
-                $petfinder_list =   '<h1 class="text-center">Our Dogs</h1>
-                                    <div class="hide-no-js">
-                                        <p>Your perfect companion could be just a click away. Use the filters to narrow your search, and click on a dog to learn more.</p>
-                                    </div>
-                                    <div class="hide-js">
-                                        <p>Your perfect companion could be just a click away. Click on a dog to learn more.</p>
-                                    </div>
-                                    <p>
-                                        <a class="btn collapse-toggle" data-target="#sort-options" href="#">
-                                            <i class="icon-filter"></i>&nbsp;Filter Results&nbsp;<span class="collapse-text-show">+</span><span class="collapse-text-hide">&ndash;</span>
-                                        </a>
-                                    </p>
-                                    <div class="collapse hide-no-js" id="sort-options">
+                if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
+
+                    foreach( $pets as $pet ) {
+
+                        if ( $pet->id == $_GET['id'] ) {
+                            $petfinder_list = get_pet_info($pet);
+                        }
+
+                    }
+
+                }
+
+                else {
+
+                    // Compile information that you want to include
+                    $petfinder_list =   '<h1 class="text-center">Our Dogs</h1>
+                                        <div class="hide-no-js">
+                                            <p>Your perfect companion could be just a click away. Use the filters to narrow your search, and click on a dog to learn more.</p>
+                                        </div>
+                                        <div class="hide-js">
+                                            <p>Your perfect companion could be just a click away. Click on a dog to learn more.</p>
+                                        </div>
+                                        <p><a class="btn collapse-toggle" data-target="#sort-options" href="#"><i class="icon-filter"></i> Filter Results +</a></p>
+                                        <div class="collapse hide-no-js" id="sort-options">
+
+                                            <div class="row">' .
+                                                get_age_list($pets) .
+                                                get_size_list($pets) .
+                                                get_gender_list($pets) .
+                                            '</div>
+
+                                            <div class="row">' .
+                                                get_options_list($pets) .
+                                                get_pet_location($pets) .
+                                            '</div>
+
+                                            <div class="row">' .
+                                                get_breed_list($pets) .
+                                            '</div>
+
+                                        </div>
 
                                         <div class="row">' .
-                                            get_age_list($pets) .
-                                            get_size_list($pets) .
-                                            get_gender_list($pets) .
-                                        '</div>
+                                            get_pet_list($pets) .
+                                        '</div>';
 
-                                        <div class="row">' .
-                                            get_options_list($pets) .
-                                            get_pet_location($pets) .
-                                        '</div>
-
-                                        <div class="row">' .
-                                            get_breed_list($pets) .
-                                        '</div>
-
-                                    </div>
-
-                                    <div class="row">' .
-                                        get_pet_list($pets) .
-                                    '</div>';
+                }
 
             }
 
@@ -901,7 +913,7 @@ function display_petfinder_list() {
             $petfinder_list = '<h1 class="text-center"></h1><p>Petfinder is down for the moment. Please check back shortly.</p>';
         }
 
-    }
+    // }
 
 
     return $petfinder_list;
