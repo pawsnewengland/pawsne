@@ -300,7 +300,7 @@ function get_breed_list($pets) {
                         </label>
                     </div>
                     <div class="grid-3">
-                        <form>' .
+                        <form class="no-space-bottom">' .
                             $breed_list_1 .
                         '</form>
                     </div>
@@ -791,7 +791,7 @@ function get_pet_info($pet) {
                         '</div>
                         <div class="modal modal-medium text-center" id="more-photos">
                             <h2>Photos of ' . $pet_name . '<a class="close modal-close">x</a></h2>' .
-                            $pet_photos_all .
+                            get_pet_photos($pet, 'large', false, '<p>', '</p>') .
                             '<p><button class="btn modal-close">Close</button></p>
                         </div>';
     }
