@@ -685,36 +685,7 @@ window.fluidvids = (function (window, document, undefined) {
 
 	'use strict';
 
-	// Pass name of pet user is interested in to the adoption form
-	if ( window.sessionStorage ) {
-
-		// Pass the name of the dog the user is interested in adopting
-		// from the "Our Dogs" page to the Adoption Form
-		var adoptToggle = document.querySelectorAll('.adopt-toggle');
-		[].forEach.call(adoptToggle, function (toggle) {
-			toggle.addEventListener('click', function(e) {
-				var name = toggle.getAttribute('data-name');
-				sessionStorage.setItem('petToAdopt', name);
-			}, false);
-		});
-
-		// Get pet name from session storage
-		var adoptionFormGetPet = function (petNameField) {
-			var petName = sessionStorage.getItem('petToAdopt');
-			petNameField.value = petName;
-			sessionStorage.removeItem('petToAdopt');
-		};
-
-		// If adoption form exists, get the pet name from storage
-		var adoptionForm = document.querySelector('#input-dog-name');
-		if ( adoptionForm ) {
-			adoptionFormGetPet(adoptionForm);
-		}
-
-	}
-
-	// Store form data in local storage to make it easier
-	// to complete forms in the future
+	// Let user save form data for reuse on future applications
 	if ( window.localStorage ) {
 
 		// Variables
@@ -829,6 +800,33 @@ window.fluidvids = (function (window, document, undefined) {
 		if ( formSaveMessage ) {
 			formSaveMessage.innerHTML = sessionStorage.getItem('saveMessage');
 			sessionStorage.removeItem('saveMessage');
+		}
+
+	}
+
+	// Pass name of pet user is interested in to the adoption form
+	if ( window.sessionStorage ) {
+
+		// Pass the name of the dog the user is interested in adopting
+		// from the "Our Dogs" page to the Adoption Form
+		var adoptToggle = document.querySelectorAll('.adopt-toggle');
+		[].forEach.call(adoptToggle, function (toggle) {
+			toggle.addEventListener('click', function(e) {
+				var name = toggle.getAttribute('data-name');
+				sessionStorage.setItem('petToAdopt', name);
+			}, false);
+		});
+
+		// Get pet name from session storage
+		var adoptionFormGetPet = function (petNameField) {
+			var petName = sessionStorage.getItem('petToAdopt');
+			petNameField.value = petName;
+			sessionStorage.removeItem('petToAdopt');
+		};
+
+		var adoptionForm = document.querySelector('#input-dog-name');
+		if ( adoptionForm ) {
+			adoptionFormGetPet(adoptionForm);
 		}
 
 	}
