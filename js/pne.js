@@ -173,7 +173,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Function to toggle dropdowns
 		var toggleDrop = function (toggle) {
@@ -292,7 +292,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Function to toggle navigation menu
 		var toggleNav = function (toggle) {
@@ -347,7 +347,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Function to toggle collapse/expand widget
 		var toggleCollapse = function (toggle) {
@@ -405,7 +405,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Function to show modal
 		var showModal = function (toggle) {
@@ -561,7 +561,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Variables
 		var pets = document.querySelectorAll('.pf');
@@ -686,39 +686,12 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Let user save form data for reuse on future applications
-	if ( window.localStorage ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Variables
+		var forms = document.forms;
 		var formSave = document.querySelectorAll('.form-save-data');
 		var formRemove = document.querySelectorAll('.form-delete-data');
-		var formSaveMessage = document.querySelector('#form-save-message');
-		var formFieldInput = document.querySelectorAll('input'); // input[text, radio, checkbox]
-		var formFieldTextarea = document.querySelectorAll('textarea'); // textarea
-		var formFieldSelect = document.querySelectorAll('select'); // select
-
-		// Setup save text input, textarea, and select options
-		var saveFormFieldText = function (field) {
-			if ( field.value !== null && field.value !== '' && !buoy.hasClass(field, 'form-no-save') ) {
-				localStorage.setItem(field.name, field.value);
-			}
-		};
-
-		// Setup save radio buttons
-		var saveFormFieldRadioCheckbox = function (field) {
-			if ( field.checked === true && !buoy.hasClass(field, 'form-no-save' && field.name !== 'terms[]' ) ) {
-				localStorage.setItem(field.name + field.value, 'on');
-			}
-		};
-
-		// Setup get form data
-		var getFormFieldData = function (field) {
-			localStorage.getItem(field);
-		};
-
-		// Setup delete form data function
-		var deleteFormFieldData = function (field) {
-			localStorage.removeItem(field);
-		};
 
 		// Save form data
 		[].forEach.call(formSave, function (save) {
@@ -726,26 +699,43 @@ window.fluidvids = (function (window, document, undefined) {
 
 				e.preventDefault();
 
-				[].forEach.call(formFieldInput, function (field) {
-					if (  field.name != 'terms[]' && field.name != 'applied-before' ) {
+				// Variables
+				var form = save.form;
+				var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
+				var formSaverData = {};
+				var formFields = form.elements;
+				var formStatus = form.querySelectorAll('.form-status');
+
+				// Add field data to array
+				[].forEach.call(formFields, function (field) {
+					if ( !buoy.hasClass(field, 'form-no-save') && field.name != 'terms[]' && field.name != 'applied-before' ) {
 						if ( field.type == 'radio' || field.type == 'checkbox' ) {
-							saveFormFieldRadioCheckbox(field);
+							if ( field.checked === true ) {
+								formSaverData[field.name + field.value] = 'on';
+							}
 						} else if ( field.type != 'hidden' && field.type != 'submit' ) {
-							saveFormFieldText(field);
+							if ( field.value !== null && field.value !== '' ) {
+								formSaverData[field.name] = field.value;
+							}
 						}
 					}
 				});
 
-				[].forEach.call(formFieldTextarea, function (field) {
-					saveFormFieldText(field);
+				// Display save success message
+				[].forEach.call(formStatus, function (status) {
+					if ( save.getAttribute('data-message') === null ) {
+						status.innerHTML = '<div class="alert alert-green">Saved!</div>';
+					} else {
+						status.innerHTML = '<div class="alert alert-green">' + save.getAttribute('data-message') + '</div>';
+					}
 				});
 
-				[].forEach.call(formFieldSelect, function (field) {
-					saveFormFieldText(field);
-				});
+				// Save form data in localStorage
+				localStorage.setItem( formSaverID, JSON.stringify(formSaverData) );
 
-				if ( formSaveMessage ) {
-					formSaveMessage.innerHTML = '<div class="alert alert-green">Your info was saved!</div>';
+				// If no form ID is provided, generate friendly console message encouraging one to be added
+				if ( form.id === null || form.id === '' ) {
+					console.log('FORM SAVER WARNING: This form has no ID attribute. This can create conflicts if more than one form is included on a page, or if the URL changes or includes a query string or hash value.');
 				}
 
 			}, false);
@@ -757,55 +747,64 @@ window.fluidvids = (function (window, document, undefined) {
 
 				e.preventDefault();
 
-				[].forEach.call(formFieldInput, function (field) {
-					if ( field.name != 'terms[]' ) {
-						if ( field.type == 'radio' || field.type == 'checkbox' ) {
-							deleteFormFieldData(field.name + field.value);
-						} else if ( field.type != 'hidden' && field.type != 'submit' ) {
-							deleteFormFieldData(field.name);
-						}
-					}
-				});
+				// Variables
+				var form = remove.form;
+				var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
+				var formStatus = form.querySelectorAll('.form-status');
+				var formMessage = remove.getAttribute('data-message') === null ? '<div class="alert alert-green">Deleted!</div>' : '<div class="alert alert-green">' + remove.getAttribute('data-message') + '</div>';
 
-				[].forEach.call(formFieldTextarea, function (field) {
-					deleteFormFieldData(field.name);
-				});
+				// Remove form data
+				localStorage.removeItem(formSaverID);
 
-				[].forEach.call(formFieldSelect, function (field) {
-					deleteFormFieldData(field.name);
-				});
-
-				sessionStorage.setItem('saveMessage', '<div class="alert alert-green">Your info was deleted!</div>');
-				location.reload(false);
+				// Display delete success message
+				if ( remove.getAttribute('data-clear') == 'true' ) {
+					sessionStorage.setItem(formSaverID + '-formSaverMessage', formMessage);
+					location.reload(false);
+				} else {
+					[].forEach.call(formStatus, function (status) {
+						status.innerHTML = formMessage;
+					});
+				}
 
 			}, false);
 		});
 
 		// Get form data on page load
-		[].forEach.call(formFieldInput, function (field) {
-			if ( field.type == 'radio' || field.type == 'checkbox' ) {
-				if ( localStorage.getItem(field.name + field.value) == 'on' ) {
-					field.checked = true;
+		[].forEach.call(forms, function (form) {
+
+			// Variables
+			var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
+			var formSaverData = JSON.parse( localStorage.getItem(formSaverID) );
+			var formFields = form.elements;
+			var formStatus = form.querySelectorAll('.form-status');
+
+			// Populate form with data from localStorage
+			[].forEach.call(formFields, function (field) {
+				if ( formSaverData !== null ) {
+					if ( field.type == 'radio' || field.type == 'checkbox' ) {
+						if ( formSaverData[field.name + field.value] == 'on' ) {
+							field.checked = true;
+						}
+					} else if ( field.type != 'hidden' && field.type != 'submit' ) {
+						if ( formSaverData[field.name] !== null && formSaverData[field.name] !== undefined ) {
+							field.value = formSaverData[field.name];
+						}
+					}
 				}
-			} else if ( field.type != 'hidden' && field.type != 'submit' ) {
-				field.value = localStorage.getItem(field.name);
-			}
+			});
+
+			// If page was reloaded and delete success message exists, display it
+			[].forEach.call(formStatus, function (status) {
+				status.innerHTML = sessionStorage.getItem(formSaverID + '-formSaverMessage');
+				sessionStorage.removeItem(formSaverID + '-formSaverMessage');
+			});
+
 		});
-		[].forEach.call(formFieldTextarea, function (field) {
-			field.value = localStorage.getItem(field.name);
-		});
-		[].forEach.call(formFieldSelect, function (field) {
-			field.value = localStorage.getItem(field.name);
-		});
-		if ( formSaveMessage ) {
-			formSaveMessage.innerHTML = sessionStorage.getItem('saveMessage');
-			sessionStorage.removeItem('saveMessage');
-		}
 
 	}
 
 	// Pass name of pet user is interested in to the adoption form
-	if ( window.sessionStorage ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Pass the name of the dog the user is interested in adopting
 		// from the "Our Dogs" page to the Adoption Form
@@ -855,7 +854,7 @@ window.fluidvids = (function (window, document, undefined) {
 	'use strict';
 
 	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 		// Function to animate the scroll
 		var smoothScroll = function (anchor, duration) {
@@ -953,7 +952,7 @@ window.fluidvids = (function (window, document, undefined) {
 
  * ============================================================= */
 
-if ( 'querySelector' in document && 'addEventListener' in window ) {
+ if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
 
 	var Swipe = function (container, options) {
 
