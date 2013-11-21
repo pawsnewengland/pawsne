@@ -377,14 +377,12 @@ cursor:pointer;}
 .screen-reader{position:absolute;top:-9999px;left:-9999px;}
 .hide,
 .hide-no-js,
-.hide-no-local-storage,
 .js .hide-js,
 .hide-mobile,
 .show-tablet,
 .show-desktop{display:none;visibility:hidden;}
 .show,
-.js .hide-no-js,
-.local-storage .hide-no-local-storage{display:block;visibility:visible;}
+.js .hide-no-js{display:block;visibility:visible;}
 @media (min-width:42.5em){.hide-tablet,
 .show-mobile{display:none;visibility:hidden;}
 .hide-mobile,
