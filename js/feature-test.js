@@ -1,53 +1,56 @@
 /* =============================================================
 
-		Feature Test v1.0
-		A simple feature tests by Paul Irish and Diego Perini.
-		http://www.paulirish.com/2009/font-face-feature-detection/
-		https://gist.github.com/paulirish/441842
+	Feature Test v2.0
+	A simple feature tests by Paul Irish, Diego Perini,
+	and Mat "Wilto" Marquis
 
-		Free to use under the MIT License.
-		http://gomakethings.com/mit/
+	Free to use under the MIT License.
+	http://gomakethings.com/mit/
 
  * ============================================================= */
 
 // Function to test for @font-face support
-var isFontFaceSupported = (function(){
-	var
-	sheet, doc = document,
-	head = doc.head || doc.getElementsByTagName('head')[0] || docElement,
-	style = doc.createElement("style"),
-	impl = doc.implementation || { hasFeature: function() { return false; } };
+// https://github.com/filamentgroup/face-off
+var isFontFaceSupported = (function( win, undefined ) {
 
-	style.type = 'text/css';
-	head.insertBefore(style, head.firstChild);
+	"use strict";
+
+	var doc = document,
+		head = doc.head || doc.getElementsByTagName( "head" )[ 0 ] || doc.documentElement,
+		style = doc.createElement( "style" ),
+		rule = "@font-face { font-family: 'webfont'; src: 'https://'; }",
+		supportFontFace = false,
+		blacklist = (function() {
+			var ua = win.navigator.userAgent.toLowerCase(),
+				wkvers = ua.match( /applewebkit\/([0-9]+)/gi ) && parseFloat( RegExp.$1 ),
+				webos = ua.match( /w(eb)?osbrowser/gi ),
+				wppre8 = ua.indexOf( "windows phone" ) > -1 && win.navigator.userAgent.match( /IEMobile\/([0-9])+/ ) && parseFloat( RegExp.$1 ) >= 9,
+				oldandroid = wkvers < 533 && ua.indexOf( "Android 2.1" ) > -1;
+
+			return webos || oldandroid || wppre8;
+		}()),
+		sheet;
+
+	style.type = "text/css";
+	head.insertBefore( style, head.firstChild );
 	sheet = style.sheet || style.styleSheet;
 
-	var supportAtRule = impl.hasFeature('CSS2', '') ?
-		function(rule) {
-			if (!(sheet && rule)) return false;
-			var result = false;
-			try {
-				sheet.insertRule(rule, 0);
-				result = !(/unknown/i).test(sheet.cssRules[0].cssText);
-				sheet.deleteRule(sheet.cssRules.length - 1);
-			} catch(e) { }
-			return result;
-		} :
-		function(rule) {
-			if (!(sheet && rule)) return false;
-			sheet.cssText = rule;
+	if ( !!sheet && !blacklist ) {
+		try {
+			sheet.insertRule( rule, 0 );
+			supportFontFace = sheet.cssRules[ 0 ].cssText && ( /webfont/i ).test( sheet.cssRules[ 0 ].cssText );
+			sheet.deleteRule( sheet.cssRules.length - 1 );
+		} catch( e ) { }
+	}
 
-			return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) &&
-				sheet.cssText
-					.replace(/\r+|\n+/g, '')
-					.indexOf(rule.split(' ')[0]) === 0;
-		};
-
-	return supportAtRule('@font-face { font-family: "font"; src: "font.ttf"; }');
-})();
+	return supportFontFace;
+}( this ));
 
 // Function to test for pseudo selector support
-var selectorSupported = function (selector){
+// https://gist.github.com/paulirish/441842
+var selectorSupported = function (selector) {
+
+	'use strict';
 
 	var support, link, sheet, doc = document,
 		root = doc.documentElement,
@@ -55,7 +58,7 @@ var selectorSupported = function (selector){
 
 		impl = doc.implementation || {
 			hasFeature: function() {
-					return false;
+				return false;
 			}
 		},
 
@@ -70,20 +73,18 @@ var selectorSupported = function (selector){
 
 	support = impl.hasFeature('CSS2', '') ?
 
-		function(selector) {
-			try {
-					sheet.insertRule(selector + '{ }', 0);
-					sheet.deleteRule(sheet.cssRules.length - 1);
-			} catch (e) {
-					return false;
-			}
-			return true;
-
-		} : function(selector) {
-
-			sheet.cssText = selector + ' { }';
-			return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
-		};
+	function(selector) {
+		try {
+			sheet.insertRule(selector + '{ }', 0);
+			sheet.deleteRule(sheet.cssRules.length - 1);
+		} catch (e) {
+			return false;
+		}
+		return true;
+	} : function(selector) {
+		sheet.cssText = selector + ' { }';
+		return sheet.cssText.length !== 0 && !(/unknown/i).test(sheet.cssText) && sheet.cssText.indexOf(selector) === 0;
+	};
 
 	return support(selector);
 
@@ -91,10 +92,10 @@ var selectorSupported = function (selector){
 
 // If @font-face and pseudo selectors are supported, add '.font-face' class to <html> element
 if (isFontFaceSupported && selectorSupported(':before')) {
-	document.documentElement.className += ' font-face';
+	document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'font-face';
 }
 
 // Add '.js' class to the the <html> element
 if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
-	document.documentElement.className += ' js';
+	document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js';
 }
