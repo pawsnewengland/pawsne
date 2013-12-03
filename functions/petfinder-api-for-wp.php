@@ -26,7 +26,7 @@ function get_petfinder_data($pet = '') {
     // Your Account Info
     $api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
     $shelter_id = 'RI77'; // Change to your shelter ID
-    $count = '10'; // Number of animals to return. Set to higher than total # of animals in your shelter.
+    $count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
 
     // If no specific pet is specified
     if ( $pet == '' ) {
