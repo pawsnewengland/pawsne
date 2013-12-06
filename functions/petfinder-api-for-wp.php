@@ -645,7 +645,7 @@ function get_pet_list($pets) {
         $pet_age = get_pet_age($pet->age);
         $pet_gender = get_pet_gender($pet->sex);
         $pet_photo = get_pet_photos($pet);
-        $pet_url = get_permalink() . 'pet-details/' . $pet->id;
+        $pet_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&qcAC=1';
 
         // Format pet options
         $pet_options = get_pet_options_list($pet);
@@ -920,24 +920,6 @@ function display_petfinder_list() {
 
 }
 add_shortcode('petfinder_list','display_petfinder_list');
-
-
-
-
-/* =============================================================
-    URL REWRITE
-    Create pretty permalinks for each dog profile.
-    http://wordpress.org/support/topic/need-help-with-add_rewrite_rule-regex
- * ============================================================= */
-
-function rewrite_pet_url() {
-    add_rewrite_rule(
-        "^our-dogs-list/pet-details/([0-9]+)/?$",
-        "index.php/our-dogs-list/?view=pet-details&id=$1",
-        "top"
-    );
-}
-add_action( 'init', 'rewrite_pet_url');
 
 
 ?>
