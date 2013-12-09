@@ -904,13 +904,13 @@ function display_petfinder_list() {
 
             // If no animals are available for adoption
             else {
-                $petfinder_list = '<h1 class="text-center"></h1><p>We don\'t have any pets available for adoption at this time. Sorry! Please check back soon.</p>';
+                $petfinder_list = '<h1 class="text-center">Our Dogs</h1><p>We don\'t have any pets available for adoption at this time. Sorry! Please check back soon.</p>';
             }
         }
 
         // If error code is returned
         else {
-            $petfinder_list = '<h1 class="text-center"></h1><p>Petfinder is down for the moment. Please check back shortly.</p>';
+            $petfinder_list = '<h1 class="text-center">Our Dogs</h1><p>We\'re having trouble retrieving our list of available dogs. Please check back shortly, or <a href="http://www.petfinder.com/pet-search?shelter_id=RI77&preview=1&sort=breed">view our dogs on Petfinder</a>.</p>';
         }
 
     // }
