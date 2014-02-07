@@ -24,35 +24,6 @@
 	Get your shelter info from Petfinder.
  * ============================================================= */
 
-// function get_petfinder_data($pet = '') {
-
-// 	// Your Account Info
-// 	$api_key = '1369e3e2548d4db98adab733c2fbb7ac'; // Change to your API key
-// 	$shelter_id = 'RI77'; // Change to your shelter ID
-// 	$count = '150'; // Number of animals to return. Set to higher than total # of animals in your shelter.
-
-// 	// If no specific pet is specified
-// 	if ( $pet == '' ) {
-// 		// Create request URL for all pets from the shelter
-// 		$request_url = 'http://api.petfinder.com/shelter.getPets?key=' . $api_key . '&count=' . $count . '&id=' . $shelter_id . '&status=A&output=full';
-// 	}
-
-// 	// If a specific pet IS specified
-// 	else {
-// 		// Create a request URL for that specific pet's data
-// 		$request_url = 'http://api.petfinder.com/pet.get?key=' . $api_key . '&id=' . $pet;
-// 	}
-
-// 	// Request data from Petfinder
-// 	$petfinder_data = @simplexml_load_file( $request_url );
-
-// 	// If data not available, don't display errors on page
-// 	if ($petfinder_data === false) {}
-
-// 	return $petfinder_data;
-
-// }
-
 function get_petfinder_data($api_key, $shelter_id, $count, $pet = '') {
 
 	// If no specific pet is specified
@@ -76,6 +47,24 @@ function get_petfinder_data($api_key, $shelter_id, $count, $pet = '') {
 	return $petfinder_data;
 
 }
+
+
+
+
+
+/* =============================================================
+	UPDATE PAGE TITLE
+	Updates <title> element in the markup.
+ * ============================================================= */
+
+function update_pretty_title( $title, $sep ) {
+	if ( isset( $_GET['pet-name'] ) && $_GET['pet-name'] != '' ) {
+		$pet = $_GET['pet-name'];
+		$title = $pet . $sep . ' ';
+	}
+	return $title;
+}
+add_filter( 'wp_title', 'update_pretty_title', 10, 2 );
 
 
 
@@ -704,7 +693,7 @@ function get_all_pets($pets) {
 		$pet_age = get_pet_age($pet->age);
 		$pet_gender = get_pet_gender($pet->sex);
 		$pet_photo = get_pet_photos($pet);
-		$pet_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&qcAC=1';
+		$pet_url = get_permalink() . '?view=pet-details&id=' . $pet->id . '&pet-name=' . $pet_name . '&qcAC=1';
 
 		// Format pet options
 		$pet_options = get_pet_options_list($pet);
@@ -869,117 +858,6 @@ function get_one_pet($pet) {
 	Compile lists and pet info, and display via a shortcode.
  * ============================================================= */
 
-// function display_petfinder_list() {
-
-// 	// Define variables
-// 	$petfinder_list = '';
-
-// 	// // Display info on a specific dog
-// 	// if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
-
-// 	//     // Access Petfinder Data
-// 	//     $pet_id = $_GET['id'];
-// 	//     $petfinder_data = get_petfinder_data();
-
-// 	//     // If the API returns without errors
-// 	//     if( $petfinder_data->header->status->code == '100' ) {
-
-// 	//         $pet = $petfinder_data->pet;
-
-// 	//         // Compile information that you want to include
-// 	//         $petfinder_list = get_pet_info($pet);
-// 	//     }
-
-// 	//     // If error code is returned
-// 	//     else {
-// 	//         $petfinder_list = '<p>There isn\'t any information currently available for this dog. Sorry!</p>';
-// 	//     }
-
-// 	// }
-
-// 	// // Display a list of all available dogs
-// 	// else {
-
-// 		// Access Petfinder Data
-// 		$petfinder_data = get_petfinder_data();
-
-// 		// If the API returns without errors
-// 		if( $petfinder_data->header->status->code == '100' ) {
-
-// 			// If there is at least one animal
-// 			if( count( $petfinder_data->pets->pet ) > 0 ) {
-
-// 				$pets = $petfinder_data->pets->pet;
-
-// 				if ( isset( $_GET['view'] ) && $_GET['view'] == 'pet-details' ) {
-
-// 					foreach( $pets as $pet ) {
-
-// 						if ( $pet->id == $_GET['id'] ) {
-// 							$petfinder_list = get_pet_info($pet);
-// 						}
-
-// 					}
-
-// 				}
-
-// 				else {
-
-// 					// Compile information that you want to include
-// 					$petfinder_list =   '<h1 class="text-center">Our Dogs</h1>
-// 										<div class="hide-no-js">
-// 											<p>Your perfect companion could be just a click away. Use the filters to narrow your search, and click on a dog to learn more.</p>
-// 										</div>
-// 										<div class="hide-js">
-// 											<p>Your perfect companion could be just a click away. Click on a dog to learn more.</p>
-// 										</div>
-// 										<p><a class="btn collapse-toggle" data-target="#sort-options" href="#"><i class="icon-filter"></i> Filter Results +</a></p>
-// 										<div class="collapse hide-no-js" id="sort-options">
-
-// 											<div class="row">' .
-// 												get_age_list($pets) .
-// 												get_size_list($pets) .
-// 												get_gender_list($pets) .
-// 											'</div>
-
-// 											<div class="row">' .
-// 												get_options_list($pets) .
-// 												get_pet_location($pets) .
-// 											'</div>
-
-// 											<div class="row">' .
-// 												get_breed_list($pets) .
-// 											'</div>
-
-// 										</div>
-
-// 										<div class="row">' .
-// 											get_pet_list($pets) .
-// 										'</div>';
-
-// 				}
-
-// 			}
-
-// 			// If no animals are available for adoption
-// 			else {
-// 				$petfinder_list = '<h1 class="text-center">Our Dogs</h1><p>We don\'t have any pets available for adoption at this time. Sorry! Please check back soon.</p>';
-// 			}
-// 		}
-
-// 		// If error code is returned
-// 		else {
-// 			$petfinder_list = '<h1 class="text-center">Our Dogs</h1><p>We\'re having trouble retrieving our list of available dogs. Please check back shortly, or <a href="http://www.petfinder.com/pet-search?shelter_id=RI77&preview=1&sort=breed">view our dogs on Petfinder</a>.</p>';
-// 		}
-
-// 	// }
-
-
-// 	return $petfinder_list;
-
-// }
-// add_shortcode('petfinder_list','display_petfinder_list');
-
 function display_petfinder_list($atts) {
 
 	// Extract shortcode values
@@ -1006,6 +884,10 @@ function display_petfinder_list($atts) {
 
 			// Compile information that you want to include
 			$petfinder_list = get_one_pet($pet);
+
+			// Update <title> element
+			update_pretty_title($pet);
+
 		}
 
 		// If error code is returned

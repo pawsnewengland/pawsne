@@ -7,6 +7,7 @@
     Add a "#" before a function to deactivate it.
  * ====================================================================== */
 
+require_once('functions/pretty-titles.php'); // Minify the HTML output from your WordPress site
 require_once('functions/load-js.php'); // Load theme JS file
 require_once('functions/search-form-shortcode.php'); // Shortcode for the WordPress search form
 require_once('functions/button-shortcode.php'); // Shortcode to add donate buttons (and more)
