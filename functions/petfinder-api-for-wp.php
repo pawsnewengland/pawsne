@@ -2,7 +2,7 @@
 
 /* ======================================================================
 
-	Petfinder API for WordPress v3.1
+	Petfinder API for WordPress v4.2
 	A collection of functions to help you display Petfinder listings
 	on your WordPress site, by Chris Ferdinandi.
 	http://gomakethings.com
