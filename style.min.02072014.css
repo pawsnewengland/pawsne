@@ -201,6 +201,7 @@ select:focus{-webkit-box-shadow:none;box-shadow:none;outline:thin dotted;outline
 .ie input, .ie textarea, .ie select{line-height:1.588235294;}
 .pf{min-height:16.706588235em;}
 .pf img{max-height:9.375em;}
+.pf-description{white-space:pre-wrap;word-break:keep-all;}
 @font-face{font-family:'icomoon';src:url('fonts/icomoon.eot');src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
 url('fonts/icomoon.woff') format('woff'),
 url('fonts/icomoon.ttf') format('truetype'),
