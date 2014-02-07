@@ -57,12 +57,13 @@ function get_petfinder_data($api_key, $shelter_id, $count, $pet = '') {
 	Updates <title> element in the markup.
  * ============================================================= */
 
-function update_pretty_title( $title, $sep ) {
+function update_pretty_title( $title ) {
 	if ( isset( $_GET['pet-name'] ) && $_GET['pet-name'] != '' ) {
 		$pet = $_GET['pet-name'];
-		$title = $pet . $sep . ' ';
+		$blog = get_bloginfo( 'name' );
+		$title = $pet . ' | ' . $blog;
+		return $title;
 	}
-	return $title;
 }
 add_filter( 'wp_title', 'update_pretty_title', 10, 2 );
 
