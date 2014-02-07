@@ -12,7 +12,7 @@ get_header(); ?>
 			</div>
 			<div class="grid-3">
 				<h1>The Doggie Investigation Gang</h1>
-				<p>Doggie Investigation Gang is a book series created and authored by PAWS supporter Shara Puglisi Katsos. Inspired by three real-life rescue dogs, all profits from sales of the first book of the series will be donated to PAWS New England.</p>
+				<p>Doggie Investigation Gang is a book series created and authored by PAWS supporter Shara Puglisi Katsos. Inspired by three real-life dogs, all profits from sales of the first book of the series will be donated to PAWS New England.</p>
 				<p class="no-space-bottom"><a class="btn" href="http://www.pawsnewengland.com/the-doggie-investigation-gang/">Learn More</a></p>
 			</div>
 		</div>
