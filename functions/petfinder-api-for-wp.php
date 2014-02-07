@@ -10,6 +10,9 @@
     Thanks Bridget Wessel's Petfinder Listings Plugin for getting me started.
     http://wordpress.org/extend/plugins/petfinder-listings/
 
+    Several regex patterns were adapted from Chris Coyier.
+    http://css-tricks.com/snippets/php/find-urls-in-text-make-links/
+
     Free to use under the MIT License.
     http://gomakethings.com/mit/
 
@@ -96,6 +99,34 @@ function get_pet_option($pet_option) {
     if ($pet_option == 'housebroken') return '';
     if ($pet_option == 'altered') return '';
     return 'Not Known';
+}
+
+// Convert plain text links to working links
+function get_text_links($text) {
+
+    // Regex pattern
+    $url_filter = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+
+    // If any URLs exist, convert them to links
+    if ( preg_match( $url_filter, $text, $url ) ) {
+       return preg_replace( $url_filter, '<a href="' . $url[0] . '" rel="nofollow">' . $url[0] . '</a>', $text );
+    } else {
+       return $text;
+    }
+}
+
+// Convert plain text email addresses to working links
+function get_text_emails($text) {
+
+    // Regex pattern
+    $email_filter = '/([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})/';
+
+    // If any URLs exist, convert them to links
+    if ( preg_match( $email_filter, $text, $email ) ) {
+       return preg_replace( $email_filter, '<a href="mailto:' . $email[0] . '">' . $email[0] . '</a>', $text );
+    } else {
+       return $text;
+    }
 }
 
 
@@ -206,6 +237,9 @@ function get_pet_description($pet_description) {
     $pet_description = preg_replace('/<font[^>]+>/', '', $pet_description); // Remove font tag
     $pet_description_scrub = array('<p></p>' => '', '<p> </p>' => '', '<p>&nbsp;</p>' => '', '<span></span>' => '', '<span> </span>' => '', '<span>&nbsp;</span>' => '', '<span>' => '', '</span>' => '', '<font>' => '', '</font>' => ''); // Define empty tags to remove
     $pet_description = strtr($pet_description, $pet_description_scrub); // Remove empty tags
+    $pet_description = '<pre class="pf-description">' . $pet_description . '</pre>';
+    $pet_description = get_text_links($pet_description);
+    $pet_description = get_text_emails($pet_description);
 
     // Return pet description
     return $pet_description;

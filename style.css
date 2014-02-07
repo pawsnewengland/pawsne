@@ -936,6 +936,11 @@ select:focus {
     max-height: 9.375em;
 }
 
+.pf-description {
+    white-space: pre-wrap;
+    word-break: keep-all;
+}
+
 
 
 
