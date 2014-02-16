@@ -63,6 +63,8 @@ function update_pretty_title( $title ) {
 		$blog = get_bloginfo( 'name' );
 		$title = $pet . ' | ' . $blog;
 		return $title;
+	} else {
+		return $title;
 	}
 }
 add_filter( 'wp_title', 'update_pretty_title', 10, 2 );
