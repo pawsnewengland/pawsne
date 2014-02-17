@@ -731,7 +731,7 @@ function get_all_pets($pets) {
 
 		// Compile pet info
 		// Add $pet_options and $pet_breeds as classes and meta info
-		$pet_list .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_breeds_condensed . ' ' . $pet_options_condensed . $pet_location_condensed . '">
+		$pet_list .=    '<div class="grid-img text-center space-bottom pf ' . pet_value_condensed($pet_age) . ' ' . pet_value_condensed($pet_gender) . ' ' . pet_value_condensed($pet_size) . ' ' . $pet_breeds_condensed . ' ' . $pet_options_condensed . $pet_location_condensed . '" data-right-height-content>
 							<a href="' . $pet_url . '">' .
 								$pet_photo .
 								'<h3 class="no-space-top space-bottom-small">' . $pet_name . '</h3>
@@ -942,7 +942,7 @@ function display_petfinder_list($atts) {
 
 									</div>
 
-									<div class="row">' .
+									<div class="row" data-right-height>' .
 										get_all_pets($pets) .
 									'</div>';
 

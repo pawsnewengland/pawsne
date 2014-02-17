@@ -15,7 +15,7 @@ function load_theme_js() {
 	wp_enqueue_script('feature-test');
 
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.11222013.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.02162014.js', false, null, true);
 	wp_enqueue_script('pne-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
