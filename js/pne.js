@@ -1019,6 +1019,7 @@ window.rightHeight = (function (window, document, undefined) {
 		// Reset the content height to `auto`
 		var resetHeight = function ( content ) {
 			content.style.height = 'auto';
+			content.style.minHeight = '0';
 		};
 
 		// Get the natural height of each content area.
@@ -1033,7 +1034,6 @@ window.rightHeight = (function (window, document, undefined) {
 		// Set the height of each content area.
 		var setHeight = function ( content, height ) {
 			content.style.height = height + 'px';
-			content.style.minHeight = '0';
 		};
 
 		// Get all content ares within a group.
