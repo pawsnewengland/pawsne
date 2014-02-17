@@ -97,6 +97,7 @@
 								<ul>
 									<li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
 									<li><a href="<?php echo site_url(); ?>/volunteer/">Volunteer</a></li>
+									<li><a href="<?php echo site_url(); ?>/foster/">Foster</a></li>
 									<li><a href="<?php echo site_url(); ?>/paws-harness-program/">Buy a Harness</a></li>
 									<li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
 									<li><a href="<?php echo site_url(); ?>/goodsearch/">Browse the Web</a></li>
