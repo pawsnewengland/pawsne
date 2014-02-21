@@ -916,7 +916,6 @@ function display_petfinder_list($atts) {
 
 				// Compile information that you want to include
 				$petfinder_list =   '<h1 class="text-center">Our Dogs</h1>
-									<div class="alert"><strong>Note:</strong> A Petfinder glitch is causing only a partial list of our dogs to be displayed here. <a href="http://www.petfinder.com/pet-search?shelter_id=RI77&preview=1&sort=breed">Please visit us on Petfinder</a> to view all of our adoptable dogs.</div>
 									<div class="hide-no-js">
 										<p>Your perfect companion could be just a click away. Use the filters to narrow your search, and click on a dog to learn more.</p>
 									</div>
