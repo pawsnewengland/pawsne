@@ -42,7 +42,7 @@
 		<![endif]-->
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/style.min.02072014.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/pawsne.min.03302014.css">
 
 		<?php wp_head(); ?>
 
