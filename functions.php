@@ -7,16 +7,67 @@
     Add a "#" before a function to deactivate it.
  * ====================================================================== */
 
-require_once('functions/pretty-titles.php'); // Minify the HTML output from your WordPress site
-require_once('functions/load-js.php'); // Load theme JS file
-require_once('functions/search-form-shortcode.php'); // Shortcode for the WordPress search form
-require_once('functions/button-shortcode.php'); // Shortcode to add donate buttons (and more)
-require_once('functions/slider-slideshow.php'); // Shortcode for flexslider slideshows
-require_once('functions/image-url-default.php'); // Overrides default image-URL behavior
-require_once('functions/disable-inline-styles.php'); // Removes inline styles and other coding junk added by the WYSIWYG editor
-require_once('functions/remove-header-junk.php'); // Removes unneccessary junk WordPress adds to the header
-require_once('functions/remove-trackbacks-from-comments.php'); // Remove trackbacks from WordPress comments
-require_once('functions/petfinder-api-for-wp.php'); // Add PetFinder listings to the site
-require_once('functions/html-minify.php'); // Minify the HTML output from your WordPress site
+// Load theme JS
+function load_theme_js() {
+	// Feature Test (in header)
+	wp_register_script('feature-test', get_template_directory_uri() . '/js/feature-test.min.03302014.js', false, null, false);
+	wp_enqueue_script('feature-test');
+
+	// Theme scripts (in footer)
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.03302014.js', false, null, true);
+	wp_enqueue_script('pne-js');
+}
+add_action('wp_enqueue_scripts', 'load_theme_js');
+
+
+
+// Add redirect to Our Dogs page
+function load_our_dogs_redirect( $query ) {
+	$redirect = get_option('home') . '/our-dogs-list/';
+	$timeout = 'setTimeout(\'window.location="' . $redirect . '"\', 500)';
+	$script = '
+		<script>
+			' . $timeout . ';
+		</script>';
+
+	if (is_page('our-dogs')) {
+		echo $script;
+	}
+}
+add_action('wp_footer', 'load_our_dogs_redirect', 30);
+
+
+
+// WP Search Form Shortcode
+function pne_wpsearch() {
+    $form = '<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
+            <label class="screen-reader" for="s">Search this site:</label>
+            <input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
+            <button type="submit" class="btn-search" id="searchsubmit"><i class="icon-search"></i><span class="screen-reader">Search</span></button>
+        </form>';
+    return $form;
+}
+add_shortcode( 'searchform', 'pne_wpsearch' );
+
+
+
+// Make the `wp_title` function more useful
+function paws_pretty_wp_title( $title, $sep ) {
+
+	global $paged, $page;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the site name
+	$title .= get_bloginfo( 'name' );
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 )
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'kraken' ), max( $paged, $page ) );
+
+	return $title;
+}
+add_filter( 'wp_title', 'paws_pretty_wp_title', 10, 2 );
 
 ?>
