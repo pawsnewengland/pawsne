@@ -76,6 +76,7 @@
 									<li><a href="<?php echo site_url(); ?>/our-story/">Our Story</a></li>
 									<li><a href="<?php echo site_url(); ?>/financials/">Financials</a></li>
 									<li><a href="<?php echo site_url(); ?>/hbo/">HBO Special</a></li>
+									<li><a href="<?php echo site_url(); ?>/rehoming-your-dog/">Rehome Your Dog</a></li>
 									<li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
 								</ul>
 							</div>
