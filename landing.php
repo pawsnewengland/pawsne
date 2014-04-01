@@ -6,67 +6,74 @@ get_header(); ?>
 	<!-- <div class="alert">Alert here...</div> -->
 
 	<article>
+
+		<h1 class="text-hero text-center">We save lives, one dog at a time.</h1>
+
+		<div class="row">
+
+			<div class="grid-3">
+				<h2>Here's how you can help...</h2>
+
+				<div class="group">
+					<p>
+						<a class="url-action" href="<?php echo get_option('home'); ?>/adopt/">
+							<i class="icon-home"></i>
+							<span class="h2">Adopt</span><br>
+							Give a deserving dog a new home.
+						</a>
+					</p>
+				</div>
+
+				<div class="group">
+					<p>
+						<a class="url-action" href="<?php echo get_option('home'); ?>/donate/">
+							<i class="icon-heart"></i>
+							<span class="h2">Donate</span><br>
+							Help fund our life-saving work.
+						</a>
+					</p>
+				</div>
+
+				<div class="group">
+					<p>
+						<a class="url-action" href="<?php echo get_option('home'); ?>/volunteer/">
+							<i class="icon-time"></i>
+							<span class="h2">Volunteer</span><br>
+							Share your time or just spread the word.
+						</a>
+					</p>
+				</div>
+
+			</div>
+
+			<div class="grid-3 text-center">
+				<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" height="346" width="459" title="A photo of a PAWS rescue dog">
+			</div>
+
+		</div>
+
+		<hr>
+
+	</article>
+
+
+	<article>
 		<div class="row">
 			<div class="grid-1 offset-1 text-center">
-				<img height="135" width="135" src="<?php bloginfo('stylesheet_directory'); ?>/img/campaigns/dig.jpg">
+				<img class="space-top" src="<?php bloginfo('stylesheet_directory'); ?>/img/campaigns/dig-cover-small.jpg">
 			</div>
 			<div class="grid-3">
 				<h1>The Doggie Investigation Gang</h1>
 				<p>Doggie Investigation Gang is a book series created and authored by PAWS supporter Shara Puglisi Katsos. Inspired by three real-life dogs, all profits from sales of the first book of the series will be donated to PAWS New England.</p>
-				<p class="no-space-bottom"><a class="btn" href="http://www.pawsnewengland.com/the-doggie-investigation-gang/">Learn More</a></p>
+				<p class="no-space-bottom text-center">
+					<a class="btn" href="http://www.amazon.com/Missing-Canine-Shara-Puglisi-Katsos/dp/0977639657/">Buy It Now</a><br>
+					<a href="">Or learn more...</a>
+				</p>
 			</div>
 		</div>
 
 		<hr>
 	</article>
-
-	<article class="row">
-
-		<h1 class="text-hero text-center">We save lives, one dog at a time.</h1>
-
-		<div class="grid-3">
-			<h2>Here's how you can help...</h2>
-
-			<div class="group">
-				<p>
-					<a class="url-action" href="<?php echo get_option('home'); ?>/adopt/">
-						<i class="icon-home"></i>
-						<span class="h2">Adopt</span><br>
-						Give a deserving dog a new home.
-					</a>
-				</p>
-			</div>
-
-			<div class="group">
-				<p>
-					<a class="url-action" href="<?php echo get_option('home'); ?>/donate/">
-						<i class="icon-heart"></i>
-						<span class="h2">Donate</span><br>
-						Help fund our life-saving work.
-					</a>
-				</p>
-			</div>
-
-			<div class="group">
-				<p>
-					<a class="url-action" href="<?php echo get_option('home'); ?>/volunteer/">
-						<i class="icon-time"></i>
-						<span class="h2">Volunteer</span><br>
-						Share your time or just spread the word.
-					</a>
-				</p>
-			</div>
-
-		</div>
-
-		<div class="grid-3 text-center">
-			<img class="hide-mobile" src="<?php bloginfo('stylesheet_directory'); ?>/img/main.png" height="346" width="459" title="A photo of a PAWS rescue dog">
-		</div>
-
-	</article>
-
-
-	<hr>
 
 
 	<article class="row text-center">
