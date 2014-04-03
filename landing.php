@@ -60,7 +60,7 @@ get_header(); ?>
 	<article>
 		<div class="row">
 			<div class="grid-1 offset-1 text-center">
-				<img class="space-top" src="<?php bloginfo('stylesheet_directory'); ?>/img/campaigns/dig-cover-small.jpg">
+				<a href="http://www.amazon.com/Missing-Canine-Shara-Puglisi-Katsos/dp/0977639657/ref=as_li_ss_til?tag=paneen-20&linkCode=w01&creativeASIN=0977639657"><img class="space-top" src="<?php bloginfo('stylesheet_directory'); ?>/img/campaigns/dig-cover-small.jpg"></a>
 			</div>
 			<div class="grid-3">
 				<h1>The Doggie Investigation Gang</h1>
