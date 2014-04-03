@@ -66,8 +66,8 @@ get_header(); ?>
 				<h1>The Doggie Investigation Gang</h1>
 				<p>Doggie Investigation Gang is a book series created and authored by PAWS supporter Shara Puglisi Katsos. Inspired by three real-life dogs, all profits from sales of the first book of the series will be donated to PAWS New England.</p>
 				<p class="no-space-bottom text-center">
-					<a class="btn" href="http://www.amazon.com/Missing-Canine-Shara-Puglisi-Katsos/dp/0977639657/">Buy It Now</a><br>
-					<a href="">Or learn more...</a>
+					<a class="btn" href="http://www.amazon.com/Missing-Canine-Shara-Puglisi-Katsos/dp/0977639657/ref=as_li_ss_til?tag=paneen-20&linkCode=w01&creativeASIN=0977639657">Buy It Now</a><br>
+					<a href="http://www.pawsnewengland.com/now-on-sale-the-doggie-investigation-gang/">Or learn more...</a>
 				</p>
 			</div>
 		</div>
