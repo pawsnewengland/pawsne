@@ -14,7 +14,7 @@ function load_theme_js() {
 	wp_enqueue_script('feature-test');
 
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.03302014.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/js/pne.min.05302014.js', false, null, true);
 	wp_enqueue_script('pne-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
@@ -23,16 +23,12 @@ add_action('wp_enqueue_scripts', 'load_theme_js');
 
 // Add redirect to Our Dogs page
 function load_our_dogs_redirect( $query ) {
-	$redirect = get_option('home') . '/our-dogs-list/';
-	$timeout = 'setTimeout(\'window.location="' . $redirect . '"\', 500)';
-	$script = '
-		<script>
-			' . $timeout . ';
-		</script>';
-
+	$scripts = '<script>stickyFooter.init()</script>';
 	if (is_page('our-dogs')) {
-		echo $script;
+		$redirect = get_option('home') . '/our-dogs-list/';
+		$scripts = $scripts . '<script>setTimeout(\'window.location="' . $redirect . '"\', 500)</script>';
 	}
+	echo $scripts;
 }
 add_action('wp_footer', 'load_our_dogs_redirect', 30);
 
@@ -40,7 +36,8 @@ add_action('wp_footer', 'load_our_dogs_redirect', 30);
 
 // WP Search Form Shortcode
 function pne_wpsearch() {
-    $form = '<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
+    $form =
+    	'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
             <label class="screen-reader" for="s">Search this site:</label>
             <input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
             <button type="submit" class="btn-search" id="searchsubmit"><i class="icon-search"></i><span class="screen-reader">Search</span></button>

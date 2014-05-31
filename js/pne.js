@@ -10,3 +10,4 @@
 // @codekit-append "components/smooth-scroll.js"
 // @codekit-append "components/right-height.js"
 // @codekit-append "components/slider.js"
+// @codekit-append "components/sticky-footer.js"
