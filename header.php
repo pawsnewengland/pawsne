@@ -57,61 +57,63 @@
 			</div>
 		<![endif]-->
 
-		<div class="nav-bg">
-			<nav class="nav-wrap container">
-				<a class="logo" href="<?php echo site_url(); ?>/"><i class="icon-logo"></i> PAWS New England</a>
-				<a class="btn nav-toggle" data-target="#nav-menu" href="#">
-					<i class="icon-bar"></i>
-					<i class="icon-bar"></i>
-					<i class="icon-bar"></i>
-					<span class="screen-reader">Menu Toggle</span>
-				</a>
-				<div class="nav-collapse" id="nav-menu">
-					<ul class="nav group">
-						<li><a href="<?php echo site_url(); ?>/">Home</a></li>
-						<li class="dropdown">
-							<a href="<?php echo site_url(); ?>/about/">About</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li><a href="<?php echo site_url(); ?>/our-story/">Our Story</a></li>
-									<li><a href="<?php echo site_url(); ?>/financials/">Financials</a></li>
-									<li><a href="<?php echo site_url(); ?>/hbo/">HBO Special</a></li>
-									<li><a href="<?php echo site_url(); ?>/rehoming-your-dog/">Rehome Your Dog</a></li>
-									<li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="dropdown">
-							<a href="<?php echo site_url(); ?>/adopt/">Adopt</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li><a href="<?php echo site_url(); ?>/adopt/">The Process</a></li>
-									<li><a href="<?php echo site_url(); ?>/our-dogs/">Our Dogs</a></li>
-									<li><a href="<?php echo site_url(); ?>/adoption-form/">Adoption Form</a></li>
-									<li><a href="<?php echo site_url(); ?>/resources/">Resources</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="dropdown">
-							<a href="<?php echo site_url(); ?>/help/">How to Help</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
-									<li><a href="<?php echo site_url(); ?>/volunteer/">Volunteer</a></li>
-									<li><a href="<?php echo site_url(); ?>/foster/">Foster</a></li>
-									<li><a href="<?php echo site_url(); ?>/paws-harness-program/">Buy a Harness</a></li>
-									<li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
-									<li><a href="<?php echo site_url(); ?>/goodsearch/">Browse the Web</a></li>
-									<li><a href="<?php echo site_url(); ?>/owen-fund/">The Owen Fund</a></li>
-									<li><a href="<?php echo site_url(); ?>/paws-partners/">Support Our Partners</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="<?php echo site_url(); ?>/news/">Blog</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+		<div data-sticky-wrap>
+
+			<div class="nav-bg">
+				<nav class="nav-wrap container">
+					<a class="logo" href="<?php echo site_url(); ?>/"><i class="icon-logo"></i> PAWS New England</a>
+					<a class="btn nav-toggle" data-target="#nav-menu" href="#">
+						<i class="icon-bar"></i>
+						<i class="icon-bar"></i>
+						<i class="icon-bar"></i>
+						<span class="screen-reader">Menu Toggle</span>
+					</a>
+					<div class="nav-collapse" id="nav-menu">
+						<ul class="nav group">
+							<li><a href="<?php echo site_url(); ?>/">Home</a></li>
+							<li class="dropdown">
+								<a href="<?php echo site_url(); ?>/about/">About</a>
+								<div class="dropdown-menu">
+									<ul>
+										<li><a href="<?php echo site_url(); ?>/our-story/">Our Story</a></li>
+										<li><a href="<?php echo site_url(); ?>/financials/">Financials</a></li>
+										<li><a href="<?php echo site_url(); ?>/hbo/">HBO Special</a></li>
+										<li><a href="<?php echo site_url(); ?>/rehoming-your-dog/">Rehome Your Dog</a></li>
+										<li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="dropdown">
+								<a href="<?php echo site_url(); ?>/adopt/">Adopt</a>
+								<div class="dropdown-menu">
+									<ul>
+										<li><a href="<?php echo site_url(); ?>/adopt/">The Process</a></li>
+										<li><a href="<?php echo site_url(); ?>/our-dogs/">Our Dogs</a></li>
+										<li><a href="<?php echo site_url(); ?>/adoption-form/">Adoption Form</a></li>
+										<li><a href="<?php echo site_url(); ?>/resources/">Resources</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="dropdown">
+								<a href="<?php echo site_url(); ?>/help/">How to Help</a>
+								<div class="dropdown-menu">
+									<ul>
+										<li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
+										<li><a href="<?php echo site_url(); ?>/volunteer/">Volunteer</a></li>
+										<li><a href="<?php echo site_url(); ?>/foster/">Foster</a></li>
+										<li><a href="<?php echo site_url(); ?>/paws-harness-program/">Buy a Harness</a></li>
+										<li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
+										<li><a href="<?php echo site_url(); ?>/goodsearch/">Browse the Web</a></li>
+										<li><a href="<?php echo site_url(); ?>/owen-fund/">The Owen Fund</a></li>
+										<li><a href="<?php echo site_url(); ?>/paws-partners/">Support Our Partners</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a href="<?php echo site_url(); ?>/news/">Blog</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 
 
-		<section class="container space-bottom-big">
+			<section class="container space-bottom-big">
