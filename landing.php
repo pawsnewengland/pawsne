@@ -16,7 +16,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/adopt/">
-							<svg class="url-action-icon url-action-icon-home" role="presentation"><use xlink:href="#home"></use></svg>
+							<svg class="url-action-icon icon-home" role="presentation"><use xlink:href="#home"></use></svg>
 							<span class="url-action-header h2">Adopt</span><br>
 							Give a deserving dog a new home.
 						</a>
@@ -26,7 +26,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/donate/">
-							<svg class="url-action-icon url-action-icon-heart" role="presentation"><use xlink:href="#heart"></use></svg>
+							<svg class="url-action-icon icon-heart" role="presentation"><use xlink:href="#heart"></use></svg>
 							<span class="url-action-header h2">Donate</span><br>
 							Help fund our life-saving work.
 						</a>
@@ -36,7 +36,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/volunteer/">
-							<svg class="url-action-icon url-action-icon-time" role="presentation"><use xlink:href="#time"></use></svg>
+							<svg class="url-action-icon icon-time" role="presentation"><use xlink:href="#time"></use></svg>
 							<span class="url-action-header h2">Volunteer</span><br>
 							Share your time or just spread the word.
 						</a>
@@ -113,7 +113,7 @@ get_header(); ?>
 			<a class="icon-grid" href="https://twitter.com/pawsnewengland">
 				<svg class="icon icon-large icon-twitter" role="img" title="Twitter"><use xlink:href="#twitter">Twitter</use></svg>
 			</a>
-			<a class="icon-grid" href="https://twitter.com/pawsnewengland">
+			<a class="icon-grid" href="http://instagram.com/pawsnewengland">
 				<svg class="icon icon-large icon-instagram" role="img" title="Instagram"><use xlink:href="#instagram">Instagram</use></svg>
 			</a>
 			<a class="icon-grid" href="http://eepurl.com/ifVL">

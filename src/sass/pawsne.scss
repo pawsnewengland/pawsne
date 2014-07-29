@@ -622,26 +622,7 @@ q:before, q:after {
 	float: left;
 	height: 3em;
 	width: 3em;
-	line-height: 1.2;
 	margin-right: 1em;
-}
-
-.url-action-icon-home {
-	fill: #453f27;
-}
-
-.url-action-icon-heart {
-	fill: #e7a2b0;
-}
-
-.url-action-icon-time {
-	fill: #808080;
-}
-
-.url-action:hover .url-action-icon-home,
-.url-action:hover .url-action-icon-heart,
-.url-action:hover .url-action-icon-time{
-	fill: #272727;
 }
 
 .url-action-header {
@@ -941,6 +922,7 @@ select:focus {
 	Learn more at http://gomakethings.com/icon-fonts/
  * ============================================================= */
 
+/* Icon Size */
 .icon {
 	height: 1em;
 	width: 1em;
@@ -956,6 +938,32 @@ select:focus {
 	}
 }
 
+/* Icon Styles */
+.icon-home      { fill: #453f27; }
+.icon-heart     { fill: #e7a2b0; }
+.icon-time      { fill: #808080; }
+.icon-facebook  { fill: #3B5997; }
+.icon-twitter   { fill: #41b7d8; }
+.icon-instagram { fill: #517fa4; }
+.icon-email     { fill: #6aa120; }
+.icon-rss       { fill: #e0812a; }
+
+a:hover .icon-home,
+a:hover .icon-heart,
+a:hover .icon-time,
+a:hover .icon-facebook,
+a:hover .icon-twitter,
+a:hover .icon-instagram,
+a:hover .icon-email,
+a:hover .icon-rss {
+	fill: #272727;
+}
+
+.btn .icon {
+	fill: #ffffff;
+}
+
+/* Icon Structure */
 .icon-grid {
 	margin-left: .5em;
 	margin-right: .5em;
@@ -972,20 +980,6 @@ select:focus {
 
 .icon-grid:last-child {
 	margin-right: 0;
-}
-
-.icon-facebook    { fill: #3B5997; }
-.icon-twitter     { fill: #41b7d8; }
-.icon-instagram   { fill: #517fa4; }
-.icon-email       { fill: #6aa120; }
-.icon-rss         { fill: #e0812a; }
-
-a:hover .icon-facebook,
-a:hover .icon-twitter,
-a:hover .icon-instagram,
-a:hover .icon-email,
-a:hover .icon-rss {
-	fill: #272727;
 }
 
 
@@ -2004,6 +1998,10 @@ table {
 .container:after,
 .row:after {
 	clear: both;
+}
+
+.clear {
+	@extend .group;
 }
 
 
