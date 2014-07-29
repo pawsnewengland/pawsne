@@ -20,17 +20,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
+		<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.ico">
 
 		<!-- Apple Touch Icons -->
-		<link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-114.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-144.png">
+		<link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-144.png">
 
 		<!-- MS Homescreen Icons -->
 		<meta name="msapplication-TileColor" content="#0088cc">
-		<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/img/ms-touch-icon.png">
+		<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/dist/img/ms-touch-icon.png">
 
 		<!-- Feeds & Pings -->
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne">
@@ -38,17 +38,20 @@
 
 		<!-- HTML5 Shim for IE 6-8 -->
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.js"></script>
 		<![endif]-->
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/pawsne.min.05302014.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700">
 
 		<?php wp_head(); ?>
 
 	</head>
 
 	<body>
+
+		<div class="hide"><?php $svg = get_template_directory() . '/dist/svg/icons.svg'; include_once( $svg ); ?></div>
 
 		<!-- Old Browser Warning for IE 6-7 -->
 		<!--[if lt IE 8]>
