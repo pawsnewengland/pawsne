@@ -9,7 +9,7 @@
 
 					<p class="space-bottom-small"><span class="text-small">Copyright © 2010 - <?php echo date('Y');?> <?php bloginfo('name'); ?>. All rights reserved.</span></p>
 
-					<p><a href="http://gomakethings.com"><span class="text-small">Web design by Chris Ferdinandi</a>.</span></p>
+					<p><a href="http://gomakethings.com"><span class="text-small">Website by Chris Ferdinandi</a>.</span></p>
 				</footer>
 			<div>
 		</div>

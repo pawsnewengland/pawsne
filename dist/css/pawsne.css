@@ -671,6 +671,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
  * ============================================================= */
 /* Icon Size */
 .icon {
+  display: inline-block;
   height: 1em;
   width: 1em; }
 
@@ -689,7 +690,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
 .icon-heart {
   fill: #e7a2b0; }
 
-.icon-time {
+.icon-time, .icon-search {
   fill: #808080; }
 
 .icon-facebook {
@@ -707,7 +708,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
 .icon-rss {
   fill: #e0812a; }
 
-a:hover .icon-home, a:hover .icon-heart, a:hover .icon-time, a:hover .icon-facebook, a:hover .icon-twitter, a:hover .icon-instagram, a:hover .icon-email, a:hover .icon-rss {
+a:hover .icon-home, a:hover .icon-heart, a:hover .icon-time, a:hover .icon-facebook, a:hover .icon-twitter, a:hover .icon-instagram, a:hover .icon-email, a:hover .icon-rss, .icon-search:hover {
   fill: #272727; }
 
 .btn .icon {
@@ -800,42 +801,6 @@ a:hover .icon-home, a:hover .icon-heart, a:hover .icon-time, a:hover .icon-faceb
     transform: rotate(360deg);
     -webkit-box-shadow: -0.11em -0.83em 0 -0.4em #808080, -0.11em -0.83em 0 -0.42em #808080, -0.11em -0.83em 0 -0.44em #808080, -0.11em -0.83em 0 -0.46em #808080, -0.11em -0.83em 0 -0.477em #808080;
     box-shadow: -0.11em -0.83em 0 -0.4em #808080, -0.11em -0.83em 0 -0.42em #808080, -0.11em -0.83em 0 -0.44em #808080, -0.11em -0.83em 0 -0.46em #808080, -0.11em -0.83em 0 -0.477em #808080; } }
-
-/* =============================================================
-	SPINNERS
-	Styling for CSS3 rotation animations.
- * ============================================================= */
-/*  The class that applies the animation. */
-.spinner {
-  display: inline-block;
-  -webkit-animation: spin 2s infinite linear;
-  -ms-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear; }
-
-/*  The vendor-specific and generic animation keyframes.
- *  These control the direction and nature of the animation. */
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg); }
-
-  100% {
-    -webkit-transform: rotate(360deg); } }
-
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg); }
-
-  100% {
-    -ms-transform: rotate(360deg); } }
-
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
 
 /* =============================================================
 	ALERTS
@@ -981,17 +946,9 @@ table {
  *  adjust the .logo line-height. */
 .logo {
   display: inline-block;
-  font-size: 1.52941em;
-  font-family: "icomoon", "Open Sans", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1;
+  font-weight: bold;
   color: #ffffff;
-  margin-bottom: 0.23529em;
   text-decoration: none; }
-
-.logo > .icon-logo {
-  font-size: 0.7em;
-  vertical-align: text-top;
-  line-height: 1.4; }
 
 /*  For text-based logo, override default link hover styling */
 .logo:hover {
@@ -1097,15 +1054,12 @@ table {
   /*  Reduce the top margin and remove the bottom margin */
   .nav-wrap {
     text-align: left;
-    padding-top: 0.23529em;
-    padding-bottom: 0; }
+    padding-top: 0.23529em; }
   .logo {
     display: inline-block;
     float: left;
-    font-size: 2em;
     margin-right: 1.17647em; }
   .nav {
-    margin-top: 0.47059em;
     margin-bottom: 0; } }
 
 /* IE Fallbacks */
@@ -1117,11 +1071,9 @@ table {
 .ie .logo {
   display: inline-block;
   float: left;
-  font-size: 2em;
   margin-right: 1.17647em; }
 
 .ie .nav {
-  margin-top: 0.47059em;
   margin-bottom: 0; }
 
 /* =============================================================
@@ -1132,12 +1084,15 @@ table {
 .dropdown {
   position: relative; }
 
-/*  Display a caret after each dropdown link when JavaScript is supported.
- *  You can remove this or change it to a different symbol.
- *  (For example, a "+" symbol.) */
-.js .dropdown > a:after {
-  content: " \25bc";
-  font-size: 0.8em; }
+/*  Display a caret after each dropdown link when JavaScript is supported. */
+.dropdown .text-show-more, .dropdown .text-show-less, .js .dropdown.active .text-show-more {
+  width: 0.4em;
+  display: none;
+  visibility: hidden; }
+
+.js .dropdown .text-show-more, .js .dropdown.active .text-show-less {
+  display: inline-block;
+  visibility: visible; }
 
 /*  Styling for the dropdown content.
  *  Hides the content by default. */
@@ -1247,7 +1202,6 @@ table {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  /*  Add animation when content expands and collapses */
   -webkit-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease; }
 

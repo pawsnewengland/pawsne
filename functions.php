@@ -40,7 +40,7 @@ function pne_wpsearch() {
     	'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
             <label class="screen-reader" for="s">Search this site:</label>
             <input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
-            <button type="submit" class="btn-search" id="searchsubmit"><svg class="icon" role="img" title="Search"><use xlink:href="#search">Search</use></svg></button>
+            <button type="submit" class="btn-search" id="searchsubmit"><svg class="icon icon-search" role="img" title="Search"><use xlink:href="#search">Search</use></svg></button>
         </form>';
     return $form;
 }
