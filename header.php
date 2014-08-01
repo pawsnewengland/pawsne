@@ -20,17 +20,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.ico">
+		<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.ico">
 
 		<!-- Apple Touch Icons -->
-		<link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-114.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/img/apple-touch-icon-144.png">
+		<link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-114.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-144.png">
 
 		<!-- MS Homescreen Icons -->
 		<meta name="msapplication-TileColor" content="#0088cc">
-		<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/img/ms-touch-icon.png">
+		<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/dist/img/ms-touch-icon.png">
 
 		<!-- Feeds & Pings -->
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="http://feeds.feedburner.com/pawsne">
@@ -38,11 +38,11 @@
 
 		<!-- HTML5 Shim for IE 6-8 -->
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.1406865391522.js"></script>
 		<![endif]-->
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/pawsne.min.05302014.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.1406865391531.css">
 
 		<?php wp_head(); ?>
 
@@ -50,8 +50,10 @@
 
 	<body>
 
+		<div class="hide"><?php $svg = get_template_directory() . '/dist/svg/icons.svg'; include_once( $svg ); ?></div>
+
 		<!-- Old Browser Warning for IE 6-7 -->
-		<!--[if lt IE 8]>
+		<!--[if lt IE 9]>
 			<div class="container">
 				<span class="text-small text-muted">Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.</span>
 			</div>
@@ -61,8 +63,10 @@
 
 			<div class="nav-bg">
 				<nav class="nav-wrap container">
-					<a class="logo" href="<?php echo site_url(); ?>/"><i class="icon-logo"></i> PAWS New England</a>
-					<a class="btn nav-toggle" data-target="#nav-menu" href="#">
+					<a class="logo" href="<?php echo site_url(); ?>">
+						<svg class="icon icon-logo" role="img" title="PAWS New England"><use xlink:href="#logo">PAWS New England</use></svg>
+					</a>
+					<a class="btn nav-toggle" data-nav-toggle="#nav-menu" href="#">
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>
@@ -72,7 +76,11 @@
 						<ul class="nav group">
 							<li><a href="<?php echo site_url(); ?>/">Home</a></li>
 							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/about/">About</a>
+								<a href="<?php echo site_url(); ?>/about/">
+									About
+									<span class="text-show-more">+</span>
+									<span class="text-show-less">&ndash;</span>
+								</a>
 								<div class="dropdown-menu">
 									<ul>
 										<li><a href="<?php echo site_url(); ?>/our-story/">Our Story</a></li>
@@ -84,7 +92,11 @@
 								</div>
 							</li>
 							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/adopt/">Adopt</a>
+								<a href="<?php echo site_url(); ?>/adopt/">
+									Adopt
+									<span class="text-show-more">+</span>
+									<span class="text-show-less">&ndash;</span>
+								</a>
 								<div class="dropdown-menu">
 									<ul>
 										<li><a href="<?php echo site_url(); ?>/adopt/">The Process</a></li>
@@ -95,7 +107,11 @@
 								</div>
 							</li>
 							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/help/">How to Help</a>
+								<a href="<?php echo site_url(); ?>/help/">
+									How to Help
+									<span class="text-show-more">+</span>
+									<span class="text-show-less">&ndash;</span>
+								</a>
 								<div class="dropdown-menu">
 									<ul>
 										<li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
