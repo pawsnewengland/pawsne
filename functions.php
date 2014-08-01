@@ -9,26 +9,54 @@
 
 // Load theme JS
 function load_theme_js() {
-	// Feature Test (in header)
-	wp_register_script('feature-test', get_template_directory_uri() . '/dist/js/feature-test.js', false, null, false);
-	wp_enqueue_script('feature-test');
-
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.min.1406778446946.js', false, null, true);
 	wp_enqueue_script('pne-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
 
 
 
-// Add redirect to Our Dogs page
+// Init scripts
 function load_our_dogs_redirect( $query ) {
-	$scripts = '<script>stickyFooter.init()</script>';
-	if (is_page('our-dogs')) {
+	$redirectInit = '';
+	$loadCSS = '<script>loadCSS( "http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700" );</script>';
+	$inits =
+		'astro.init();' .
+		'drop.init();' .
+		'fluidvids.init();' .
+		'stickyFooter.init();';
+	if ( is_page('our-dogs') ) {
 		$redirect = get_option('home') . '/our-dogs-list/';
-		$scripts = $scripts . '<script>setTimeout(\'window.location="' . $redirect . '"\', 500)</script>';
+		$redirectInit = '<script>setTimeout(\'window.location="' . $redirect . '"\', 500)</script>';
+		$inits = $inits . "if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
 	}
-	echo $scripts;
+	if ( is_page('hbo') ) {
+		$inits =
+			$inits .
+			'houdini.init();' .
+			'modals.init();';
+	}
+	if ( is_page('owen-fund') ) {
+		$inits =
+			$inits .
+			'modals.init();';
+	}
+	if ( is_page('our-dogs-list') ) {
+		$inits =
+			$inits .
+			'houdini.init();' .
+			'petfinderSort.init();' .
+			'rightHeight.init();' .
+			'formSaver.savePetName();' .
+			"if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
+	}
+	if ( is_page('adoption-form') ) {
+		$inits =
+			$inits .
+			'formSaver.init();';
+	}
+	echo $loadCSS . '<script>' . $inits . '</script>' . $redirectInit;
 }
 add_action('wp_footer', 'load_our_dogs_redirect', 30);
 

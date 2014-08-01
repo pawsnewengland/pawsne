@@ -1,79 +1,414 @@
 /**
- * pawsnewengland v4.25.0
+ * pawsnewengland v5.0.0
  * WordPress theme for PAWS New England, by Chris Ferdinandi.
  * http://github.com/pawsnewengland/pawsne
  */
 
-/* =============================================================
+/*
+ * classList.js: Cross-browser full element.classList implementation.
+ * 2014-01-31
+ *
+ * By Eli Grey, http://eligrey.com
+ * Public Domain.
+ * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ */
 
-	Buoy v1.2
-	A simple vanilla JS micro-library by Chris Ferdinandi.
-	http://gomakethings.com
+/*global self, document, DOMException */
 
-	Class handlers by Todd Motto.
-	https://github.com/toddmotto/apollo
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-	Module pattern by Keith Rousseau.
-	https://twitter.com/keithtri
+if ("document" in self && !("classList" in document.createElement("_"))) {
 
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
+	(function (view) {
 
- * ============================================================= */
+		"use strict";
 
-window.buoy = (function(){
+		if (!('Element' in view)) return;
+
+		var
+			classListProp = "classList",
+			protoProp = "prototype",
+			elemCtrProto = view.Element[protoProp],
+			objCtr = Object,
+			strTrim = String[protoProp].trim || function () {
+				return this.replace(/^\s+|\s+$/g, "");
+			},
+			arrIndexOf = Array[protoProp].indexOf || function (item) {
+				var
+					i = 0,
+					len = this.length;
+				for (; i < len; i++) {
+					if (i in this && this[i] === item) {
+						return i;
+					}
+				}
+				return -1;
+			},
+			// Vendors: please allow content code to instantiate DOMExceptions
+			DOMEx = function (type, message) {
+				this.name = type;
+				this.code = DOMException[type];
+				this.message = message;
+			},
+			checkTokenAndGetIndex = function (classList, token) {
+				if (token === "") {
+					throw new DOMEx(
+						"SYNTAX_ERR",
+						"An invalid or illegal string was specified"
+					);
+				}
+				if (/\s/.test(token)) {
+					throw new DOMEx(
+						"INVALID_CHARACTER_ERR",
+						"String contains an invalid character"
+					);
+				}
+				return arrIndexOf.call(classList, token);
+			},
+			ClassList = function (elem) {
+				var
+					trimmedClasses = strTrim.call(elem.getAttribute("class") || ""),
+					classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
+					i = 0,
+					len = classes.length;
+				for (; i < len; i++) {
+					this.push(classes[i]);
+				}
+				this._updateClassName = function () {
+					elem.setAttribute("class", this.toString());
+				};
+			},
+			classListProto = ClassList[protoProp] = [],
+			classListGetter = function () {
+				return new ClassList(this);
+			};
+		// Most DOMException implementations don't allow calling DOMException's toString()
+		// on non-DOMExceptions. Error's toString() is sufficient here.
+		DOMEx[protoProp] = Error[protoProp];
+		classListProto.item = function (i) {
+			return this[i] || null;
+		};
+		classListProto.contains = function (token) {
+			token += "";
+			return checkTokenAndGetIndex(this, token) !== -1;
+		};
+		classListProto.add = function () {
+			var
+				tokens = arguments,
+				i = 0,
+				l = tokens.length,
+				token,
+				updated = false;
+			do {
+				token = tokens[i] + "";
+				if (checkTokenAndGetIndex(this, token) === -1) {
+					this.push(token);
+					updated = true;
+				}
+			}
+			while (++i < l);
+
+			if (updated) {
+				this._updateClassName();
+			}
+		};
+		classListProto.remove = function () {
+			var
+				tokens = arguments,
+				i = 0,
+				l = tokens.length,
+				token,
+				updated = false;
+			do {
+				token = tokens[i] + "";
+				var index = checkTokenAndGetIndex(this, token);
+				if (index !== -1) {
+					this.splice(index, 1);
+					updated = true;
+				}
+			}
+			while (++i < l);
+
+			if (updated) {
+				this._updateClassName();
+			}
+		};
+		classListProto.toggle = function (token, force) {
+			token += "";
+
+			var
+				result = this.contains(token),
+				method = result ? force !== true && "remove" : force !== false && "add";
+
+			if (method) {
+				this[method](token);
+			}
+
+			return !result;
+		};
+		classListProto.toString = function () {
+			return this.join(" ");
+		};
+
+		if (objCtr.defineProperty) {
+			var classListPropDesc = {
+				get: classListGetter,
+				enumerable: true,
+				configurable: true
+			};
+			try {
+				objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+			} catch (ex) { // IE 8 doesn't support enumerable:true
+				if (ex.number === -0x7FF5EC54) {
+					classListPropDesc.enumerable = false;
+					objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
+				}
+			}
+		} else if (objCtr[protoProp].__defineGetter__) {
+			elemCtrProto.__defineGetter__(classListProp, classListGetter);
+		}
+
+	}(self));
+
+}
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('astro', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.astro = factory(root);
+	}
+})(this, function (root) {
 
 	'use strict';
 
-	// Check for classList support
-	var classList = document.documentElement.classList;
+	//
+	// Variables
+	//
 
-	// Check if an element has a class
-	var hasClass = function (elem, className) {
-		if ( classList ) {
-			return elem.classList.contains(className);
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var eventListeners = []; //Listeners array
+	var settings, toggles;
+
+	// Default settings
+	var defaults = {
+		toggleActiveClass: 'active',
+		navActiveClass: 'active',
+		initClass: 'js-astro',
+		callbackBefore: function () {},
+		callbackAfter: function () {}
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
 		} else {
-			return new RegExp('(^|\\s)' + className + '(\\s|$)').test(elem.className);
-		}
-	};
-
-	// Add a class to an element
-	var addClass = function (elem, className) {
-		if ( !hasClass(elem, className) ) {
-			if ( classList ) {
-				elem.classList.add(className);
-			} else {
-				elem.className += (elem.className ? ' ' : '') + className;
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
 			}
 		}
 	};
 
-	// Remove a class from an element
-	var removeClass = function (elem, className) {
-		if (hasClass(elem, className)) {
-			if ( classList ) {
-				elem.classList.remove(className);
-			} else {
-				elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
-			}
-		}
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
+		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
 	};
 
-	// Toggle a class on an element
-	var toggleClass = function (elem, className) {
-		if ( classList ) {
-			elem.classList.toggle(className);
+	/**
+	 * Show and hide navigation menu
+	 * @public
+	 * @param  {Element} toggle Element that triggered the toggle
+	 * @param  {String} navID The ID of the navigation element to toggle
+	 * @param  {Object} settings
+	 * @param  {Event} event
+	 */
+	exports.toggleNav = function ( toggle, navID, options, event ) {
+
+		// Selectors and variables
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var nav = document.querySelector(navID);
+
+
+		// If a link, prevent default click event
+		if ( toggle && toggle.tagName.toLowerCase() === 'a' && event ) {
+			event.preventDefault();
+		}
+
+		settings.callbackBefore( toggle, navID ); // Run callbacks before toggling nav
+		toggle.classList.toggle( settings.toggleActiveClass ); // Toggle the '.active' class on the toggle element
+		nav.classList.toggle( settings.navActiveClass ); // Toggle the '.active' class on the menu
+		settings.callbackAfter( toggle, navID ); // Run callbacks after toggling nav
+
+	};
+
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	exports.destroy = function () {
+		if ( !settings ) return;
+		document.documentElement.classList.remove( settings.initClass );
+		if ( toggles ) {
+			forEach( toggles, function ( toggle, index ) {
+				toggle.removeEventListener( 'click', eventListeners[index], false );
+			});
+			eventListeners = [];
+		}
+		settings = null;
+		toggles = null;
+	};
+
+	/**
+	 * Initialize Astro
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
+
+		// feature test
+		if ( !supports ) return;
+
+		// Destroy any existing initializations
+		exports.destroy();
+
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		toggles = document.querySelectorAll('[data-nav-toggle]'); // Get all nav toggles
+
+		document.documentElement.classList.add( settings.initClass ); // Add class to HTML element to activate conditional CSS
+
+		// When a nav toggle is clicked, show or hide the nav
+		forEach(toggles, function (toggle, index) {
+			eventListeners[index] = exports.toggleNav.bind( null, toggle, toggle.getAttribute('data-nav-toggle'), settings );
+			toggle.addEventListener('click', eventListeners[index], false);
+		});
+
+	};
+
+
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('drop', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.drop = factory(root);
+	}
+})(this, function (root) {
+
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var eventListeners = { //Listener arrays
+		toggle: [],
+		menu: []
+	};
+	var settings, toggles, menus;
+
+	// Default settings
+	var defaults = {
+		toggleSelector: '.dropdown',
+		contentSelector: '.dropdown-menu',
+		toggleActiveClass: 'active',
+		contentActiveClass: 'active',
+		initClass: 'js-drop',
+		callbackBefore: function () {},
+		callbackAfter: function () {}
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
 		} else {
-			if ( hasClass(elem, className ) ) {
-				removeClass(elem, className);
-			}
-			else {
-				addClass(elem, className);
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
 			}
 		}
 	};
 
-	// Get siblings of an element
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
+		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
+
+	/**
+	 * Get siblings of an element
+	 * @private
+	 * @param  {Element} elem
+	 * @return {NodeList}
+	 */
 	var getSiblings = function (elem) {
 		var siblings = [];
 		var sibling = elem.parentNode.firstChild;
@@ -86,69 +421,240 @@ window.buoy = (function(){
 		return siblings;
 	};
 
-	// Return functions
-	return {
-		toggleClass: toggleClass,
-		removeClass: removeClass,
-		addClass: addClass,
-		hasClass: hasClass,
-		getSiblings: getSiblings
+	/**
+	 * Toggle a dropdown menu
+	 * @public
+	 * @param  {Element} toggle Element that triggered the expand or collapse
+	 * @param  {Object} settings
+	 * @param  {Event} event
+	 */
+	exports.toggleDrop = function ( toggle, options, event ) {
+
+		// Selectors and variables
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var toggleMenu = toggle.nextElementSibling;
+		var toggleParent = toggle.parentNode;
+		var toggleSiblings = getSiblings(toggleParent);
+
+		// Prevent defaults
+		if ( event ) {
+			event.stopPropagation();
+			event.preventDefault();
+		}
+
+		settings.callbackBefore( toggle ); // Run callbacks before drop toggle
+
+		// Add/remove '.active' class from dropdown item
+		toggle.classList.toggle( settings.toggleActiveClass );
+		toggleMenu.classList.toggle( settings.contentActiveClass );
+		toggleParent.classList.toggle( settings.toggleActiveClass );
+
+		// For each toggle, remove the active class
+		forEach(toggleSiblings, function (sibling) {
+			var siblingContent = sibling.children;
+			sibling.classList.remove( settings.toggleActiveClass );
+			forEach(siblingContent, function (content) {
+				content.classList.remove( settings.contentActiveClass );
+			});
+		});
+
+		settings.callbackAfter( toggle ); // Run callbacks after drop toggle
+
 	};
 
-})();
-/* =============================================================
+	/**
+	 * Close all dropdown menus
+	 * @private
+	 * @param  {Object} settings
+	 */
+	var closeDrops = function ( settings ) {
 
-	Astro v3.4
-	Mobile-first navigation patterns by Chris Ferdinandi.
-	http://gomakethings.com
+		// Selectors and variables
+		var dropToggle = document.querySelectorAll(settings.toggleSelector + ' > a.' + settings.toggleActiveClass);
+		var dropWrapper = document.querySelectorAll(settings.toggleSelector + '.' + settings.toggleActiveClass);
+		var dropContent = document.querySelectorAll(settings.contentSelector + '.' + settings.contentActiveClass);
 
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
+		if ( dropToggle.length > 0 || dropWrapper.length > 0 || dropContent > 0 ) {
 
- * ============================================================= */
+			settings.callbackBefore(); // Run callbacks before drop close
 
-(function() {
+			// For each dropdown toggle, remove '.active' class
+			forEach(dropToggle, function (toggle) {
+				toggle.classList.remove( settings.toggleActiveClass );
+			});
 
-	'use strict';
+			// For each dropdown toggle wrapper, remove '.active' class
+			forEach(dropWrapper, function (wrapper) {
+				wrapper.classList.remove( settings.toggleActiveClass );
+			});
 
-	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
+			// For each dropdown content area, remove '.active' class
+			forEach(dropContent, function (content) {
+				content.classList.remove( settings.contentActiveClass );
+			});
 
-		// Function to toggle navigation menu
-		var toggleNav = function (toggle) {
+			settings.callbackAfter(); // Run callbacks after drop close
 
-			// Get target navigation menu
-			var dataID = toggle.getAttribute('data-target');
-			var dataTarget = document.querySelector(dataID);
+		}
 
-			// Toggle the '.active' class on the menu
-			buoy.toggleClass(dataTarget, 'active');
+	};
 
-		};
+	/**
+	 * Don't close dropdown menus when clicking on content within them
+	 * @private
+	 * @param  {Event} event
+	 */
+	var handleDropdownClick = function ( event ) {
+		event.stopPropagation();
+	};
 
-		// Define the nav toggle
-		var navToggle = document.querySelectorAll('.nav-toggle');
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	exports.destroy = function () {
+		if ( !settings ) return;
+		document.documentElement.classList.remove( settings.initClass );
+		document.removeEventListener('click', closeDrops, false);
+		if ( toggles ) {
+			forEach( toggles, function ( toggle, index ) {
+				toggle.removeEventListener( 'click', eventListeners.toggle[index], false );
+			});
+			eventListeners.toggle = [];
+		}
+		if ( menus ) {
+			forEach( menus, function ( menu, index ) {
+				menu.removeEventListener( 'click', eventListeners.menu[index], false );
+			});
+			eventListeners.menu = [];
+		}
+		settings = null;
+		toggles = null;
+		menus = null;
+	};
 
-		// For each nav toggle
-		[].forEach.call(navToggle, function (toggle) {
+	/**
+	 * Initialize Drop
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
 
-			// When nav toggle is clicked
-			toggle.addEventListener('click', function(e) {
+		// feature test
+		if ( !supports ) return;
 
-				// Prevent the default link behavior
-				e.preventDefault();
+		// Destroy any existing initializations
+		exports.destroy();
 
-				// Toggle the navigation menu
-				toggleNav(toggle);
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		toggles = document.querySelectorAll(settings.toggleSelector + ' > a');
+		menus = document.querySelectorAll(settings.contentSelector);
 
-			}, false);
+		// Add class to HTML element to activate conditional CSS
+		document.documentElement.classList.add( settings.initClass );
+
+		// When body is clicked, close all dropdowns
+		document.addEventListener('click', closeDrops.bind( null, settings ), false);
+
+		// When a toggle is clicked, show/hide dropdown menu
+		forEach(toggles, function (toggle, index) {
+			eventListeners.toggle[index] = exports.toggleDrop.bind( null, toggle, settings );
+			toggle.addEventListener('click', eventListeners.toggle[index], false);
 		});
-	}
 
-})();
+		// When dropdown menu content is clicked, don't close the menu
+		forEach(menus, function (menu, index) {
+			eventListeners.menu[index] = handleDropdownClick;
+			menu.addEventListener('click', eventListeners.menu[index], false);
+		});
+
+	};
+
+
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
+/*! fluidvids.js v2.4.1 | (c) 2014 @toddmotto | https://github.com/toddmotto/fluidvids */
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
+  } else {
+    root.fluidvids = factory();
+  }
+})(this, function () {
+
+  'use strict';
+
+  var fluidvids = {
+    selector: ['iframe'],
+    players: ['www.youtube.com', 'player.vimeo.com']
+  };
+
+  var css = [
+    '.fluidvids {',
+      'width: 100%; max-width: 100%; position: relative;',
+    '}',
+    '.fluidvids-item {',
+      'position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;',
+    '}'
+  ].join('');
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+
+  var matches = function (src) {
+    return new RegExp('^(https?:)?\/\/(?:' + fluidvids.players.join('|') + ').*$', 'i').test(src);
+  };
+
+  var getRatio = function (height, width) {
+    return ((parseInt(height, 10) / parseInt(width, 10)) * 100) + '%';
+  };
+
+  var fluid = function (elem) {
+    if (!matches(elem.src) || !!elem.getAttribute('data-fluidvids')) return;
+    var wrap = document.createElement('div');
+    elem.parentNode.insertBefore(wrap, elem);
+    elem.className += (elem.className ? ' ' : '') + 'fluidvids-item';
+    elem.setAttribute('data-fluidvids', 'loaded');
+    wrap.className += 'fluidvids';
+    wrap.style.paddingTop = getRatio(elem.height, elem.width);
+    wrap.appendChild(elem);
+  };
+
+  var addStyles = function () {
+    var div = document.createElement('div');
+    div.innerHTML = '<p>x</p><style>' + css + '</style>';
+    head.appendChild(div.childNodes[1]);
+  };
+
+  fluidvids.render = function () {
+    var nodes = document.querySelectorAll(fluidvids.selector.join());
+    var i = nodes.length;
+    while (i--) {
+      fluid(nodes[i]);
+    }
+  };
+
+  fluidvids.init = function (obj) {
+    for (var key in obj) {
+      fluidvids[key] = obj[key];
+    }
+    fluidvids.render();
+    addStyles();
+  };
+
+  return fluidvids;
+
+});
 /* =============================================================
 
-	Better Adoption Forms v1.0
+	Better Adoption Forms v2.0
 	Store and load data for better adoption forms, by Chris Ferdinandi.
 	http://gomakethings.com
 
@@ -157,534 +663,913 @@ window.buoy = (function(){
 
  * ============================================================= */
 
-(function() {
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('formSaver', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.formSaver = factory(root);
+	}
+})(this, function (root) {
 
 	'use strict';
 
-	// Let user save form data for reuse on future applications
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
+	//
+	// Variables
+	//
 
-		// Variables
-		var forms = document.forms;
-		var formSave = document.querySelectorAll('.form-save-data');
-		var formRemove = document.querySelectorAll('.form-delete-data');
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener && !!root.localStorage; // Feature test
+	var eventListeners = { //Listener arrays
+		save: [],
+		del: []
+	};
+	var settings, forms, saveBtns, deleteBtns, petNameField;
 
-		// Save form data
-		[].forEach.call(formSave, function (save) {
-			save.addEventListener('click', function(e) {
+	// Default settings
+	var defaults = {
+		deleteClear: true,
+		saveMessage: 'Saved!',
+		deleteMessage: 'Deleted!',
+		saveClass: '',
+		deleteClass: '',
+		initClass: 'js-form-saver',
+		callbackBeforeSave: function () {},
+		callbackAfterSave: function () {},
+		callbackBeforeDelete: function () {},
+		callbackAfterDelete: function () {},
+		callbackBeforeLoad: function () {},
+		callbackAfterLoad: function () {}
+	};
 
-				e.preventDefault();
 
-				// Variables
-				var form = save.form;
-				var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
-				var formSaverData = {};
-				var formFields = form.elements;
-				var formStatus = form.querySelectorAll('.form-status');
+	//
+	// Methods
+	//
 
-				// Add field data to array
-				[].forEach.call(formFields, function (field) {
-					if ( !buoy.hasClass(field, 'form-no-save') && field.name != 'terms[]' && field.name != 'applied-before' ) {
-						if ( field.type == 'radio' || field.type == 'checkbox' ) {
-							if ( field.checked === true ) {
-								formSaverData[field.name + field.value] = 'on';
-							}
-						} else if ( field.type != 'hidden' && field.type != 'submit' ) {
-							if ( field.value !== null && field.value !== '' ) {
-								formSaverData[field.name] = field.value;
-							}
-						}
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
+		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
+
+	/**
+	 * Remove whitespace from a string
+	 * @private
+	 * @param {String} string
+	 * @returns {String}
+	 */
+	var trim = function ( string ) {
+		return string.replace(/^\s+|\s+$/g, '');
+	};
+
+	/**
+	 * Convert data-options attribute into an object of key/value pairs
+	 * @private
+	 * @param {String} options Link-specific options as a data attribute string
+	 * @returns {Object}
+	 */
+	var getDataOptions = function ( options ) {
+		return !options || !(typeof JSON === 'object' && typeof JSON.parse === 'function') ? {} : JSON.parse( options );
+	};
+
+	/**
+	 * Save form data to localStorage
+	 * @public
+	 * @param  {Element} btn Button that triggers form save
+	 * @param  {Element} form The form to save
+	 * @param  {Object} options
+	 * @param  {Event} event
+	 */
+	exports.saveForm = function ( btn, formID, options, event ) {
+
+		// Defaults and settings
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var overrides = getDataOptions( btn ? btn.getAttribute('data-options') : null );
+		settings = extend( settings, overrides ); // Merge overrides with settings
+
+		// Selectors and variables
+		var form = document.querySelector(formID);
+		var formSaverID = 'formSaver-' + form.className;
+		var formSaverData = {};
+		var formFields = form.elements;
+		var formStatus = form.querySelectorAll('[data-form-status]');
+
+		/**
+		 * Convert field data into an array
+		 * @private
+		 * @param  {Element} field Form field to convert
+		 */
+		var prepareField = function (field) {
+			if ( !field.hasAttribute('data-form-no-save') ) {
+				if ( field.type.toLowerCase() === 'radio' || field.type.toLowerCase() === 'checkbox' ) {
+					if ( field.checked === true ) {
+						formSaverData[field.name + field.value] = 'on';
 					}
+				} else if ( field.type.toLowerCase() !== 'hidden' && field.type.toLowerCase() !== 'submit' ) {
+					if ( field.value && field.value !== '' ) {
+						formSaverData[field.name] = field.value;
+					}
+				}
+			}
+		};
+
+		/**
+		 * Display status message
+		 * @private
+		 * @param  {Element} status The element that displays the status message
+		 * @param  {String} saveMessage The message to display on save
+		 * @param  {String} saveClass The class to apply to the save message wrappers
+		 */
+		var displayStatus = function ( status, saveMessage, saveClass ) {
+			status.innerHTML = saveClass === '' ? '<div>' + saveMessage + '</div>' : '<div class="' + saveClass + '">' + saveMessage + '</div>';
+		};
+
+		// If a link or button, prevent default click event
+		if ( btn && (btn.tagName.toLowerCase() === 'a' || btn.tagName.toLowerCase() === 'button' ) && event ) {
+			event.preventDefault();
+		}
+
+		settings.callbackBeforeSave( btn, form ); // Run callbacks before save
+
+		// Add field data to array
+		forEach(formFields, function (field) {
+			prepareField(field);
+		});
+
+		// Display save success message
+		forEach(formStatus, function (status) {
+			displayStatus( status, settings.saveMessage, settings.saveClass );
+		});
+
+		// Save form data in localStorage
+		localStorage.setItem( formSaverID, JSON.stringify(formSaverData) );
+
+		settings.callbackAfterSave( btn, form ); // Run callbacks after save
+
+	};
+
+	/**
+	 * Remove form data from localStorage
+	 * @public
+	 * @param  {Element} btn Button that triggers form delete
+	 * @param  {Element} form The form to remove from localStorage
+	 * @param  {Object} options
+	 * @param  {Event} event
+	 */
+	exports.deleteForm = function ( btn, formID, options, event ) {
+
+		// Defaults and settings
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var overrides = getDataOptions( btn ? btn.getAttribute('data-options') : null );
+		settings = extend( settings, overrides ); // Merge overrides with settings
+
+		// Selectors and variables
+		var form = document.querySelector(formID);
+		var formSaverID = 'formSaver-' + form.className;
+		var formStatus = form.querySelectorAll('[data-form-status]');
+		var formMessage = settings.deleteClass === '' ? '<div>' + settings.deleteMessage + '</div>' : '<div class="' + settings.deleteClass + '">' + settings.deleteMessage + '</div>';
+
+		/**
+		 * Display succes message
+		 * @private
+		 */
+		var displayStatus = function () {
+			if ( settings.deleteClear === true || settings.deleteClear === 'true' ) {
+				sessionStorage.setItem(formSaverID + '-formSaverMessage', formMessage);
+				location.reload(false);
+			} else {
+				forEach(formStatus, function (status) {
+					status.innerHTML = formMessage;
 				});
+			}
+		};
 
-				// Display save success message
-				[].forEach.call(formStatus, function (status) {
-					if ( save.getAttribute('data-message') === null ) {
-						status.innerHTML = '<div class="alert alert-green">Saved!</div>';
-					} else {
-						status.innerHTML = '<div class="alert alert-green">' + save.getAttribute('data-message') + '</div>';
+		// If a link or button, prevent default click event
+		if ( btn && (btn.tagName.toLowerCase() === 'a' || btn.tagName.toLowerCase() === 'button' ) && event ) {
+			event.preventDefault();
+		}
+
+		settings.callbackBeforeDelete( btn, form ); // Run callbacks before delete
+		localStorage.removeItem(formSaverID); // Remove form data
+		displayStatus(); // Display delete success message
+		settings.callbackAfterDelete( btn, form ); // Run callbacks after delete
+
+	};
+
+	/**
+	 * Load form data from localStorage
+	 * @public
+	 * @param  {Element} form The form to get data for
+	 * @param  {Object} options
+	 */
+	exports.loadForm = function ( form, options ) {
+
+		// Selectors and variables
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var formSaverID = 'formSaver-' + form.className;
+		var formSaverData = JSON.parse( localStorage.getItem(formSaverID) );
+		var formFields = form.elements;
+		var formStatus = form.querySelectorAll('[data-form-status]');
+
+		/**
+		 * Populate a field with localStorage data
+		 * @private
+		 * @param  {Element} field The field to get data form
+		 */
+		var populateField = function ( field ) {
+			if ( formSaverData ) {
+				if ( field.type.toLowerCase() === 'radio' || field.type.toLowerCase() === 'checkbox' ) {
+					if ( formSaverData[field.name + field.value] === 'on' ) {
+						field.checked = true;
 					}
-				});
-
-				// Save form data in localStorage
-				localStorage.setItem( formSaverID, JSON.stringify(formSaverData) );
-
-				// If no form ID is provided, generate friendly console message encouraging one to be added
-				if ( form.id === null || form.id === '' ) {
-					console.log('FORM SAVER WARNING: This form has no ID attribute. This can create conflicts if more than one form is included on a page, or if the URL changes or includes a query string or hash value.');
-				}
-
-			}, false);
-		});
-
-		// Delete form data
-		[].forEach.call(formRemove, function (remove) {
-			remove.addEventListener('click', function(e) {
-
-				e.preventDefault();
-
-				// Variables
-				var form = remove.form;
-				var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
-				var formStatus = form.querySelectorAll('.form-status');
-				var formMessage = remove.getAttribute('data-message') === null ? '<div class="alert alert-green">Deleted!</div>' : '<div class="alert alert-green">' + remove.getAttribute('data-message') + '</div>';
-
-				// Remove form data
-				localStorage.removeItem(formSaverID);
-
-				// Display delete success message
-				if ( remove.getAttribute('data-clear') == 'true' ) {
-					sessionStorage.setItem(formSaverID + '-formSaverMessage', formMessage);
-					location.reload(false);
-				} else {
-					[].forEach.call(formStatus, function (status) {
-						status.innerHTML = formMessage;
-					});
-				}
-
-			}, false);
-		});
-
-		// Get form data on page load
-		[].forEach.call(forms, function (form) {
-
-			// Variables
-			var formSaverID = form.parentNode.id === null || form.parentNode.id === '' ? 'formsaver-' + document.URL : 'formsaver-' + form.parentNode.id;
-			var formSaverData = JSON.parse( localStorage.getItem(formSaverID) );
-			var formFields = form.elements;
-			var formStatus = form.querySelectorAll('.form-status');
-
-			// Populate form with data from localStorage
-			[].forEach.call(formFields, function (field) {
-				if ( formSaverData !== null ) {
-					if ( field.type == 'radio' || field.type == 'checkbox' ) {
-						if ( formSaverData[field.name + field.value] == 'on' ) {
-							field.checked = true;
-						}
-					} else if ( field.type != 'hidden' && field.type != 'submit' ) {
-						if ( formSaverData[field.name] !== null && formSaverData[field.name] !== undefined ) {
-							field.value = formSaverData[field.name];
-						}
+				} else if ( field.type.toLowerCase() !== 'hidden' && field.type.toLowerCase() !== 'submit' ) {
+					if ( formSaverData[field.name] ) {
+						field.value = formSaverData[field.name];
 					}
 				}
-			});
+			}
+		};
 
-			// If page was reloaded and delete success message exists, display it
-			[].forEach.call(formStatus, function (status) {
-				status.innerHTML = sessionStorage.getItem(formSaverID + '-formSaverMessage');
-				sessionStorage.removeItem(formSaverID + '-formSaverMessage');
-			});
+		/**
+		 * Display success message
+		 * @param  {Element} status The element that displays the status message
+		 */
+		var displayStatus = function ( status ) {
+			status.innerHTML = sessionStorage.getItem(formSaverID + '-formSaverMessage');
+			sessionStorage.removeItem(formSaverID + '-formSaverMessage');
+		};
 
+		settings.callbackBeforeLoad( form ); // Run callbacks before load
+
+		// Populate form with data from localStorage
+		forEach(formFields, function (field) {
+			populateField(field);
 		});
 
-	}
+		// If page was reloaded and delete success message exists, display it
+		forEach(formStatus, function (status) {
+			displayStatus(status);
+		});
 
-	// Pass name of pet user is interested in to the adoption form
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
+		settings.callbackAfterLoad( form ); // Run callbacks after load
+
+	};
+
+	/**
+	 * Save the name and id of the pet user is interested in adopting
+	 */
+	exports.savePetName = function () {
+
+		// feature test
+		if ( !supports ) return;
 
 		// Pass the name of the dog the user is interested in adopting
 		// from the "Our Dogs" page to the Adoption Form
 		var adoptToggle = document.querySelectorAll('.adopt-toggle');
-		[].forEach.call(adoptToggle, function (toggle) {
+		forEach( adoptToggle, function ( toggle ) {
 			toggle.addEventListener('click', function(e) {
 				var name = toggle.getAttribute('data-name');
 				sessionStorage.setItem('petToAdopt', name);
 			}, false);
 		});
 
-		// Get pet name from session storage
-		var adoptionFormGetPet = function (petNameField) {
-			var petName = sessionStorage.getItem('petToAdopt');
-			petNameField.value = petName;
-			sessionStorage.removeItem('petToAdopt');
-		};
-
-		var adoptionForm = document.querySelector('#input-dog-name');
-		if ( adoptionForm ) {
-			adoptionFormGetPet(adoptionForm);
-		}
-
-	}
-
-})();
-/* =============================================================
-
-	Drop v2.3
-	Simple, mobile-friendly dropdown menus by Chris Ferdinandi.
-	http://gomakethings.com
-
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
-
- * ============================================================= */
-
-(function() {
-
-	'use strict';
-
-	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
-
-		// Function to toggle dropdowns
-		var toggleDrop = function (toggle) {
-
-			// Define the dropdown menu content, parent element, and siblings
-			var toggleMenu = toggle.nextElementSibling;
-			var toggleParent = toggle.parentNode;
-			var toggleSiblings = buoy.getSiblings(toggleParent);
-
-			// Add/remove '.active' class from dropdown item
-			buoy.toggleClass(toggle, 'active');
-			buoy.toggleClass(toggleMenu, 'active');
-			buoy.toggleClass(toggleParent, 'active');
-
-			// Remove '.active' class from all sibling elements
-			[].forEach.call(toggleSiblings, function (sibling) {
-				var siblingContent = sibling.children;
-				buoy.removeClass(sibling, 'active');
-
-				// Remove '.active' class from all siblings child elements
-				[].forEach.call(siblingContent, function (content) {
-					buoy.removeClass(content, 'active');
-				});
-
-			});
-
-		};
-
-		// Function to close all dropdowns
-		var closeDrops = function (dropToggle, dropWrapper, dropContent) {
-
-			// For each dropdown toggle, remove '.active' class
-			[].forEach.call(dropToggle, function (toggle) {
-				buoy.removeClass(toggle, 'active');
-			});
-
-			// For each dropdown toggle, remove '.active' class
-			[].forEach.call(dropWrapper, function (wrapper) {
-				buoy.removeClass(wrapper, 'active');
-			});
-
-			// For each dropdown toggle, remove '.active' class
-			[].forEach.call(dropContent, function (content) {
-				buoy.removeClass(content, 'active');
-			});
-
-		};
-
-		// Define the dropdown toggle element, wrapper and content
-		var dropToggle = document.querySelectorAll('.dropdown > a');
-		var dropWrapper = document.querySelectorAll('.dropdown');
-		var dropContent = document.querySelectorAll('.dropdown-menu');
-
-
-		// When body is clicked, close all dropdowns
-		document.addEventListener('click', function(e) {
-
-			// Close dropdowns
-			closeDrops(dropToggle, dropWrapper, dropContent);
-
-		}, false);
-
-
-		// For each toggle
-		[].forEach.call(dropToggle, function (toggle) {
-
-			// When the toggle is clicked
-			toggle.addEventListener('click', function(e) {
-
-				// Prevent the "close all dropdowns" function
-				e.stopPropagation();
-
-				// Prevent default link action
-				e.preventDefault();
-
-				// Toggle dropdown menu
-				toggleDrop(toggle);
-
-			}, false);
-		});
-
-
-		// For each dropdown menu
-		[].forEach.call(dropContent, function (content) {
-
-			// When the menu is clicked
-			content.addEventListener('click', function(e) {
-
-				// Prevent the "close all dropdowns" function
-				e.stopPropagation();
-
-			}, false);
-		});
-
-	}
-
-})();
-/* =============================================================
-
-	Fluid Vids v2.0
-	Fluid and responsive YouTube and Vimeo videos, by Todd Motto.
-	https://github.com/toddmotto/fluidvids
-
-	Licensed under MIT License.
-	http://toddmotto.com/licensing
-
- * ============================================================= */
-
-window.fluidvids = (function (window, document, undefined) {
-
-	'use strict';
-
-	// Constructor function
-	var Fluidvids = function (elem) {
-		this.elem = elem;
 	};
 
-	// Prototypal setup
-	Fluidvids.prototype = {
+	/**
+	 * Get the name and id of the pet user is interested in adopting from localStorage
+	 * @param  {Element} petNameField The field for the pet's name
+	 */
+	var adoptionFormGetPet = function (petNameField) {
+		var petName = sessionStorage.getItem('petToAdopt');
+		petNameField.value = petName;
+		sessionStorage.removeItem('petToAdopt');
+	};
 
-		init : function () {
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	exports.destroy = function () {
+		if ( !settings ) return;
+		document.documentElement.classList.remove( settings.initClass );
+		if ( saveBtns ) {
+			forEach( saveBtns, function ( btn, index ) {
+				btn.removeEventListener( 'click', eventListeners.save[index], false );
+			});
+			eventListeners.save = [];
+		}
+		if ( deleteBtns ) {
+			forEach( deleteBtns, function ( btn, index ) {
+				btn.removeEventListener( 'click', eventListeners.del[index], false );
+			});
+			eventListeners.del = [];
+		}
+		settings = null;
+		forms = null;
+		saveBtns = null;
+		deleteBtns = null;
+		petNameField = null;
+	};
 
-			var videoRatio = (this.elem.height / this.elem.width) * 100;
-			this.elem.style.position = 'absolute';
-			this.elem.style.top = '0';
-			this.elem.style.left = '0';
-			this.elem.width = '100%';
-			this.elem.height = '100%';
+	/**
+	 * Initialize Form Saver
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
 
-			var wrap = document.createElement('div');
-			wrap.className = 'fluidvids';
-			wrap.style.width = '100%';
-			wrap.style.position = 'relative';
-			wrap.style.paddingTop = videoRatio + '%';
+		// feature test
+		if ( !supports ) return;
 
-			var thisParent = this.elem.parentNode;
-			thisParent.insertBefore(wrap, this.elem);
-			wrap.appendChild(this.elem);
+		// Destroy any existing initializations
+		exports.destroy();
 
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		forms = document.forms;
+		saveBtns = document.querySelectorAll('[data-form-save]');
+		deleteBtns = document.querySelectorAll('[data-form-delete]');
+		petNameField = document.querySelector('#input-dog-name');
+
+		// Add class to HTML element to activate conditional CSS
+		document.documentElement.className += (document.documentElement.className ? ' ' : '') + settings.initClass;
+
+		// When a save button is clicked, save form data
+		forEach(saveBtns, function (btn, index) {
+			eventListeners.save[index] = exports.saveForm.bind( null, btn, btn.getAttribute('data-form-save'), settings );
+			btn.addEventListener('click', eventListeners.save[index], false);
+		});
+
+		// When a delete button is clicked, delete form data
+		forEach(deleteBtns, function (btn, index) {
+			eventListeners.del[index] = exports.deleteForm.bind( null, btn, btn.getAttribute('data-form-delete'), settings );
+			btn.addEventListener('click', eventListeners.del[index], false);
+		});
+
+		// Get saved form data on page load
+		forEach(forms, function (form) {
+			exports.loadForm( form, settings );
+		});
+
+		if ( petNameField ) {
+			adoptionFormGetPet(petNameField);
 		}
 
 	};
 
-	// Initiate the plugin
-	var iframes = document.getElementsByTagName( 'iframe' );
 
-	for (var i = 0; i < iframes.length; i++) {
-		var players = /www.youtube.com|player.vimeo.com|www.hulu.com|www.slideshare.net/;
-		if (iframes[i].src.search(players) > 0) {
-			new Fluidvids(iframes[i]).init();
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('houdini', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.houdini = factory(root);
+	}
+})(this, function (root) {
+
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var eventListeners = []; //Listeners array
+	var settings, toggles;
+
+	// Default settings
+	var defaults = {
+		toggleActiveClass: 'active',
+		contentActiveClass: 'active',
+		initClass: 'js-houdini',
+		callbackBefore: function () {},
+		callbackAfter: function () {}
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
 		}
-	}
+	};
 
-})(window, document);
-/* =============================================================
-
-	Houdini v3.4
-	A simple collapse and expand widget by Chris Ferdinandi.
-	http://gomakethings.com
-
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
-
- * ============================================================= */
-
-(function() {
-
-	'use strict';
-
-	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
-
-		// Function to toggle collapse/expand widget
-		var toggleCollapse = function (toggle) {
-
-			// Define the content container
-			var dataID = toggle.getAttribute('data-target');
-			var dataTarget = document.querySelector(dataID);
-
-			// Toggle the '.active' class on the toggle and container elements
-			buoy.toggleClass(toggle, 'active');
-			buoy.toggleClass(dataTarget, 'active');
-
-		};
-
-		// Define collapse toggle
-		var collapseToggle = document.querySelectorAll('.collapse-toggle');
-
-		// For each collapse toggle
-		[].forEach.call(collapseToggle, function (toggle) {
-
-			// When the toggle is clicked
-			toggle.addEventListener('click', function(e) {
-
-				// Prevent default link behavior
-				e.preventDefault();
-
-				// Toggle the collapse/expand widget
-				toggleCollapse(toggle);
-
-			}, false);
-
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
 		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
 
-	}
+	/**
+	 * Stop YouTube, Vimeo, and HTML5 videos from playing when leaving the slide
+	 * @private
+	 * @param  {Element} content The content container the video is in
+	 * @param  {String} activeClass The class asigned to expanded content areas
+	 */
+	var stopVideos = function ( content, activeClass ) {
+		if ( !content.classList.contains( activeClass ) ) {
+			var iframe = content.querySelector( 'iframe');
+			var video = content.querySelector( 'video' );
+			if ( iframe ) {
+				var iframeSrc = iframe.src;
+				iframe.src = iframeSrc;
+			}
+			if ( video ) {
+				video.pause();
+			}
+		}
+	};
 
-})();
-/* =============================================================
+	/**
+	 * Close all content areas in an expand/collapse group
+	 * @private
+	 * @param  {Element} toggle The element that toggled the expand or collapse
+	 * @param  {Object} settings
+	 */
+	var closeCollapseGroup = function ( toggle, settings ) {
+		if ( !toggle.classList.contains( settings.toggleActiveClass ) && toggle.hasAttribute('data-group') ) {
 
-	Modals v2.2
-	Simple modal dialogue pop-up windows by Chris Ferdinandi.
-	http://gomakethings.com
+			// Get all toggles in the group
+			var groupName = toggle.getAttribute('data-group');
+			var group = document.querySelectorAll('[data-group="' + groupName + '"]');
 
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
-
- * ============================================================= */
-
-(function() {
-
-	'use strict';
-
-	// Feature test
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
-
-		// Function to show modal
-		var showModal = function (toggle) {
-
-			// Define the modal
-			var dataID = toggle.getAttribute('data-target');
-			var dataTarget = document.querySelector(dataID);
-
-			// Define the modal background
-			var modalBg = document.createElement('div');
-			buoy.addClass(modalBg, 'modal-bg');
-
-			// Activate the modal
-			buoy.addClass(dataTarget, 'active');
-			dataTarget.style.top = window.pageYOffset + 50 + 'px';
-			document.body.appendChild(modalBg);
-
-		};
-
-		// Function to hide all modals
-		var hideModals = function (modals, modalsBg) {
-
-			// Hide all modals
-			[].forEach.call(modals, function (modal) {
-				buoy.removeClass(modal, 'active');
+			// Deactivate each toggle and it's content area
+			forEach(group, function (item) {
+				var content = document.querySelector( item.getAttribute('data-collapse') );
+				item.classList.remove( settings.toggleActiveClass );
+				content.classList.remove( settings.contentActiveClass );
 			});
 
-			// Hide all modal backgrounds
-			[].forEach.call(modalsBg, function (bg) {
+		}
+	};
+
+	/**
+	 * Toggle the collapse/expand widget
+	 * @public
+	 * @param  {Element} toggle The element that toggled the expand or collapse
+	 * @param  {String} contentID The ID of the content area to expand or collapse
+	 * @param  {Object} options
+	 * @param  {Event} event
+	 */
+	exports.toggleContent = function (toggle, contentID, options, event) {
+
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var content = document.querySelector(contentID); // Get content area
+
+		// If toggle is a link, prevent default click event
+		if ( toggle && toggle.tagName.toLowerCase() === 'a' && event ) {
+			event.preventDefault();
+		}
+
+		settings.callbackBefore( toggle, contentID ); // Run callbacks before toggling content
+
+		// Toggle collapse element
+		closeCollapseGroup(toggle, settings); // Close collapse group items
+		toggle.classList.toggle( settings.toggleActiveClass );// Change text on collapse toggle
+		content.classList.toggle( settings.contentActiveClass ); // Collapse or expand content area
+		stopVideos( content, settings.contentActiveClass ); // If content area is closed, stop playing any videos
+
+		settings.callbackAfter( toggle, contentID ); // Run callbacks after toggling content
+
+	};
+
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	exports.destroy = function () {
+		if ( !settings ) return;
+		document.documentElement.classList.remove( settings.initClass );
+		if ( toggles ) {
+			forEach( toggles, function ( toggle, index ) {
+				toggle.removeEventListener( 'click', eventListeners[index], false );
+			});
+			eventListeners = [];
+		}
+		settings = null;
+		toggles = null;
+	};
+
+	/**
+	 * Initialize Houdini
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
+
+		// feature test
+		if ( !supports ) return;
+
+		// Destroy any existing initializations
+		exports.destroy();
+
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		toggles = document.querySelectorAll('[data-collapse]'); // Get all collapse toggles
+
+		// Add class to HTML element to activate conditional CSS
+		document.documentElement.classList.add( settings.initClass );
+
+		// Whenever a toggle is clicked, run the expand/collapse function
+		forEach(toggles, function (toggle, index) {
+			eventListeners[index] = exports.toggleContent.bind( null, toggle, toggle.getAttribute('data-collapse'), settings );
+			toggle.addEventListener('click', eventListeners[index], false);
+		});
+
+	};
+
+
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
+/*!
+loadCSS: load a CSS file asynchronously.
+[c]2014 @scottjehl, Filament Group, Inc.
+Licensed MIT
+*/
+function loadCSS( href, before, media ){
+	"use strict";
+	// Arguments explained:
+	// `href` is the URL for your CSS file.
+	// `before` optionally defines the element we'll use as a reference for injecting our <link>
+	// By default, `before` uses the first <script> element in the page.
+	// However, since the order in which stylesheets are referenced matters, you might need a more specific location in your document.
+	// If so, pass a different reference element to the `before` argument and it'll insert before that instead
+	// note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+	var ss = window.document.createElement( "link" );
+	var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+	ss.rel = "stylesheet";
+	ss.href = href;
+	// temporarily, set media to something non-matching to ensure it'll fetch without blocking render
+	ss.media = "only x";
+	// inject link
+	ref.parentNode.insertBefore( ss, ref );
+	// set media back to `all` so that the styleshet applies once it loads
+	setTimeout( function(){
+		ss.media = media || "all";
+	} );
+	return ss;
+ }
+
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('modals', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.modals = factory(root);
+	}
+})(this, function (root) {
+
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var eventListeners = {  //Listener arrays
+		toggles: [],
+		modals: [],
+		buttons: []
+	};
+	var settings, toggles, modals, buttons;
+
+	// Default settings
+	var defaults = {
+		modalActiveClass: 'active',
+		modalBGClass: 'modal-bg',
+		offset: 50,
+		callbackBeforeOpen: function () {},
+		callbackAfterOpen: function () {},
+		callbackBeforeClose: function () {},
+		callbackAfterClose: function () {}
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
+		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
+
+	/**
+	 * Stop YouTube, Vimeo, and HTML5 videos from playing when leaving the slide
+	 * @private
+	 * @param  {Element} content The content container the video is in
+	 * @param  {String} activeClass The class asigned to expanded content areas
+	 */
+	var stopVideos = function ( content, activeClass ) {
+		if ( !content.classList.contains( activeClass ) ) {
+			var iframe = content.querySelector( 'iframe');
+			var video = content.querySelector( 'video' );
+			if ( iframe ) {
+				var iframeSrc = iframe.src;
+				iframe.src = iframeSrc;
+			}
+			if ( video ) {
+				video.pause();
+			}
+		}
+	};
+
+	/**
+	 * Open the target modal window
+	 * @public
+	 * @param  {Element} toggle The element that toggled the open modal event
+	 * @param  {String} modalID ID of the modal to open
+	 * @param  {Object} options
+	 * @param  {Event} event
+	 */
+	exports.openModal = function (toggle, modalID, options, event) {
+
+		// Define the modal
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var modal = document.querySelector(modalID);
+
+		// Define the modal background
+		var modalBg = document.createElement('div');
+		modalBg.setAttribute('data-modal-bg', null);
+		modalBg.classList.add( settings.modalBGClass );
+
+		// Prevent `closeModals()` and the default link behavior
+		if ( event ) {
+			event.stopPropagation();
+			if ( toggle && toggle.tagName.toLowerCase() === 'a' ) {
+				event.preventDefault();
+			}
+		}
+
+		settings.callbackBeforeOpen( toggle, modalID ); // Run callbacks before opening a modal
+
+		// Activate the modal
+		modal.classList.add( settings.modalActiveClass );
+		modal.style.top = window.pageYOffset + parseInt(settings.offset, 10) + 'px';
+		document.body.appendChild(modalBg);
+
+		settings.callbackAfterOpen( toggle, modalID ); // Run callbacks after opening a modal
+
+	};
+
+	/**
+	 * Close all modal windows
+	 * @public
+	 * @param  {Object} options
+	 * @param  {Event} event
+	 */
+	exports.closeModals = function (options, event) {
+
+		// Selectors and variables
+		var settings = extend( defaults, options || {} ); // Merge user options with defaults
+		var openModals = document.querySelectorAll('[data-modal-window].' + settings.modalActiveClass);
+		var modalsBg = document.querySelectorAll('[data-modal-bg]'); // Get modal background element
+
+		if ( openModals.length > 0 || modalsBg.length > 0 ) {
+
+			settings.callbackBeforeClose(); // Run callbacks before closing a modal
+
+			// Close all modals
+			forEach(openModals, function (modal) {
+				if ( modal.classList.contains( settings.modalActiveClass ) ) {
+					stopVideos(modal); // If active, stop video from playing
+					modal.classList.remove( settings.modalActiveClass );
+				}
+			});
+
+			// Remove all modal backgrounds
+			forEach(modalsBg, function (bg) {
 				document.body.removeChild(bg);
 			});
 
-		};
+			settings.callbackAfterClose(); // Run callbacks after closing a modal
 
+		}
 
-		// Define modals, modal toggle, and modal close
-		var modals = document.querySelectorAll('.modal');
-		var modalToggle = document.querySelectorAll('.modal-toggle');
-		var modalClose = document.querySelectorAll('.modal-close');
+	};
 
+	/**
+	 * Close modals when the esc key is pressed
+	 * @private
+	 * @param  {Object} options [description]
+	 * @param  {Event} event   [description]
+	 */
+	var handleEscKey = function (settings, event) {
+		if (event.keyCode === 27) {
+			exports.closeModals(settings, event);
+		}
+	};
 
-		// When body is clicked
-		document.addEventListener('click', function() {
+	/**
+	 * Don't close modals when clicking inside one
+	 * @private
+	 * @param  {Event} event
+	 */
+	var handleModalClick = function ( event ) {
+		event.stopPropagation();
+	};
 
-			// Hide all modals
-			hideModals(modals, document.querySelectorAll('.modal-bg'));
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 */
+	exports.destroy = function () {
+		if ( !settings ) return;
+		if ( toggles ) {
+			forEach( toggles, function ( toggle, index ) {
+				toggle.removeEventListener( 'click', eventListeners.toggles[index], false );
+			});
+			forEach( modals, function ( modal, index ) {
+				modal.removeEventListener( 'click', eventListeners.modals[index], false );
+				modal.removeEventListener( 'touchstart', eventListeners.modals[index], false );
+			});
+			forEach( buttons, function ( btn, index ) {
+				btn.removeEventListener( 'click', eventListeners.buttons[index], false );
+			});
+			document.removeEventListener('click', exports.closeModals, false);
+			document.removeEventListener('touchstart', exports.closeModals, false);
+			document.removeEventListener('keydown', handleEscKey, false);
+			eventListeners.toggles = [];
+			eventListeners.modals = [];
+			eventListeners.buttons = [];
+		}
+		settings = null;
+		toggles = null;
+		modals = null;
+		buttons = null;
+	};
 
-		}, false);
+	/**
+	 * Initialize Modals
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
 
+		// feature test
+		if ( !supports ) return;
 
-		// When body is tapped
-		document.addEventListener('touchstart', function() {
+		// Destroy any existing initializations
+		exports.destroy();
 
-			// Hide all modals
-			hideModals(modals, document.querySelectorAll('.modal-bg'));
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		toggles = document.querySelectorAll('[data-modal]');
+		modals = document.querySelectorAll('[data-modal-window]');
+		buttons = document.querySelectorAll('[data-modal-close]');
 
-		}, false);
-
-
-		// For each modal toggle
-		[].forEach.call(modalToggle, function (toggle) {
-
-			// When the modal toggle is clicked
-			toggle.addEventListener('click', function(e) {
-
-				// Prevent the "close all modals" function
-				e.stopPropagation();
-
-				// Prevent the default link behavior
-				e.preventDefault();
-
-				// Show the modal
-				showModal(toggle);
-
-			}, false);
-
+		// When modal toggle is clicked, open modal
+		forEach(toggles, function (toggle, index) {
+			eventListeners.toggles[index] = exports.openModal.bind(null, toggle, toggle.getAttribute('data-modal'), settings);
+			toggle.addEventListener('click', eventListeners.toggles[index], false);
 		});
 
-
-		// For each modal close
-		[].forEach.call(modalClose, function (close) {
-
-			// When the modal toggle is clicked
-			close.addEventListener('click', function(e) {
-
-				// Prevent the default link behavior
-				e.preventDefault();
-
-				// Hide all modals
-				hideModals(modals, document.querySelectorAll('.modal-bg'));
-
-			}, false);
-
+		// When modal close is clicked, close modal
+		forEach(buttons, function (btn, index) {
+			eventListeners.buttons[index] = exports.closeModals.bind(null, settings);
+			btn.addEventListener('click', eventListeners.buttons[index], false);
 		});
 
+		// When page outside of modal is clicked, close modal
+		document.addEventListener('click', exports.closeModals.bind(null, settings), false); // When body is clicked
+		document.addEventListener('touchstart', exports.closeModals.bind(null, settings), false); // When body is tapped
+		document.addEventListener('keydown', handleEscKey.bind(null, settings), false); // When esc key is pressed
 
-		// For each modal window
-		[].forEach.call(modals, function (modal) {
-
-			// When the menu is clicked
-			modal.addEventListener('click', function(e) {
-
-				// Prevent the "close all dropdowns" function
-				e.stopPropagation();
-
-			}, false);
-
-			// When the menu is tapped
-			modal.addEventListener('touchstart', function(e) {
-
-				// Prevent the "close all dropdowns" function
-				e.stopPropagation();
-
-			}, false);
-
+		// When modal itself is clicked, don't close it
+		forEach(modals, function (modal, index) {
+			eventListeners.modals[index] = handleModalClick;
+			modal.addEventListener('click', eventListeners.modals[index], false);
+			modal.addEventListener('touchstart', eventListeners.modals[index], false);
 		});
 
+	};
 
-		// When key on keyboard is pressed
-		window.addEventListener('keydown', function (e) {
 
-			// If it's the esc key
-			if (e.keyCode == 27) {
+	//
+	// Public APIs
+	//
 
-				// Hide all modals
-				hideModals(modals, document.querySelectorAll('.modal-bg'));
+	return exports;
 
-			}
-
-		}, false);
-
-	}
-
-})();
+});
 /* =============================================================
 
-	Petfinder Sort v2.0
+	Petfinder Sort v3.0
 	Filter PetFinder results by a variety of categories, by Chris Ferdinandi.
 	http://gomakethings.com
 
@@ -693,12 +1578,150 @@ window.fluidvids = (function (window, document, undefined) {
 
  * ============================================================= */
 
-(function() {
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('petfinderSort', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.petfinderSort = factory(root);
+	}
+})(this, function (root) {
 
 	'use strict';
 
-	// Feature test
-	if ( 'querySelector' in document && 'addEventListener' in window && 'localStorage' in window && Array.prototype.forEach ) {
+	//
+	// Variables
+	//
+
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener && !!root.localStorage; // Feature test
+
+	// // Default settings
+	// var defaults = {
+	// 	someVar: 123,
+	// 	callbackBefore: function () {},
+	// 	callbackAfter: function () {}
+	// };
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
+				}
+			}
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
+			}
+		}
+	};
+
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
+		});
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
+
+	/**
+	 * Setup save filter settings
+	 * @param  {Element} filter Checkbox element
+	 */
+	var petfinderSortSave = function (filter) {
+		if ( window.sessionStorage ) {
+			var name = filter.getAttribute('data-target');
+			if ( filter.checked === false ) {
+				sessionStorage.setItem(name, 'unchecked');
+			} else {
+				sessionStorage.removeItem(name);
+			}
+		}
+	};
+
+	/**
+	 * Setup show/hide filter
+	 */
+	var petfinderSort = function (pets, petFilterBreeds, petFilterOthers) {
+		forEach(pets, function (pet) {
+			pet.classList.add('hide');
+		});
+		forEach(petFilterBreeds, function (filter) {
+			var sortTargetValue = filter.getAttribute('data-target');
+			var sortTargets = document.querySelectorAll(sortTargetValue);
+			if ( filter.checked === true ) {
+				forEach(sortTargets, function (target) {
+					target.classList.remove('hide');
+				});
+			}
+		});
+		forEach(petFilterOthers, function (filter) {
+			var sortTargetValue = filter.getAttribute('data-target');
+			var sortTargets = document.querySelectorAll(sortTargetValue);
+			if ( filter.checked === false ) {
+				forEach(pets, function (pet) {
+					pet.classList.add('hide');
+				});
+			}
+		});
+	};
+
+	/**
+	 * Get sort settings from localStorage
+	 * @param  {Element} filter Checkbox to get data for
+	 */
+	var petfinderSortGet = function (filter) {
+		if ( window.sessionStorage ) {
+			var name = filter.getAttribute('data-target');
+			var status = sessionStorage.getItem(name);
+			if ( status === 'unchecked' ) {
+				filter.checked = false;
+			}
+		}
+	};
+
+	/**
+	 * Destroy the current initialization.
+	 * @public
+	 * @todo
+	 */
+	exports.destroy = function () {
+		// @todo Undo init...
+	};
+
+	/**
+	 * Initialize Plugin
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
+
+		// feature test
+		if ( !supports ) return;
 
 		// Variables
 		var pets = document.querySelectorAll('.pf');
@@ -706,235 +1729,307 @@ window.fluidvids = (function (window, document, undefined) {
 		var petFilterOthers = document.querySelectorAll('.pf-sort');
 		var petFilterToggleAll = document.querySelectorAll('.pf-toggle-all');
 
-		// Setup save filter settings
-		var petfinderSortSave = function (filter) {
-			if ( window.sessionStorage ) {
-				var name = filter.getAttribute('data-target');
-				if ( filter.checked === false ) {
-					sessionStorage.setItem(name, 'unchecked');
-				} else {
-					sessionStorage.removeItem(name);
-				}
-			}
-		};
-
-		// Setup show/hide filter
-		var petfinderSort = function () {
-			[].forEach.call(pets, function (pet) {
-				buoy.addClass(pet, 'hide');
-			});
-			[].forEach.call(petFilterBreeds, function (filter) {
-				var sortTargetValue = filter.getAttribute('data-target');
-				var sortTargets = document.querySelectorAll(sortTargetValue);
-				if ( filter.checked === true ) {
-					[].forEach.call(sortTargets, function (target) {
-						buoy.removeClass(target, 'hide');
-					});
-				}
-			});
-			[].forEach.call(petFilterOthers, function (filter) {
-				var sortTargetValue = filter.getAttribute('data-target');
-				var sortTargets = document.querySelectorAll(sortTargetValue);
-				if ( filter.checked === false ) {
-					[].forEach.call(sortTargets, function (target) {
-						buoy.addClass(target, 'hide');
-					});
-				}
-			});
-		};
-
 		// Toggle all breeds
-		[].forEach.call(petFilterToggleAll, function (filter) {
+		forEach(petFilterToggleAll, function (filter) {
 			filter.addEventListener('change', function(e) {
 				var sortTargetValue = filter.getAttribute('data-target');
 				var sortTargets = document.querySelectorAll(sortTargetValue);
 				if ( filter.checked === true ) {
-					[].forEach.call(sortTargets, function (target) {
+					forEach(sortTargets, function (target) {
 						target.checked = true;
 						petfinderSortSave(target);
 					});
 				} else {
-					[].forEach.call(sortTargets, function (target) {
+					forEach(sortTargets, function (target) {
 						target.checked = false;
 						petfinderSortSave(target);
 					});
 				}
 				petfinderSortSave(filter);
-				petfinderSort();
+				petfinderSort(pets, petFilterBreeds, petFilterOthers);
 			}, false);
 		});
+
 
 		// Run sort when filter is changed
-		[].forEach.call(petFilterBreeds, function (filter) {
+		forEach(petFilterBreeds, function (filter) {
 			filter.addEventListener('change', function(e) {
-				petfinderSort();
+				petfinderSort(pets, petFilterBreeds, petFilterOthers);
 				petfinderSortSave(filter);
 			}, false);
 		});
-		[].forEach.call(petFilterOthers, function (filter) {
+
+		forEach(petFilterOthers, function (filter) {
 			filter.addEventListener('change', function(e) {
-				petfinderSort();
+				petfinderSort(pets, petFilterBreeds, petFilterOthers);
 				petfinderSortSave(filter);
 			}, false);
 		});
+
 
 		// Load filter settings on page load
-		var petfinderSortGet = function (filter) {
-			if ( window.sessionStorage ) {
-				var name = filter.getAttribute('data-target');
-				var status = sessionStorage.getItem(name);
-				if ( status === 'unchecked' ) {
-					filter.checked = false;
-				}
-			}
-		};
-		[].forEach.call(petFilterBreeds, function (filter) {
+		forEach(petFilterBreeds, function (filter) {
 			petfinderSortGet(filter);
 		});
-		[].forEach.call(petFilterOthers, function (filter) {
+		forEach(petFilterOthers, function (filter) {
 			petfinderSortGet(filter);
 		});
-		[].forEach.call(petFilterToggleAll, function (filter) {
+		forEach(petFilterToggleAll, function (filter) {
 			petfinderSortGet(filter);
 		});
-		petfinderSort();
+		petfinderSort(pets, petFilterBreeds, petFilterOthers);
 
+	};
+
+
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
+(function (root, factory) {
+	if ( typeof define === 'function' && define.amd ) {
+		define('rightHeight', factory(root));
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.rightHeight = factory(root);
 	}
-
-})();
-/* =============================================================
-
-	Right Height v1.0
-	Dynamically set content areas of different lengths to the same height, by Chris Ferdinandi.
-	http://gomakethings.com
-
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
-
- * ============================================================= */
-
-window.rightHeight = (function (window, document, undefined) {
+})(this, function (root) {
 
 	'use strict';
 
-	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+	//
+	// Variables
+	//
 
-		// SELECTORS
+	var exports = {}; // Object for public APIs
+	var supports = !!document.querySelector && !!root.addEventListener; // Feature test
+	var settings;
 
-		var containers = document.querySelectorAll('[data-right-height]'); // Groups of content
-		var resizeTimeout; // Timer for resize event throttler
+	// Default settings
+	var defaults = {
+		callbackBefore: function () {},
+		callbackAfter: function () {}
+	};
 
 
-		// METHODS
+	//
+	// Methods
+	//
 
-		// Calculate distance to top of page
-		var getDistanceToTop = function ( content ) {
-			var distance = 0;
-			if (content.offsetParent) {
-				do {
-					distance += content.offsetTop;
-					content = content.offsetParent;
-				} while (content);
-			}
-			return distance;
-		};
-
-		// Check if a group of content areas are stacked
-		var checkIfStacked = function ( contents ) {
-
-			// SELECTORS
-			var contentFirst = contents.item(0);
-			var contentSecond = contents.item(1);
-
-			// EVENTS, LISTENERS, AND INITS
-			if ( contentFirst !== null && contentSecond !== null ) {
-				if ( getDistanceToTop(contentFirst) - getDistanceToTop(contentSecond) === 0 ) {
-					return false;
-				} else {
-					return true;
+	/**
+	 * A simple forEach() implementation for Arrays, Objects and NodeLists
+	 * @private
+	 * @param {Array|Object|NodeList} collection Collection of items to iterate
+	 * @param {Function} callback Callback function for each iteration
+	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
+	 */
+	var forEach = function (collection, callback, scope) {
+		if (Object.prototype.toString.call(collection) === '[object Object]') {
+			for (var prop in collection) {
+				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+					callback.call(scope, collection[prop], prop, collection);
 				}
-			} else {
-				return false;
 			}
-
-		};
-
-		// Reset the content height to `auto`
-		var resetHeight = function ( content ) {
-			content.style.height = 'auto';
-			content.style.minHeight = '0';
-		};
-
-		// Get the natural height of each content area.
-		// Record the tallest height to use for all other content.
-		var getHeight = function ( content, height ) {
-			if ( content.offsetHeight > height ) {
-				height = content.offsetHeight;
+		} else {
+			for (var i = 0, len = collection.length; i < len; i++) {
+				callback.call(scope, collection[i], i, collection);
 			}
-			return height;
-		};
+		}
+	};
 
-		// Set the height of each content area.
-		var setHeight = function ( content, height ) {
-			content.style.height = height + 'px';
-		};
-
-		// Get all content ares within a group.
-		// Check if they're stacked, and set/reset their height.
-		var adjustContainerHeight = function ( container ) {
-
-			// SELECTORS
-			var contents = container.querySelectorAll('[data-right-height-content]');
-			var isStacked = checkIfStacked(contents);
-			var height = '0';
-
-			// EVENTS, LISTENERS, AND INITS
-			Array.prototype.forEach.call(contents, function (content, index) {
-				resetHeight( content );
-			});
-
-			if ( !isStacked ) {
-				Array.prototype.forEach.call(contents, function (content, index) {
-					height = getHeight( content, height );
-				});
-
-				Array.prototype.forEach.call(contents, function (content, index) {
-					setHeight( content, height );
-				});
-			}
-
-		};
-
-		// For each group of content, adjust the content are heights.
-		var runRightHeight = function () {
-			Array.prototype.forEach.call(containers, function (container, index) {
-				adjustContainerHeight( container );
-			});
-		};
-
-		// On window resize, only run `runRightHeight` at a rate of 15fps.
-		// Better for performance.
-		var resizeThrottler = function () {
-			if ( !resizeTimeout ) {
-				resizeTimeout = setTimeout(function() {
-					resizeTimeout = null;
-					runRightHeight();
-				}, 66);
-			}
-		};
-
-
-		// EVENTS, LISTENERS, AND INITS
-
-		document.addEventListener('load', function() {
-			runRightHeight(); // Run Right Height on page load
+	/**
+	 * Merge defaults with user options
+	 * @private
+	 * @param {Object} defaults Default settings
+	 * @param {Object} options User options
+	 * @returns {Object} Merged values of defaults and options
+	 */
+	var extend = function ( defaults, options ) {
+		var extended = {};
+		forEach(defaults, function (value, prop) {
+			extended[prop] = defaults[prop];
 		});
-		window.addEventListener( 'resize', resizeThrottler, false); // Run Right Height on window resize
+		forEach(options, function (value, prop) {
+			extended[prop] = options[prop];
+		});
+		return extended;
+	};
 
-	}
+	/**
+	 * Calculate distance to top of page
+	 * @private
+	 * @param  {Element} content The content area to get the distance for
+	 * @return {Number} Distance to the top of the document
+	 */
+	var getDistanceToTop = function ( content ) {
+		var distance = 0;
+		if (content.offsetParent) {
+			do {
+				distance += content.offsetTop;
+				content = content.offsetParent;
+			} while (content);
+		}
+		return distance;
+	};
 
-})(window, document);
+	/**
+	 * Check if a group of content areas are stacked
+	 * @private
+	 * @param  {NodeList} contents A collection of content areas to compare
+	 * @return {Boolean} Returns true if elements are stacked
+	 */
+	var checkIfStacked = function ( contents ) {
+
+		// Selectors and variables
+		var contentFirst = contents.item(0);
+		var contentSecond = contents.item(1);
+
+		// Determine if content containers are stacked
+		if ( contentFirst && contentSecond ) {
+			if ( getDistanceToTop(contentFirst) - getDistanceToTop(contentSecond) === 0 ) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {
+			return false;
+		}
+
+	};
+
+	/**
+	 * Reset the content height to 'auto'
+	 * @private
+	 * @param  {Element} content The content area to set to height: auto
+	 */
+	var resetHeight = function ( content ) {
+		content.style.height = 'auto';
+		content.style.minHeight = '0';
+	};
+
+	/**
+	 * Get the natural height of each content area, and
+	 * record the tallest height to set for all other elements.
+	 * @private
+	 * @param  {Element} content A content area
+	 * @param  {Number} height The current tallest height
+	 * @return {Number} The updated tallest height
+	 */
+	var getHeight = function ( content, height ) {
+		if ( content.offsetHeight > height ) {
+			height = content.offsetHeight;
+		}
+		return height;
+	};
+
+	/**
+	 * Set the height of each content area
+	 * @private
+	 * @param {Element} content The content area to set a height for
+	 * @param {Number} height The height of the tallest content area
+	 */
+	var setHeight = function ( content, height ) {
+		content.style.height = height + 'px';
+	};
+
+	/**
+	 * Get all content areas within a group
+	 * @public
+	 * @param  {Element} container The wrapper that contains a set of content areas
+	 * @param  {Object} options
+	 */
+	exports.adjustContainerHeight = function ( container, options ) {
+
+		// Selectors and variables
+		var settings = extend( settings || defaults, options || {} );  // Merge user options with defaults
+		var contents = container.querySelectorAll('[data-right-height-content]');
+		var isStacked = checkIfStacked(contents);
+		var height = '0';
+
+		settings.callbackBefore( container ); // Run callbacks before adjusting content
+
+		// Reset each content area to its natural height
+		forEach(contents, function (content) {
+			resetHeight( content );
+		});
+
+		// If content areas are not stacked, give them equal heights
+		if ( !isStacked ) {
+			forEach(contents, function (content) {
+				height = getHeight( content, height );
+			});
+			forEach(contents, function (content) {
+				setHeight( content, height );
+			});
+		}
+
+		settings.callbackAfter( container ); // Run callbacks after adjust content
+
+	};
+
+	/**
+	 * For each group of content, adjust the content area heights
+	 * @private
+	 * @param  {NodeList} containers A collection of content wrappers
+	 * @param  {Object} settings
+	 */
+	var runRightHeight = function ( containers, settings ) {
+		forEach(containers, function (container) {
+			exports.adjustContainerHeight( container, settings );
+		});
+	};
+
+	/**
+	 * On window resize, only run 'runRightHeight' at a rate of 15fps for better performance
+	 * @private
+	 * @param  {Function} eventTimeout Timeout function
+	 * @param  {NodeList} containers A collection of content wrappers
+	 * @param  {Object} settings
+	 */
+	var eventThrottler = function ( eventTimeout, containers, settings ) {
+		if ( !eventTimeout ) {
+			eventTimeout = setTimeout(function() {
+				eventTimeout = null;
+				runRightHeight( containers, settings );
+			}, 66);
+		}
+	};
+
+	/**
+	 * Initialize Right Height
+	 * @public
+	 * @param {Object} options User settings
+	 */
+	exports.init = function ( options ) {
+
+		// feature test
+		if ( !supports ) return;
+
+		// Selectors and variables
+		settings = extend( defaults, options || {} ); // Merge user options with defaults
+		var containers = document.querySelectorAll('[data-right-height]'); // Groups of content
+		var eventTimeout; // Timer for resize event throttler
+
+		// Events and listeners
+		window.addEventListener('load', function() {
+			runRightHeight( containers, options ); // Run Right Height when DOM content fully loaded
+		});
+		window.addEventListener( 'resize', eventThrottler.bind( null, eventTimeout, containers, options ), false); // Run Right Height on window resize
+
+	};
+
+
+	//
+	// Public APIs
+	//
+
+	return exports;
+
+});
 /* =============================================================
 
 		Slider v3.3
@@ -1521,121 +2616,6 @@ window.rightHeight = (function (window, document, undefined) {
 	};
 
 }
-/* =============================================================
-
-	Smooth Scroll 2.5
-	Animate scrolling to anchor links, by Chris Ferdinandi.
-	http://gomakethings.com
-
-	Easing support contributed by Willem Liu.
-	https://github.com/willemliu
-
-	Easing functions forked from Gaëtan Renaudeau.
-	https://gist.github.com/gre/1650294
-
-	Free to use under the MIT License.
-	http://gomakethings.com/mit/
-
- * ============================================================= */
-
-(function() {
-
-	'use strict';
-
-	// Feature Test
-	if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
-
-		// Function to animate the scroll
-		var smoothScroll = function (anchor, duration, easing) {
-
-			// Calculate how far and how fast to scroll
-			var startLocation = window.pageYOffset;
-			var endLocation = anchor.offsetTop;
-			var distance = endLocation - startLocation;
-			var increments = distance / (duration / 16);
-			var timeLapsed = 0;
-			var percentage, position, stopAnimation;
-
-			// Functions to control easing
-			var easingPattern = function (type, timing) {
-				if ( type == 'linear' ) return timing; // no easing, no acceleration
-				if ( type == 'easeInGentle' ) return timing * timing; // accelerating from zero velocity
-				if ( type == 'easeOutGentle' ) return timing * (2 - timing); // decelerating to zero velocity
-				if ( type == 'easeInOutGentle' ) return timing < 0.5 ? 2 * timing * timing : -1 + (4 - 2 * timing) * timing; // acceleration until halfway, then deceleration
-				if ( type == 'easeInNormal' ) return timing * timing * timing; // accelerating from zero velocity
-				if ( type == 'easeOutNormal' ) return (--timing) * timing * timing + 1; // decelerating to zero velocity
-				if ( type == 'easeInOutNormal' ) return timing < 0.5 ? 4 * timing * timing * timing : (timing - 1) * (2 * timing - 2) * (2 * timing - 2) + 1; // acceleration until halfway, then deceleration
-				if ( type == 'easeInIntense' ) return timing * timing * timing * timing; // accelerating from zero velocity
-				if ( type == 'easeOutInense' ) return 1 - (--timing) * timing * timing * timing; // decelerating to zero velocity
-				if ( type == 'easeInOutIntense' ) return timing < 0.5 ? 8 * timing * timing * timing * timing : 1 - 8 * (--timing) * timing * timing * timing; // acceleration until halfway, then deceleration
-				if ( type == 'easeInExtreme' ) return timing * timing * timing * timing * timing; // accelerating from zero velocity
-				if ( type == 'easeOutExtreme' ) return 1 + (--timing) * timing * timing * timing * timing; // decelerating to zero velocity
-				if ( type == 'easeInOutExtreme' ) return timing < 0.5 ? 16 * timing * timing * timing * timing * timing : 1 + 16 * (--timing) * timing * timing * timing * timing; // acceleration until halfway, then deceleration
-			};
-
-			// Scroll the page by an increment, and check if it's time to stop
-			var animateScroll = function () {
-				timeLapsed += 16;
-				percentage = ( timeLapsed / duration );
-				percentage = ( percentage > 1 ) ? 1 : percentage;
-				position = startLocation + ( distance * easingPattern(easing, percentage) );
-				window.scrollTo(0, position);
-				stopAnimation();
-			};
-
-			// Stop the animation
-			if ( increments >= 0 ) { // If scrolling down
-				// Stop animation when you reach the anchor OR the bottom of the page
-				stopAnimation = function () {
-					var travelled = window.pageYOffset;
-					if ( (travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight) ) {
-						clearInterval(runAnimation);
-					}
-				};
-			} else { // If scrolling up
-				// Stop animation when you reach the anchor OR the top of the page
-				stopAnimation = function () {
-					var travelled = window.pageYOffset;
-					if ( travelled <= (endLocation || 0) ) {
-						clearInterval(runAnimation);
-					}
-				};
-			}
-
-			// Loop the animation function
-			var runAnimation = setInterval(animateScroll, 16);
-
-		};
-
-		// For each smooth scroll link
-		var scrollToggle = document.querySelectorAll('.scroll');
-		[].forEach.call(scrollToggle, function (toggle) {
-
-			// When the smooth scroll link is clicked
-			toggle.addEventListener('click', function(e) {
-
-				// Prevent the default link behavior
-				e.preventDefault();
-
-				// Get anchor link and calculate distance from the top
-				var dataID = toggle.getAttribute('href');
-				var dataTarget = document.querySelector(dataID);
-				var dataSpeed = toggle.getAttribute('data-speed');
-				var dataEasing = toggle.getAttribute('data-easing'); // WL: Added easing attribute support.
-
-				// If the anchor exists
-				if (dataTarget) {
-					// Scroll to the anchor
-					smoothScroll(dataTarget, dataSpeed || 500, dataEasing || 'easeInOutNormal');
-				}
-
-			}, false);
-
-		});
-
-	}
-
-})();
 /* =============================================================
 
 	Sticky Footer v1.0

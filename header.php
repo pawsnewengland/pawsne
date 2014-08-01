@@ -38,12 +38,12 @@
 
 		<!-- HTML5 Shim for IE 6-8 -->
 		<!--[if lt IE 9]>
-			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.js"></script>
+			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.1406778446782.js"></script>
 		<![endif]-->
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.css">
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.1406778446790.css">
+		<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700"> -->
 
 		<?php wp_head(); ?>
 
@@ -64,8 +64,10 @@
 
 			<div class="nav-bg">
 				<nav class="nav-wrap container">
-					<a class="logo" href="<?php echo site_url(); ?>/">PAWS New England</a>
-					<a class="btn nav-toggle" data-target="#nav-menu" href="#">
+					<a class="logo" href="<?php echo site_url(); ?>">
+						<svg class="icon icon-logo" role="img" title="PAWS New England"><use xlink:href="#logo">PAWS New England</use></svg>
+					</a>
+					<a class="btn nav-toggle" data-nav-toggle="#nav-menu" href="#">
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>
 						<i class="icon-bar"></i>

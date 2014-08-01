@@ -1,57 +1,73 @@
-/* =============================================================
+/*! fluidvids.js v2.4.1 | (c) 2014 @toddmotto | https://github.com/toddmotto/fluidvids */
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
+  } else {
+    root.fluidvids = factory();
+  }
+})(this, function () {
 
-	Fluid Vids v2.0
-	Fluid and responsive YouTube and Vimeo videos, by Todd Motto.
-	https://github.com/toddmotto/fluidvids
+  'use strict';
 
-	Licensed under MIT License.
-	http://toddmotto.com/licensing
+  var fluidvids = {
+    selector: ['iframe'],
+    players: ['www.youtube.com', 'player.vimeo.com']
+  };
 
- * ============================================================= */
+  var css = [
+    '.fluidvids {',
+      'width: 100%; max-width: 100%; position: relative;',
+    '}',
+    '.fluidvids-item {',
+      'position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;',
+    '}'
+  ].join('');
 
-window.fluidvids = (function (window, document, undefined) {
+  var head = document.head || document.getElementsByTagName('head')[0];
 
-	'use strict';
+  var matches = function (src) {
+    return new RegExp('^(https?:)?\/\/(?:' + fluidvids.players.join('|') + ').*$', 'i').test(src);
+  };
 
-	// Constructor function
-	var Fluidvids = function (elem) {
-		this.elem = elem;
-	};
+  var getRatio = function (height, width) {
+    return ((parseInt(height, 10) / parseInt(width, 10)) * 100) + '%';
+  };
 
-	// Prototypal setup
-	Fluidvids.prototype = {
+  var fluid = function (elem) {
+    if (!matches(elem.src) || !!elem.getAttribute('data-fluidvids')) return;
+    var wrap = document.createElement('div');
+    elem.parentNode.insertBefore(wrap, elem);
+    elem.className += (elem.className ? ' ' : '') + 'fluidvids-item';
+    elem.setAttribute('data-fluidvids', 'loaded');
+    wrap.className += 'fluidvids';
+    wrap.style.paddingTop = getRatio(elem.height, elem.width);
+    wrap.appendChild(elem);
+  };
 
-		init : function () {
+  var addStyles = function () {
+    var div = document.createElement('div');
+    div.innerHTML = '<p>x</p><style>' + css + '</style>';
+    head.appendChild(div.childNodes[1]);
+  };
 
-			var videoRatio = (this.elem.height / this.elem.width) * 100;
-			this.elem.style.position = 'absolute';
-			this.elem.style.top = '0';
-			this.elem.style.left = '0';
-			this.elem.width = '100%';
-			this.elem.height = '100%';
+  fluidvids.render = function () {
+    var nodes = document.querySelectorAll(fluidvids.selector.join());
+    var i = nodes.length;
+    while (i--) {
+      fluid(nodes[i]);
+    }
+  };
 
-			var wrap = document.createElement('div');
-			wrap.className = 'fluidvids';
-			wrap.style.width = '100%';
-			wrap.style.position = 'relative';
-			wrap.style.paddingTop = videoRatio + '%';
+  fluidvids.init = function (obj) {
+    for (var key in obj) {
+      fluidvids[key] = obj[key];
+    }
+    fluidvids.render();
+    addStyles();
+  };
 
-			var thisParent = this.elem.parentNode;
-			thisParent.insertBefore(wrap, this.elem);
-			wrap.appendChild(this.elem);
+  return fluidvids;
 
-		}
-
-	};
-
-	// Initiate the plugin
-	var iframes = document.getElementsByTagName( 'iframe' );
-
-	for (var i = 0; i < iframes.length; i++) {
-		var players = /www.youtube.com|player.vimeo.com|www.hulu.com|www.slideshare.net/;
-		if (iframes[i].src.search(players) > 0) {
-			new Fluidvids(iframes[i]).init();
-		}
-	}
-
-})(window, document);
+});

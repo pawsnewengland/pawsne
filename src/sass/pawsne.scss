@@ -845,6 +845,7 @@ select:focus {
 .icon-instagram { fill: #517fa4; }
 .icon-email     { fill: #6aa120; }
 .icon-rss       { fill: #e0812a; }
+.icon-logo      { fill: #ffffff; }
 
 a:hover .icon-home,
 a:hover .icon-heart,
@@ -950,19 +951,13 @@ a:hover .icon-rss,
 	border-radius: .235294118em;
 }
 
-.alert-red {
+.alert-danger {
 	color: #5b090e;
 	background-color: #f9c6c9;
 	border: .071428571em solid #F48E93;
 }
 
-.alert-green {
-	color: #255521;
-	background-color: #d9f0d7;
-	border: .071428571em solid #b3e0b0;
-}
-
-.alert-green {
+.alert-success {
 	color: #263B0C;
 	background-color: #BACF9D;
 	border: .071428571em solid #6aa120;
@@ -1115,20 +1110,16 @@ table {
  *  adjust the .logo line-height. */
 .logo {
 	display: inline-block;
-	// font-size: 1.529411765em;
-	// font-size: 1.176470588em;
 	font-weight: bold;
-	// line-height: 1.2;
+	line-height: 1;
 	color: #ffffff;
-	// margin-bottom: .235294118em;
 	text-decoration: none;
 }
 
-// .logo > .icon-logo {
-// 	font-size: .7em;
-// 	vertical-align: text-top;
-// 	line-height: 1.4;
-// }
+.logo .icon {
+	height: 1.5em;
+	width: 9.617647059em;
+}
 
 /*  For text-based logo, override default link hover styling */
 .logo:hover {
@@ -1186,27 +1177,26 @@ table {
  *  Change max-width to fit your project. */
 @media (max-width: 42.5em) {
 
-	/*  .js prefix ensure content is only hidden when JavaScript is supported.
-	 *  This requires on the included js-accessibility.js script. */
+	/*  .js-astro prefix ensure content is only hidden when JavaScript is supported. */
 
 	/*  Align text to the left when javascript is supported */
-	.js .nav-wrap {
+	.js-astro .nav-wrap {
 		text-align: left;
 	}
 
 	/*  Float logo to the left when javascript is supported */
-	.js .logo {
+	.js-astro .logo {
 		float: left;
 	}
 
 	/*  Nav link active styling */
-	.js .nav > li > a.active {
+	.js-astro .nav > li > a.active {
 		color: #ffffff;
 		background-color: transparent;
 	}
 
 	/*  Display navigation toggle button if javascript is supported */
-	.js .nav-toggle {
+	.js-astro .nav-toggle {
 		display: block;
 		visibility: visible;
 		float: right;
@@ -1218,7 +1208,7 @@ table {
 	}
 
 	/*  Hide navigation items if javascript is supported */
-	.js .nav-collapse {
+	.js-astro .nav-collapse {
 		max-height: 0;
 		overflow: hidden;
 		display: block;
@@ -1237,17 +1227,17 @@ table {
 	/*  When collapsed element has the .active class, show it
 	 *  Uses max-height instead of display: none to allow for
 	 *  CSS3 animations, which don't work on display values. */
-	.js .nav-collapse.active {
+	.js-astro .nav-collapse.active {
 		max-height: 600em;
 	}
 
 	/* When JavaScript is enabled, float .nav text to the left */
-	.js .nav {
+	.js-astro .nav {
 		text-align: left;
 	}
 
 	/*  Display navigation items as full-width, stacked blocks when javascript supported */
-	.js .nav-collapse li {
+	.js-astro .nav-collapse li {
 		display: block;
 		width: 100%;
 		-webkit-box-sizing: border-box;
@@ -1276,13 +1266,11 @@ table {
 	.logo {
 		display: inline-block;
 		float: left;
-		// font-size: 2em;
 		margin-right: 1.176470588em;
 	}
 
 	/*  Reduce the top margin and remove the bottom margin */
 	.nav {
-		// margin-top: .470588235em;
 		margin-bottom: 0;
 	}
 
@@ -1305,20 +1293,20 @@ table {
 /*  Display a caret after each dropdown link when JavaScript is supported. */
 .dropdown .text-show-more,
 .dropdown .text-show-less,
-.js .dropdown.active .text-show-more {
+.js-drop .dropdown.active .text-show-more {
 	width: .4em;
 	display: none;
 	visibility: hidden;
 }
 
-// .js .dropdown.active .text-show-more,
-// .js .dropdown .text-show-less {
+// .js-drop .dropdown.active .text-show-more,
+// .js-drop .dropdown .text-show-less {
 // 	display: none;
 // 	visibility: hidden;
 // }
 
-.js .dropdown .text-show-more,
-.js .dropdown.active .text-show-less {
+.js-drop .dropdown .text-show-more,
+.js-drop .dropdown.active .text-show-less {
 	display: inline-block;
 	visibility: visible;
 }
@@ -1384,7 +1372,7 @@ table {
 
 	/*  Switch dropdown content to relative positioning.
 	 *  Remove styling. */
-	.js .dropdown-menu {
+	.js-drop .dropdown-menu {
 		position: relative;
 		float: none;
 		min-width: 100%;
@@ -1425,7 +1413,7 @@ table {
  }
 
  /*  If JavaScript is enabled, show the collapse and expand link or button */
- .js .collapse-toggle {
+ .js-houdini .collapse-toggle {
 	display: inline;
 	visibility: visible;
 	cursor: pointer;
@@ -1446,7 +1434,7 @@ table {
  }
 
  /* If JavaScript is enabled, hide the collapsed element */
- .js .collapse {
+ .js-houdini .collapse {
 	max-height: 0;
 	overflow: hidden;
 	opacity: 0;
@@ -1456,7 +1444,7 @@ table {
  /*  When collapsed element has the .active class, show it
   *  Uses max-height instead of display: none to allow for
   *  CSS3 animations, which don't work on display values. */
- .js .collapse.active {
+ .js-houdini .collapse.active {
 	max-height: 9999em;
 	opacity: 1;
  }

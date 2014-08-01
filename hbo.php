@@ -38,7 +38,7 @@ get_header(); ?>
 		</div>
 
 		<p class="text-center">
-			<a class="btn btn-large collapse-toggle" data-target="#learn-more" href="#">
+			<a class="btn btn-large collapse-toggle" data-collapse="#learn-more" href="#">
 				<span class="collapse-text-show">A Note from Our Founder +</span>
 				<span class="collapse-text-hide">Hide Kelly's Note &ndash;</span>
 			</a>
@@ -92,12 +92,12 @@ get_header(); ?>
 <div class="row text-center">
 
 	<div class="grid-2">
-		<a class="modal-toggle" data-target="#julie" href="#">
+		<a class="modal-toggle" data-modal="#julie" href="#">
 			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/hbo-julie.jpg" height="260" width="200" title="A photo of Julie Adams">
 			<h3 class="space-bottom-small">Julie Adams</h3>
 		</a>
-		<div class="modal modal-medium text-left" id="julie">
-			<h2>Julie Adams <a class="close modal-close" href="#">×</a></h2>
+		<div class="modal modal-medium text-left" data-modal-window data-modal-window id="julie">
+			<h2>Julie Adams <a class="close modal-close" data-modal-close data-modal-close href="#">×</a></h2>
 
 			<p>To meet Julie Adams is to experience the true meaning of selflessness.</p>
 
@@ -123,18 +123,18 @@ get_header(); ?>
 
 			<p>If you would like to learn more about the dogs in Julie's care please visit the <a href="http://www.pawsnewengland.com/adopt/">PAWS New England adoption page</a> and look for the dogs with the initials "JA" next to the name of the adoptable dog. If you would like to donate towards the care of these animals, <a href="http://www.pawsnewengland.com/donate/">visit our donation page</a> and learn how your gift can make a difference!</p>
 
-			<button class="btn modal-close">Close</button>
+			<button class="btn modal-close" data-modal-close data-modal-close>Close</button>
 		</div>
 		<p>Julie has spent the last thirty years saving the lives of thousands of animals who make their way to her home.</p>
 	</div>
 
 	<div class="grid-2">
-		<a class="modal-toggle" data-target="#john" href="#">
+		<a class="modal-toggle" data-modal="#john" href="#">
 			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/hbo-john.jpg" height="260" width="200" title="A photo of John Gagnon">
 			<h3 class="space-bottom-small">John Gagnon</h3>
 		</a>
-		<div class="modal modal-medium text-left" id="john">
-			<h2>John Gagnon <a class="close modal-close" href="#">×</a></h2>
+		<div class="modal modal-medium text-left" data-modal-window id="john">
+			<h2>John Gagnon <a class="close modal-close" data-modal-close href="#">×</a></h2>
 
 			<p>John Gagnon may be one of the most recognized and talented dog trainers in the country, but he has never allowed his success to get in the way of his greatest passion: working with rescue dogs.</p>
 
@@ -168,18 +168,18 @@ get_header(); ?>
 
 			<p>Learn more at <a href="http://www.4dogman.com/" target="_blank">John Gagnon's Pet Resort</a>.</p>
 
-			<button class="btn modal-close">Close</button>
+			<button class="btn modal-close" data-modal-close>Close</button>
 		</div>
 		<p>John's Pet Resort is a sanctuary for rescue dogs that may require special levels of training and rehabilitation.</p>
 	</div>
 
 	<div class="grid-2">
-		<a class="modal-toggle" data-target="#cherokee" href="#">
+		<a class="modal-toggle" data-modal="#cherokee" href="#">
 			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/hbo-cherokee.jpg" height="260" width="200" title="A photo of Cherokee">
 			<h3 class="space-bottom-small">Cherokee</h3>
 		</a>
-		<div class="modal modal-medium text-left" id="cherokee">
-			<h2>Cherokee <a class="close modal-close" href="#">×</a></h2>
+		<div class="modal modal-medium text-left" data-modal-window id="cherokee">
+			<h2>Cherokee <a class="close modal-close" data-modal-close href="#">×</a></h2>
 
 			<p>From his first moment on film, Cherokee’s appearance is regal.</p>
 
@@ -207,7 +207,7 @@ get_header(); ?>
 
 			<p>Until there are none, <a href="http://www.petfinder.com">adopt one</a>.</p>
 
-			<button class="btn modal-close">Close</button>
+			<button class="btn modal-close" data-modal-close>Close</button>
 		</div>
 		<p>Cherokee is a highly adoptable but overlooked dog who finds the perfect forever home.</p>
 	</div>
@@ -216,12 +216,12 @@ get_header(); ?>
 
 <div class="row text-center">
 	<div class="grid-2">
-		<a class="modal-toggle" data-target="#hope" href="#">
+		<a class="modal-toggle" data-modal="#hope" href="#">
 			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/hbo-hope.jpg" height="260" width="200" title="A photo of Hope">
 			<h3 class="space-bottom-small">Hope</h3>
 		</a>
-		<div class="modal modal-medium text-left" id="hope">
-			<h2>Hope <a class="close modal-close" href="#">×</a></h2>
+		<div class="modal modal-medium text-left" data-modal-window id="hope">
+			<h2>Hope <a class="close modal-close" data-modal-close href="#">×</a></h2>
 
 			<p>Hope’s first scene in <em>One Nation Under Dog</em> is difficult to watch.</p>
 
@@ -253,18 +253,18 @@ get_header(); ?>
 
 			<p><a href="http://pawsnewengland.com/foster/">Become a foster parent today...</a>.</p>
 
-			<button class="btn modal-close">Close</button>
+			<button class="btn modal-close" data-modal-close>Close</button>
 		</div>
 		<p>Hope's journey from discarded pitpull to dedicate family pet is powerful and heartwarming.</p>
 	</div>
 
 	<div class="grid-2">
-		<a class="modal-toggle" data-target="#crystal" href="#">
+		<a class="modal-toggle" data-modal="#crystal" href="#">
 			<img class="aligncenter" src="<?php bloginfo('stylesheet_directory'); ?>/dist/img/hbo-crystal.jpg" height="260" width="200" title="A photo of Crystal">
 			<h3 class="space-bottom-small">Crystal</h3>
 		</a>
-		<div class="modal modal-medium text-left" id="crystal">
-			<h2>Crystal <a class="close modal-close" href="#">×</a></h2>
+		<div class="modal modal-medium text-left" data-modal-window id="crystal">
+			<h2>Crystal <a class="close modal-close" data-modal-close href="#">×</a></h2>
 
 			<p>As John Gagnon walks down the row of kennels at Tipton County Animal Control, he comes upon Crystal.</p>
 
@@ -312,7 +312,7 @@ get_header(); ?>
 
 			<p><a href="http://www.pawsnewengland.com/adopt/">Become an adoptive family today...</a></p>
 
-			<button class="btn modal-close">Close</button>
+			<button class="btn modal-close" data-modal-close>Close</button>
 		</div>
 		<p>Crystal's transformation from scared shelter dog to supportive foster sister is emotional and uplifting.</p>
 	</div>
