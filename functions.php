@@ -35,12 +35,12 @@ function load_our_dogs_redirect( $query ) {
 		$inits =
 			$inits .
 			'houdini.init();' .
-			'modals.init();';
+			'modals.init({ callbackAfterOpen: function ( toggle, modalID ) { document.querySelector(modalID).style.top = 0; } });';
 	}
 	if ( is_page('owen-fund') ) {
 		$inits =
 			$inits .
-			'modals.init();';
+			'modals.init({ callbackAfterOpen: function ( toggle, modalID ) { document.querySelector(modalID).style.top = 0; } });';
 	}
 	if ( is_page('our-dogs-list') ) {
 		$inits =

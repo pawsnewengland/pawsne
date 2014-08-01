@@ -1131,40 +1131,24 @@ table {
   visibility: hidden;
   z-index: 9999;
   background-color: #ffffff;
-  border: 0.07143em solid #999;
-  padding: 0.47059em 0.82353em;
-  border-radius: 0.23529em;
-  -webkit-box-shadow: 0 0.23529em 0.47059em rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0.23529em 0.47059em rgba(0, 0, 0, 0.3); }
+  padding: 0.47059em 0.82353em; }
 
 /*  When active, show modal window */
 .modal.active {
   display: block;
   visibility: visible;
-  position: absolute;
-  top: 15%;
-  left: 3%;
-  right: 3%;
-  margin-left: auto;
-  margin-right: auto; }
-
-/*  Styling for modal window background */
-.modal-bg {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  z-index: 9998;
-  background-color: #808080;
-  opacity: 0.85;
-  filter: alpha(opacity=85); }
+  right: 0;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
 
 /*  Styling for close button */
 .close {
   float: right;
   color: #808080;
-  font-weight: bold;
   font-size: 1.52941em;
   cursor: pointer; }
 
@@ -1173,18 +1157,6 @@ table {
   color: #272727;
   text-decoration: none;
   cursor: pointer; }
-
-/*  Modal styling for bigger screens */
-@media (min-width: 40em) {
-  /* Set max-width on medium sized modals */
-  /* Set max-width on small sized modals */
-  .modal.active {
-    left: 8%;
-    right: 8%; }
-  .modal-medium.active {
-    max-width: 35em; }
-  .modal-small.active {
-    max-width: 25em; } }
 
 /* =============================================================
 	SLIDER
