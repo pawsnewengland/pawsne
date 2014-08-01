@@ -8,6 +8,7 @@ The WordPress theme for PAWS New England
 
 * v5.3.0 - August 1, 2014
 	* Optimized landing page images.
+	* Added async Google Font loading.
 * v5.2.0 - July 31, 2014
 	* Adjusted navigation breakpoints.
 	* Added Smooth Scroll back to the site.
