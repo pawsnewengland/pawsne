@@ -55,6 +55,11 @@ function load_our_dogs_redirect( $query ) {
 			$inits .
 			'formSaver.init();';
 	}
+	if ( is_page('donate') || is_page('foster') ) {
+		$inits =
+			$inits .
+			'smoothScroll.init();';
+	}
 	echo $loadCSS . '<script>' . $inits . '</script>' . $redirectInit;
 }
 add_action('wp_footer', 'load_our_dogs_redirect', 30);
