@@ -918,7 +918,7 @@ table {
 /*  Expand-and-Collapse styling for smaller screens.
  *  Remove if not using.
  *  Change max-width to fit your project. */
-@media (max-width: 42.5em) {
+@media (max-width: 60em) {
   /*  .js-astro prefix ensure content is only hidden when JavaScript is supported. */
   /*  Align text to the left when javascript is supported */
   /*  Float logo to the left when javascript is supported */
@@ -1058,7 +1058,7 @@ table {
 /*  Small screen styling for use with
  *  collapse-and-toggle navigation menus.
  *  Learn more - http://cferdinandi.github.com/astro/ */
-@media (max-width: 42.5em) {
+@media (max-width: 60em) {
   /*  Switch dropdown content to relative positioning.
 	 *  Remove styling. */
   /*  Override default link color on small screens. */
