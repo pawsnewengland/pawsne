@@ -867,11 +867,12 @@ table {
   font-weight: bold;
   line-height: 1;
   color: #ffffff;
-  text-decoration: none; }
-
-.logo .icon {
+  text-decoration: none;
   height: 1.5em;
   width: 9.61765em; }
+  .logo .icon {
+    height: 100%;
+    width: 100%; }
 
 /*  For text-based logo, override default link hover styling */
 .logo:hover {

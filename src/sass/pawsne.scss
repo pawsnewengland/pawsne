@@ -1115,12 +1115,16 @@ table {
 	line-height: 1;
 	color: #ffffff;
 	text-decoration: none;
+	height: 1.5em;
+	width: 9.61765em;
+
+	.icon {
+		height: 100%;
+		width: 100%;
+	}
 }
 
-.logo .icon {
-	height: 1.5em;
-	width: 9.617647059em;
-}
+
 
 /*  For text-based logo, override default link hover styling */
 .logo:hover {
