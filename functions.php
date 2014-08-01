@@ -20,7 +20,7 @@ add_action('wp_enqueue_scripts', 'load_theme_js');
 // Init scripts
 function load_our_dogs_redirect( $query ) {
 	$redirectInit = '';
-	$loadCSS = '<script>loadCSS( "http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700" );</script>';
+	$loadCSS = '<noscript><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700"></noscript>';
 	$inits =
 		'astro.init();' .
 		'drop.init();' .
