@@ -38,11 +38,11 @@
 
 		<!-- HTML5 Shim for IE 6-8 -->
 		<!--[if lt IE 9]>
-			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.1406865391522.js"></script>
+			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.1406869040641.js"></script>
 		<![endif]-->
 
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.1406865391531.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.1406869040648.css">
 
 		<?php wp_head(); ?>
 
