@@ -10,7 +10,7 @@
 // Load theme JS
 function load_theme_js() {
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.min.1406860343065.js', false, null, true);
 	wp_enqueue_script('pne-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
@@ -25,11 +25,11 @@ function load_our_dogs_redirect( $query ) {
 		'astro.init();' .
 		'drop.init();' .
 		'fluidvids.init();' .
-		'stickyFooter.init();';
+		'stickyFooter.init();' .
+		"if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
 	if ( is_page('our-dogs') ) {
 		$redirect = get_option('home') . '/our-dogs-list/';
 		$redirectInit = '<script>setTimeout(\'window.location="' . $redirect . '"\', 500)</script>';
-		$inits = $inits . "if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
 	}
 	if ( is_page('hbo') ) {
 		$inits =
@@ -48,8 +48,7 @@ function load_our_dogs_redirect( $query ) {
 			'houdini.init();' .
 			'petfinderSort.init();' .
 			'rightHeight.init();' .
-			'formSaver.savePetName();' .
-			"if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
+			'formSaver.savePetName();';
 	}
 	if ( is_page('adoption-form') ) {
 		$inits =

@@ -1,5 +1,5 @@
 /**
- * pawsnewengland v5.0.0
+ * pawsnewengland v5.0.1
  * WordPress theme for PAWS New England, by Chris Ferdinandi.
  * http://github.com/pawsnewengland/pawsne
  */
@@ -1683,8 +1683,8 @@ function loadCSS( href, before, media ){
 			var sortTargetValue = filter.getAttribute('data-target');
 			var sortTargets = document.querySelectorAll(sortTargetValue);
 			if ( filter.checked === false ) {
-				forEach(pets, function (pet) {
-					pet.classList.add('hide');
+				forEach(sortTargets, function (target) {
+					target.classList.add('hide');
 				});
 			}
 		});
@@ -1729,7 +1729,7 @@ function loadCSS( href, before, media ){
 		var petFilterOthers = document.querySelectorAll('.pf-sort');
 		var petFilterToggleAll = document.querySelectorAll('.pf-toggle-all');
 
-		// Toggle all breeds
+		// Toggle check/uncheck all
 		forEach(petFilterToggleAll, function (filter) {
 			filter.addEventListener('change', function(e) {
 				var sortTargetValue = filter.getAttribute('data-target');
