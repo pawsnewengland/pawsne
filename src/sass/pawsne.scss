@@ -521,6 +521,7 @@ q:before, q:after {
 }
 
 .url-action:hover {
+	color: #808080;
 	text-decoration: none;
 }
 
@@ -535,7 +536,7 @@ q:before, q:after {
 	color: #e0812a;
 }
 
-.url-action-header:hover {
+.url-action:hover .url-action-header {
 	color: #272727;
 }
 
