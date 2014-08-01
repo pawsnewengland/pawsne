@@ -10,7 +10,7 @@
 // Load theme JS
 function load_theme_js() {
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.min.1406865391606.js', false, null, true);
+	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.min.1406869040803.js', false, null, true);
 	wp_enqueue_script('pne-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
@@ -48,6 +48,7 @@ function load_our_dogs_redirect( $query ) {
 			'houdini.init();' .
 			'petfinderSort.init();' .
 			'rightHeight.init();' .
+			'petfinderToggleImage.init();' .
 			'formSaver.savePetName();';
 	}
 	if ( is_page('adoption-form') ) {
