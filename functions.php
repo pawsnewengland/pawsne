@@ -1,10 +1,10 @@
 <?php
 
 /* ======================================================================
-    Functions.php
-    For modifying and expanding core WordPress functionality.
-    Remove the "#" before a function to activate it.
-    Add a "#" before a function to deactivate it.
+	Functions.php
+	For modifying and expanding core WordPress functionality.
+	Remove the "#" before a function to activate it.
+	Add a "#" before a function to deactivate it.
  * ====================================================================== */
 
 // Load theme JS
@@ -68,13 +68,13 @@ add_action('wp_footer', 'load_our_dogs_redirect', 30);
 
 // WP Search Form Shortcode
 function pne_wpsearch() {
-    $form =
-    	'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
-            <label class="screen-reader" for="s">Search this site:</label>
-            <input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
-            <button type="submit" class="btn-search" id="searchsubmit"><svg class="icon icon-search" role="img" title="Search"><use xlink:href="#search">Search</use></svg></button>
-        </form>';
-    return $form;
+	$form =
+		'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
+			<label class="screen-reader" for="s">Search this site:</label>
+			<input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
+			<button type="submit" class="btn-search" id="searchsubmit"><svg class="icon icon-search" role="img" title="Search"><use xlink:href="#search">Search</use></svg></button>
+		</form>';
+	return $form;
 }
 add_shortcode( 'searchform', 'pne_wpsearch' );
 
@@ -98,5 +98,25 @@ function paws_pretty_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'paws_pretty_wp_title', 10, 2 );
+
+
+
+// Deactivate jQuery and Contact Form 7 styles/scripts
+function paws_deactivate_cf7_scripts() {
+	add_filter( 'wpcf7_load_js', '__return_false' );
+	add_filter( 'wpcf7_load_css', '__return_false' );
+}
+add_action('init', 'paws_deactivate_cf7_scripts');
+
+
+
+// If page has a contact form, load Contact Form 7 scripts and styles
+function paws_activate_cf7_scripts() {
+	if ( is_page('adoption-form') || is_page('foster') || is_page('contact') || is_page('volunteer') ) {
+		add_filter( 'wpcf7_load_js', '__return_true' );
+		add_filter( 'wpcf7_load_css', '__return_true' );
+	}
+}
+add_action('pre_get_posts', 'paws_activate_cf7_scripts');
 
 ?>
