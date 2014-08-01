@@ -32,6 +32,10 @@ var paths = {
 		output : 'dist/svg/'
 	},
 	static : 'src/static/**',
+	theme : {
+		input: 'src/style.css',
+		output: ''
+	},
 	test : {
 		spec : [ 'test/spec/**/*.js' ],
 		coverage: 'test/coverage/',
@@ -50,7 +54,18 @@ var banner = {
 		'/**' +
 		' <%= package.name %> v<%= package.version %>, by Chris Ferdinandi' +
 		' | <%= package.repository.url %>' +
-		' */\n'
+		' */\n',
+	theme :
+	'/**\n' +
+	' * Theme Name: <%= package.name %> v<%= package.version %>\n' +
+	' * Theme URI: <%= package.repository.url %>\n' +
+	' * Description: <%= package.description %>\n' +
+	' * Version: <%= package.version %>\n' +
+	' * Author: <%= package.author.name %>\n' +
+	' * Author URI: <%= package.author.url %>\n' +
+	' * License: <%= package.license %>\n' +
+	' * License URI: <%= package.author.url %>/mit/\n' +
+	' */'
 };
 
 gulp.task('scripts', ['clean'], function() {
@@ -126,6 +141,13 @@ gulp.task('clean', function () {
 		.pipe(clean());
 });
 
+gulp.task('theme', function () {
+	return gulp.src(paths.theme.input)
+		.pipe(plumber())
+		.pipe(header(banner.theme, { package : package }))
+		.pipe(gulp.dest(paths.theme.output));
+});
+
 gulp.task('test', function() {
 	return gulp.src(paths.scripts.input.concat(paths.test.spec))
 		.pipe(plumber())
@@ -139,5 +161,6 @@ gulp.task('default', [
 	'scripts',
 	'styles',
 	'svgs',
-	'static'
+	'static',
+	'theme'
 ]);
