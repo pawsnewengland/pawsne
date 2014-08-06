@@ -41,9 +41,8 @@
 			        <?php the_content('<p>Keep reading...</p>'); ?>
 
                     <p>
-	                    <a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon-twitter"></i> Tweet</a>
-	                    <a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon-facebook"></i> Share</a>
-                        <a class="btn btn-muted" href="<?php comments_link(); ?>"><i class="icon-chat"></i> <?php comments_number( 'Comment', '1 Comment', '% Comments' ); ?></a>
+	                    <a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon icon-twitter icon-inherit-color"></i> Tweet</a>
+	                    <a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon icon-facebook icon-inherit-color"></i> Share</a>
                     </p>
 
 		        </article>

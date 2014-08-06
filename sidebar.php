@@ -8,21 +8,18 @@
 
 <ul class="unstyled">
     <li>
-    	<a href="<?php echo get_option('home'); ?>/adopt/">
-    		<svg class="icon icon-home" role="presentation"><use xlink:href="#home"></use></svg>
-	    	Adopt
+    	<a class="icon-link-wrap" href="<?php echo get_option('home'); ?>/adopt/">
+            <i class="icon icon-home icon-link"></i> <span class="icon-link-text">Adopt</span>
 	    </a>
     </li>
     <li>
-    	<a href="<?php echo get_option('home'); ?>/donate/">
-    		<svg class="icon icon-heart" role="presentation"><use xlink:href="#heart"></use></svg>
-    		Donate
+    	<a class="icon-link-wrap" href="<?php echo get_option('home'); ?>/donate/">
+    		<i class="icon icon-heart icon-link"></i> <span class="icon-link-text">Donate</span>
     	</a>
     </li>
     <li>
-    	<a href="<?php echo get_option('home'); ?>/volunteer/">
-    		<svg class="icon icon-time" role="presentation"><use xlink:href="#time"></use></svg>
-    		Volunteer
+    	<a class="icon-link-wrap" href="<?php echo get_option('home'); ?>/volunteer/">
+    		<i class="icon icon-time icon-link"></i> <span class="icon-link-text">Volunteer</span>
     	</a>
     </li>
 </ul>
@@ -33,37 +30,32 @@
 
 <ul class="unstyled">
 	<li>
-		<a href="http://www.facebook.com/PAWSNewEngland">
-			<svg class="icon icon-facebook" role="presentation"><use xlink:href="#facebook"></use></svg>
-			Facebook
+		<a class="icon-link-wrap" href="http://www.facebook.com/PAWSNewEngland">
+			<i class="icon icon-facebook icon-link"></i> <span class="icon-link-text">Facebook</span>
 		</a>
 	</li>
 	<li>
-		<a href="https://twitter.com/pawsnewengland">
-			<svg class="icon icon-twitter" role="presentation"><use xlink:href="#twitter"></use></svg>
-			Twitter
+		<a class="icon-link-wrap" href="https://twitter.com/pawsnewengland">
+			<i class="icon icon-twitter icon-link"></i> <span class="icon-link-text">Twitter</span>
 		</a>
 	</li>
 	<li>
-		<a href="http://instagram.com/pawsnewengland">
-			<svg class="icon icon-instagram" role="presentation"><use xlink:href="#instagram"></use></svg>
-			Instagram
+		<a class="icon-link-wrap" href="http://instagram.com/pawsnewengland">
+			<i class="icon icon-instagram icon-link"></i> <span class="icon-link-text">Instagram</span>
 		</a>
 	</li>
     <li>
-    	<a href="http://eepurl.com/ifVL">
-    		<svg class="icon icon-email" role="presentation"><use xlink:href="#email"></use></svg>
-    		Newsletter
+    	<a class="icon-link-wrap" href="http://eepurl.com/ifVL">
+    		<i class="icon icon-email icon-link"></i> <span class="icon-link-text">Newsletter</span>
     	</a>
 	</li>
     <li>
-    	<a href="http://feeds.feedburner.com/pawsne">
-    		<svg class="icon icon-rss" role="presentation"><use xlink:href="#rss"></use></svg>
-    		RSS
+    	<a class="icon-link-wrap" href="http://feeds.feedburner.com/pawsne">
+    		<i class="icon icon-rss icon-link"></i> <span class="icon-link-text">RSS</span>
     	</a>
     </li>
 </ul>
 
 <hr class="no-space-top">
 
-<?php echo pne_wpsearch(); ?>
+<?php get_search_form(); ?>

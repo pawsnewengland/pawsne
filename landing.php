@@ -16,7 +16,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/adopt/">
-							<svg class="url-action-icon icon-home" role="presentation"><use xlink:href="#home"></use></svg>
+							<i class="icon icon-home url-action-icon"></i>
 							<span class="url-action-header h2">Adopt</span><br>
 							Give a deserving dog a new home.
 						</a>
@@ -26,7 +26,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/donate/">
-							<svg class="url-action-icon icon-heart" role="presentation"><use xlink:href="#heart"></use></svg>
+							<i class="icon icon-heart url-action-icon"></i>
 							<span class="url-action-header h2">Donate</span><br>
 							Help fund our life-saving work.
 						</a>
@@ -36,7 +36,7 @@ get_header(); ?>
 				<div class="group">
 					<p>
 						<a class="url-action" href="<?php echo get_option('home'); ?>/volunteer/">
-							<svg class="url-action-icon icon-time" role="presentation"><use xlink:href="#time"></use></svg>
+							<i class="icon icon-time url-action-icon"></i>
 							<span class="url-action-header h2">Volunteer</span><br>
 							Share your time or just spread the word.
 						</a>
@@ -107,20 +107,25 @@ get_header(); ?>
 		<h2 class="h1">Stay Connected</h2>
 
 		<div class="text-center">
-			<a class="icon-grid" href="http://www.facebook.com/PAWSNewEngland">
-				<svg class="icon icon-large icon-facebook" role="img" title="Facebook"><use xlink:href="#facebook">Facebook</use></svg>
+			<a class="icon-grid icon-link-wrap" href="http://www.facebook.com/PAWSNewEngland">
+				<i class="icon icon-facebook icon-large icon-link"></i>
+				<span class="icon-fallback-text">Facebook</span>
 			</a>
-			<a class="icon-grid" href="https://twitter.com/pawsnewengland">
-				<svg class="icon icon-large icon-twitter" role="img" title="Twitter"><use xlink:href="#twitter">Twitter</use></svg>
+			<a class="icon-grid icon-link-wrap" href="https://twitter.com/pawsnewengland">
+				<i class="icon icon-twitter icon-large icon-link"></i>
+				<span class="icon-fallback-text">Twitter</span>
 			</a>
-			<a class="icon-grid" href="http://instagram.com/pawsnewengland">
-				<svg class="icon icon-large icon-instagram" role="img" title="Instagram"><use xlink:href="#instagram">Instagram</use></svg>
+			<a class="icon-grid icon-link-wrap" href="http://instagram.com/pawsnewengland">
+				<i class="icon icon-instagram icon-large icon-link"></i>
+				<span class="icon-fallback-text">Instagram</span>
 			</a>
-			<a class="icon-grid" href="http://eepurl.com/ifVL">
-				<svg class="icon icon-large icon-email" role="img" title="Newsletter"><use xlink:href="#email">Newsletter</use></svg>
+			<a class="icon-grid icon-link-wrap" href="http://eepurl.com/ifVL">
+				<i class="icon icon-email icon-large icon-link"></i>
+				<span class="icon-fallback-text">Newsletter</span>
 			</a>
-			<a class="icon-grid" href="http://feeds.feedburner.com/pawsne">
-				<svg class="icon icon-large icon-rss" role="img" title="RSS"><use xlink:href="#rss">RSS</use></svg>
+			<a class="icon-grid icon-link-wrap" href="http://feeds.feedburner.com/pawsne">
+				<i class="icon icon-rss icon-large icon-link"></i>
+				<span class="icon-fallback-text">RSS</span>
 			</a>
 		</div>
 

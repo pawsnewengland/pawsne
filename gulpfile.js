@@ -13,8 +13,6 @@ var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
 var karma = require('gulp-karma');
-var svgstore = require('gulp-svgstore');
-var svgmin = require('gulp-svgmin');
 var package = require('./package.json');
 
 var paths = {
@@ -26,10 +24,6 @@ var paths = {
 	styles : {
 		input : 'src/sass/**/*.scss',
 		output : 'dist/css/'
-	},
-	svgs : {
-		input : 'src/svg/*.svg',
-		output : 'dist/svg/'
 	},
 	static : 'src/static/**',
 	theme : {
@@ -79,7 +73,7 @@ gulp.task('scripts', ['clean'], function() {
 					.pipe(concat(name))
 					.pipe(header(banner.full, { package : package }))
 					.pipe(gulp.dest(paths.scripts.output))
-					.pipe(rename({ suffix: '.min.' + Date.now() }))
+					.pipe(rename({ suffix: '.min' }))
 					.pipe(uglify())
 					.pipe(header(banner.min, { package : package }))
 					.pipe(gulp.dest(paths.scripts.output));
@@ -87,7 +81,7 @@ gulp.task('scripts', ['clean'], function() {
 		}))
 		.pipe(header(banner.full, { package : package }))
 		.pipe(gulp.dest(paths.scripts.output))
-		.pipe(rename({ suffix: '.min.' + Date.now() }))
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(uglify())
 		.pipe(header(banner.min, { package : package }))
 		.pipe(gulp.dest(paths.scripts.output));
@@ -101,21 +95,10 @@ gulp.task('styles', ['clean'], function() {
 		.pipe(prefix('last 2 version', '> 1%'))
 		.pipe(header(banner.full, { package : package }))
 		.pipe(gulp.dest(paths.styles.output))
-		.pipe(rename({ suffix: '.min.' + Date.now() }))
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(minify())
 		.pipe(header(banner.min, { package : package }))
 		.pipe(gulp.dest(paths.styles.output));
-});
-
-gulp.task('svgs', ['clean'], function () {
-  return gulp.src(paths.svgs.input)
-        .pipe(svgmin())
-        .pipe(svgstore({
-            fileName: 'icons.svg',
-            prefix: '',
-            inlineSvg: true
-        }))
-        .pipe(gulp.dest(paths.svgs.output));
 });
 
 gulp.task('static', ['clean'], function() {
@@ -160,7 +143,6 @@ gulp.task('default', [
 	'clean',
 	'scripts',
 	'styles',
-	'svgs',
 	'static',
 	'theme'
 ]);

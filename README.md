@@ -6,6 +6,10 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.4.0 - August 6, 2014
+	* Reverted back to icon fonts.
+	* Added better error messaging when pet info not available.
+	* Made adoption link button bigger.
 * v5.3.0 - August 1, 2014
 	* Optimized landing page images.
 	* Added async Google Font loading.
