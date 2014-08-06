@@ -1,5 +1,5 @@
 /**
- * pawsnewengland v5.4.0
+ * pawsnewengland v5.4.1
  * WordPress theme for PAWS New England, by Chris Ferdinandi.
  * http://github.com/pawsnewengland/pawsne
  */

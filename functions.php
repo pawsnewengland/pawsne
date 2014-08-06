@@ -10,7 +10,7 @@
 // Load theme JS
 function load_theme_js() {
 	// Theme scripts (in footer)
-	wp_register_script('paws-js', get_template_directory_uri() . '/dist/js/paws.min.08052014.js', false, null, true);
+	wp_register_script('paws-js', get_template_directory_uri() . '/dist/js/paws.min.08062014.js', false, null, true);
 	wp_enqueue_script('paws-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');

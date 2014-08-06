@@ -6,6 +6,8 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.4.1 _ August 6, 2014
+	* Added polyfill for Function.prototype.bind for otherwise ECMA Script 5 compliant browsers.
 * v5.4.0 - August 6, 2014
 	* Reverted back to icon fonts.
 	* Added better error messaging when pet info not available.
