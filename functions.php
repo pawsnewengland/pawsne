@@ -10,8 +10,8 @@
 // Load theme JS
 function load_theme_js() {
 	// Theme scripts (in footer)
-	wp_register_script('pne-js', get_template_directory_uri() . '/dist/js/pne.min.1406869040803.js', false, null, true);
-	wp_enqueue_script('pne-js');
+	wp_register_script('paws-js', get_template_directory_uri() . '/dist/js/paws.min.08062014.js', false, null, true);
+	wp_enqueue_script('paws-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
 
@@ -67,17 +67,17 @@ add_action('wp_footer', 'load_our_dogs_redirect', 30);
 
 
 
-// WP Search Form Shortcode
-function pne_wpsearch() {
-	$form =
-		'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
-			<label class="screen-reader" for="s">Search this site:</label>
-			<input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
-			<button type="submit" class="btn-search" id="searchsubmit"><svg class="icon icon-search" role="img" title="Search"><use xlink:href="#search">Search</use></svg></button>
-		</form>';
-	return $form;
-}
-add_shortcode( 'searchform', 'pne_wpsearch' );
+// // WP Search Form Shortcode
+// function pne_wpsearch() {
+// 	$form =
+// 		'<form method="get" class="no-space-bottom" id="searchform" action="' . home_url( '/' ) . '" >
+// 			<label class="screen-reader" for="s">Search this site:</label>
+// 			<input type="text" class="input-search" placeholder="Search this site..." value="' . get_search_query() . '" name="s" id="s">
+// 			<button type="submit" class="btn-search" id="searchsubmit"><i class="icon icon-search"></i><span class="icon-text-fallback">Search</span></button>
+// 		</form>';
+// 	return $form;
+// }
+// add_shortcode( 'searchform', 'pne_wpsearch' );
 
 
 

@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="grid-4">
-    
+
         <article>
 	        <header>
 		        <h1>Sad puppy!</h1>
@@ -17,7 +17,7 @@
 
             <p>Try searching for it?</p>
 
-            <?php echo pne_wpsearch(); ?>
+            <?php get_search_form(); ?>
 
         </article>
 

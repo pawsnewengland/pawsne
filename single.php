@@ -18,11 +18,11 @@
 
 				<p>
 					<a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20by%20@pawsnewengland%20<?php echo the_permalink(); ?>">
-						<svg class="icon" role="presentation"><use xlink:href="#twitter"></use></svg>
+						<i class="icon icon-twitter icon-inherit-color"></i>
 						Tweet
 					</a>
 					<a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>%20">
-						<svg class="icon" role="presentation"><use xlink:href="#facebook"></use></svg>
+						<i class="icon icon-facebook icon-inherit-color"></i>
 						Like
 					</a>
 				</p>

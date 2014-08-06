@@ -350,12 +350,10 @@ get_header(); ?>
 
 <p class="text-center">
 	<a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=One%20Nation,%20Under%20Dog:%20Stories%20of%20Fear,%20Loss,%20and%20Betrayal%20<?php echo the_permalink(); ?>">
-		<svg class="icon" role="presentation"><use xlink:href="#twitter"></use></svg>
-		Tweet
+		<i class="icon icon-twitter icon-inherit-color"></i> Tweet
 	</a>
 	<a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=One%20Nation,%20Under%20Dog:%20Stories%20of%20Fear,%20Loss,%20and%20Betrayal">
-		<svg class="icon" role="presentation"><use xlink:href="#facebook"></use></svg>
-		Share
+		<i class="icon icon-facebook icon-inherit-color"></i> Share
 	</a>
 </p>
 

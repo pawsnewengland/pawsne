@@ -19,17 +19,11 @@
 		<!-- Mobile Screen Resizing -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Favicon -->
+		<!-- Icons: place in the root directory -->
+		<!-- https://github.com/audreyr/favicon-cheat-sheet -->
 		<link rel="shortcut icon" type="image/ico" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/favicon.ico">
-
-		<!-- Apple Touch Icons -->
-		<link rel="apple-touch-icon" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-114.png">
 		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('stylesheet_directory'); ?>/dist/img/apple-touch-icon-144.png">
-
-		<!-- MS Homescreen Icons -->
-		<meta name="msapplication-TileColor" content="#0088cc">
+		<meta name="msapplication-TileColor" content="#6aa120">
 		<meta name="msapplication-TileImage" content="<?php bloginfo('stylesheet_directory'); ?>/dist/img/ms-touch-icon.png">
 
 		<!-- Feeds & Pings -->
@@ -38,11 +32,14 @@
 
 		<!-- HTML5 Shim for IE 6-8 -->
 		<!--[if lt IE 9]>
-			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.1406869040641.js"></script>
+			<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/html5.min.js"></script>
 		<![endif]-->
 
+		<!-- Browser Detects -->
+		<script src="<?php bloginfo('stylesheet_directory'); ?>/dist/js/detects.min.08052014.js"></script>
+
 		<!-- Stylesheet -->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.1406869040648.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/dist/css/pawsne.min.08052014.css">
 		<script>
 			var loadCSS = function (e,t,n){"use strict";var i=window.document.createElement("link");var o=t||window.document.getElementsByTagName("script")[0];i.rel="stylesheet";i.href=e;i.media="only x";o.parentNode.insertBefore(i,o);setTimeout(function(){i.media=n||"all"})};
 			loadCSS( "http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700" );
@@ -54,8 +51,6 @@
 
 	<body>
 
-		<div class="hide"><?php $svg = get_template_directory() . '/dist/svg/icons.svg'; include_once( $svg ); ?></div>
-
 		<!-- Old Browser Warning for IE 6-7 -->
 		<!--[if lt IE 9]>
 			<div class="container">
@@ -65,75 +60,9 @@
 
 		<div data-sticky-wrap>
 
-			<div class="nav-bg">
-				<nav class="nav-wrap container">
-					<a class="logo" href="<?php echo site_url(); ?>">
-						<svg class="icon icon-logo" role="img" title="PAWS New England"><use xlink:href="#logo">PAWS New England</use></svg>
-					</a>
-					<a class="btn nav-toggle" data-nav-toggle="#nav-menu" href="#">
-						<i class="icon-bar"></i>
-						<i class="icon-bar"></i>
-						<i class="icon-bar"></i>
-						<span class="screen-reader">Menu Toggle</span>
-					</a>
-					<div class="nav-collapse" id="nav-menu">
-						<ul class="nav group">
-							<li><a href="<?php echo site_url(); ?>/">Home</a></li>
-							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/about/">
-									About
-									<span class="text-show-more">+</span>
-									<span class="text-show-less">&ndash;</span>
-								</a>
-								<div class="dropdown-menu">
-									<ul>
-										<li><a href="<?php echo site_url(); ?>/our-story/">Our Story</a></li>
-										<li><a href="<?php echo site_url(); ?>/financials/">Financials</a></li>
-										<li><a href="<?php echo site_url(); ?>/hbo/">HBO Special</a></li>
-										<li><a href="<?php echo site_url(); ?>/rehoming-your-dog/">Rehome Your Dog</a></li>
-										<li><a href="<?php echo site_url(); ?>/contact/">Contact</a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/adopt/">
-									Adopt
-									<span class="text-show-more">+</span>
-									<span class="text-show-less">&ndash;</span>
-								</a>
-								<div class="dropdown-menu">
-									<ul>
-										<li><a href="<?php echo site_url(); ?>/adopt/">The Process</a></li>
-										<li><a href="<?php echo site_url(); ?>/our-dogs/">Our Dogs</a></li>
-										<li><a href="<?php echo site_url(); ?>/adoption-form/">Adoption Form</a></li>
-										<li><a href="<?php echo site_url(); ?>/resources/">Resources</a></li>
-									</ul>
-								</div>
-							</li>
-							<li class="dropdown">
-								<a href="<?php echo site_url(); ?>/help/">
-									How to Help
-									<span class="text-show-more">+</span>
-									<span class="text-show-less">&ndash;</span>
-								</a>
-								<div class="dropdown-menu">
-									<ul>
-										<li><a href="<?php echo site_url(); ?>/donate/">Donate</a></li>
-										<li><a href="<?php echo site_url(); ?>/volunteer/">Volunteer</a></li>
-										<li><a href="<?php echo site_url(); ?>/foster/">Foster</a></li>
-										<li><a href="<?php echo site_url(); ?>/paws-harness-program/">Buy a Harness</a></li>
-										<li><a target="_blank" href="http://skreened.com/pawsnewengland/">Buy PAWS Gear</li>
-										<li><a href="<?php echo site_url(); ?>/goodsearch/">Browse the Web</a></li>
-										<li><a href="<?php echo site_url(); ?>/owen-fund/">The Owen Fund</a></li>
-										<li><a href="<?php echo site_url(); ?>/paws-partners/">Support Our Partners</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="<?php echo site_url(); ?>/news/">Blog</a></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
+			<!-- Skip link for better accessibility -->
+			<a class="screen-reader" href="#main">Skip to main content</a>
 
+			<?php get_template_part( 'nav-main', 'Site Navigation' ); ?>
 
-			<section class="container space-bottom-big">
+			<section class="container space-bottom-big" id="main">
