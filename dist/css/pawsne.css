@@ -1,5 +1,5 @@
 /**
- * pawsnewengland v5.4.1
+ * pawsnewengland v5.4.2
  * WordPress theme for PAWS New England, by Chris Ferdinandi.
  * http://github.com/pawsnewengland/pawsne
  */
@@ -103,7 +103,7 @@ img {
 /*  Address outline inconsistency between Chrome and other browsers. */
 a:focus, button:focus {
   outline: thin dotted;
-  outline: 0.29412em auto -webkit-focus-ring-color;
+  outline: 0.29412em auto-webkit-focus-ring-color;
   outline-offset: -0.14286em; }
 
 /*  Improve readability when focused and also mouse hovered in all browsers. */
@@ -552,7 +552,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: thin dotted;
-  outline: 0.29412em auto -webkit-focus-ring-color;
+  outline: 0.29412em auto-webkit-focus-ring-color;
   outline-offset: -0.11765em; }
 
 /*  Search */
@@ -1204,6 +1204,17 @@ table {
 .js-houdini .collapse.active {
   max-height: 9999em;
   opacity: 1; }
+
+/**
+ * @section Form Saver
+ */
+.form-saver {
+  display: none;
+  visibility: hidden; }
+
+.js-form-saver .form-saver {
+  display: block;
+  visibility: visible; }
 
 /* =============================================================
 	MODALS

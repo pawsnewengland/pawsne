@@ -6,6 +6,9 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.4.2 - August 7, 2014
+	* Fixed modal close button bug.
+	* Updated form saver class to ensure hidden on non-supporting browsers.
 * v5.4.1 _ August 6, 2014
 	* Added polyfill for Function.prototype.bind for otherwise ECMA Script 5 compliant browsers.
 * v5.4.0 - August 6, 2014

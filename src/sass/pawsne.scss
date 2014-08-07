@@ -1523,6 +1523,23 @@ table {
 
 
 
+/**
+ * @section Form Saver
+ */
+
+.form-saver {
+	display: none;
+	visibility: hidden;
+}
+
+.js-form-saver .form-saver {
+	display: block;
+	visibility: visible;
+}
+
+
+
+
 /* =============================================================
 	MODALS
 	Modal window styling.

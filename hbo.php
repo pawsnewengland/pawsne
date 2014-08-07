@@ -109,7 +109,7 @@ get_header(); ?>
 
 			<p>As Julie's small town of Oran, Missouri does not even have a pound, she is the "go-to" person for town officials and the highway patrol when injured animals are found.</p>
 
-			<h3>Julie & PAWS</h3>
+			<h3>Julie &amp; PAWS</h3>
 
 			<p>PAWS New England has been working with Julie for the last three years to sponsor the thousands of dollars a month it costs to provide food, veterinary care, and supplies for all of these animals. More importantly, PAWS coordinates the adoption, transportation, and follow-up support to adopters for the dogs Julie takes in.</p>
 
@@ -123,7 +123,7 @@ get_header(); ?>
 
 			<p>If you would like to learn more about the dogs in Julie's care please visit the <a href="http://www.pawsnewengland.com/adopt/">PAWS New England adoption page</a> and look for the dogs with the initials "JA" next to the name of the adoptable dog. If you would like to donate towards the care of these animals, <a href="http://www.pawsnewengland.com/donate/">visit our donation page</a> and learn how your gift can make a difference!</p>
 
-			<button class="btn modal-close" data-modal-close>Close</button>
+			<p class="space-bottom"><button class="btn btn-large modal-close" data-modal-close>Close</button></p>
 		</div></div></div>
 		<p>Julie has spent the last thirty years saving the lives of thousands of animals who make their way to her home.</p>
 	</div>
@@ -158,7 +158,7 @@ get_header(); ?>
 
 			<p>None of this would be possible without the help of manager and PAWS foster Mom Jo-Ann Dooley, daycare supervisor and trainer Tom Sears, receptionist and coordinator of all things PAWS Jessica Guilbeault and the rest of the Pet Resort family.</p>
 
-			<h3>PAWS & the Gagnons</h3>
+			<h3>PAWS &amp; the Gagnons</h3>
 
 			<p>The Gagnons are heroes in the rescue world.</p>
 
@@ -168,7 +168,7 @@ get_header(); ?>
 
 			<p>Learn more at <a href="http://www.4dogman.com/" target="_blank">John Gagnon's Pet Resort</a>.</p>
 
-			<button class="btn modal-close" data-modal-close>Close</button>
+			<p class="space-bottom"><button class="btn btn-large modal-close" data-modal-close>Close</button></p>
 		</div></div></div>
 		<p>John's Pet Resort is a sanctuary for rescue dogs that may require special levels of training and rehabilitation.</p>
 	</div>
@@ -207,7 +207,7 @@ get_header(); ?>
 
 			<p>Until there are none, <a href="http://www.petfinder.com">adopt one</a>.</p>
 
-			<button class="btn modal-close" data-modal-close>Close</button>
+			<p class="space-bottom"><button class="btn btn-large modal-close" data-modal-close>Close</button></p>
 		</div></div></div>
 		<p>Cherokee is a highly adoptable but overlooked dog who finds the perfect forever home.</p>
 	</div>
@@ -253,7 +253,7 @@ get_header(); ?>
 
 			<p><a href="http://pawsnewengland.com/foster/">Become a foster parent today...</a>.</p>
 
-			<button class="btn modal-close" data-modal-close>Close</button>
+			<p class="space-bottom"><button class="btn btn-large modal-close" data-modal-close>Close</button></p>
 		</div></div></div>
 		<p>Hope's journey from discarded pitpull to dedicate family pet is powerful and heartwarming.</p>
 	</div>
@@ -312,7 +312,7 @@ get_header(); ?>
 
 			<p><a href="http://www.pawsnewengland.com/adopt/">Become an adoptive family today...</a></p>
 
-			<button class="btn modal-close" data-modal-close>Close</button>
+			<p class="space-bottom"><button class="btn btn-large modal-close" data-modal-close>Close</button></p>
 		</div></div></div>
 		<p>Crystal's transformation from scared shelter dog to supportive foster sister is emotional and uplifting.</p>
 	</div>
@@ -336,7 +336,7 @@ get_header(); ?>
 	</div>
 
 	<div class="grid-3">
-		<h2 class="no-space"><a href="http://www.spayusa.org/">Spay & Neuter</a></h2>
+		<h2 class="no-space"><a href="http://www.spayusa.org/">Spay &amp; Neuter</a></h2>
 		<p>Help break the cycle of unwanted pets.</p>
 
 		<h2 class="no-space"><a href="http://www.americanhumane.org/animals/stop-animal-abuse/advocacy/campaigns/stop-gassing-campaign.html">End Gas Chambers</a></h2>
