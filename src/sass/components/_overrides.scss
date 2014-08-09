@@ -153,19 +153,13 @@
  */
 
 .group:before,
-.group:after,
-.container:before,
-.container:after,
-.row:before,
-.row:after {
+.group:after {
 	display: table;
 	content: "";
 	*zoom: 1;
 }
 
-.group:after,
-.container:after,
-.row:after {
+.group:after {
 	clear: both;
 }
 

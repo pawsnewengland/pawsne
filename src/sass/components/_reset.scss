@@ -38,6 +38,16 @@ time, mark, audio, video {
 }
 
 /**
+ * Add box sizing to everything
+ * @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+/**
  * Set display type for HTML5 semantic elements
  */
 article, aside, details, figcaption, figure,

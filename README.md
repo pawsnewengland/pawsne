@@ -6,6 +6,9 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.6.0 - August 9, 2014
+	* Added universal `box-sizing: border-box`.
+	* Updated grid to fractions (with backwards compatibility).
 * v5.5.0 - August 8, 2014
 	* Modularized Sass files.
 	* Added Sass variables.
