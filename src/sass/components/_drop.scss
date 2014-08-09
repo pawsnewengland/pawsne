@@ -1,0 +1,129 @@
+/**
+ * @section Dropdown Menus
+ */
+
+/**
+ * Sets dropdown link to relative positioning
+ */
+.dropdown {
+	position: relative;
+}
+
+/**
+ * Display a caret after each dropdown link when JavaScript is supported.
+ */
+
+.dropdown .text-show-more,
+.dropdown .text-show-less,
+.js-drop .dropdown.active .text-show-more {
+	width: .4em;
+	display: none;
+	visibility: hidden;
+}
+
+.js-drop .dropdown .text-show-more,
+.js-drop .dropdown.active .text-show-less {
+	display: inline-block;
+	visibility: visible;
+}
+
+/**
+ * Styling for the dropdown content.
+ * Hides the content by default.
+ */
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	display: none;
+	visibility: hidden;
+	float: left;
+	min-width: 12em;
+	margin-top: .470588235em;
+	margin-left: 0;
+	text-align: left;
+	border: .071428571em solid darken( $color-gray-light, 15% );
+	background-color: #ffffff;
+	z-index: 1000;
+	border-radius: .294117647em;
+	box-shadow: 0 .294117647em .588235294em rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	background-clip: padding-box;
+}
+
+/**
+ * Remove list-style and margin-left from dropdown menu lists
+ */
+.dropdown-menu ul,
+.dropdown-menu ol {
+	margin-left: 0;
+	list-style: none;
+}
+
+/**
+ * Dropdrown link styling
+ */
+.dropdown-menu a {
+	display: block;
+	color: $color-black;
+	margin-top: .117647059em;
+	margin-bottom: .117647059em;
+	padding-left: .470588235em;
+	padding-right: .470588235em;
+}
+
+/**
+ * Dropdrown link hover styling
+ */
+.dropdown-menu a:hover {
+	color: $color-white;
+	background-color: $color-primary;
+	text-decoration: none;
+}
+
+/**
+ * When a dropdown is active, display it.
+ */
+.dropdown-menu.active {
+	display: block;
+	visibility: visible;
+	padding-top: .470588235em;
+	padding-bottom: .470588235em;
+}
+
+/**
+ * Small screen styling for use with collapse-and-toggle navigation menus.
+ */
+@media (max-width: $bp-large) {
+
+	/**
+	 * Switch dropdown content to relative positioning.
+	 * Remove styling.
+	 */
+	.js-drop .dropdown-menu {
+		position: relative;
+		float: none;
+		min-width: 100%;
+		background-color: darken( $color-primary, 9% );
+		border: none;
+		box-shadow: none;
+	}
+
+	/**
+	 * Override default link color on small screens.
+	 */
+	.dropdown-menu a {
+		color: $color-gray-light;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	/**
+	 * Override default link hover color on small screens.
+	 */
+	.dropdown-menu a:hover {
+		color: $color-white;
+		background-color: transparent;
+		text-decoration: underline;
+	}
+
+}
