@@ -1,0 +1,24 @@
+/**
+ * @section Alerts
+ */
+
+.alert {
+	color: darken( $color-warning, 70% ); //#926a00;
+	background-color: $color-warning; //#fff3d3;
+	border: .071428571em solid darken( $color-warning, 20% ); //#ffdc7c;
+	margin-bottom: 1.529411765em;
+	padding: .235294118em .823529412em;
+	border-radius: .235294118em;
+}
+
+.alert-success {
+	color: darken( $color-success, 55% );// #263b0c;
+	background-color: $color-success;// #bacf9d;
+	border: .071428571em solid darken( $color-success, 25% );// #6aa120;
+}
+
+.alert-danger {
+	color: darken( $color-danger, 70% ); // #5b090e;
+	background-color: $color-danger; // #f9c6c9;
+	border: .071428571em solid darken( $color-danger, 20% ); // #f48e93;
+}

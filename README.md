@@ -6,6 +6,9 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.5.0 - August 8, 2014
+	* Modularized Sass files.
+	* Added Sass variables.
 * v5.4.2 - August 7, 2014
 	* Fixed modal close button bug.
 	* Updated form saver class to ensure hidden on non-supporting browsers.

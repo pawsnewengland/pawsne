@@ -1,0 +1,58 @@
+/**
+ * Slider
+ */
+
+/**
+ * When HTML5 JS features supported, hide slider
+ */
+.js .slider {
+	position: relative;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+/**
+ * When HTML5 JS features supported, hide slides
+ */
+.js .slides {
+	overflow: hidden;
+	position: relative;
+}
+
+/**
+ * Add a margin-bottom to each slide
+ */
+.slides > div {
+	margin-bottom: .470588235em;
+}
+
+/**
+ * When HTML5 JS features supported, set width to 100% and float slides to the left.
+ */
+.js .slides > div {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+/**
+ * Make slider images fluid
+ */
+.slides img {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+/**
+ * Clearfix
+ */
+
+.slider:before, .slider:after {
+	display: table;
+	content: "";
+}
+
+.slider:after {
+	clear: both;
+}

@@ -1,0 +1,84 @@
+/**
+ * @section Modals
+ */
+
+/**
+ * Hide modal window by default
+ */
+.modal {
+	display: none;
+	visibility: hidden;
+	z-index: 9999;
+	background-color: $color-white;
+	// border: .071428571em solid #999;
+	padding: .470588235em .823529412em;
+	// box-shadow: 0 .235294118em .470588235em rgba(0, 0, 0, 0.3);
+}
+
+/**
+ * When active, show modal window
+ */
+.modal.active {
+	display: block;
+	visibility: visible;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+// /*  Styling for modal window background */
+// .modal-bg {
+// position: fixed;
+// top: 0;
+// right: 0;
+// bottom: 0;
+// left: 0;
+// z-index: 9998;
+// background-color: $color-gray-dark;
+// opacity: .85;
+// filter: alpha(opacity=85);
+// }
+
+/**
+ * Styling for close button
+ */
+.close {
+	float: right;
+	color: $color-gray-dark;
+	font-size: 1.529411765em;
+	cursor: pointer;
+}
+
+/**
+ * Styling for close button on hover
+ */
+.close:hover {
+	color: $color-black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+// /*  Modal styling for bigger screens */
+// @media (min-width: $bp-medium) {
+// 	.modal.active {
+// 		top: 8%;
+// 		left: 8%;
+// 		right: 8%;
+// 		height: 92%;
+// 	}
+// }
+
+// .modal-full.active {
+// 	top: 0;
+// 	left: 0;
+// 	bottom: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	overflow: auto;
+// 	-webkit-overflow-scrolling: touch;
+// }

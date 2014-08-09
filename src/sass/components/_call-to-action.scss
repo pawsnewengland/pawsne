@@ -1,0 +1,29 @@
+/**
+ * @section Call-to-Action Links
+ * Call to action links and text on the landing page.
+ */
+
+.url-action {
+	display: block;
+	color: $color-black;
+}
+
+.url-action:hover {
+	color: $color-gray-dark;
+	text-decoration: none;
+}
+
+.url-action-icon {
+	float: left;
+	font-size: 3em;
+	margin-right: .4em;
+	line-height: 1.4;
+}
+
+.url-action-header {
+	color: $color-secondary;
+}
+
+.url-action:hover .url-action-header {
+	color: $color-black;
+}

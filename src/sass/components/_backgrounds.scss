@@ -1,0 +1,24 @@
+/**
+ * @section Background Colors
+ */
+
+.bg-color {
+	color: $color-white;
+	background-color: $color-primary;
+}
+
+.bg-color a {
+	color: darken( $color-gray-light, 15% );
+}
+
+.bg-color a:hover {
+	color: $color-white;
+}
+
+.hero {
+	background-color: lighten( $color-gray-light, 5% );
+	border: 1px solid $color-gray-light;
+	margin-bottom: 1.529411765em;
+	padding: 1.176470588em;
+	border-radius: .125em;
+}

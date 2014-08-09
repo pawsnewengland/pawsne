@@ -1,0 +1,174 @@
+/**
+ * @section Alignment, Spacing, & Visibility
+ */
+
+/**
+ * Text alignment
+ */
+
+.text-center {
+	text-align: center;
+
+}
+
+.text-left {
+	text-align: left;
+}
+
+@media (min-width: $bp-small) {
+	.text-right {
+		text-align: right;
+	}
+}
+
+
+/**
+ * Floats
+ */
+
+.float-left {
+	float: left;
+}
+
+.float-center {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.float-right {
+	float: right;
+}
+
+
+/**
+ * Spacing
+ */
+
+.no-space {
+	margin: 0;
+	padding: 0;
+}
+
+.no-space-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.no-space-top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.space-bottom {
+	margin-bottom: 2em;
+}
+
+.space-bottom-small {
+	margin-bottom: .470588235em;
+	padding-bottom: 0;
+}
+
+.space-bottom-big {
+	margin-bottom: 3em;
+}
+
+.space-top {
+	padding-top: .82352941234em;
+}
+
+.space-top-big {
+	padding-top: 1em;
+}
+
+.space-top-small {
+	padding-top: .470588235em;
+}
+
+
+/**
+ * Hides
+ */
+
+.screen-reader {
+	position: absolute;
+	top: -9999px;
+	left:-9999px;
+}
+
+.hide,
+.hide-no-js,
+.js .hide-js,
+.hide-mobile,
+.show-tablet,
+.show-desktop {
+	display: none;
+	visibility: hidden;
+}
+
+.show,
+.js .hide-no-js {
+	display: block;
+	visibility: visible;
+}
+
+
+@media (min-width: $bp-medium) {
+
+	.hide-tablet,
+	.show-mobile {
+		display: none;
+		visibility: hidden;
+	}
+
+	.hide-mobile,
+	.show-tablet {
+		display: block;
+		visibility: visible
+	}
+
+}
+
+@media (min-width: $bp-large) {
+
+	.hide-mobile,
+	.hide-tablet,
+	.show-desktop {
+		display: block;
+		visibility: visible;
+	}
+
+	.hide-desktop,
+	.show-mobile,
+	.show-tablet {
+		display: none;
+		visibility: hidden;
+	}
+
+}
+
+
+/**
+ * Clearfix
+ */
+
+.group:before,
+.group:after,
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+	display: table;
+	content: "";
+	*zoom: 1;
+}
+
+.group:after,
+.container:after,
+.row:after {
+	clear: both;
+}
+
+.clear {
+	@extend .group;
+}

@@ -1,0 +1,76 @@
+/**
+ * @section Tables
+ */
+
+/**
+ * Removes default browser settings and evens out inconsistencies.
+ */
+table {
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**
+ * Sets table width to 100%.
+ * Adds bottom-margin.
+ */
+.table {
+	width: 100%;
+	margin-bottom: 1.529411765em;
+}
+
+/**
+ * Adds table cell padding, aligns text to the left, and adds a top border to each cell.
+ */
+.table th,
+.table td {
+	padding: .470588235em;
+	border-top: .071428571em solid darken( $color-gray-light, 15% );
+}
+
+/**
+ * Sets table header font-weight to bold. Aligns table header text to the bottom of each cell.
+ */
+.table th {
+	vertical-align: bottom;
+}
+
+/**
+ * Aligns cell text to the top of each cell.
+ */
+.table td {
+	vertical-align: top;
+}
+
+/**
+ * Removes the border-top from the first row.
+ */
+.table thead:first-child tr th,
+.table thead:first-child tr td {
+	border-top: 0;
+}
+
+/**
+ * Adds border-top between two table-body sections.
+ */
+.table tbody + tbody {
+	border-top: .142857143em solid darken( $color-gray-light, 15% );
+}
+
+/**
+ * Reduces cell padding
+ */
+.table-condensed th,
+.table-condensed td {
+	padding: .470588235em .294117647em;
+}
+
+/**
+ * Remove spacing on forms in tables
+ */
+.table form,
+.table input,
+.table button {
+	margin-bottom: 0;
+}

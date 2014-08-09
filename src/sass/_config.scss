@@ -1,0 +1,54 @@
+// CONFIGURATION SETTINGS
+// Adjust colors, font stacks, breakpoints and sizing.
+//
+// Typographic Scale
+// (For math purposes. Actual font sizes in ems.)
+// 1px, 4px, 5px, 8px, 9px, 11px, 12px, 13px, 15px, 16px, 19px, 21px, 24px, 28px, 32px, 48px, 64px, 80px, 96px
+// line height: 1.5em on small screens, 1.5625em on big screens
+
+// Colors
+$color-primary: #6aa120;
+$color-secondary: #e0812a;
+$color-black: #272727;
+$color-white: #ffffff;
+$color-red: #e7a2b0;
+$color-brown: #453f27;
+
+// $color-success: #263b0c; // Green
+// $color-danger: #5b090e; // Red
+// $color-warning: #ece9e1;// #926a00; // Yellow
+$color-warning: #fff3d3; // Yellow
+$color-success: #bacf9d; // Green
+$color-danger: #f9c6c9; // Red
+$color-code: #dd1144;
+
+$color-gray-dark: #808080;
+$color-gray-light: #e5e5e5;
+
+$color-twitter: #41b7d8;
+$color-facebook: #3b5997;
+$color-instagram: #517fa4;
+$color-rss: #e0812a;
+
+
+
+// Font Stacks
+$font-primary: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+$font-secondary: Georgia, Times, serif;
+$font-monospace: Menlo, Monaco, "Courier New", monospace;
+
+
+// Breakpoints
+$bp-xsmall: 20em;
+$bp-small: 30em;
+$bp-medium: 42.5em;
+$bp-large: 60em;
+$bp-xlarge: 80em;
+
+
+// Sizing
+$font-base: 100%;
+$spacing: 1.5625em;
+$container-max: 60em;
+$container-width: 88%;
+$grid-margins: 1.4%;

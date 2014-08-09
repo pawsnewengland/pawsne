@@ -1,0 +1,269 @@
+/**
+ * @section Typography
+ */
+
+body {
+	font-family: $font-primary;
+	font-size: 100%;
+	line-height: 1.470588235;
+	color: $color-black;
+	background: $color-white;
+
+	@media (min-width: $bp-medium) {
+		line-height: 1.588235294;
+	}
+}
+
+p {
+	margin-bottom: 1.529411765em;
+}
+
+
+/**
+ * Sizes: For smaller and larger text
+ */
+
+.text-small {
+	font-size: .9375em;
+	line-height: 1.533333333;
+}
+
+.text-tall {
+	font-size: 1.166666667em;
+	line-height: 1.4;
+
+	@media (min-width: 42.5em) {
+		font-size: 1.352941176em;
+	}
+}
+
+.text-hero {
+	font-size: 1.764705882em;
+	line-height: 1.2;
+
+	@media (min-width: 42.5em) {
+		font-size: 2em;
+	}
+}
+
+.text-monsterous {
+	font-size: 6em;
+	line-height: 1;
+
+	@media (min-width: $bp-medium) {
+		font-size: 8em;
+	}
+}
+
+
+/**
+ * Colors: for alternate text colors
+ */
+
+.text-muted {
+	color: $color-gray-dark;
+}
+
+
+/**
+ * Links
+ */
+
+a {
+	word-wrap: break-word;
+}
+
+button {
+	background: transparent;
+}
+
+a,
+button {
+	color: $color-secondary;
+	text-decoration: none;
+}
+
+a:hover,
+button:hover {
+	color: $color-black;
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+	background: none;
+}
+
+/**
+ * Prevents border/background on linked image hover.
+ * Adds slight opacity.
+ */
+a:hover img {
+	border: none;
+	background: none;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+
+
+/**
+ * Lists
+ */
+
+ul, ol {
+	margin-bottom: 1.529411765em;
+	margin-left: 2em;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+	margin-bottom: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+/**
+ * Removes list styling.
+ * For semantic reasons, should only be used on unordered lists.
+ */
+.unstyled {
+	margin-left: 0;
+	list-style: none;
+}
+
+
+/**
+ * Headings: h1 through h6 styling
+ * Heading classes lets you use one heading type for semantics but style it as another heading type.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	font-weight: normal;
+	margin-bottom: 1em;
+	padding-top: 1em;
+}
+
+h1,
+.h1 {
+	font-size: 1.529411765em;
+	padding-top: .5em;
+
+	@media (min-width: $bp-medium) {
+		font-size: 1.764705882em;
+	}
+}
+
+h2,
+.h2 {
+	font-size: 1.352941176em;
+}
+
+h3,
+.h3 {
+	font-size: 1.176470588em;
+}
+
+h4, h5, h6,
+.h4, .h5, .h6 {
+	font-size: .882352941em;
+}
+
+h4,
+.h4 {
+	text-transform: uppercase;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
+	text-decoration: none;
+}
+
+
+/**
+ * Lines
+ */
+hr {
+	margin: 2em auto;
+	border: 0;
+	border-top: .071428571em solid $color-gray-light;
+	border-bottom: .071428571em solid $color-white;
+}
+
+/**
+ * Bold
+ */
+strong {
+	font-weight: bold;
+}
+
+/**
+ * Italics
+ */
+em {
+	font-style: italic;
+}
+
+/**
+ * Subscript & Superscript
+ */
+
+sub,
+sup {
+	position: relative;
+	font-size: 85%;
+	font-weight: bold;
+	line-height: 0;
+	vertical-align: baseline;
+	margin-left: .3em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+/**
+ * Highlighting colors
+ */
+::selection {
+	color: $color-white;
+	background: $color-primary;
+}
+
+::moz-selection {
+	color: $color-white;
+	background: $color-primary;
+}
+
+/**
+ * Blockquotes
+ */
+
+blockquote {
+	border-left: .235294118em solid $color-gray-light;
+	margin-bottom:1.529411765em;
+	padding-left: 1.529411765em;
+	padding-right: 1.529411765em;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}

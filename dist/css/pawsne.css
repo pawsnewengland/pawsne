@@ -1,39 +1,16 @@
 /**
- * pawsnewengland v5.4.2
+ * pawsnewengland v5.5.0
  * WordPress theme for PAWS New England, by Chris Ferdinandi.
  * http://github.com/pawsnewengland/pawsne
  */
 
-/* =============================================================
-
-	PAWS New England, by Chris Ferdinandi
-	http://gomakethings.com
-
-	COLORS
-	Black: #272727
-	Green: #6aa120
-	Green Dark: #507a18
-	Orange: #e0812a
-	Orange Dark: #a6601f
-	Tan: #ece9e1
-	Meta Gray: #808080
-	Border Gray: #a9a9a9
-
-
-	FONT STACKS
-	"Open Sans", Georgia, Times, serif
-	"Helvetica Neue", Arial, sans-serif
-
-
-	TYPOGRAPHIC SCALE
-	4px, 5px, 8px, 10px, 11px, 14px, 15px, 17px (base), 20px, 23px, 26px, 30px, 34px, 51px, 68px, 85px, 102px
-
- * ============================================================= */
-/* =============================================================
-	CSS RESET
-	Meyer's CSS Reset, Normalized.css, and custom code.
- * ============================================================= */
-/*  Mobile Screen Resizing */
+/**
+ * @section CSS Reset
+ * Meyer's CSS Reset, Normalized.css, and custom code.
+ */
+/**
+ * Mobile Screen Resizing
+ */
 @-webkit-viewport {
   width: device-width;
   zoom: 1; }
@@ -54,7 +31,9 @@
   width: device-width;
   zoom: 1; }
 
-/*  Remove browser defaults */
+/**
+ * Remove browser defaults
+ */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, button, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -64,67 +43,86 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font: inherit;
   vertical-align: baseline; }
 
-/*  Set display type for HTML5 semantic elements */
+/**
+ * Set display type for HTML5 semantic elements
+ */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
-/*  Force scrollbar display to prevent jumping on pages.
- *  Fix text resize bug on mobile devices. */
+/**
+ * Force scrollbar display to prevent jumping on pages.
+ * Fix text resize bug on mobile devices.
+ */
 html {
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-/*  Display audio, canvas, and video elements as inline block elements. */
+/**
+ * Display audio, canvas, and video elements as inline block elements.
+ */
 audio, canvas, video {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
 
-/*  Prevent modern browsers from displaying audio without controls. */
+/**
+ * Prevent modern browsers from displaying audio without controls.
+ */
 audio:not([controls]) {
   display: none; }
 
-/*  Prevent img and video elements from spilling
- *  outside of the page on smaller screens. */
+/**
+ * Prevent img and video elements from spilling outside of the page on smaller screens.
+ */
 img, video {
   max-width: 100%;
   height: auto; }
 
-/*  Prevent iframe, object, and embed elements from
- *  spilling outside of the page on smaller screens. */
+/**
+ * Prevent iframe, object, and embed elements from spilling outside of the page on smaller screens.
+ */
 iframe, object, embed {
   max-width: 100%; }
 
-/*  Prevents IE from making scaled images look like crap */
+/**
+ * Prevents IE from making scaled images look like crap
+ */
 img {
   -ms-interpolation-mode: bicubic; }
 
-/*  Address outline inconsistency between Chrome and other browsers. */
+/**
+ * Address outline inconsistency between Chrome and other browsers.
+ */
 a:focus, button:focus {
   outline: thin dotted;
   outline: 0.29412em auto-webkit-focus-ring-color;
   outline-offset: -0.14286em; }
 
-/*  Improve readability when focused and also mouse hovered in all browsers. */
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
 a:hover, a:active {
   outline: 0; }
 
-/* =============================================================
-	THE GRID
-	Structure and layout.
- * ============================================================= */
-/*  Mobile-first. Single-column layout by default
- *  Container sets the maximum page width. Adjust as needed. */
+/**
+ * @section The Grid
+ * Structure and layout.
+ */
+/**
+ * Mobile-first. Single-column layout by default
+ * Container sets the maximum page width. Adjust as needed.
+ */
 .container {
   max-width: 60em;
   width: 88%;
   margin-left: auto;
   margin-right: auto; }
 
-/*  Still mostly single-column.
- *  Grid-third, grid-half, and grid-img
- *  provide sub-gridding on smaller screens.  */
+/**
+ * Still mostly single-column.
+ * Grid-third, grid-half, and grid-img provide sub-gridding on smaller screens.
+ */
 @media (min-width: 30em) {
   /*  Reverses order of grid for content choreography */
   .row {
@@ -144,7 +142,9 @@ a:hover, a:active {
   .grid-flip {
     float: right; } }
 
-/*  6-column grid  */
+/**
+ * 6-column grid
+ */
 @media (min-width: 42.5em) {
   /*  Offets let you shift grid elements to the right
 	 *  but stay aligned to the grid. */
@@ -171,44 +171,32 @@ a:hover, a:active {
   .offset-5 {
     margin-left: 84.84848%; } }
 
-/*  Additional gridding for grid-img on bigger screens.
- *  Adjust as needed. */
+/**
+ * Additional gridding for grid-img on bigger screens.
+ */
 @media (min-width: 60em) {
   .grid-img {
     width: 21.9697%; } }
 
-/* =============================================================
-	TYPOGRAPHY
-	Sets font styles for entire site.
-
-	@font-face embedding
-	Web Fonts from fontspring.com. All OpenType features
-	and all extended glyphs have been removed. Fully installable
-	fonts can be purchased at http://www.fontspring.com. The fonts
-	included in this stylesheet are subject to the End User License
-	you purchased from Fontspring. The fonts are protected under domestic
-	and international trademark and copyright law. You are prohibited
-	from modifying, reverse engineering, duplicating, or distributing
-	this font software. (c) 2010-2011 Fontspring.
-	The fonts included are copyrighted by exljbris.
-	License URL: http://www.fontspring.com/fflicense/exljbris
- * ============================================================= */
+/**
+ * @section Typography
+ */
 body {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 100%;
   line-height: 1.47059;
   color: #272727;
   background: #ffffff; }
+  @media (min-width: 42.5em) {
+    body {
+      line-height: 1.58824; } }
 
 p {
   margin-bottom: 1.52941em; }
 
-@media (min-width: 42.5em) {
-  body {
-    line-height: 1.58824; } }
-
-/*  Sizes
- *  For smaller and larger text */
+/**
+ * Sizes: For smaller and larger text
+ */
 .text-small {
   font-size: 0.9375em;
   line-height: 1.53333; }
@@ -216,30 +204,33 @@ p {
 .text-tall {
   font-size: 1.16667em;
   line-height: 1.4; }
+  @media (min-width: 42.5em) {
+    .text-tall {
+      font-size: 1.35294em; } }
 
 .text-hero {
   font-size: 1.76471em;
   line-height: 1.2; }
+  @media (min-width: 42.5em) {
+    .text-hero {
+      font-size: 2em; } }
 
 .text-monsterous {
   font-size: 6em;
   line-height: 1; }
+  @media (min-width: 42.5em) {
+    .text-monsterous {
+      font-size: 8em; } }
 
-@media (min-width: 42.5em) {
-  .text-tall {
-    font-size: 1.35294em; }
-  .text-hero {
-    font-size: 2em; }
-  .text-monsterous {
-    font-size: 8em; } }
-
-/*  Colors
- *  For alternate text colors */
+/**
+ * Colors: for alternate text colors
+ */
 .text-muted {
   color: #808080; }
 
-/*  Links
- *  Hyperlink styling */
+/**
+ * Links
+ */
 a {
   word-wrap: break-word; }
 
@@ -258,16 +249,19 @@ a img {
   border: none;
   background: none; }
 
-/*  Prevents border/background on linked image hover.
- *  Adds slight opacity. */
+/**
+ * Prevents border/background on linked image hover.
+ * Adds slight opacity.
+ */
 a:hover img {
   border: none;
   background: none;
   opacity: 0.8;
   filter: alpha(opacity=80); }
 
-/*  Lists
- *  Styling for lists */
+/**
+ * Lists
+ */
 ul, ol {
   margin-bottom: 1.52941em;
   margin-left: 2em; }
@@ -281,17 +275,18 @@ ul {
 ol {
   list-style: decimal; }
 
-/*  Removes list styling.
- *  For semantic reasons, should only
- *  be used on unordered lists. */
+/**
+ * Removes list styling.
+ * For semantic reasons, should only be used on unordered lists.
+ */
 .unstyled {
   margin-left: 0;
   list-style: none; }
 
-/*  Headings
- *  h1 through h6 styling
- *  Heading class lets you use one heading type for semantics
- *  but style it as another heading type. */
+/**
+ * Headings: h1 through h6 styling
+ * Heading classes lets you use one heading type for semantics but style it as another heading type.
+ */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   font-weight: normal;
@@ -320,23 +315,30 @@ h4, .h4 {
 h1 a:hover, h2 a:hover, h3 a:hover {
   text-decoration: none; }
 
-/*  Lines, Quotes and Emphasis */
-/*  Lines */
+/**
+ * Lines
+ */
 hr {
   margin: 2em auto;
   border: 0;
   border-top: 0.07143em solid #e5e5e5;
   border-bottom: 0.07143em solid #ffffff; }
 
-/*  Bold */
+/**
+ * Bold
+ */
 strong {
   font-weight: bold; }
 
-/*  Italics */
+/**
+ * Italics
+ */
 em {
   font-style: italic; }
 
-/*  Subscript & Superscript */
+/**
+ * Subscript & Superscript
+ */
 sub, sup {
   position: relative;
   font-size: 85%;
@@ -351,7 +353,9 @@ sup {
 sub {
   bottom: -0.25em; }
 
-/*  Highlighting colors */
+/**
+ * Highlighting colors
+ */
 ::-moz-selection {
   color: #ffffff;
   background: #6aa120; }
@@ -363,7 +367,9 @@ sub {
   color: #ffffff;
   background: #6aa120; }
 
-/*  Blockquotes */
+/**
+ * Blockquotes
+ */
 blockquote {
   border-left: 0.23529em solid #e5e5e5;
   margin-bottom: 1.52941em;
@@ -377,10 +383,10 @@ blockquote:before, blockquote:after, q:before, q:after {
   content: '';
   content: none; }
 
-/* =============================================================
-	CALL TO ACTION LINKS
-	Styling for calls to action on landing page.
- * ============================================================= */
+/**
+ * @section Call-to-Action Links
+ * Call to action links and text on the landing page.
+ */
 .url-action {
   display: block;
   color: #272727; }
@@ -401,10 +407,9 @@ blockquote:before, blockquote:after, q:before, q:after {
 .url-action:hover .url-action-header {
   color: #272727; }
 
-/* =============================================================
-	BUTTONS
-	Styling for CSS3 buttons.
- * ============================================================= */
+/**
+ * @section Buttons
+ */
 .btn {
   display: inline-block;
   font-size: 0.88235em;
@@ -421,8 +426,8 @@ blockquote:before, blockquote:after, q:before, q:after {
   color: #ffffff; }
 
 .btn:hover, a .btn:hover, .btn.btn-disabled {
-  background: #507a18;
-  border-color: #507a18;
+  background: #416113;
+  border-color: #416113;
   text-decoration: none; }
 
 .btn-muted {
@@ -430,24 +435,24 @@ blockquote:before, blockquote:after, q:before, q:after {
   border-color: #808080; }
 
 .btn-muted:hover, a .btn-muted:hover, .btn-muted.btn-disabled {
-  background: #595959;
-  border-color: #595959; }
+  background: #5a5a5a;
+  border-color: #5a5a5a; }
 
 .btn-tweet {
   background: #41b7d8;
   border-color: #41b7d8; }
 
 .btn-tweet:hover, a .btn-tweet:hover {
-  background: #3697b2;
-  border-color: #3697b2; }
+  background: #238caa;
+  border-color: #238caa; }
 
 .btn-fb {
   background: #3b5997;
   border-color: #3b5997; }
 
 .btn-fb:hover, a .btn-fb:hover {
-  background: #2c4370;
-  border-color: #2c4370; }
+  background: #263960;
+  border-color: #263960; }
 
 .btn:active {
   -webkit-box-shadow: inset 0 0.14286em 0.23529em rgba(0, 0, 0, 0.15), 0 0.07143em 0.14286em rgba(0, 0, 0, 0.05);
@@ -487,10 +492,9 @@ button, .btn {
 .btn:first-child, input.btn {
   margin-left: 0; }
 
-/* =============================================================
-	FORMS
-	Styling for form elements.
- * ============================================================= */
+/**
+ * @section Forms
+ */
 form, fieldset {
   margin-bottom: 1.52941em; }
 
@@ -555,7 +559,9 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   outline: 0.29412em auto-webkit-focus-ring-color;
   outline-offset: -0.11765em; }
 
-/*  Search */
+/**
+ * Search
+ */
 .input-search {
   display: inline-block;
   width: 85%;
@@ -574,21 +580,27 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   color: #272727;
   text-decoration: none; }
 
-/*  Inline Inputs */
+/**
+ * Inline Inputs
+ */
 .input-inline, .input-inline label {
   display: inline-block;
   width: auto; }
 
-/*  Condensed Inputs */
+/**
+ * Condensed Inputs
+ */
 .input-condensed {
   line-height: 1;
   padding: 0.11765em; }
 
-/* =============================================================
-	PETFINDER API
-	Styling for list of our dogs.
- * ============================================================= */
-/* Main pet listings */
+/**
+ * @section Petfinder API
+ * Styling for list of available dogs.
+ */
+/**
+ * Main pet listings
+ */
 .pf {
   min-height: 16.70659em; }
 
@@ -599,7 +611,9 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   white-space: pre-wrap;
   word-break: keep-all; }
 
-/* Individual pets */
+/**
+ * Individual pets
+ */
 .pet-img-main img {
   max-height: 29.41176em; }
 
@@ -613,11 +627,10 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   margin-left: 1.51515%;
   margin-right: 1.51515%; }
 
-/* =============================================================
-	ICONS
-	Styling for the icon font.
-	Learn more at http://gomakethings.com/icon-fonts/
- * ============================================================= */
+/**
+ * @section Icons
+ * Styling for the icon font.
+ */
 /**
  * Include the icon font family
  */
@@ -641,7 +654,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
 
 .icon-large {
   font-size: 2em; }
-  @media (min-width: 40em) {
+  @media (min-width: 42.5em) {
     .icon-large {
       font-size: 3em; } }
 
@@ -694,7 +707,7 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
   color: #808080; }
 
 .icon-facebook {
-  color: #3B5997; }
+  color: #3b5997; }
 
 .icon-twitter {
   color: #41b7d8; }
@@ -707,9 +720,6 @@ input[type="file"]:focus, input[type="checkbox"]:focus, select:focus {
 
 .icon-rss {
   color: #e0812a; }
-
-.icon-logo {
-  color: #ffffff; }
 
 /**
  * Icons in links
@@ -738,22 +748,25 @@ a:hover .icon-link-text {
   top: -9999em;
   left: -9999em; }
 
-/* Icon Structure */
+/**
+ * Icon Grid
+ * Used on the landing page "Stay Connected" section
+ */
 .icon-grid {
   margin-left: 0.5em;
   margin-right: 0.5em; }
-  @media (min-width: 40em) {
+  .icon-grid:first-child {
+    margin-left: 0; }
+  .icon-grid:last-child {
+    margin-right: 0; }
+  @media (min-width: 42.5em) {
     .icon-grid {
       margin-left: 1em;
       margin-right: 1em; } }
 
-.icon-grid:first-child {
-  margin-left: 0; }
-
-.icon-grid:last-child {
-  margin-right: 0; }
-
-/*  CSS3 Icons */
+/**
+ * CSS3 Icons
+ */
 .icon-bar {
   display: block;
   width: 1.17647em;
@@ -764,7 +777,9 @@ a:hover .icon-link-text {
 .icon-bar + .icon-bar {
   margin-top: 0.1875em; }
 
-/* Loading Icon */
+/**
+ * Loading Icon
+ */
 .loading {
   font-size: 5.5em;
   overflow: hidden;
@@ -826,41 +841,43 @@ a:hover .icon-link-text {
     -webkit-box-shadow: -0.11em -0.83em 0 -0.4em #808080, -0.11em -0.83em 0 -0.42em #808080, -0.11em -0.83em 0 -0.44em #808080, -0.11em -0.83em 0 -0.46em #808080, -0.11em -0.83em 0 -0.477em #808080;
     box-shadow: -0.11em -0.83em 0 -0.4em #808080, -0.11em -0.83em 0 -0.42em #808080, -0.11em -0.83em 0 -0.44em #808080, -0.11em -0.83em 0 -0.46em #808080, -0.11em -0.83em 0 -0.477em #808080; } }
 
-/* =============================================================
-	ALERTS
-	Styling for alert messages.
- * ============================================================= */
+/**
+ * @section Alerts
+ */
 .alert {
-  color: #926a00;
+  color: #6d4e00;
   background-color: #fff3d3;
-  border: 0.07143em solid #ffdc7c;
+  border: 0.07143em solid #ffd66d;
   margin-bottom: 1.52941em;
   padding: 0.23529em 0.82353em;
   border-radius: 0.23529em; }
 
-.alert-danger {
-  color: #5b090e;
-  background-color: #f9c6c9;
-  border: 0.07143em solid #f48e93; }
-
 .alert-success {
-  color: #263b0c;
+  color: #2c381b;
   background-color: #bacf9d;
-  border: 0.07143em solid #6aa120; }
+  border: 0.07143em solid #7d9f4e; }
 
-/* =============================================================
-	IMAGES
-	Image styling.
- * ============================================================= */
-/*  Display all images as centered block elements.
- *  Mobile-first default styling. */
+.alert-danger {
+  color: #51090d;
+  background-color: #f9c6c9;
+  border: 0.07143em solid #ef6a73; }
+
+/**
+ * WordPress Images
+ */
+/**
+ * Display all images as centered block elements.
+ * Mobile-first default styling.
+ */
 .alignleft, .alignright, .aligncenter, .alignnone {
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto; }
 
-/*  Image Caption Styling */
+/**
+ * Image Caption Styling
+ */
 .wp-caption-text {
   font-size: 0.88235em;
   font-style: italic;
@@ -869,11 +886,15 @@ a:hover .icon-link-text {
   text-align: center; }
 
 @media (min-width: 30em) {
-  /*  On bigger screens, float .alignleft images
-	 *  to the left with a slight margin-right. */
-  /*  On bigger screens, float .alignright images
-	 *  to the right with a slight margin-left. */
-  /*  On bigger screens, remove left and right margins from .alignnone */
+  /**
+	 * On bigger screens, float .alignleft images to the left with a slight margin-right.
+	 */
+  /**
+	 * On bigger screens, float .alignright images to the right with a slight margin-left.
+	 */
+  /**
+	 * On bigger screens, remove left and right margins from .alignnone.
+	 */
   .alignleft {
     float: left;
     margin-right: 0.82353em; }
@@ -884,72 +905,87 @@ a:hover .icon-link-text {
     margin-left: 0;
     margin-right: 0; } }
 
-/* =============================================================
-	TABLES
-	Table styling.
- * ============================================================= */
-/*  Removes default browser settings
- *  and evens out inconsistencies. */
+/**
+ * @section Tables
+ */
+/**
+ * Removes default browser settings and evens out inconsistencies.
+ */
 table {
   max-width: 100%;
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*  Sets table width to 100%.
- *  Adds bottom-margin. */
+/**
+ * Sets table width to 100%.
+ * Adds bottom-margin.
+ */
 .table {
   width: 100%;
   margin-bottom: 1.52941em; }
 
-/*  Adds table cell padding,
- *  aligns text to the left,
- *  and adds a top border to each cell. */
+/**
+ * Adds table cell padding, aligns text to the left, and adds a top border to each cell.
+ */
 .table th, .table td {
   padding: 0.47059em;
-  border-top: 0.07143em solid #b8b8b8; }
+  border-top: 0.07143em solid #bfbfbf; }
 
-/*  Sets table header font-weight to bold.
- *  Aligns table header text to the bottom of each cell. */
+/**
+ * Sets table header font-weight to bold. Aligns table header text to the bottom of each cell.
+ */
 .table th {
   vertical-align: bottom; }
 
-/*  Aligns cell text to the top of each cell. */
+/**
+ * Aligns cell text to the top of each cell.
+ */
 .table td {
   vertical-align: top; }
 
-/*  Removes the border-top from the first row. */
+/**
+ * Removes the border-top from the first row.
+ */
 .table thead:first-child tr th, .table thead:first-child tr td {
   border-top: 0; }
 
-/*  Adds border-top between two table-body sections. */
+/**
+ * Adds border-top between two table-body sections.
+ */
 .table tbody + tbody {
-  border-top: 0.14286em solid #b8b8b8; }
+  border-top: 0.14286em solid #bfbfbf; }
 
-/*  Reduces cell padding */
+/**
+ * Reduces cell padding
+ */
 .table-condensed th, .table-condensed td {
   padding: 0.47059em 0.29412em; }
 
-/*  Remove spacing on forms in tables */
+/**
+ * Remove spacing on forms in tables
+ */
 .table form, .table input, .table button {
   margin-bottom: 0; }
 
-/* =============================================================
-	NAVIGATION
-	Navigation menu styling.
- * ============================================================= */
+/**
+ * @section Navigation
+ */
 .nav-bg {
   background-color: #6aa120;
   margin-bottom: 0.82353em; }
 
-/*  Center all navigation elements */
+/**
+ * Center all navigation elements
+ */
 .nav-wrap {
   text-align: center;
   padding-top: 0.47059em;
   padding-bottom: 0.23529em; }
 
-/*  For text-based logo, override default link styling.
- *  If .logo and .nav don't align properly,
- *  adjust the .logo line-height. */
+/**
+ * For text-based logo, override default link styling.
+ * If .logo and .nav don't align properly, adjust the .logo line-height.
+ */
 .logo {
   display: inline-block;
   font-weight: bold;
@@ -957,64 +993,92 @@ table {
   font-size: 1.17647em;
   color: #ffffff;
   text-decoration: none; }
+  .logo:hover {
+    color: #ffffff;
+    text-decoration: none; }
 
-/*  For text-based logo, override default link hover styling */
-.logo:hover {
-  color: #ffffff;
-  text-decoration: none; }
-
-/*  Remove default list styling for navigation list */
+/**
+ * Remove default list styling for navigation list
+ */
 .nav {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0.47059em; }
 
-/*  Display navigation items as inline-block elements.
- *  Add slight margin between each navigation item. */
+/**
+ * Display navigation items as inline-block elements.
+ * Add slight margin between each navigation item.
+ */
 .nav > li {
   display: inline-block;
   float: none;
   margin-left: 0.58824em;
   margin-right: 0.58824em; }
 
-/*  Remove margin-left on first navigation item */
+/**
+ * Remove margin-left on first navigation item
+ */
 .nav > li:first-child {
   margin-left: 0; }
 
-/*  Remove margin-right on last navigation item */
+/**
+ * Remove margin-right on last navigation item
+ */
 .nav > li:last-child {
   margin-right: 0; }
 
-/*  Nav link styling */
+/**
+ * Nav link styling
+ */
 .nav > li > a {
   color: #d8d8d8; }
 
-/*  Nav link hover and active styling */
+/**
+ * Nav link hover and active styling
+ */
 .nav > li > a:hover, .nav > li > a.active {
   color: #ffffff; }
 
-/*  Hide the navigation toggle menu button
- *  and search toggle button by default. */
+/**
+ * Hide the navigation toggle menu button and search toggle button by default.
+ */
 .nav-toggle {
   display: none;
   visibility: hidden; }
 
-/*  Expand-and-Collapse styling for smaller screens.
- *  Remove if not using.
- *  Change max-width to fit your project. */
+/**
+ * Expand-and-Collapse styling for smaller screens.
+ * .js-astro prefix ensure content is only hidden when JavaScript is supported.
+ */
 @media (max-width: 60em) {
-  /*  .js-astro prefix ensure content is only hidden when JavaScript is supported. */
-  /*  Align text to the left when javascript is supported */
-  /*  Float logo to the left when javascript is supported */
-  /*  Nav link active styling */
-  /*  Display navigation toggle button if javascript is supported */
-  /* Increase base size of nav toggle button */
-  /*  Hide navigation items if javascript is supported */
-  /*  When collapsed element has the .active class, show it
-	 *  Uses max-height instead of display: none to allow for
-	 *  CSS3 animations, which don't work on display values. */
-  /* When JavaScript is enabled, float .nav text to the left */
-  /*  Display navigation items as full-width, stacked blocks when javascript supported */
+  /**
+	 * Align text to the left when javascript is supported
+	 */
+  /**
+	 * Float logo to the left when javascript is supported
+	 */
+  /**
+	 * Nav link active styling
+	 */
+  /**
+	 * Display navigation toggle button if javascript is supported
+	 */
+  /**
+	 * Increase base size of nav toggle button
+	 */
+  /**
+	 * Hide navigation items if javascript is supported
+	 */
+  /**
+	 * When collapsed element has the .active class, show it
+	 * Uses max-height instead of display: none to allow for CSS3 animations, which don't work on display values.
+	 */
+  /**
+	 * When JavaScript is enabled, float .nav text to the left
+	 */
+  /**
+	 * Display navigation items as full-width, stacked blocks when javascript supported
+	 */
   .js-astro .nav-wrap {
     text-align: left; }
   .js-astro .logo {
@@ -1054,11 +1118,19 @@ table {
     padding-top: 0.23529em;
     padding-bottom: 0.23529em; } }
 
-/*  Nav styling for even bigger screens. */
+/**
+ * Nav styling for even bigger screens.
+ */
 @media (min-width: 60em) {
-  /*  Align text to the left */
-  /*  Float logo to the left, display as inline-block, and adjust margins */
-  /*  Reduce the top margin and remove the bottom margin */
+  /**
+	 * Align text to the left
+	 */
+  /**
+	 * Float logo to the left, display as inline-block, and adjust margins
+	 */
+  /**
+	 * Reduce the top margin and remove the bottom margin
+	 */
   .nav-wrap {
     text-align: left;
     padding-top: 0.23529em; }
@@ -1069,15 +1141,18 @@ table {
   .nav {
     margin-bottom: 0; } }
 
-/* =============================================================
-	DROPDOWN MENUS
-	Basic dropdown styling.
- * ============================================================= */
-/*  Sets dropdown link to relative positioning */
+/**
+ * @section Dropdown Menus
+ */
+/**
+ * Sets dropdown link to relative positioning
+ */
 .dropdown {
   position: relative; }
 
-/*  Display a caret after each dropdown link when JavaScript is supported. */
+/**
+ * Display a caret after each dropdown link when JavaScript is supported.
+ */
 .dropdown .text-show-more, .dropdown .text-show-less, .js-drop .dropdown.active .text-show-more {
   width: 0.4em;
   display: none;
@@ -1087,8 +1162,10 @@ table {
   display: inline-block;
   visibility: visible; }
 
-/*  Styling for the dropdown content.
- *  Hides the content by default. */
+/**
+ * Styling for the dropdown content.
+ * Hides the content by default.
+ */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -1099,7 +1176,7 @@ table {
   margin-top: 0.47059em;
   margin-left: 0;
   text-align: left;
-  border: 0.07143em solid #b8b8b8;
+  border: 0.07143em solid #bfbfbf;
   background-color: #ffffff;
   z-index: 1000;
   border-radius: 0.29412em;
@@ -1111,13 +1188,16 @@ table {
   -webkit-background-clip: padding-box;
   background-clip: padding-box; }
 
-/*  Remove list-style and margin-left
- *  from dropdown menu lists */
+/**
+ * Remove list-style and margin-left from dropdown menu lists
+ */
 .dropdown-menu ul, .dropdown-menu ol {
   margin-left: 0;
   list-style: none; }
 
-/*  Dropdrown link styling */
+/**
+ * Dropdrown link styling
+ */
 .dropdown-menu a {
   display: block;
   color: #272727;
@@ -1126,32 +1206,42 @@ table {
   padding-left: 0.47059em;
   padding-right: 0.47059em; }
 
-/*  Dropdrown link hover styling */
+/**
+ * Dropdrown link hover styling
+ */
 .dropdown-menu a:hover {
   color: #ffffff;
   background-color: #6aa120;
   text-decoration: none; }
 
-/*  When a dropdown is active, display it. */
+/**
+ * When a dropdown is active, display it.
+ */
 .dropdown-menu.active {
   display: block;
   visibility: visible;
   padding-top: 0.47059em;
   padding-bottom: 0.47059em; }
 
-/*  Small screen styling for use with
- *  collapse-and-toggle navigation menus.
- *  Learn more - http://cferdinandi.github.com/astro/ */
+/**
+ * Small screen styling for use with collapse-and-toggle navigation menus.
+ */
 @media (max-width: 60em) {
-  /*  Switch dropdown content to relative positioning.
-	 *  Remove styling. */
-  /*  Override default link color on small screens. */
-  /*  Override default link hover color on small screens. */
+  /**
+	 * Switch dropdown content to relative positioning.
+	 * Remove styling.
+	 */
+  /**
+	 * Override default link color on small screens.
+	 */
+  /**
+	 * Override default link hover color on small screens.
+	 */
   .js-drop .dropdown-menu {
     position: relative;
     float: none;
     min-width: 100%;
-    background-color: #507a18;
+    background-color: #527b18;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none; }
@@ -1164,33 +1254,42 @@ table {
     background-color: transparent;
     text-decoration: underline; } }
 
-/* =============================================================
-	HOUDINI COLLAPSE & EXPAND
-	The widget styling.
- * ============================================================= */
-/*  Hide the collapse and expand link or button by default */
+/**
+ * @section Houdini: collapse and expand widget
+ */
+/**
+ * Hide the collapse and expand link or button by default
+ */
 .collapse-toggle {
   display: none;
   visibility: hidden; }
 
-/*  If JavaScript is enabled, show the collapse and expand link or button */
+/**
+ * If JavaScript is enabled, show the collapse and expand link or button
+ */
 .js-houdini .collapse-toggle {
   display: inline;
   visibility: visible;
   cursor: pointer; }
 
-/*  When expanded, hide "show" text.
-  *  When collapsed, hide "hide" text. */
+/**
+ * When expanded, hide "show" text.
+ * When collapsed, hide "hide" text.
+ */
 .active .collapse-text-show, .collapse-text-hide {
   display: none;
   visibility: hidden; }
 
-/*  When expanded, show "hide" text. */
+/**
+ * When expanded, show "hide" text.
+ */
 .active .collapse-text-hide {
   display: inline;
   visibility: visible; }
 
-/* If JavaScript is enabled, hide the collapsed element */
+/**
+ * If JavaScript is enabled, hide the collapsed element
+ */
 .js-houdini .collapse {
   max-height: 0;
   overflow: hidden;
@@ -1198,9 +1297,10 @@ table {
   -webkit-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease; }
 
-/*  When collapsed element has the .active class, show it
-  *  Uses max-height instead of display: none to allow for
-  *  CSS3 animations, which don't work on display values. */
+/**
+ * When collapsed element has the .active class, show it
+ * Uses max-height instead of display: none to allow for CSS3 animations, which don't work on display values.
+ */
 .js-houdini .collapse.active {
   max-height: 9999em;
   opacity: 1; }
@@ -1216,11 +1316,12 @@ table {
   display: block;
   visibility: visible; }
 
-/* =============================================================
-	MODALS
-	Modal window styling.
- * ============================================================= */
-/*  Hide modal window by default */
+/**
+ * @section Modals
+ */
+/**
+ * Hide modal window by default
+ */
 .modal {
   display: none;
   visibility: hidden;
@@ -1228,7 +1329,9 @@ table {
   background-color: #ffffff;
   padding: 0.47059em 0.82353em; }
 
-/*  When active, show modal window */
+/**
+ * When active, show modal window
+ */
 .modal.active {
   display: block;
   visibility: visible;
@@ -1240,96 +1343,112 @@ table {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-/*  Styling for close button */
+/**
+ * Styling for close button
+ */
 .close {
   float: right;
   color: #808080;
   font-size: 1.52941em;
   cursor: pointer; }
 
-/*  Styling for close button on hover */
+/**
+ * Styling for close button on hover
+ */
 .close:hover {
   color: #272727;
   text-decoration: none;
   cursor: pointer; }
 
-/* =============================================================
-	SLIDER
-	Image carousel styling.
- * ============================================================= */
-/*  When HTML5 JS features supported, hide slider */
+/**
+ * Slider
+ */
+/**
+ * When HTML5 JS features supported, hide slider
+ */
 .js .slider {
   position: relative;
   overflow: hidden;
   visibility: hidden; }
 
-/*  When HTML5 JS features supported, hide slides */
+/**
+ * When HTML5 JS features supported, hide slides
+ */
 .js .slides {
   overflow: hidden;
   position: relative; }
 
-/*  Add a margin-bottom to each slide */
+/**
+ * Add a margin-bottom to each slide
+ */
 .slides > div {
   margin-bottom: 0.47059em; }
 
-/*  When HTML5 JS features supported, set width to 100%
-  *  and float slides to the left. */
+/**
+ * When HTML5 JS features supported, set width to 100% and float slides to the left.
+ */
 .js .slides > div {
   width: 100%;
   float: left;
   position: relative; }
 
-/*  Make slider images fluid */
+/**
+ * Make slider images fluid
+ */
 .slides img {
   max-width: 100%;
   width: 100%;
   height: auto; }
 
-/*  Remove floats */
+/**
+ * Clearfix
+ */
 .slider:before, .slider:after {
   display: table;
   content: ""; }
 
-/*  Remove floats */
 .slider:after {
   clear: both; }
 
-/* =============================================================
-	BACKGROUND COLORS
-	Styling for background colors.
- * ============================================================= */
+/**
+ * @section Background Colors
+ */
 .bg-color {
   color: #ffffff;
   background-color: #6aa120; }
 
 .bg-color a {
-  color: #d8d8d8; }
+  color: #bfbfbf; }
 
 .bg-color a:hover {
   color: #ffffff; }
 
 .hero {
-  background: #ece9e1;
+  background-color: #f2f2f2;
+  border: 1px solid #e5e5e5;
   margin-bottom: 1.52941em;
   padding: 1.17647em;
   border-radius: 0.125em; }
 
-/* =============================================================
-	ALIGNMENT, SPACING & VISIBILITY
-	Styling for floats, hides, text-alignment, etc.
- * ============================================================= */
-/*  Text alignment */
+/**
+ * @section Alignment, Spacing, & Visibility
+ */
+/**
+ * Text alignment
+ */
 .text-center {
   text-align: center; }
+
+.text-left {
+  text-align: left; }
 
 @media (min-width: 30em) {
   .text-right {
     text-align: right; } }
 
-.text-left {
-  text-align: left; }
-
-/*  Floats */
+/**
+ * Floats
+ */
 .float-left {
   float: left; }
 
@@ -1341,7 +1460,9 @@ table {
 .float-right {
   float: right; }
 
-/*  Spacing */
+/**
+ * Spacing
+ */
 .no-space {
   margin: 0;
   padding: 0; }
@@ -1373,7 +1494,9 @@ table {
 .space-top-small {
   padding-top: 0.47059em; }
 
-/*  Hides */
+/**
+ * Hides
+ */
 .screen-reader {
   position: absolute;
   top: -9999px;
@@ -1403,7 +1526,9 @@ table {
     display: none;
     visibility: hidden; } }
 
-/*  Clearfix */
+/**
+ * Clearfix
+ */
 .group:before, .clear:before, .group:after, .clear:after, .container:before, .container:after, .row:before, .row:after {
   display: table;
   content: "";
@@ -1412,29 +1537,45 @@ table {
 .group:after, .clear:after, .container:after, .row:after {
   clear: both; }
 
-/* =============================================================
-	PRINT STYLES
-	Styling for printed content.
-	Adapted from HTML5BP.
-	http://html5boilerplate.com/
- * ============================================================= */
+/**
+ * @section Print
+ * Adapted from HTML5 Boilerplate: http://html5boilerplate.com/
+ */
 @media print {
-  /*  Universal selector.
-	 *  Reset all content to transparent background,
-	 *  black color, and remove box and text shadows. */
-  /*  Specifies page margin */
+  /**
+	 * Reset all content to transparent background, black color, and remove box and text shadows.
+	 */
+  /**
+	 * Specifies page margin
+	 */
   @page {
     margin: 0.5cm; }
 
-  /*  Underline all links */
-  /*  Show URL after links */
-  /*  Don't show URL for internal links */
-  /*  Specifies the minimum number of lines to print at the top and bottom of a page. */
-  /*  Avoid inserting a page break after headers */
-  /*  Change border color on blockquotes and preformatted text.
-	 *  Avoid page breaks inside the content */
-  /*  Displayed as a table header row group */
-  /*  Avoid inserting a page break inside table rows and images */
+  /**
+	 * Underline all links
+	 */
+  /**
+	 * Show URL after links
+	 */
+  /**
+	 * Don't show URL for internal links
+	 */
+  /**
+	 * Specifies the minimum number of lines to print at the top and bottom of a page.
+	 */
+  /**
+	 * Avoid inserting a page break after headers
+	 */
+  /**
+	 * Change border color on blockquotes and preformatted text.
+	 * Avoid page breaks inside the content
+	 */
+  /**
+	 * Displayed as a table header row group
+	 */
+  /**
+	 * Avoid inserting a page break inside table rows and images
+	 */
   * {
     background: transparent !important;
     color: #000 !important;
