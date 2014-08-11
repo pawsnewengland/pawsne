@@ -146,8 +146,7 @@ a:hover, a:active {
  * Structure and layout.
  */
 /**
- * Mobile-first. Single-column layout by default
- * Container sets the maximum page width.
+ * Base grid styles: single column
  */
 .container {
   max-width: 60em;
@@ -161,18 +160,7 @@ a:hover, a:active {
   margin-right: -1.4%;
 }
 
-.grid-fourth,
-.grid-third,
-.grid-half,
-.grid-two-thirds,
-.grid-three-fourths,
-.grid-full,
-.grid-img,
-.grid-1,
-.grid-2,
-.grid-3,
-.grid-4,
-.grid-6 {
+.grid-1, .grid-fourth, .grid-third, .grid-2, .grid-half, .grid-3, .grid-two-thirds, .grid-4, .grid-three-fourths {
   float: left;
   width: 100%;
   padding-left: 1.4%;
@@ -187,26 +175,7 @@ a:hover, a:active {
 }
 
 /**
- * Image gallery
- */
-@media (min-width: 30em) {
-  .grid-img {
-    width: 50%;
-  }
-}
-@media (min-width: 42.5em) {
-  .grid-img {
-    width: 33.33333333333%;
-  }
-}
-@media (min-width: 60em) {
-  .grid-img {
-    width: 25%;
-  }
-}
-
-/**
- * Grid structure
+ * Add columns to grid on bigger screens
  */
 @media (min-width: 20em) {
   .row-start-xsmall .grid-1 {
@@ -355,6 +324,25 @@ a:hover, a:active {
     margin-left: 75%;
   }
 }
+/**
+ * Image gallery
+ */
+@media (min-width: 30em) {
+  .grid-img {
+    width: 50%;
+  }
+}
+@media (min-width: 42.5em) {
+  .grid-img {
+    width: 33.33333333333%;
+  }
+}
+@media (min-width: 60em) {
+  .grid-img {
+    width: 25%;
+  }
+}
+
 /**
  * @section Typography
  */

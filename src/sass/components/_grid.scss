@@ -4,8 +4,7 @@
  */
 
 /**
- * Mobile-first. Single-column layout by default
- * Container sets the maximum page width.
+ * Base grid styles: single column
  */
 .container {
 	max-width: $container-max;
@@ -19,22 +18,17 @@
 	margin-right: $grid-margins * -1;
 }
 
-.grid-fourth,
-.grid-third,
-.grid-half,
-.grid-two-thirds,
-.grid-three-fourths,
-.grid-full,
-.grid-img,
-.grid-1,
-.grid-2,
-.grid-3,
-.grid-4,
-.grid-6, {
+%grid-base {
 	float: left;
 	width: 100%;
 	padding-left: $grid-margins;
 	padding-right: $grid-margins;
+}
+
+@each $grid, $width in ($grid-sizes) {
+	.grid-#{$grid} {
+		@extend %grid-base;
+	}
 }
 
 
@@ -47,17 +41,7 @@
 
 
 /**
- * Image gallery
- */
-.grid-img {
-	@media (min-width: $bp-small)  { width: 50%; }
-	@media (min-width: $bp-medium) { width: 33.33333333333%; }
-	@media (min-width: $bp-large)  { width: 25%; }
-}
-
-
-/**
- * Grid structure
+ * Add columns to grid on bigger screens
  */
 @each $breakpoint, $prefix, $offset in ($grid-breakpoints){
 	@media (min-width: $breakpoint) {
@@ -74,4 +58,13 @@
 			}
 		}
 	}
+}
+
+/**
+ * Image gallery
+ */
+.grid-img {
+	@media (min-width: $bp-small)  { width: 50%; }
+	@media (min-width: $bp-medium) { width: 33.33333333333%; }
+	@media (min-width: $bp-large)  { width: 25%; }
 }
