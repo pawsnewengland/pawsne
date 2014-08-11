@@ -1,10 +1,11 @@
-// CONFIGURATION SETTINGS
+// Boilerplate Settings & Options
 // Adjust colors, font stacks, breakpoints and sizing.
 //
 // Typographic Scale
 // (For math purposes. Actual font sizes in ems.)
 // 1px, 4px, 5px, 8px, 9px, 11px, 12px, 13px, 15px, 16px, 19px, 21px, 24px, 28px, 32px, 48px, 64px, 80px, 96px
 // line height: 1.5em on small screens, 1.5625em on big screens
+
 
 // Colors
 $color-primary: #6aa120;
@@ -14,9 +15,6 @@ $color-white: #ffffff;
 $color-red: #e7a2b0;
 $color-brown: #453f27;
 
-// $color-success: #263b0c; // Green
-// $color-danger: #5b090e; // Red
-// $color-warning: #ece9e1;// #926a00; // Yellow
 $color-warning: #fff3d3; // Yellow
 $color-success: #bacf9d; // Green
 $color-danger: #f9c6c9; // Red
@@ -29,7 +27,6 @@ $color-twitter: #41b7d8;
 $color-facebook: #3b5997;
 $color-instagram: #517fa4;
 $color-rss: #e0812a;
-
 
 
 // Font Stacks
@@ -51,4 +48,23 @@ $font-base: 100%;
 $spacing: 1.5625em;
 $container-max: 60em;
 $container-width: 88%;
+
+
+// Grid
 $grid-margins: 1.4%;
+$grid-sizes: ( // name: width
+	1: 16.66666666667%,
+	fourth: 25%,
+	third: 33.33333333333%,
+	2: 33.33333333333%,
+	half: 50%,
+	3: 50%,
+	two-thirds: 66.666666666667%,
+	4: 66.666666666667%,
+	three-fourths: 75%
+);
+$grid-breakpoints: ( // breakpoint, prefix, include offsets (boolean)
+	($bp-xsmall, ".row-start-xsmall", false),
+	($bp-small, ".row-start-small", false),
+	($bp-medium, null, true)
+)

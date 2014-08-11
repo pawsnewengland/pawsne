@@ -38,13 +38,17 @@
 }
 
 
-/* Reverses order of grid for content choreography */
+/**
+ * Reverses order of grid for content choreography
+ */
 .grid-flip {
 	float: right;
 }
 
 
-/* Image gallery */
+/**
+ * Image gallery
+ */
 .grid-img {
 	@media (min-width: $bp-small)  { width: 50%; }
 	@media (min-width: $bp-medium) { width: 33.33333333333%; }
@@ -53,76 +57,21 @@
 
 
 /**
- * Still mostly single-column.
- * Option to activate grid on extra small screens.
+ * Grid structure
  */
-@media (min-width: $bp-xsmall) {
-	.row-start-xsmall {
-		.grid-1 { width: 16.66666666667% }
-		.grid-fourth { width: 25%; }
-		.grid-third,
-		.grid-2 { width: 33.33333333333%; }
-		.grid-half,
-		.grid-3 { width: 50%; }
-		.grid-two-thirds,
-		.grid-4 { width: 66.666666666667%; }
-		.grid-three-fourths { width: 75%; }
+@each $breakpoint, $prefix, $offset in ($grid-breakpoints){
+	@media (min-width: $breakpoint) {
+		@each $grid, $width in ($grid-sizes) {
+			#{$prefix} .grid-#{$grid} {
+				width: $width;
+			}
+		}
+		@if $offset {
+			@each $grid, $width in ($grid-sizes) {
+				#{$prefix} .offset-#{$grid} {
+					margin-left: $width;
+				}
+			}
+		}
 	}
-}
-
-
-/**
- * Still mostly single-column.
- * Option to activate grid on small screens.
- */
-@media (min-width: $bp-small) {
-	.row-start-small {
-		.grid-1 { width: 16.66666666667% }
-		.grid-fourth { width: 25%; }
-		.grid-third,
-		.grid-2 { width: 33.33333333333%; }
-		.grid-half,
-		.grid-3 { width: 50%; }
-		.grid-two-thirds,
-		.grid-4 { width: 66.666666666667%; }
-		.grid-three-fourths { width: 75%; }
-	}
-
-}
-
-
-/**
- * Full 6-column grid.
- */
-@media (min-width: $bp-medium) {
-
-	.grid-1 { width: 16.66666666667% }
-	.grid-fourth { width: 25%; }
-	.grid-third,
-	.grid-2 { width: 33.33333333333%; }
-	.grid-half,
-	.grid-3 { width: 50%; }
-	.grid-two-thirds,
-	.grid-4 { width: 66.666666666667%; }
-	.grid-three-fourths { width: 75%; }
-
-	/**
-	 * Offets let you shift grid elements to the right but stay aligned to the grid.
-	 */
-	.offset-1 { margin-left: 16.66666666667% }
-	.offset-fourth { margin-left: 25%; }
-	.offset-third,
-	.offset-2 { margin-left: 33.33333333333%; }
-	.offset-half,
-	.offset-3 { margin-left: 50%; }
-	.offset-two-thirds,
-	.offset-4 { margin-left: 66.666666666667%; }
-	.offset-three-fourths { margin-left: 75%; }
-
-}
-
-/* Add clearfix */
-.container,
-.row {
-	@extend .group;
 }
