@@ -67,4 +67,20 @@ $grid-breakpoints: ( // breakpoint, prefix, include offsets (boolean)
 	($bp-xsmall, ".row-start-xsmall", false),
 	($bp-small, ".row-start-small", false),
 	($bp-medium, null, true)
-)
+);
+
+
+// Icons
+$icons: ( // name, character, color
+	("logo", "e600", null),
+	("home", "e601", $color-brown),
+	("heart", "e602", $color-red),
+	("time", "e603", $color-gray-dark),
+	("facebook", "e604", $color-facebook),
+	("twitter", "e605", $color-twitter),
+	("email", "e606", $color-primary),
+	("rss", "e607", $color-rss),
+	("search", "e608", null),
+	("filter", "e609", null),
+	("instagram", "e60b", $color-instagram)
+);

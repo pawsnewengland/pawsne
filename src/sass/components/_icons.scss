@@ -36,32 +36,19 @@
  * Icon content
  */
 
-.font-face .icon-logo:before      { content: "\e600"; }
-.font-face .icon-home:before      { content: "\e601"; }
-.font-face .icon-heart:before     { content: "\e602"; }
-.font-face .icon-time:before      { content: "\e603"; }
-.font-face .icon-facebook:before  { content: "\e604"; }
-.font-face .icon-twitter:before   { content: "\e605"; }
-.font-face .icon-email:before     { content: "\e606"; }
-.font-face .icon-rss:before       { content: "\e607"; }
-.font-face .icon-search:before    { content: "\e608"; }
-.font-face .icon-filter:before    { content: "\e609"; }
-.font-face .icon-instagram:before { content: "\e60b"; }
-
+@each $icon, $character, $color in ($icons) {
+	.font-face .icon-#{$icon}:before { content: "\#{$character}" };
+}
 
 /**
  * Icon colors
  */
 
-.icon-home      { color: $color-brown; }
-.icon-heart     { color: $color-red; }
-.icon-time      { color: $color-gray-dark; }
-.icon-facebook  { color: $color-facebook; }
-.icon-twitter   { color: $color-twitter; }
-.icon-instagram { color: $color-instagram; }
-.icon-email     { color: $color-primary; }
-.icon-rss       { color: $color-rss; }
-
+@each $icon, $character, $color in ($icons) {
+	@if $color {
+		.icon-#{$icon} { color: $color };
+	}
+}
 
 /**
  * Icons in links

@@ -965,47 +965,47 @@ select:focus {
  * Icon content
  */
 .font-face .icon-logo:before {
-  content: "\e600";
+  content: "\ee600";
 }
 
 .font-face .icon-home:before {
-  content: "\e601";
+  content: "\ee601";
 }
 
 .font-face .icon-heart:before {
-  content: "\e602";
+  content: "\ee602";
 }
 
 .font-face .icon-time:before {
-  content: "\e603";
+  content: "\ee603";
 }
 
 .font-face .icon-facebook:before {
-  content: "\e604";
+  content: "\ee604";
 }
 
 .font-face .icon-twitter:before {
-  content: "\e605";
+  content: "\ee605";
 }
 
 .font-face .icon-email:before {
-  content: "\e606";
+  content: "\ee606";
 }
 
 .font-face .icon-rss:before {
-  content: "\e607";
+  content: "\ee607";
 }
 
 .font-face .icon-search:before {
-  content: "\e608";
+  content: "\ee608";
 }
 
 .font-face .icon-filter:before {
-  content: "\e609";
+  content: "\ee609";
 }
 
 .font-face .icon-instagram:before {
-  content: "\e60b";
+  content: "\ee60b";
 }
 
 /**
@@ -1031,16 +1031,16 @@ select:focus {
   color: #41b7d8;
 }
 
-.icon-instagram {
-  color: #517fa4;
-}
-
 .icon-email {
   color: #6aa120;
 }
 
 .icon-rss {
   color: #e0812a;
+}
+
+.icon-instagram {
+  color: #517fa4;
 }
 
 /**

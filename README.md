@@ -9,6 +9,7 @@ The WordPress theme for PAWS New England
 * v5.7.0 - August 11, 2014
 	* Switched to `gulp-ruby-sass` for better Sass 3.x compatibility.
 	* Switched to `@each` loop for grid. Keeps code more DRY and makes updating grid way easier.
+	* Switched to `@each` loop for icons. Keeps code more DRY and makes updating icons easier.
 * v5.6.0 - August 9, 2014
 	* Added universal `box-sizing: border-box`.
 	* Updated grid to fractions (with backwards compatibility).
