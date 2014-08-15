@@ -6,6 +6,9 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
+* v5.8.0 - August 14, 2014
+	* Added JS unit tests.
+	* Added Travis CI continuous integration.
 * v5.7.0 - August 11, 2014
 	* Switched to `gulp-ruby-sass` for better Sass 3.x compatibility.
 	* Switched to `@each` loop for grid. Keeps code more DRY and makes updating grid way easier.

@@ -19,7 +19,8 @@ var paths = {
 	output : 'dist/',
 	scripts : {
 		input : [ 'src/js/*' ],
-		output : 'dist/js/'
+		output : 'dist/js/',
+		test : [ 'src/js/**/*.js' ]
 	},
 	styles : {
 		input : 'src/sass/**/*.scss',
@@ -132,7 +133,7 @@ gulp.task('theme', function () {
 });
 
 gulp.task('test', function() {
-	return gulp.src(paths.scripts.input.concat(paths.test.spec))
+	return gulp.src(paths.scripts.test.concat(paths.test.spec))
 		.pipe(plumber())
 		.pipe(karma({ configFile: 'test/karma.conf.js' }))
 		.on('error', function(err) { throw err; });
@@ -144,5 +145,6 @@ gulp.task('default', [
 	'scripts',
 	'styles',
 	'static',
-	'theme'
+	'theme',
+	'test'
 ]);
