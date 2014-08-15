@@ -965,47 +965,47 @@ select:focus {
  * Icon content
  */
 .font-face .icon-logo:before {
-  content: "\ee600";
+  content: "#{$character}";
 }
 
 .font-face .icon-home:before {
-  content: "\ee601";
+  content: "#{$character}";
 }
 
 .font-face .icon-heart:before {
-  content: "\ee602";
+  content: "#{$character}";
 }
 
 .font-face .icon-time:before {
-  content: "\ee603";
+  content: "#{$character}";
 }
 
 .font-face .icon-facebook:before {
-  content: "\ee604";
+  content: "#{$character}";
 }
 
 .font-face .icon-twitter:before {
-  content: "\ee605";
+  content: "#{$character}";
 }
 
 .font-face .icon-email:before {
-  content: "\ee606";
+  content: "#{$character}";
 }
 
 .font-face .icon-rss:before {
-  content: "\ee607";
+  content: "#{$character}";
 }
 
 .font-face .icon-search:before {
-  content: "\ee608";
+  content: "#{$character}";
 }
 
 .font-face .icon-filter:before {
-  content: "\ee609";
+  content: "#{$character}";
 }
 
 .font-face .icon-instagram:before {
-  content: "\ee60b";
+  content: "#{$character}";
 }
 
 /**
