@@ -6,22 +6,8 @@ The WordPress theme for PAWS New England
 
 ## Changelog
 
-* v5.8.0 - August 14, 2014
-	* Added JS unit tests.
-	* Added Travis CI continuous integration.
-* v5.7.0 - August 11, 2014
-	* Switched to `gulp-ruby-sass` for better Sass 3.x compatibility.
-	* Switched to `@each` loop for grid. Keeps code more DRY and makes updating grid way easier.
-	* Switched to `@each` loop for icons. Keeps code more DRY and makes updating icons easier.
-* v5.6.0 - August 9, 2014
-	* Added universal `box-sizing: border-box`.
-	* Updated grid to fractions (with backwards compatibility).
-* v5.5.0 - August 8, 2014
-	* Modularized Sass files.
-	* Added Sass variables.
 * v5.4.2 - August 7, 2014
 	* Fixed modal close button bug.
-	* Updated form saver class to ensure hidden on non-supporting browsers.
 * v5.4.1 _ August 6, 2014
 	* Added polyfill for Function.prototype.bind for otherwise ECMA Script 5 compliant browsers.
 * v5.4.0 - August 6, 2014

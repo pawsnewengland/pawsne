@@ -73,6 +73,7 @@
 						</ul>
 					</div>
 				</li>
+				<li><a href="<?php echo site_url(); ?>/store/">Store</a></li>
 				<li><a href="<?php echo site_url(); ?>/news/">Blog</a></li>
 			</ul>
 		</div>

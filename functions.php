@@ -10,7 +10,7 @@
 // Load theme JS
 function load_theme_js() {
 	// Theme scripts (in footer)
-	wp_register_script('paws-js', get_template_directory_uri() . '/dist/js/paws.min.js', false, null, true);
+	wp_register_script('paws-js', get_template_directory_uri() . '/dist/js/paws.min.08072014.js', false, null, true);
 	wp_enqueue_script('paws-js');
 }
 add_action('wp_enqueue_scripts', 'load_theme_js');
@@ -26,6 +26,7 @@ function load_our_dogs_redirect( $query ) {
 		'drop.init();' .
 		'fluidvids.init();' .
 		'stickyFooter.init();' .
+'modals.init({ callbackAfterOpen: function ( toggle, modalID ) { document.querySelector(modalID).style.top = 0; } });' .
 		"if ( 'querySelector' in document && 'addEventListener' in window ) { document.documentElement.className += (document.documentElement.className ? ' ' : '') + 'js'; }";
 	if ( is_page('our-dogs') ) {
 		$redirect = get_option('home') . '/our-dogs-list/';
@@ -34,8 +35,8 @@ function load_our_dogs_redirect( $query ) {
 	if ( is_page('hbo') ) {
 		$inits =
 			$inits .
-			'houdini.init();' .
-			'modals.init({ callbackAfterOpen: function ( toggle, modalID ) { document.querySelector(modalID).style.top = 0; } });';
+			'houdini.init();';
+			// 'modals.init({ callbackAfterOpen: function ( toggle, modalID ) { document.querySelector(modalID).style.top = 0; } });';
 	}
 	if ( is_page('owen-fund') ) {
 		$inits =
@@ -56,7 +57,7 @@ function load_our_dogs_redirect( $query ) {
 			$inits .
 			'formSaver.init();';
 	}
-	if ( is_page('donate') || is_page('foster') ) {
+	if ( is_page('donate') || is_page('foster') || is_page('brand') ) {
 		$inits =
 			$inits .
 			'smoothScroll.init();';

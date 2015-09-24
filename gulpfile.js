@@ -9,7 +9,7 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
 var karma = require('gulp-karma');
@@ -50,16 +50,16 @@ var banner = {
 		' | <%= package.repository.url %>' +
 		' */\n',
 	theme :
-	'/**\n' +
-	' * Theme Name: <%= package.name %> v<%= package.version %>\n' +
-	' * Theme URI: <%= package.repository.url %>\n' +
-	' * Description: <%= package.description %>\n' +
-	' * Version: <%= package.version %>\n' +
-	' * Author: <%= package.author.name %>\n' +
-	' * Author URI: <%= package.author.url %>\n' +
-	' * License: <%= package.license %>\n' +
-	' * License URI: <%= package.author.url %>/mit/\n' +
-	' */'
+		'/**\n' +
+		' * Theme Name: <%= package.name %> v<%= package.version %>\n' +
+		' * Theme URI: <%= package.repository.url %>\n' +
+		' * Description: <%= package.description %>\n' +
+		' * Version: <%= package.version %>\n' +
+		' * Author: <%= package.author.name %>\n' +
+		' * Author URI: <%= package.author.url %>\n' +
+		' * License: <%= package.license %>\n' +
+		' * License URI: <%= package.author.url %>/mit/\n' +
+		' */'
 };
 
 gulp.task('scripts', ['clean'], function() {
@@ -90,7 +90,7 @@ gulp.task('scripts', ['clean'], function() {
 gulp.task('styles', ['clean'], function() {
 	return gulp.src(paths.styles.input)
 		.pipe(plumber())
-		.pipe(sass({style: 'expanded', noCache: true}))
+		.pipe(sass())
 		.pipe(flatten())
 		.pipe(prefix('last 2 version', '> 1%'))
 		.pipe(header(banner.full, { package : package }))
@@ -132,7 +132,7 @@ gulp.task('theme', function () {
 });
 
 gulp.task('test', function() {
-	return gulp.src([paths.scripts.input + '**/*.js'].concat(paths.test.spec))
+	return gulp.src(paths.scripts.input.concat(paths.test.spec))
 		.pipe(plumber())
 		.pipe(karma({ configFile: 'test/karma.conf.js' }))
 		.on('error', function(err) { throw err; });
@@ -144,6 +144,5 @@ gulp.task('default', [
 	'scripts',
 	'styles',
 	'static',
-	'theme',
-	'test'
+	'theme'
 ]);
