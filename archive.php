@@ -1,78 +1,165 @@
-<?php get_header(); ?>
+<?php
 
-<div class="row">
-    <div class="grid-4">
+/**
+ * archive.php
+ * Template for posts by category, tag, author, date, etc.
+ */
 
-        <?php if (have_posts()) : ?>
-
-	        <header>
-	            <h1>
-		            <?php $post = $posts[0]; // Set $post so that the_date() works. ?>
-		            <?php /* If this is a category archive */ if (is_category()) { ?>
-		                On <?php single_cat_title(); ?>...
-		            <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-		                On <?php single_tag_title(); ?>...
-		            <?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-		                On <?php the_time('F jS, Y'); ?>...
-		            <?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-		                From <?php the_time('F, Y'); ?>...
-		            <?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-		                From <?php the_time('Y'); ?>...
-		            <?php /* If this is an author archive */ } elseif (is_author()) { ?>
-		                Author Archive
-		            <?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-		                Blog Archives
-		            <?php } ?>
-		        </h1>
-	        </header>
+get_header(); ?>
 
 
-	        <?php while (have_posts()) : the_post(); ?>
+<?php if (have_posts()) : ?>
 
-		        <article>
+	<?php
+		// Create pet listings grid
+		if ( !is_post_type_archive( 'pets' ) ) :
+	?>
+		<header>
+			<h1>
+				<?php if ( is_category() ) : // If this is a category archive ?>
+					<?php _e( 'Category:', 'keel' ); ?> <?php single_cat_title(); ?>...
+				<?php elseif( is_tag() ) : // If this is a tag archive ?>
+					<?php _e( 'Tag:', 'keel' ); ?> <?php single_tag_title(); ?>...
+				<?php elseif ( is_day() ) : // If this is a daily archive ?>
+					<?php _e( 'Day:', 'keel' ); ?> <?php the_time('F jS, Y'); ?>...
+				<?php elseif ( is_month() ) : // If this is a monthly archive ?>
+					<?php _e( 'Month:', 'keel' ); ?> <?php the_time('F, Y'); ?>...
+				<?php elseif ( is_year() ) : // If this is a yearly archive ?>
+					<?php _e( 'Year:', 'keel' ); ?> <?php the_time('Y'); ?>...
+				<?php elseif ( is_author() ) : // If this is an author archive ?>
+					<?php _e( 'Author Archive', 'keel' ); ?>
+				<?php elseif ( is_post_type_archive( 'pets' ) ) : // If this is an author archive ?>
+					<?php
+						$options = keel_petfinder_api_get_theme_options();
+						if ( $options ) {
+							_e( $options['page_title'], 'keel' );
+						}
+					?>
+				<?php elseif (isset($_GET['paged']) && !empty($_GET['paged'])) : // If this is a paged archive ?>
+					<?php _e( 'Blog Archive', 'keel' ); ?>
+				<?php endif; ?>
+			</h1>
+		</header>
+	<?php endif; ?>
 
-			        <header>
-				        <h1 class="no-space-bottom"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				        <aside>
-					        <p class="text-muted"><time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_time('F j, Y') ?></time><?php edit_post_link('[Edit]', ' - ', ''); ?></p>
-				        </aside>
-			        </header>
 
-			        <?php the_content('<p>Keep reading...</p>'); ?>
+	<section>
 
-                    <p>
-	                    <a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon icon-twitter icon-inherit-color"></i> Tweet</a>
-	                    <a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon icon-facebook icon-inherit-color"></i> Share</a>
-                    </p>
+		<?php
+			// Create pet listings grid
+			if ( is_post_type_archive( 'pets' ) ) :
+		?>
+			<?php
+				$options = keel_petfinder_api_get_theme_options();
+				$filters = get_transient( 'keel_petfinder_api_filters' );
+				$has_filters = $options['filters_animal'] === 'on' || $options['filters_breed'] === 'on' || $options['filters_age'] === 'on' || $options['filters_size'] === 'on' || $options['filters_gender'] === 'on' || $options['filters_other'] === 'on' ? true : false;
+				$grid_content = $has_filters ? 'grid-three-fourths petfinder-content' : 'grid-full';
+			?>
+			<div class="row">
+				<?php if ( $has_filters ) : ?>
+					<aside class="grid-fourth">
+						<div class="petfinder-filters" id="petfinder-filters">
+							<span class="screen-reader">Use these checkboxes to filter the list of available animals:</span>
 
-		        </article>
+							<?php if ( $options['filters_animal'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Animal</h2>
+									<?php echo $filters['checkboxes']['animals']; ?>
+								</div>
+							<?php endif; ?>
 
-		        <hr>
+							<?php if ( $options['filters_breed'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Breed</h2>
+									<?php echo $filters['checkboxes']['breeds']; ?>
+								</div>
+							<?php endif; ?>
 
-	        <?php endwhile; ?>
+							<?php if ( $options['filters_age'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Age</h2>
+									<?php echo $filters['checkboxes']['ages']; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if ( $options['filters_size'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Size</h2>
+									<?php echo $filters['checkboxes']['sizes']; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if ( $options['filters_gender'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Gender</h2>
+									<?php echo $filters['checkboxes']['genders']; ?>
+								</div>
+							<?php endif; ?>
+
+							<?php if ( $options['filters_other'] === 'on' ) : ?>
+								<div class="margin-bottom">
+									<h2 class="no-padding-top">Other Options</h2>
+									<?php echo $filters['checkboxes']['options']; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+
+						<p class="petfinder-filters-toggle"><button class="btn" data-nav-toggle="#petfinder-filters">Filter Results</button></p>
+					</aside>
+				<?php endif; ?>
+
+				<div class="grid-three-fourths <?php if ( $has_filters ) { echo 'petfinder-content'; } ?> <?php if ( !$has_filters ) { echo 'float-center'; } ?>">
+
+					<header>
+						<h1>
+							<?php
+								$options = keel_petfinder_api_get_theme_options();
+								if ( $options ) {
+									_e( $options['page_title'], 'keel' );
+								}
+							?>
+						</h1>
+					</header>
+
+					<?php echo stripslashes( $options['page_content'] ); ?>
+
+					<div class="row" data-right-height>
+		<?php endif; ?>
+
+					<?php
+						// Start the loop
+						while (have_posts()) : the_post();
+					?>
+						<?php
+							// Insert the post content
+							get_template_part( 'content', get_post_type() );
+						?>
+					<?php endwhile; ?>
+
+		<?php
+			// End pet listings grid
+			if ( is_post_type_archive( 'pets' ) ) :
+		?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
+	</section>
 
 
-	        <!-- Previous/Next page navigation -->
-	        <nav>
-		        <p class="text-center text-muted"><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
-	        </nav>
+	<?php
+		// Previous/next page navigation
+		get_template_part( 'nav-page', 'Page Navigation' );
+	?>
 
 
-        <?php else : ?>
-	        <article>
-		        <header>
-                    <h1>No posts to display</h1>
-		        </header>
-	        </article>
-        <?php endif; ?>
-
-    </div>
-
-    <div class="grid-2">
-        <?php get_sidebar(); ?>
-    </div>
-
-</div>
+<?php else : ?>
+	<?php
+		// If no content, include the "No post found" template
+		get_template_part( 'content', 'none' );
+	?>
+<?php endif; ?>
 
 
 <?php get_footer(); ?>

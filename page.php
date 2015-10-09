@@ -1,31 +1,26 @@
-<?php get_header(); ?>
+<?php
 
-<div class="row">
+/**
+ * page.php
+ * Template for pages (not posts).
+ */
 
-    <div class="grid-4">
+get_header(); ?>
 
-        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-            <article>
+<?php if (have_posts()) : ?>
 
-	            <header>
-		            <h1><?php the_title(); ?></h1>
-	            </header>
+	<?php
+		// Start the loop
+		while (have_posts()) : the_post();
+	?>
+		<?php
+			// Insert the post content
+			get_template_part( 'content', get_post_type() );
+		?>
+	<?php endwhile; ?>
 
-	            <?php the_content(); ?>
+<?php endif; ?>
 
-	            <?php edit_post_link('[Edit]', '<p>', '</p>'); ?>
-
-            </article>
-
-        <?php endwhile; endif; ?>
-
-    </div>
-
-    <div class="grid-2">
-        <?php get_sidebar(); ?>
-    </div>
-
-</div>
 
 <?php get_footer(); ?>
