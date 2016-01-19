@@ -27,7 +27,8 @@
 		}
 
 		// Get SVG content and add classes
-		$file = file_get_contents( $img );
+		$file = @file_get_contents( $img );
+		if ( empty( $file ) ) return;
 		if ( !empty( $svg['class'] ) ) {
 			$file = str_replace ( '<svg', '<svg class="' . $svg['class'] . '"', $file );
 		}

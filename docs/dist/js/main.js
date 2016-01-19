@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.0.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.1.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -3234,6 +3234,9 @@ function makeArray( obj ) {
 		settings = extend( defaults, options || {} ); // Merge user options with defaults
 		wrap = document.querySelector( settings.selectorWrap );
 		footer = document.querySelector( settings.selectorFooter );
+
+		// Sanity check
+		if ( !wrap || !footer ) return;
 
 		// Stick footer
 		document.documentElement.style.minHeight = '100%';
