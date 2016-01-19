@@ -1,18 +1,56 @@
-			</section>
+<?php
 
-		</div>
+/**
+ * footer.php
+ * Template for footer content.
+ */
 
-		<div data-sticky-footer>
-			<div class="bg-color space-top">
-				<footer class="container text-center space-top">
-					<p><span class="text-small">Many thanks to <a href="http://www.4dogman.com/">John Gagnon's Pet Resort</a>, <a href="http://www.goodnessgracioustreats.com/">Goodness Gracious</a>, and our numerous <a href="http://www.pawsnewengland.com/paws-partners/">partners, volunteers and donors</a> for their support!</span></p>
+?>
 
-					<p class="space-bottom-small"><span class="text-small">Copyright © 2010 - <?php echo date('Y');?> <?php bloginfo('name'); ?>. All rights reserved.</span></p>
+				</div><!-- /.container -->
+			</main><!-- /#main -->
+		</div><!-- /[data-sticky-wrap] -->
 
-					<p><a href="http://gomakethings.com"><span class="text-small">Website by Chris Ferdinandi</a>.</span></p>
-				</footer>
-			<div>
-		</div>
+		<footer class="padding-top-large padding-bottom bg-dark" data-sticky-footer>
+
+			<?php
+				$options = keel_get_theme_options();
+			?>
+
+			<div class="container container-large text-center" >
+
+				<?php get_template_part( 'nav', 'secondary' ); ?>
+
+				<div class="row">
+					<?php get_template_part( 'nav', 'social' ); ?>
+					<div class="grid-half text-left-large">
+						<?php get_search_form(); ?>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-half text-left-large margin-bottom">
+						<?php
+							if ( !empty( $options['footer1'] ) ) {
+								echo do_shortcode( stripslashes( $options['footer1'] ) );
+							}
+						?>
+					</div>
+					<div class="grid-half text-right-large margin-bottom">
+						<?php
+							if ( !empty( $options['footer2'] ) ) {
+								echo do_shortcode( stripslashes( $options['footer2'] ) );
+							}
+						?>
+					</div>
+				</div>
+
+				<p class="text-small text-left-large"><a target="_blank" href="http://gomakethings.com">Harbor for WordPress Theme by Go Make Things</a></p>
+
+			</div>
+
+		</footer>
+
 
 		<?php wp_footer(); ?>
 

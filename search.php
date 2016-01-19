@@ -1,63 +1,50 @@
-<?php get_header(); ?>
+<?php
 
-<div class="row">
-    <div class="grid-4">
+/**
+ * search.php
+ * Template for search results.
+ */
 
-        <?php if (have_posts()) : ?>
-	        <header>
-		        <h1>Search Results for "<?php the_search_query(); ?>"</h1>
-		        <hr>
-	        </header>
-
-	        <?php while (have_posts()) : the_post(); ?>
-
-		        <article>
-
-			        <header>
-				        <h1 class="no-space-bottom"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				        <aside>
-					        <p class="text-muted"><time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_time('F j, Y') ?></time><?php edit_post_link('[Edit]', ' - ', ''); ?></p>
-				        </aside>
-			        </header>
-
-			        <?php the_content('<p>Keep reading...</p>'); ?>
-
-                    <p>
-	                    <a class="btn btn-tweet" rel="nofollow" target="_blank" href="http://twitter.com/?status=<?php the_title(); ?>%20<?php echo the_permalink(); ?>"><i class="icon icon-twitter icon-inherit-color"></i> Tweet</a>
-	                    <a class="btn btn-fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>&t=<?php the_title(); ?>"><i class="icon icon-facebook icon-inherit-color"></i> Share</a>
-                    </p>
-
-		        </article>
-
-		        <hr>
-
-	        <?php endwhile; ?>
+get_header(); ?>
 
 
-	        <!-- Previous/Next page navigation -->
-	        <nav>
-		        <p><?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;', '&larr; Newer', 'Older &rarr;' ); ?></p>
-	        </nav>
+<?php if (have_posts()) : ?>
+	<header>
+		<h1><?php _e( 'Search results for', 'keel' ); ?> "<?php the_search_query() ?>"</h1>
+	</header>
 
 
-        <?php else : ?>
-	        <article>
-		        <header>
-			        <h1>No Results Found for "<?php the_search_query(); ?>"</h1>
-		        </header>
-		        <p>Sorry, your search didn't turn up any results. Maybe try using different keywords?</p>
+	<?php
+		// Start the loop
+		while (have_posts()) : the_post();
+	?>
+		<?php
+			// Insert the post content
+			get_template_part( 'content', 'search' );
+		?>
+	<?php endwhile; ?>
 
-		        <?php echo pne_wpsearch(); ?>
-	        </article>
-        <?php endif; ?>
 
-    </div>
+	<!-- Previous/Next page navigation -->
+	<?php get_template_part( 'nav', 'page' ); ?>
 
-    <div class="grid-2">
-        <?php get_sidebar(); ?>
-    </div>
 
-</div>
+<?php
+	// If no search results are found
+	else :
+?>
+	<article>
+		<header>
+			<h1><?php _e( 'No results found for', 'keel' ); ?> "<?php the_search_query() ?>"</h1>
+		</header>
+		<p><?php _e( 'Sorry, your search didn\'t turn up any results. Maybe try using different keywords?', 'keel' ) ?></p>
+
+		<?php
+			// Include search form
+			get_search_form();
+		?>
+	</article>
+<?php endif; ?>
 
 
 <?php get_footer(); ?>

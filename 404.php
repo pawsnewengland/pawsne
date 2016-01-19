@@ -1,31 +1,31 @@
-<?php get_header(); ?>
+<?php
 
-<div class="row">
-    <div class="grid-4">
+/**
+ * 404.php
+ * Template for 404 error page.
+ */
 
-        <article>
-	        <header>
-		        <h1>Sad puppy!</h1>
-	        </header>
+get_header(); ?>
 
-	        <p>Sorry, but the page you were looking for doesn't exist. It looks like this was the result of either:</p>
 
-            <ol>
-                <li>A mistyped address.</li>
-                <li>An out-of-date link.</li>
-            </ol>
+<article>
+	<header>
+		<h1><?php _e( 'Page Not Found', 'keel' ) ?></h1>
+	</header>
 
-            <p>Try searching for it?</p>
+	<p><?php _e( 'Sorry, but the page you were looking for doesn\'t exist. It looks like this was the result of either:', 'keel' ) ?></p>
 
-            <?php get_search_form(); ?>
+	<ol>
+		<li><?php _e( 'A mistyped address.', 'keel' ) ?></li>
+		<li><?php _e( 'An out-of-date link.', 'keel' ) ?></li>
+	</ol>
 
-        </article>
+	<?php
+		// Insert the search form
+		get_search_form();
+	?>
 
-    </div>
-
-    <div class="grid-2">
-        <?php get_sidebar(); ?>
-    </div>
+</article>
 
 
 <?php get_footer(); ?>
