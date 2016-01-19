@@ -9,7 +9,7 @@
 <?php
 	$options = keel_get_theme_options();
 ?>
-<html <?php language_attributes(); ?> class="theme-<?php echo $options['colors']; ?> <?php echo $options['typeface']; ?>">
+<html <?php language_attributes(); ?> class="<?php echo $options['typeface']; ?>">
 
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
@@ -43,17 +43,13 @@
 			<![endif]-->
 
 			<!-- Skip link for better accessibility -->
-			<!-- http://cferdinandi.github.io/kraken/overrides.html#visibility -->
 			<a class="screen-reader screen-reader-focusable" href="#main">Skip to main content</a>
 
 			<?php
 				// Get site navigation
 				get_template_part( 'nav', 'main' );
-				get_template_part( 'nav', 'main-backup' );
 			?>
 
 			<main id="main">
 
-				<!-- <div class="container <?php if ( is_post_type_archive( 'pets' ) ) { echo 'container-large'; } ?>"> -->
-				<!-- <div class="<?php if ( is_home() || is_archive() ) { echo 'container'; } ?> <?php if ( is_post_type_archive( 'pets' ) ) { echo 'container-large'; } ?>"> -->
 				<div class="<?php if ( !is_singular() || is_404() ) { echo 'container'; } ?> <?php if ( is_post_type_archive( 'pets' ) ) { echo 'container-large'; } ?>">

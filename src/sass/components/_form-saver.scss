@@ -1,0 +1,14 @@
+/**
+ * @section Form Saver
+ * Styling for form saver modules.
+ */
+
+.form-saver {
+	display: none;
+	visibility: hidden;
+}
+
+.js-form-saver .form-saver {
+	display: block;
+	visibility: visible;
+}

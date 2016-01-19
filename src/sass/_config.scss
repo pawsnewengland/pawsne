@@ -5,30 +5,26 @@
 // (For math purposes. Actual font sizes in ems.)
 // 1px, 4px, 5px, 8px, 9px, 11px, 12px, 13px, 15px, 16px, 19px, 21px, 24px, 28px, 32px, 48px, 64px, 80px, 96px
 // line height: 1.5em on small screens, 1.5625em on big screens
-//
-// Theme-specific customizations
-// - astro-navbar.scss
-// - buttons.scss
-// - drop-basic.scss
-// - overrides.scss
-// - svgs.scss
+
+// Font-specific customization
 // - typography.scss
 
 // Developer Options
-$themes: false;
 $fonts: false;
 
 // Colors
 // $color-primary: #0088cc;
-$color-primary: #6aa120;
-$color-secondary: #e0812a;
+$color-primary: #68a20a; // Green
+$color-secondary: #e0812a; // Orange
 $color-black: #272727;
 $color-white: #ffffff;
 
 $color-info: #0088cc; // Blue
-$color-success: #377f31; // Green
+// $color-success: #377f31; // Green
+$color-success: $color-primary;
 $color-danger: #880e14; // Red
-$color-warning: #dba909; // Yellow
+// $color-warning: #dba909; // Yellow
+$color-warning: $color-secondary;
 $color-code: #dd1144;
 
 $color-gray-dark: #808080;
@@ -47,21 +43,10 @@ $color-reddit: #ff5700;
 $color-instagram: #125688;
 $color-flickr: #f91881;
 
-$color-theme-whale-primary: #333547;
-$color-theme-whale-secondary: #e26957;
-
-$color-theme-bear-primary: #634434;
-$color-theme-bear-secondary: #2f74ad;
-
-$color-theme-parrot: #b9191d;
-
-$color-theme-coral-primary: #1b8bbd;
-$color-theme-coral-secondary: #ed4d47;
-
-$color-theme-octopus: #894b81;
 
 // Font Stacks
-$font-primary: "Helvetica Neue", Arial, sans-serif;
+// $font-primary: "Helvetica Neue", Arial, sans-serif;
+$font-primary: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $font-secondary: Georgia, Times, serif;
 $font-monospace: Menlo, Monaco, "Courier New", monospace;
 
@@ -112,8 +97,8 @@ $grid-breakpoints: (
 	// $prefix-class - {string|optional} class to be used with `.row` to activate grid
 	// $include-offsets - {boolean} if true, include offset classes at this breakpoint
 	($bp-xsmall, ".row-start-xsmall", false),
-	($bp-small, ".row-start-small", false),
-	($bp-medium, null, true),
+	// ($bp-small, ".row-start-small", false),
+	($bp-large, null, true),
 );
 $grid-dynamic: (
 	// Create grid classes that vary in size at different breakpoints
@@ -128,6 +113,6 @@ $grid-dynamic: (
 	// (".grid-dynamic", $bp-medium, map-get($grid-sizes, fourth))
 
 	(".grid-dynamic", $bp-xsmall, map-get($grid-sizes, half))
-	(".grid-dynamic", $bp-large, map-get($grid-sizes, third))
-	(".grid-dynamic", $bp-xlarge, map-get($grid-sizes, fourth))
+	(".grid-dynamic", $bp-medium, map-get($grid-sizes, third))
+	// (".grid-dynamic", $bp-xlarge, map-get($grid-sizes, fourth))
 );

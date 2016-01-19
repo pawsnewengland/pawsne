@@ -21,6 +21,11 @@ label {
 	padding: 0;
 }
 
+legend {
+	font-weight: bold;
+	margin-bottom: calc-em(16px);
+}
+
 /**
  * 1. Correct color not being inherited.
  *    Known issue: affects color of disabled elements.
@@ -132,6 +137,7 @@ select:focus {
  */
 .input-inline {
 	display: inline-block;
+	margin-right: calc-em(8px);
 	vertical-align: middle;
 	width: auto;
 }
@@ -143,6 +149,16 @@ select:focus {
 .input-condensed {
 	padding: calc-em(1px) calc-em(5px);
 	font-size: calc-em(15px);
+}
+
+
+/**
+ * Underlined inputs
+ */
+.input-underline {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
 }
 
 

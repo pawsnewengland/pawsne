@@ -6,8 +6,7 @@
 body {
 	background: $color-white;
 	color: $color-black;
-	// font-family: $font-helvetica;
-	font-family: $font-open-sans;
+	font-family: $font-primary;
 	font-size: $font-size;
 	line-height: 1.5;
 
@@ -51,34 +50,9 @@ p {
 
 a {
 	background-color: transparent;
-	// color: $color-primary;
 	color: $color-secondary;
 	text-decoration: none;
 	word-wrap: break-word;
-
-	@if $themes == true {
-
-		.theme-whale & {
-			color: $color-theme-whale-secondary;
-			text-decoration: underline;
-		}
-
-		.theme-bear & {
-			color: $color-theme-bear-secondary;
-			text-decoration: underline;
-		}
-
-		.theme-coral & {
-			color: $color-theme-coral-secondary;
-			text-decoration: underline;
-		}
-
-		.theme-lab & {
-			color: $color-black;
-			text-decoration: underline;
-		}
-
-	}
 
 	/**
 	 * Improve readability when focused and also mouse hovered in all browsers.
@@ -91,28 +65,8 @@ a {
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color-black;
+		color: darken( $color-secondary, 15% );
 		text-decoration: underline;
-
-		@if $themes == true {
-
-			.theme-whale & {
-				color: darken( $color-theme-whale-secondary, 15% );
-			}
-
-			.theme-bear & {
-				color: darken( $color-theme-bear-secondary, 15% );
-			}
-
-			.theme-coral & {
-				color: darken( $color-theme-coral-secondary, 15% );
-			}
-
-			.theme-lab & {
-				color: $color-black;
-			}
-
-		}
 	}
 
 	img {
@@ -220,23 +174,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1em;
 	padding: 1em 0 0;
 	word-wrap: break-word;
-
-	@if $themes == true {
-
-		.theme-whale & a,
-		.theme-bear & a,
-		.theme-coral & a,
-		.theme-lab & a {
-			text-decoration: none;
-
-			&:active,
-			&:focus,
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-
-	}
 }
 
 h1,

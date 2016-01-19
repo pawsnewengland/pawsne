@@ -27,7 +27,7 @@ var karma = require('gulp-karma');
 // Styles
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
-var minify = require('gulp-minify-css');
+var minify = require('gulp-cssnano');
 
 // SVGs
 var svgmin = require('gulp-svgmin');
@@ -92,6 +92,7 @@ var banner = {
 		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %>\n' +
 		' * MIT License\n' +
 		' * <%= package.repository.url %>\n' +
+		' * Open Source Credits: <%= package.openSource.credits %>\n' +
 		' */\n\n',
 	min :
 		'/*!' +
@@ -99,16 +100,19 @@ var banner = {
 		' | (c) ' + new Date().getFullYear() + ' <%= package.author.name %>' +
 		' | MIT License' +
 		' | <%= package.repository.url %>' +
+		' | Open Source Credits: <%= package.openSource.credits %>' +
 		' */\n',
 	theme :
 		'/**\n' +
-		' * Theme Name: <%= package.name %> v<%= package.version %>\n' +
+		' * Theme Name: <%= package.name %>\n' +
 		' * Theme URI: <%= package.repository.url %>\n' +
+		' * GitHub Theme URI: <%= package.repository.url %>\n' +
 		' * Description: <%= package.description %>\n' +
 		' * Version: <%= package.version %>\n' +
 		' * Author: <%= package.author.name %>\n' +
 		' * Author URI: <%= package.author.url %>\n' +
 		' * License: <%= package.license %>\n' +
+		' * Open Source Credits: <%= package.openSource.credits %>\n' +
 		' */'
 };
 
@@ -157,7 +161,11 @@ gulp.task('build:styles', ['clean:dist'], function() {
 		.pipe(header(banner.full, { package : package }))
 		.pipe(gulp.dest(paths.styles.output))
 		.pipe(rename({ suffix: '.min.' + package.version }))
-		.pipe(minify())
+		.pipe(minify({
+			discardComments: {
+				removeAll: true
+			}
+		}))
 		.pipe(header(banner.min, { package : package }))
 		.pipe(gulp.dest(paths.styles.output));
 });

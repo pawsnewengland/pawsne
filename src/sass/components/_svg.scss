@@ -31,6 +31,11 @@
 	width: calc-em(24px);
 }
 
+.svg .icon-xlarge {
+	height: 4em;
+	width: 4em;
+}
+
 
 /**
  * Colors
@@ -43,48 +48,33 @@
 .icon-instagram { fill: $color-instagram; }
 .icon-pinterest { fill: $color-pinterest; }
 .icon-flickr { fill: $color-flickr; }
+.icon-heart { fill: #e8a1b0; }
+.icon-muted { fill: $color-gray-dark; }
 
 .icon-link {
 
-	@if $themes == true {
-
-		.theme-whale &,
-		.theme-bear &,
-		.theme-parrot &,
-		.theme-coral &,
-		.theme-lab &,
-		.theme-octopus & {
-			fill: $color-white;
-		}
-
+	.bg-dark & {
+		fill: $color-white;
 	}
 
 	a:hover & {
-		fill: darken( $color-primary, 15% );
+		fill: darken( $color-secondary, 15% );
 
-		@if $themes == true {
-
-			.theme-whale & {
-				fill: $color-theme-whale-secondary;
-			}
-
-			.theme-coral & {
-				fill: $color-theme-coral-secondary;
-			}
-
-			.theme-bear &,
-			.theme-parrot &,
-			.theme-lab &,
-			.theme-octopus & {
-				fill: $color-gray-light;
-			}
-
+		.bg-dark & {
+			fill: $color-gray-light;
 		}
 	}
 }
 
 a.link-icon {
 	text-decoration: none;
+
+	.bg-dark &,
+	.bg-dark &:active,
+	.bg-dark &:focus,
+	.bg-dark &:hover {
+		text-decoration: none;
+	}
 }
 
 

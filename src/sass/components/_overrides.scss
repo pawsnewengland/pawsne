@@ -12,102 +12,57 @@
 	background-color: lighten( $color-gray-light, 5% );
 }
 
-.bg-primary {
+.bg-dark {
 	background-color: $color-primary;
 	color: $color-white;
 
 	a {
 		color: $color-gray-light;
+		text-decoration: underline;
 
-		&:hover,
+		&.link-block {
+			text-decoration: none;
+		}
+
+		&.link-block-styled {
+			text-decoration: underline;
+		}
+
+		&:active,
 		&:focus,
-		&:active {
+		&:hover {
 			color: $color-white;
 		}
 	}
-}
 
-@if $themes == true {
-
-	.bg-primary {
-		.theme-arctic & {
-			background-color: lighten( $color-gray-light, 5% );
-		}
-
-		.theme-whale & {
-			background-color: $color-theme-whale-primary;
-			color: $color-white;
-
-			a {
-				color: $color-white;
-
-				&:hover,
-				&:focus,
-				&:active {
-					color: $color-theme-whale-secondary;
-				}
-			}
-		}
-
-		.theme-bear & a,
-		.theme-parrot & a,
-		.theme-coral & a,
-		.theme-lab & a,
-		.theme-octopus & a {
-			color: $color-white;
-
-			&:hover,
-			&:focus,
-			&:active {
-				color: $color-gray-light;
-				text-decoration: none;
-			}
-		}
-
-		.theme-bear & {
-			background-color: $color-theme-bear-primary;
-			color: $color-white;
-		}
-
-		.theme-parrot & {
-			background-color: $color-theme-parrot;
-			color: $color-white;
-
-			a.link-icon {
-				text-decoration: none;
-			}
-		}
-
-		.theme-coral & {
-			background-color: $color-theme-coral-primary;
-			color: $color-white;
-		}
-
-		.theme-lab & {
-			background-color: $color-black;
-			color: $color-white;
-		}
-
-		.theme-octopus & {
-			background-color: $color-theme-octopus;
-			color: $color-white;
-
-			a {
-				text-decoration: underline;
-
-				&.link-icon {
-					text-decoration: none;
-				}
-			}
-		}
+	.btn {
+		@extend .btn-ghost;
+		color: $color-white;
+		text-decoration: none;
 	}
-
 }
 
 .bg-hero {
-	background-position: bottom center;
+	background-position: center;
 	background-size: cover;
 	width: 100%;
+}
+
+
+/**
+ * Borders
+ */
+
+.border {
+	border: calc-em(1px) solid $color-gray-light;
+}
+
+
+/**
+ * Text shadow
+ */
+.text-shadow {
+	text-shadow: 1px 1px 1px $color-black;
 }
 
 
@@ -154,16 +109,16 @@
 	text-align: left;
 }
 
-@media (min-width: $bp-medium) {
-	.text-center-medium {
+@media (min-width: $bp-large) {
+	.text-center-large {
 		text-align: center;
 	}
 
-	.text-right-medium {
+	.text-right-large {
 		text-align: right;
 	}
 
-	.text-left-medium {
+	.text-left-large {
 		text-align: left;
 	}
 }
@@ -216,13 +171,6 @@
 	margin-bottom: calc-em(32px);
 }
 
-.margin-bottom-hero {
-	&,
-	.js-drop & {
-		margin-bottom: 0;
-	}
-}
-
 
 /**
  * Padding
@@ -234,6 +182,10 @@
 
 .no-padding-bottom {
 	padding-bottom: 0;
+}
+
+.padding {
+	padding: $spacing;
 }
 
 .padding-top {
