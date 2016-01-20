@@ -54,20 +54,9 @@
 				<button type="button" class="button" id="keel_page_hero_image_upload_btn" data-keel-page-hero="#keel_page_hero_image"><?php _e( 'Select an Image or Video', 'keel' )?></button>
 			</fieldset>
 
-			<h3>Text and Background Color</h3>
+			<h3>Background Images</h3>
 
 			<p>To add a background image to your hero banner, set a <em>Featured Image</em>.</p>
-
-			<fieldset>
-				<input type="radio" id="keel_page_hero_color_light" name="keel_page_hero_color" value="muted" <?php echo ( ( array_key_exists( 'color', (array) $hero ) && $hero['color'] === 'muted' ) || !array_key_exists( 'color', (array) $hero ) ? 'checked' : '' ); ?>>
-				<label for="keel_page_hero_color_light"><?php _e( 'Light background with dark text', 'keel' ); ?></label>
-				<br>
-
-				<input type="radio" id="keel_page_hero_color_dark" name="keel_page_hero_color" value="dark" <?php checked( 'dark', ( array_key_exists( 'color', (array) $hero ) ? $hero['color'] : '' ) ); ?>>
-				<label for="keel_page_hero_color_dark"><?php _e( 'Dark background with light text', 'keel' ); ?></label>
-			</fieldset>
-
-			<h3>Background Image Overlay</h3>
 
 			<fieldset>
 				<input type="checkbox" id="keel_page_hero_overlay" name="keel_page_hero_overlay" value="on" <?php checked( 'on',  ( array_key_exists( 'overlay', (array) $hero ) ? $hero['overlay'] : '' ) ); ?>>

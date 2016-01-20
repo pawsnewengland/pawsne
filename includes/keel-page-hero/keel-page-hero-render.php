@@ -22,7 +22,6 @@
 		return array(
 			'content'              => $is_hero && array_key_exists( 'content', $hero ) ? stripslashes( $hero['content'] ) : null,
 			'image'                => $is_hero && array_key_exists( 'image', $hero ) ? $hero['image'] : null,
-			'color'                => $is_hero && array_key_exists( 'color', $hero ) ? $hero['color'] : null,
 			'overlay'              => $is_hero && array_key_exists( 'overlay', $hero ) ? $hero['overlay'] : null,
 			'img'                  => $is_thumbnail ? wp_get_attachment_image_src( $thumbnail_id, 'full', true ) : null,
 			'min_height'           => $is_hero && array_key_exists( 'min_height', $hero ) ? $hero['min_height'] : null,
@@ -72,13 +71,13 @@
 		// Get hero image
 		$check_image = wp_check_filetype( $hero['image'] );
 		$image = ( strpos( $check_image['type'], 'image' ) === false ? wp_oembed_get( $hero['image'] ) : '<img src="' . $hero['image'] . '">' );
-		$overlay = ( $hero['color'] === 'muted' ? '229, 229, 229' : '0, 0, 0' );
-		$transparency = ( $hero['color'] === 'muted' ? '0.87' : '0.7' );
+		$overlay = '0, 0, 0';
+		$transparency = '0.7';
 		$min_height = ( empty( $hero['min_height'] ) ? '' : 'min-height: ' . $hero['min_height'] . '; ' );
 
 		?>
 
-		<header class="bg-hero bg-<?php echo $hero['color']; ?> margin-bottom <?php if ( !empty( $hero['img'] ) ) { echo 'text-shadow'; } ?>" <?php if ( !empty( $hero['img'] ) ) { echo 'style="' . ( empty( $hero['min_height'] ) ? '' : 'min-height: ' . $hero['min_height'] . '; ' ) . 'background-image: ' . ( empty( $hero['overlay'] ) ? '' : 'linear-gradient( rgba(' . $overlay . ', ' . $transparency . '), rgba(' . $overlay . ', ' . $transparency . ') ),' ) . ' url(' . $hero['img'][0] . ');"'; } ?>>
+		<header class="bg-hero <?php echo ( empty( $hero['img'] ) ? 'bg-muted' : 'bg-dark text-shadow' ); ?> margin-bottom" <?php if ( !empty( $hero['img'] ) ) { echo 'style="' . ( empty( $hero['min_height'] ) ? '' : 'min-height: ' . $hero['min_height'] . '; ' ) . 'background-image: ' . ( empty( $hero['overlay'] ) ? '' : 'linear-gradient( rgba(' . $overlay . ', ' . $transparency . '), rgba(' . $overlay . ', ' . $transparency . ') ),' ) . ' url(' . $hero['img'][0] . ');"'; } ?>>
 					<div class="container <?php if ( !empty( $hero['content'] ) && !empty( $image ) ) { echo 'container-large'; } ?> <?php echo ( !empty( $hero['img'] ) && is_array( $hero['img'] ) && ( empty( $hero['content'] ) || empty( $image ) ) ? 'padding-top-xlarge padding-bottom-xlarge' : 'padding-top padding-bottom' ); ?>">
 						<?php
 							// If there's hero content AND video
