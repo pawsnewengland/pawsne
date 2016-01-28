@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.4.2: WordPress theme for PAWS New England
+ * pawsnewengland v6.4.4: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -3289,11 +3289,18 @@ function makeArray( obj ) {
 
 });
 astro.init();
-drop.init({
-	selector: '.menu-item-has-children'
-});
 formSaver.init();
 stickyFooter.init();
+
+ready(function () {
+	var dropdown = document.querySelectorAll( '.menu-item-has-children > a' );
+	for (var i = 0, len = dropdown.length; i < len; i++) {
+		dropdown[i].className += ' needsclick';
+	}
+	drop.init({
+		selector: '.menu-item-has-children'
+	});
+});
 
 ready(function () {
 	var rh = document.querySelector( '[data-right-height]' );
