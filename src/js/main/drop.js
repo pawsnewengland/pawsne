@@ -22,7 +22,6 @@
 	// Default settings
 	var defaults = {
 		selector: '[data-dropdown]',
-		menu: '[data-dropdown-menu]',
 		activeClass: 'active',
 		initClass: 'js-drop',
 		callback: function () {}
@@ -260,22 +259,13 @@
 
 		// If a dropdown menu, activate it
 		if ( toggle && !toggle.classList.contains( settings.activeClass ) ) {
-			drop.openDrop(toggle, settings);
+			drop.openDrop(toggle, settings); // Open this dropdown
+
+			// Prevent default on touch devices
+			if ( isTouch ) {
+				event.preventDefault();
+			}
 		}
-	};
-
-	var tapHandler = function (event) {
-
-		// Variables
-		var target = event.target;
-		var toggle = getClosest( target, settings.selector );
-		var menu = getClosest( target, settings.menu );
-
-		// Prevent default on touch devices
-		if ( toggle && !menu ) {
-			event.preventDefault();
-		}
-
 	};
 
 	/**
@@ -327,7 +317,7 @@
 		document.addEventListener('focusin', focusHandler, false);
 		document.addEventListener('mouseover', hoverHandler, false);
 		if ( isTouch ) {
-			document.addEventListener('touchstart', tapHandler, false);
+			document.addEventListener('touchstart', hoverHandler, false);
 		}
 
 	};
