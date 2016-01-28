@@ -1,6 +1,7 @@
 astro.init();
 drop.init({
-	selector: '.menu-item-has-children'
+	selector: '.menu-item-has-children',
+	menu: '.sub-menu'
 });
 formSaver.init();
 stickyFooter.init();
