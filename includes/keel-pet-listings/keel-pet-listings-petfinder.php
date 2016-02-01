@@ -778,7 +778,7 @@
 		$data = json_decode( $response, true );
 
 		// If there was an error, return null
-		if ( intval( $data['petfinder']['header']['status']['code']['$t'] ) !== 100 ) return null;
+		if ( empty( $data ) || intval( $data['petfinder']['header']['status']['code']['$t'] ) !== 100 ) return null;
 
 		// Return the pet data
 		return $data['petfinder']['pets']['pet'];
@@ -819,7 +819,7 @@
 
 		// Get existing pets
 		$current_pets = get_posts(array(
-			'post_type' => 'pets',
+			'post_type' => 'keel-pets',
 			'showposts' => -1,
 		));
 
@@ -842,7 +842,7 @@
 				'post_content'   => $details['description'], // The full text of the post
 				'post_title'     => $details['name'], // The title of the post
 				'post_status'    => 'publish', // Default 'draft'
-				'post_type'      => 'pets', // Default 'post'
+				'post_type'      => 'keel-pets', // Default 'post'
 			));
 
 			// Save extra info to post meta
