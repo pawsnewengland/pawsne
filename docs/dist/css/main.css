@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.5.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.6.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -193,6 +193,15 @@ svg:not(:root) {
 /* line 153, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
 figure {
   margin: 0;
+}
+
+/**
+ * @workaround Remove focus from <main> element when using tabindex="-1" hack for skipnav link
+ * @link https://code.google.com/p/chromium/issues/detail?id=37721
+ */
+/* line 161, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+#main:focus {
+  outline: none;
 }
 
 /**
