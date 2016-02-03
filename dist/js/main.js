@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.6.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.7.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -3312,7 +3312,7 @@ ready(function () {
 
 fluidvids.init({
 	selector: ['iframe', 'object'],
-	players: ['www.youtube.com', 'player.vimeo.com', 'www.slideshare.net', 'www.google.com/maps']
+	players: ['www.youtube.com', 'player.vimeo.com', 'www.slideshare.net', 'www.google.com/maps', 'maps.google.com']
 });
 
 ready(function () {
