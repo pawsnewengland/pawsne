@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.6.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.7.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -1644,7 +1644,7 @@ td {
   width: 0.5em;
 }
 
-@media (max-width: 40em) {
+@media (max-width: 60em) {
   /* line 14, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro .nav-navbar .menu-item-has-children > a:after, .js-astro .nav-navbar .menu-item-has-children > .link-block-styled:after {
     content: "";
@@ -1660,7 +1660,7 @@ td {
   content: "\2013";
 }
 
-@media (max-width: 40em) {
+@media (max-width: 60em) {
   /* line 27, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro .nav-navbar .menu-item-has-children:focus > a:after, .js-astro .nav-navbar .menu-item-has-children:focus > .link-block-styled:after, .js-astro
   .nav-navbar .menu-item-has-children:hover > a:after, .js-astro
@@ -1754,7 +1754,7 @@ td {
   margin-top: 0.5em;
 }
 
-@media (max-width: 40em) {
+@media (max-width: 60em) {
   /* line 110, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro.js-drop .menu-item-has-children:focus .sub-menu, .js-astro.js-drop
   .menu-item-has-children:hover .sub-menu, .js-astro.js-drop
@@ -1763,7 +1763,7 @@ td {
   }
 }
 
-@media (max-width: 40em) {
+@media (max-width: 60em) {
   /* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro .sub-menu,
   .js-astro .menu-item-has-children.active .sub-menu {
