@@ -316,14 +316,22 @@
 
 		// Things to look for
 		$patterns = array(
-			'/<p><\/p>/',
-			'/<p> <\/p>/',
-			'/<p>&nbsp;<\/p>/',
-			'/&nbsp;/',
-			'/<span>/',
-			'/<\/span>/',
-			'/<font>/',
-			'/<\/font>/',
+			// '/<p><\/p>/',
+			// '/<p> <\/p>/',
+			// '/<p>&nbsp;<\/p>/',
+			// '/&nbsp;/',
+			// '/<span>/',
+			// '/<\/span>/',
+			// '/<font>/',
+			// '/<\/font>/',
+			'<p></p>/',
+			'<p> </p>/',
+			'<p>&nbsp;</p>/',
+			'&nbsp;',
+			'<span>',
+			'</span>',
+			'<font>',
+			'</font>',
 		);
 
 		// Things to replace them with
@@ -339,7 +347,8 @@
 		);
 
 		// Sanitize text
-		return preg_replace( $patterns, $replacements, $text );
+		// return preg_replace( $patterns, $replacements, $text );
+		return str_replace( $patterns, $replacements, $text );
 
 	}
 
@@ -858,11 +867,14 @@
 
 	// Schedule API data fetches
 	function keel_petfinder_api_schedule_get_pets() {
-		keel_petfinder_api_get_pets();
-		wp_schedule_event( time(), 'hourly', 'keel_petfinder_api_do_get_pets' );
+		if ( !wp_next_scheduled( 'keel_petfinder_api_do_get_pets' ) ) {
+			keel_petfinder_api_get_pets();
+			wp_schedule_event( time(), 'hourly', 'keel_petfinder_api_do_get_pets' );
+		}
 	}
-	add_action( 'after_switch_theme', 'keel_petfinder_api_schedule_get_pets' );
-	register_activation_hook( __FILE__, 'keel_petfinder_api_schedule_get_pets' );
+	// add_action( 'after_switch_theme', 'keel_petfinder_api_schedule_get_pets' );
+	add_action( 'init', 'keel_petfinder_api_schedule_get_pets' );
+	// register_activation_hook( __FILE__, 'keel_petfinder_api_schedule_get_pets' );
 	add_action( 'keel_petfinder_api_do_get_pets', 'keel_petfinder_api_get_pets' );
 
 
@@ -872,7 +884,7 @@
 		wp_clear_scheduled_hook( 'keel_petfinder_api_do_get_pets' );
 	}
 	add_action( 'switch_theme', 'keel_petfinder_api_unschedule_get_pets' );
-	register_deactivation_hook(__FILE__, 'keel_petfinder_api_unschedule_get_pets');
+	// register_deactivation_hook(__FILE__, 'keel_petfinder_api_unschedule_get_pets');
 
 
 
