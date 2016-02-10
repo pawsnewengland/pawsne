@@ -56,7 +56,7 @@ From the WordPress Admin Dashboard, visit `Appearance > Customize`, and select `
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/sosfcXx2uwA?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-Harbor uses WordPress's built-in menu functionality. Visit `Appearance > Menus` to get started. `Primary` is the header navigation, and `Secondary` is the footer navigation.
+Harbor uses WordPress's built-in menu functionality. Visit `Appearance > Menus` to get started. `Primary` is the header navigation, and `Secondary` is the footer navigation. The primary navigation supports one level of submenus (as dropdown menus). The secondary navigation only supports a flat navigation structure.
 
 ## Donations
 
@@ -166,7 +166,8 @@ Recommended plugins and services to get the most impact out of your site.
 - [JetPack](https://wordpress.org/plugins/jetpack/) adds a ton of useful features, including contact forms and automatic plugin updates.
 - [Manual Control for JetPack](https://wordpress.org/plugins/manual-control/) prevents JetPack from automatically enabling new features when you update the plugin.
 - [Contact Form 7](http://contactform7.com/) is an amazing contact form plugin for WordPress.
-- [The Events Calendar](https://theeventscalendar.com/) is a robust, feature-rich events calendar.
+- [WooCommerce](https://wordpress.org/plugins/woocommerce/) is robust ecommerce plugin that makes it easier to supplement your donation revenue with earned income.
+- [VaultPress](https://vaultpress.com/) provides simple, automated backups from the folks who built WordPress.
 - [ZenCache](https://wordpress.org/plugins/zencache/) makes your website load a lot faster.
 
 ### Web Hosting
