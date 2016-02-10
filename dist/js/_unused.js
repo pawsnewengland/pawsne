@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.11.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.11.1: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
