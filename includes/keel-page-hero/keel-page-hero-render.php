@@ -61,6 +61,10 @@
 		global $post;
 		$post_id = $post_id ? $post_id : $post->ID;
 
+		// Check that feature is activated
+		$dev_options = keel_developer_options();
+		if ( !$dev_options['hero'] ) return false;
+
 		// Get hero
 		$hero = keel_get_hero_content( $post_id );
 		$page_header = get_post_meta( $post->ID, 'keel_page_header', true );
@@ -88,7 +92,7 @@
 									<?php if ( $page_header !== 'on' ) : ?>
 										<h1><?php the_title(); ?></h1>
 									<?php endif; ?>
-									<?php echo do_shortcode( $hero['content'] ); ?>
+									<?php echo do_shortcode( wpautop( $hero['content'] ) ); ?>
 								</div>
 								<div class="grid-half grid-flip margin-bottom">
 									<?php echo $image; ?>

@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.13.1: WordPress theme for PAWS New England
+ * pawsnewengland v6.14.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -702,8 +702,7 @@ pre code {
  * Primary buttons
  */
 /* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn, input[type="submit"],
-#submit {
+.btn, input[type="submit"] {
   background-color: #68a20a;
   border: 0.125em solid #68a20a;
   border-radius: 1px;
@@ -720,25 +719,12 @@ pre code {
 
 /* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
 .btn:hover, input[type="submit"]:hover,
-#submit:hover,
 a .btn:hover, .link-block-styled .btn:hover,
-a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover,
-a
-#submit:hover, .link-block-styled
-#submit:hover, .btn:focus, input[type="submit"]:focus,
-#submit:focus,
+a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover, .btn:focus, input[type="submit"]:focus,
 a .btn:focus, .link-block-styled .btn:focus,
-a input[type="submit"]:focus, .link-block-styled input[type="submit"]:focus,
-a
-#submit:focus, .link-block-styled
-#submit:focus, .btn:active, input[type="submit"]:active,
-#submit:active,
+a input[type="submit"]:focus, .link-block-styled input[type="submit"]:focus, .btn:active, input[type="submit"]:active,
 a .btn:active, .link-block-styled .btn:active,
-a input[type="submit"]:active, .link-block-styled input[type="submit"]:active,
-a
-#submit:active, .link-block-styled
-#submit:active, .btn.active, input.active[type="submit"],
-.active#submit {
+a input[type="submit"]:active, .link-block-styled input[type="submit"]:active, .btn.active, input.active[type="submit"] {
   background-color: #3a5a06;
   border-color: #3a5a06;
   color: #ffffff;
@@ -768,51 +754,28 @@ a .btn-secondary:active, .link-block-styled .btn-secondary:active, .btn-secondar
  * Ghosted buttons
  */
 /* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn-ghost, .bg-dark .btn, .bg-dark input[type="submit"], .bg-dark
-#submit {
+.btn-ghost, .bg-dark .btn, .bg-dark input[type="submit"] {
   background-color: transparent;
   border-color: #ffffff;
 }
 
 /* line 67, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn-ghost:hover, .bg-dark .btn:hover, .bg-dark input[type="submit"]:hover, .bg-dark
-#submit:hover,
+.btn-ghost:hover, .bg-dark .btn:hover, .bg-dark input[type="submit"]:hover,
 a .btn-ghost:hover, .link-block-styled .btn-ghost:hover,
 a .bg-dark .btn:hover, .bg-dark
 a .btn:hover, .link-block-styled .bg-dark .btn:hover, .bg-dark .link-block-styled .btn:hover,
 a .bg-dark input[type="submit"]:hover, .bg-dark
-a input[type="submit"]:hover, .link-block-styled .bg-dark input[type="submit"]:hover, .bg-dark .link-block-styled input[type="submit"]:hover,
-a .bg-dark
-#submit:hover, .bg-dark
-a
-#submit:hover, .link-block-styled .bg-dark
-#submit:hover, .bg-dark .link-block-styled
-#submit:hover, .btn-ghost:focus, .bg-dark .btn:focus, .bg-dark input[type="submit"]:focus, .bg-dark
-#submit:focus,
+a input[type="submit"]:hover, .link-block-styled .bg-dark input[type="submit"]:hover, .bg-dark .link-block-styled input[type="submit"]:hover, .btn-ghost:focus, .bg-dark .btn:focus, .bg-dark input[type="submit"]:focus,
 a .btn-ghost:focus, .link-block-styled .btn-ghost:focus,
 a .bg-dark .btn:focus, .bg-dark
 a .btn:focus, .link-block-styled .bg-dark .btn:focus, .bg-dark .link-block-styled .btn:focus,
 a .bg-dark input[type="submit"]:focus, .bg-dark
-a input[type="submit"]:focus, .link-block-styled .bg-dark input[type="submit"]:focus, .bg-dark .link-block-styled input[type="submit"]:focus,
-a .bg-dark
-#submit:focus, .bg-dark
-a
-#submit:focus, .link-block-styled .bg-dark
-#submit:focus, .bg-dark .link-block-styled
-#submit:focus, .btn-ghost:active, .bg-dark .btn:active, .bg-dark input[type="submit"]:active, .bg-dark
-#submit:active,
+a input[type="submit"]:focus, .link-block-styled .bg-dark input[type="submit"]:focus, .bg-dark .link-block-styled input[type="submit"]:focus, .btn-ghost:active, .bg-dark .btn:active, .bg-dark input[type="submit"]:active,
 a .btn-ghost:active, .link-block-styled .btn-ghost:active,
 a .bg-dark .btn:active, .bg-dark
 a .btn:active, .link-block-styled .bg-dark .btn:active, .bg-dark .link-block-styled .btn:active,
 a .bg-dark input[type="submit"]:active, .bg-dark
-a input[type="submit"]:active, .link-block-styled .bg-dark input[type="submit"]:active, .bg-dark .link-block-styled input[type="submit"]:active,
-a .bg-dark
-#submit:active, .bg-dark
-a
-#submit:active, .link-block-styled .bg-dark
-#submit:active, .bg-dark .link-block-styled
-#submit:active, .btn-ghost.active, .bg-dark .active.btn, .bg-dark input.active[type="submit"], .bg-dark
-.active#submit {
+a input[type="submit"]:active, .link-block-styled .bg-dark input[type="submit"]:active, .bg-dark .link-block-styled input[type="submit"]:active, .btn-ghost.active, .bg-dark .active.btn, .bg-dark input.active[type="submit"] {
   background-color: #ffffff;
   border-color: #ffffff;
   color: #272727;
@@ -823,10 +786,8 @@ a
  */
 /* line 84, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
 .btn:active, input[type="submit"]:active,
-#submit:active,
 .btn.active,
-input.active[type="submit"],
-.active#submit {
+input.active[type="submit"] {
   box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
   outline: 0;
 }
@@ -836,10 +797,8 @@ input.active[type="submit"],
  */
 /* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
 .btn.disabled, input.disabled[type="submit"],
-.disabled#submit,
 .btn[disabled],
-input[disabled][type="submit"],
-[disabled]#submit {
+input[disabled][type="submit"] {
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.5;
@@ -876,7 +835,6 @@ input[type="button"].btn-block {
  */
 /* line 131, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
 .btn, input[type="submit"],
-#submit,
 button,
 html input[type="button"],
 input[type="reset"],
@@ -896,10 +854,8 @@ input[type="submit"] {
  */
 /* line 152, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
 .btn:last-child, input[type="submit"]:last-child,
-#submit:last-child,
 input.btn,
-input[type="submit"],
-input#submit {
+input[type="submit"] {
   margin-right: 0;
 }
 
@@ -1062,8 +1018,7 @@ select:focus {
  * Inline inputs
  */
 /* line 138, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
-.input-inline, input[type="submit"],
-#submit {
+.input-inline, input[type="submit"] {
   display: inline-block;
   margin-right: 0.5em;
   vertical-align: middle;
@@ -2840,8 +2795,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
-.bg-dark .btn, .bg-dark input[type="submit"], .bg-dark
-#submit {
+.bg-dark .btn, .bg-dark input[type="submit"] {
   color: #ffffff;
   text-decoration: none;
 }
