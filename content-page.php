@@ -17,7 +17,6 @@
 	<?php
 		// Get container size
 		$page_width = get_post_meta( $post->ID, 'keel_page_width', true );
-		$page_header = get_post_meta( $post->ID, 'keel_page_header', true );
 		$container = 'container';
 
 		// If set to something other than the default, adjust
@@ -27,7 +26,7 @@
 
 	<div class="<?php echo $container; ?>">
 
-		<?php if ( !keel_has_hero() && $page_header !== 'on' ) : ?>
+		<?php if ( !keel_has_hero() ) : ?>
 			<h1><?php the_title(); ?></h1>
 		<?php endif; ?>
 
