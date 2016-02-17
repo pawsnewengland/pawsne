@@ -45,7 +45,7 @@
 					</div>
 				</div>
 
-				<p class="text-small text-left-large"><a target="_blank" href="http://gomakethings.com">Harbor for WordPress Theme by Go Make Things</a></p>
+				<p class="text-small text-left-large"><a target="_blank" href="http://gomakethings.com">Website by Go Make Things</a></p>
 
 			</div>
 
