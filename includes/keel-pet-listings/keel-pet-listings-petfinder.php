@@ -138,7 +138,8 @@
 
 		// Sanitize description and add links
 		if ( $type === 'description' ) {
-			$attribute = keel_petfinder_api_sanitize_description( $pet['description']['$t'] );
+			$attribute = utf8_encode( $pet['description']['$t'] );
+			$attribute = keel_petfinder_api_sanitize_description( $attribute );
 			$attribute = keel_petfinder_api_linkify( $attribute );
 		}
 
@@ -673,7 +674,7 @@
 		if ( $single ) {
 			return array(
 				'name' => $pets['name']['$t'],
-				// 'id' => $pets['id']['$t'],
+				'id' => $pets['id']['$t'],
 				'animal' => $pets['animal']['$t'],
 				'age' => keel_petfinder_api_get_pet_attribute( $pets, 'age', $settings['age_unknown'] ),
 				'gender' => keel_petfinder_api_get_pet_attribute( $pets, 'sex', $settings['sex_unknown'] ),
