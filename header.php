@@ -55,10 +55,3 @@
 			<main class="tabindex" id="main" tabindex="-1">
 
 				<div class="<?php if ( !is_singular() || is_404() ) { echo 'container'; } ?> <?php if ( is_post_type_archive( 'keel-pets' ) ) { echo 'container-large'; } ?>">
-
-					<?php
-						$var = '� LetÃ¢ÂÂs';
-						echo $var;
-						echo '<br>';
-						echo preg_replace('/[^A-Za-z0-9\-]/', '', $var);
-					?>
