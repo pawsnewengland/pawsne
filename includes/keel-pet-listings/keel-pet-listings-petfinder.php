@@ -333,6 +333,8 @@
 			'</span>',
 			'<font>',
 			'</font>',
+			'Ã¢Â',
+			'�',
 		);
 
 		// Things to replace them with
@@ -345,10 +347,11 @@
 			'',
 			'',
 			'',
+			',',
+			'',
 		);
 
 		// Sanitize text
-		// return preg_replace( $patterns, $replacements, $text );
 		return str_replace( $patterns, $replacements, $text );
 
 	}
