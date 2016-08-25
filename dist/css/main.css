@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.17.3: WordPress theme for PAWS New England
+ * pawsnewengland v6.18.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -1685,7 +1685,7 @@ td {
   float: left;
   height: 1px;
   margin: -1px;
-  min-width: 12em;
+  min-width: 100%;
   overflow: hidden;
   padding: 0;
   position: absolute;
@@ -1699,14 +1699,21 @@ td {
 	 */
 }
 
-/* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+@media (min-width: 60em) {
+  /* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  .sub-menu {
+    min-width: 12em;
+  }
+}
+
+/* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
 .sub-menu ul,
 .sub-menu ol {
   list-style: none;
   margin-left: 0;
 }
 
-/* line 65, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 69, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
 .sub-menu a, .sub-menu .link-block-styled {
   color: #272727;
   display: block;
@@ -1714,7 +1721,7 @@ td {
   padding-right: 0.5em;
 }
 
-/* line 71, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 75, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
 .sub-menu a:focus, .sub-menu .link-block-styled:focus, .sub-menu a:hover, .sub-menu .link-block-styled:hover, .sub-menu .link-block:hover .link-block-styled, .link-block:hover .sub-menu .link-block-styled {
   background-color: #68a20a;
   color: #ffffff;
@@ -1722,18 +1729,18 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 79, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 83, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro.js-drop .sub-menu a:hover, .js-astro.js-drop .sub-menu .link-block-styled:hover, .js-astro.js-drop .sub-menu .link-block:hover .link-block-styled, .link-block:hover .js-astro.js-drop .sub-menu .link-block-styled {
     background-color: transparent;
     text-decoration: underline;
   }
-  /* line 85, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 89, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro.js-drop .sub-menu a, .js-astro.js-drop .sub-menu .link-block-styled {
     color: #ffffff;
   }
 }
 
-/* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 98, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
 .menu-item-has-children:focus .sub-menu,
 .menu-item-has-children:hover .sub-menu,
 .menu-item-has-children.active .sub-menu {
@@ -1747,7 +1754,7 @@ td {
   width: auto;
 }
 
-/* line 106, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 110, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
 .js-drop .menu-item-has-children:focus .sub-menu, .js-drop
 .menu-item-has-children:hover .sub-menu, .js-drop
 .menu-item-has-children.active .sub-menu {
@@ -1755,7 +1762,7 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 110, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 114, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro.js-drop .menu-item-has-children:focus .sub-menu, .js-astro.js-drop
   .menu-item-has-children:hover .sub-menu, .js-astro.js-drop
   .menu-item-has-children.active .sub-menu {
@@ -1764,7 +1771,7 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 125, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
   .js-astro .sub-menu,
   .js-astro .menu-item-has-children.active .sub-menu {
     background-color: transparent;
