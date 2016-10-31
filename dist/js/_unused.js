@@ -27,9 +27,9 @@
 		if ( !pet ) return;
 
 		// On click save data to localStorage
-		pet.addEventListener('click', function () {
+		pet.addEventListener('click', (function () {
 			sessionStorage.setItem( 'desiredPetName', this.getAttribute( 'data-adopt' ) );
-		}, false);
+		}), false);
 
 	};
 
