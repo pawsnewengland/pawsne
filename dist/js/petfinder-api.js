@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.18.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.19.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -14,7 +14,7 @@
 	} else {
 		root.petfinderSort = factory(root);
 	}
-})(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {
+})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
 
 	'use strict';
 
@@ -224,9 +224,9 @@
 	 * @private
 	 */
 	var getCheckedStates = function () {
-		forEach(sortBreeds, function (checkbox) { setCheckedState( checkbox ); });
-		forEach(sortAttributes, function (checkbox) { setCheckedState( checkbox ); });
-		forEach(sortToggles, function (checkbox) { setCheckedState( checkbox ); });
+		forEach(sortBreeds, (function (checkbox) { setCheckedState( checkbox ); }));
+		forEach(sortAttributes, (function (checkbox) { setCheckedState( checkbox ); }));
+		forEach(sortToggles, (function (checkbox) { setCheckedState( checkbox ); }));
 	};
 
 	/**
@@ -257,18 +257,18 @@
 
 		// If checkbox is checked, select all checkboxes
 		if ( checkbox.checked === true ) {
-			forEach(targets, function (target) {
+			forEach(targets, (function (target) {
 				target.checked = true;
 				saveCheckedState( target );
-			});
+			}));
 			return;
 		}
 
 		// If checkbox is unchecked, unselect all checkboxes
-		forEach(targets, function (target) {
+		forEach(targets, (function (target) {
 			target.checked = false;
 			saveCheckedState( target );
-		});
+		}));
 
 	};
 
@@ -279,7 +279,7 @@
 	var sortPets = function () {
 
 		// Hide or show all pets
-		forEach(pets, function (pet) {
+		forEach(pets, (function (pet) {
 
 			// If breed sorting is available, hide all pets by default
 			if ( hideAll ) {
@@ -290,27 +290,27 @@
 			// Otherwise, show all pets by default
 			toggleVisibility( pet );
 
-		});
+		}));
 
 		// If breed is checked, show matching pets
-		forEach(sortBreeds, function (checkbox) {
+		forEach(sortBreeds, (function (checkbox) {
 			if ( checkbox.checked === true ) {
 				var targets = document.querySelectorAll( checkbox.getAttribute( 'data-petfinder-sort-target' ) );
-				forEach(targets, function (target) {
+				forEach(targets, (function (target) {
 					toggleVisibility( target );
-				});
+				}));
 			}
-		});
+		}));
 
 		// If checkbox is unchecked, hide matching pets
-		forEach(sortAttributes, function (checkbox) {
+		forEach(sortAttributes, (function (checkbox) {
 			if ( checkbox.checked === false ) {
 				var targets = document.querySelectorAll( checkbox.getAttribute( 'data-petfinder-sort-target' ) );
-				forEach(targets, function (target) {
+				forEach(targets, (function (target) {
 					toggleVisibility( target, true );
-				});
+				}));
 			}
-		});
+		}));
 
 	};
 
@@ -321,24 +321,24 @@
 	var resetPets = function () {
 
 		// Show all pets
-		forEach(pets, function (pet) {
+		forEach(pets, (function (pet) {
 			toggleVisibility( pet );
-		});
+		}));
 
 		// Check all breed checkboxes
-		forEach(sortBreeds, function (checkbox) {
+		forEach(sortBreeds, (function (checkbox) {
 			checkbox.checked = true;
-		});
+		}));
 
 		// Check all attribute checkboxes
-		forEach(sortAttributes, function (checkbox) {
+		forEach(sortAttributes, (function (checkbox) {
 			checkbox.checked = true;
-		});
+		}));
 
 		// Check all toggle checkboxes
-		forEach(sortToggles, function (checkbox) {
+		forEach(sortToggles, (function (checkbox) {
 			checkbox.checked = true;
-		});
+		}));
 
 	};
 
@@ -444,5 +444,5 @@
 
 	return petfinderSort;
 
-});
+}));
 petfinderSort.init();

@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.18.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.19.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -474,9 +474,9 @@
 
 	// Expose the class either via AMD, CommonJS or the global object
 	if (typeof define === 'function' && define.amd) {
-		define('eventEmitter/EventEmitter',[],function () {
+		define('eventEmitter/EventEmitter',[],(function () {
 			return EventEmitter;
-		});
+		}));
 	}
 	else if (typeof module === 'object' && module.exports){
 		module.exports = EventEmitter;
@@ -496,7 +496,7 @@
 /*jshint browser: true, undef: true, unused: true */
 /*global define: false */
 
-( function( window ) {
+( (function( window ) {
 
 
 
@@ -562,7 +562,7 @@ if ( typeof define === 'function' && define.amd ) {
   window.eventie = eventie;
 }
 
-})( this );
+}))( this );
 
 /*!
  * imagesLoaded v3.1.8
@@ -570,7 +570,7 @@ if ( typeof define === 'function' && define.amd ) {
  * MIT License
  */
 
-( function( window, factory ) {
+( (function( window, factory ) {
   // universal module definition
 
   /*global define: false, module: false, require: false */
@@ -580,9 +580,9 @@ if ( typeof define === 'function' && define.amd ) {
     define( [
       'eventEmitter/EventEmitter',
       'eventie/eventie'
-    ], function( EventEmitter, eventie ) {
+    ], (function( EventEmitter, eventie ) {
       return factory( window, EventEmitter, eventie );
-    });
+    }));
   } else if ( typeof exports === 'object' ) {
     // CommonJS
     module.exports = factory(
@@ -599,11 +599,11 @@ if ( typeof define === 'function' && define.amd ) {
     );
   }
 
-})( window,
+}))( window,
 
 // --------------------------  factory -------------------------- //
 
-function factory( window, EventEmitter, eventie ) {
+(function factory( window, EventEmitter, eventie ) {
 
 
 
@@ -683,9 +683,9 @@ function makeArray( obj ) {
 
     // HACK check async to allow time to bind listeners
     var _this = this;
-    setTimeout( function() {
+    setTimeout( (function() {
       _this.check();
-    });
+    }));
   }
 
   ImagesLoaded.prototype = new EventEmitter();
@@ -760,12 +760,12 @@ function makeArray( obj ) {
     this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
     // HACK - Chrome triggers event before object properties have changed. #83
     var _this = this;
-    setTimeout( function() {
+    setTimeout( (function() {
       _this.emit( 'progress', _this, image );
       if ( _this.jqDeferred && _this.jqDeferred.notify ) {
         _this.jqDeferred.notify( _this, image );
       }
-    });
+    }));
   };
 
   ImagesLoaded.prototype.complete = function() {
@@ -773,14 +773,14 @@ function makeArray( obj ) {
     this.isComplete = true;
     var _this = this;
     // HACK - another setTimeout so that confirm happens after progress
-    setTimeout( function() {
+    setTimeout( (function() {
       _this.emit( eventName, _this );
       _this.emit( 'always', _this );
       if ( _this.jqDeferred ) {
         var jqMethod = _this.hasAnyBroken ? 'reject' : 'resolve';
         _this.jqDeferred[ jqMethod ]( _this );
       }
-    });
+    }));
   };
 
   // -------------------------- jquery -------------------------- //
@@ -819,10 +819,10 @@ function makeArray( obj ) {
 
     // If none of the checks above matched, simulate loading on detached element.
     var _this = this;
-    resource.on( 'confirm', function( resrc, message ) {
+    resource.on( 'confirm', (function( resrc, message ) {
       _this.confirm( resrc.isLoaded, message );
       return true;
-    });
+    }));
 
     resource.check();
   };
@@ -898,7 +898,7 @@ function makeArray( obj ) {
 
   return ImagesLoaded;
 
-});
+}));
 /*!
  * Masonry PACKAGED v3.3.1
  * Cascading grid layout library
@@ -913,7 +913,7 @@ function makeArray( obj ) {
  * MIT license
  */
 
-( function( window ) {
+( (function( window ) {
 
 
 
@@ -1000,7 +1000,7 @@ function bridge( namespace, PluginClass ) {
       // return this if no return value
       return this;
     } else {
-      return this.each( function() {
+      return this.each( (function() {
         var instance = $.data( this, namespace );
         if ( instance ) {
           // apply options & init
@@ -1011,7 +1011,7 @@ function bridge( namespace, PluginClass ) {
           instance = new PluginClass( this, options );
           $.data( this, namespace, instance );
         }
-      });
+      }));
     }
   };
 
@@ -1045,7 +1045,7 @@ if ( typeof define === 'function' && define.amd ) {
   defineBridget( window.jQuery );
 }
 
-})( window );
+}))( window );
 
 /*!
  * eventie v1.0.6
@@ -1058,7 +1058,7 @@ if ( typeof define === 'function' && define.amd ) {
 /*jshint browser: true, undef: true, unused: true */
 /*global define: false, module: false */
 
-( function( window ) {
+( (function( window ) {
 
 
 
@@ -1128,7 +1128,7 @@ if ( typeof define === 'function' && define.amd ) {
   window.eventie = eventie;
 }
 
-})( window );
+}))( window );
 
 /*!
  * EventEmitter v4.2.11 - git.io/ee
@@ -1591,9 +1591,9 @@ if ( typeof define === 'function' && define.amd ) {
 
     // Expose the class either via AMD, CommonJS or the global object
     if (typeof define === 'function' && define.amd) {
-        define('eventEmitter/EventEmitter',[],function () {
+        define('eventEmitter/EventEmitter',[],(function () {
             return EventEmitter;
-        });
+        }));
     }
     else if (typeof module === 'object' && module.exports){
         module.exports = EventEmitter;
@@ -1613,7 +1613,7 @@ if ( typeof define === 'function' && define.amd ) {
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false, exports: false, module: false */
 
-( function( window ) {
+( (function( window ) {
 
 
 
@@ -1646,9 +1646,9 @@ function getStyleProperty( propName ) {
 // transport
 if ( typeof define === 'function' && define.amd ) {
   // AMD
-  define( 'get-style-property/get-style-property',[],function() {
+  define( 'get-style-property/get-style-property',[],(function() {
     return getStyleProperty;
-  });
+  }));
 } else if ( typeof exports === 'object' ) {
   // CommonJS for Component
   module.exports = getStyleProperty;
@@ -1657,7 +1657,7 @@ if ( typeof define === 'function' && define.amd ) {
   window.getStyleProperty = getStyleProperty;
 }
 
-})( window );
+}))( window );
 
 /*!
  * getSize v1.2.2
@@ -1668,7 +1668,7 @@ if ( typeof define === 'function' && define.amd ) {
 /*jshint browser: true, strict: true, undef: true, unused: true */
 /*global define: false, exports: false, require: false, module: false, console: false */
 
-( function( window, undefined ) {
+( (function( window, undefined ) {
 
 
 
@@ -1745,7 +1745,7 @@ function setup() {
   isSetup = true;
 
   var getComputedStyle = window.getComputedStyle;
-  getStyle = ( function() {
+  getStyle = ( (function() {
     var getStyleFn = getComputedStyle ?
       function( elem ) {
         return getComputedStyle( elem, null );
@@ -1763,7 +1763,7 @@ function setup() {
         }
         return style;
       };
-  })();
+  }))();
 
   // -------------------------- box sizing -------------------------- //
 
@@ -1908,7 +1908,7 @@ if ( typeof define === 'function' && define.amd ) {
   window.getSize = defineGetSize( window.getStyleProperty );
 }
 
-})( window );
+}))( window );
 
 /*!
  * docReady v1.0.4
@@ -1919,7 +1919,7 @@ if ( typeof define === 'function' && define.amd ) {
 /*jshint browser: true, strict: true, undef: true, unused: true*/
 /*global define: false, require: false, module: false */
 
-( function( window ) {
+( (function( window ) {
 
 
 
@@ -1989,7 +1989,7 @@ if ( typeof define === 'function' && define.amd ) {
   window.docReady = defineDocReady( window.eventie );
 }
 
-})( window );
+}))( window );
 
 /**
  * matchesSelector v1.0.3
@@ -2000,11 +2000,11 @@ if ( typeof define === 'function' && define.amd ) {
 /*jshint browser: true, strict: true, undef: true, unused: true */
 /*global define: false, module: false */
 
-( function( ElemProto ) {
+( (function( ElemProto ) {
 
 
 
-  var matchesMethod = ( function() {
+  var matchesMethod = ( (function() {
     // check for the standard method name first
     if ( ElemProto.matches ) {
       return 'matches';
@@ -2023,7 +2023,7 @@ if ( typeof define === 'function' && define.amd ) {
         return method;
       }
     }
-  })();
+  }))();
 
   // ----- match ----- //
 
@@ -2086,9 +2086,9 @@ if ( typeof define === 'function' && define.amd ) {
   // transport
   if ( typeof define === 'function' && define.amd ) {
     // AMD
-    define( 'matches-selector/matches-selector',[],function() {
+    define( 'matches-selector/matches-selector',[],(function() {
       return matchesSelector;
-    });
+    }));
   } else if ( typeof exports === 'object' ) {
     module.exports = matchesSelector;
   }
@@ -2097,7 +2097,7 @@ if ( typeof define === 'function' && define.amd ) {
     window.matchesSelector = matchesSelector;
   }
 
-})( Element.prototype );
+}))( Element.prototype );
 
 /**
  * Fizzy UI utils v1.0.1
@@ -2106,7 +2106,7 @@ if ( typeof define === 'function' && define.amd ) {
 
 /*jshint browser: true, undef: true, unused: true, strict: true */
 
-( function( window, factory ) {
+( (function( window, factory ) {
   /*global define: false, module: false, require: false */
 
   // universal module definition
@@ -2116,9 +2116,9 @@ if ( typeof define === 'function' && define.amd ) {
     define( 'fizzy-ui-utils/utils',[
       'doc-ready/doc-ready',
       'matches-selector/matches-selector'
-    ], function( docReady, matchesSelector ) {
+    ], (function( docReady, matchesSelector ) {
       return factory( window, docReady, matchesSelector );
-    });
+    }));
   } else if ( typeof exports == 'object' ) {
     // CommonJS
     module.exports = factory(
@@ -2135,7 +2135,7 @@ if ( typeof define === 'function' && define.amd ) {
     );
   }
 
-}( window, function factory( window, docReady, matchesSelector ) {
+})( window, (function factory( window, docReady, matchesSelector ) {
 
 
 
@@ -2221,7 +2221,7 @@ utils.isElement = ( typeof HTMLElement == 'function' || typeof HTMLElement == 'o
 
 // ----- setText ----- //
 
-utils.setText = ( function() {
+utils.setText = ( (function() {
   var setTextProperty;
   function setText( elem, text ) {
     // only check setTextProperty once
@@ -2229,7 +2229,7 @@ utils.setText = ( function() {
     elem[ setTextProperty ] = text;
   }
   return setText;
-})();
+}))();
 
 // ----- getParent ----- //
 
@@ -2310,10 +2310,10 @@ utils.debounceMethod = function( _class, methodName, threshold ) {
     var args = arguments;
 
     var _this = this;
-    this[ timeoutName ] = setTimeout( function() {
+    this[ timeoutName ] = setTimeout( (function() {
       method.apply( _this, args );
       delete _this[ timeoutName ];
-    }, threshold || 100 );
+    }), threshold || 100 );
   };
 };
 
@@ -2321,9 +2321,9 @@ utils.debounceMethod = function( _class, methodName, threshold ) {
 
 // http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/
 utils.toDashed = function( str ) {
-  return str.replace( /(.)([A-Z])/g, function( match, $1, $2 ) {
+  return str.replace( /(.)([A-Z])/g, (function( match, $1, $2 ) {
     return $1 + '-' + $2;
-  }).toLowerCase();
+  })).toLowerCase();
 };
 
 var console = window.console;
@@ -2333,7 +2333,7 @@ var console = window.console;
  * options are parsed from data-namespace-option attribute
  */
 utils.htmlInit = function( WidgetClass, namespace ) {
-  docReady( function() {
+  docReady( (function() {
     var dashedNamespace = utils.toDashed( namespace );
     var elems = document.querySelectorAll( '.js-' + dashedNamespace );
     var dataAttr = 'data-' + dashedNamespace + '-options';
@@ -2361,20 +2361,20 @@ utils.htmlInit = function( WidgetClass, namespace ) {
         jQuery.data( elem, namespace, instance );
       }
     }
-  });
+  }));
 };
 
 // -----  ----- //
 
 return utils;
 
-}));
+})));
 
 /**
  * Outlayer Item
  */
 
-( function( window, factory ) {
+( (function( window, factory ) {
 
   // universal module definition
   if ( typeof define === 'function' && define.amd ) {
@@ -2385,9 +2385,9 @@ return utils;
         'get-style-property/get-style-property',
         'fizzy-ui-utils/utils'
       ],
-      function( EventEmitter, getSize, getStyleProperty, utils ) {
+      (function( EventEmitter, getSize, getStyleProperty, utils ) {
         return factory( window, EventEmitter, getSize, getStyleProperty, utils );
-      }
+      })
     );
   } else if (typeof exports === 'object') {
     // CommonJS
@@ -2410,7 +2410,7 @@ return utils;
     );
   }
 
-}( window, function factory( window, EventEmitter, getSize, getStyleProperty, utils ) {
+})( window, (function factory( window, EventEmitter, getSize, getStyleProperty, utils ) {
 
 
 // ----- helpers ----- //
@@ -2456,7 +2456,7 @@ var prefixableProperties = [
 ];
 
 // cache all vendor properties
-var vendorProperties = ( function() {
+var vendorProperties = ( (function() {
   var cache = {};
   for ( var i=0, len = prefixableProperties.length; i < len; i++ ) {
     var prop = prefixableProperties[i];
@@ -2466,7 +2466,7 @@ var vendorProperties = ( function() {
     }
   }
   return cache;
-})();
+}))();
 
 // -------------------------- Item -------------------------- //
 
@@ -2729,9 +2729,9 @@ Item.prototype._transition = function( args ) {
 // dash before all cap letters, including first for
 // WebkitTransform => -webkit-transform
 function toDashedAll( str ) {
-  return str.replace( /([A-Z])/g, function( $1 ) {
+  return str.replace( /([A-Z])/g, (function( $1 ) {
     return '-' + $1.toLowerCase();
-  });
+  }));
 }
 
 var transitionProps = 'opacity,' +
@@ -2861,9 +2861,9 @@ Item.prototype.remove = function() {
 
   // start transition
   var _this = this;
-  this.once( 'transitionEnd', function() {
+  this.once( 'transitionEnd', (function() {
     _this.removeElem();
-  });
+  }));
   this.hide();
 };
 
@@ -2955,7 +2955,7 @@ Item.prototype.destroy = function() {
 
 return Item;
 
-}));
+})));
 
 /*!
  * Outlayer v1.4.1
@@ -2963,7 +2963,7 @@ return Item;
  * MIT license
  */
 
-( function( window, factory ) {
+( (function( window, factory ) {
 
   // universal module definition
 
@@ -2976,9 +2976,9 @@ return Item;
         'fizzy-ui-utils/utils',
         './item'
       ],
-      function( eventie, EventEmitter, getSize, utils, Item ) {
+      (function( eventie, EventEmitter, getSize, utils, Item ) {
         return factory( window, eventie, EventEmitter, getSize, utils, Item);
-      }
+      })
     );
   } else if ( typeof exports == 'object' ) {
     // CommonJS
@@ -3002,7 +3002,7 @@ return Item;
     );
   }
 
-}( window, function factory( window, eventie, EventEmitter, getSize, utils, Item ) {
+})( window, (function factory( window, eventie, EventEmitter, getSize, utils, Item ) {
 
 
 // ----- vars ----- //
@@ -3881,7 +3881,7 @@ Outlayer.Item = Item;
 
 return Outlayer;
 
-}));
+})));
 
 
 /*!
@@ -3892,7 +3892,7 @@ return Outlayer;
  * by David DeSandro
  */
 
-( function( window, factory ) {
+( (function( window, factory ) {
 
   // universal module definition
   if ( typeof define === 'function' && define.amd ) {
@@ -3919,7 +3919,7 @@ return Outlayer;
     );
   }
 
-}( window, function factory( Outlayer, getSize, utils ) {
+})( window, (function factory( Outlayer, getSize, utils ) {
 
 
 
@@ -4086,7 +4086,7 @@ return Outlayer;
 
   return Masonry;
 
-}));
+})));
 
 /*! PhotoSwipe Default UI - 4.1.1 - 2015-12-24
 * http://photoswipe.com
@@ -4105,7 +4105,7 @@ return Outlayer;
 	} else {
 		root.PhotoSwipeUI_Default = factory();
 	}
-})(this, function () {
+})(this, (function () {
 
 	'use strict';
 
@@ -4233,9 +4233,9 @@ var PhotoSwipeUI_Default =
 				// older versions strangely work correctly,
 				// but just in case we add delay on all of them)
 				var tapDelay = framework.features.isOldAndroid ? 600 : 30;
-				_blockControlsTapTimeout = setTimeout(function() {
+				_blockControlsTapTimeout = setTimeout((function() {
 					_blockControlsTap = false;
-				}, tapDelay);
+				}), tapDelay);
 			}
 
 		},
@@ -4266,18 +4266,18 @@ var PhotoSwipeUI_Default =
 
 			if(!_shareModalHidden) {
 				_toggleShareModalClass();
-				setTimeout(function() {
+				setTimeout((function() {
 					if(!_shareModalHidden) {
 						framework.addClass(_shareModal, 'pswp__share-modal--fade-in');
 					}
-				}, 30);
+				}), 30);
 			} else {
 				framework.removeClass(_shareModal, 'pswp__share-modal--fade-in');
-				setTimeout(function() {
+				setTimeout((function() {
 					if(_shareModalHidden) {
 						_toggleShareModalClass();
 					}
-				}, 300);
+				}), 300);
 			}
 
 			if(!_shareModalHidden) {
@@ -4365,9 +4365,9 @@ var PhotoSwipeUI_Default =
 			var from = e.relatedTarget || e.toElement;
 			if (!from || from.nodeName === 'HTML') {
 				clearTimeout(_idleTimer);
-				_idleTimer = setTimeout(function() {
+				_idleTimer = setTimeout((function() {
 					ui.setIdle(true);
-				}, _options.timeToIdleOutside);
+				}), _options.timeToIdleOutside);
 			}
 		},
 		_setupFullscreenAPI = function() {
@@ -4390,12 +4390,12 @@ var PhotoSwipeUI_Default =
 
 				_toggleLoadingIndicator(true);
 
-				_listen('beforeChange', function() {
+				_listen('beforeChange', (function() {
 
 					clearTimeout(_loadingIndicatorTimeout);
 
 					// display loading indicator with delay
-					_loadingIndicatorTimeout = setTimeout(function() {
+					_loadingIndicatorTimeout = setTimeout((function() {
 
 						if(pswp.currItem && pswp.currItem.loading) {
 
@@ -4410,14 +4410,14 @@ var PhotoSwipeUI_Default =
 							_toggleLoadingIndicator(true); // hide preloader
 						}
 
-					}, _options.loadingIndicatorDelay);
+					}), _options.loadingIndicatorDelay);
 
-				});
-				_listen('imageLoadComplete', function(index, item) {
+				}));
+				_listen('imageLoadComplete', (function(index, item) {
 					if(pswp.currItem === item) {
 						_toggleLoadingIndicator(true);
 					}
-				});
+				}));
 
 			}
 		},
@@ -4460,48 +4460,48 @@ var PhotoSwipeUI_Default =
 		_setupIdle = function() {
 			// Hide controls when mouse is used
 			if(_options.timeToIdle) {
-				_listen('mouseUsed', function() {
+				_listen('mouseUsed', (function() {
 
 					framework.bind(document, 'mousemove', _onIdleMouseMove);
 					framework.bind(document, 'mouseout', _onMouseLeaveWindow);
 
-					_idleInterval = setInterval(function() {
+					_idleInterval = setInterval((function() {
 						_idleIncrement++;
 						if(_idleIncrement === 2) {
 							ui.setIdle(true);
 						}
-					}, _options.timeToIdle / 2);
-				});
+					}), _options.timeToIdle / 2);
+				}));
 			}
 		},
 		_setupHidingControlsDuringGestures = function() {
 
 			// Hide controls on vertical drag
-			_listen('onVerticalDrag', function(now) {
+			_listen('onVerticalDrag', (function(now) {
 				if(_controlsVisible && now < 0.95) {
 					ui.hideControls();
 				} else if(!_controlsVisible && now >= 0.95) {
 					ui.showControls();
 				}
-			});
+			}));
 
 			// Hide controls when pinching to close
 			var pinchControlsHidden;
-			_listen('onPinchClose' , function(now) {
+			_listen('onPinchClose' , (function(now) {
 				if(_controlsVisible && now < 0.9) {
 					ui.hideControls();
 					pinchControlsHidden = true;
 				} else if(pinchControlsHidden && !_controlsVisible && now > 0.9) {
 					ui.showControls();
 				}
-			});
+			}));
 
-			_listen('zoomGestureEnded', function() {
+			_listen('zoomGestureEnded', (function() {
 				pinchControlsHidden = false;
 				if(pinchControlsHidden && !_controlsVisible) {
 					ui.showControls();
 				}
-			});
+			}));
 
 		};
 
@@ -4651,17 +4651,17 @@ var PhotoSwipeUI_Default =
 		_listen('beforeChange', ui.update);
 
 		// toggle zoom on double-tap
-		_listen('doubleTap', function(point) {
+		_listen('doubleTap', (function(point) {
 			var initialZoomLevel = pswp.currItem.initialZoomLevel;
 			if(pswp.getZoomLevel() !== initialZoomLevel) {
 				pswp.zoomTo(initialZoomLevel, point, 333);
 			} else {
 				pswp.zoomTo(_options.getDoubleTapZoom(false, pswp.currItem), point, 333);
 			}
-		});
+		}));
 
 		// Allow text selection in caption
-		_listen('preventDragEvent', function(e, isDown, preventObj) {
+		_listen('preventDragEvent', (function(e, isDown, preventObj) {
 			var t = e.target || e.srcElement;
 			if(
 				t &&
@@ -4670,20 +4670,20 @@ var PhotoSwipeUI_Default =
 			) {
 				preventObj.prevent = false;
 			}
-		});
+		}));
 
 		// bind events for UI
-		_listen('bindEvents', function() {
+		_listen('bindEvents', (function() {
 			framework.bind(_controls, 'pswpTap click', _onControlsTap);
 			framework.bind(pswp.scrollWrap, 'pswpTap', ui.onGlobalTap);
 
 			if(!pswp.likelyTouchDevice) {
 				framework.bind(pswp.scrollWrap, 'mouseover', ui.onMouseOver);
 			}
-		});
+		}));
 
 		// unbind events for UI
-		_listen('unbindEvents', function() {
+		_listen('unbindEvents', (function() {
 			if(!_shareModalHidden) {
 				_toggleShareModal();
 			}
@@ -4705,11 +4705,11 @@ var PhotoSwipeUI_Default =
 				}
 				_fullscrenAPI = null;
 			}
-		});
+		}));
 
 
 		// clean up things when gallery is destroyed
-		_listen('destroy', function() {
+		_listen('destroy', (function() {
 			if(_options.captionEl) {
 				if(_fakeCaptionContainer) {
 					_controls.removeChild(_fakeCaptionContainer);
@@ -4723,20 +4723,20 @@ var PhotoSwipeUI_Default =
 			framework.removeClass(_controls, 'pswp__ui--over-close');
 			framework.addClass( _controls, 'pswp__ui--hidden');
 			ui.setIdle(false);
-		});
+		}));
 
 
 		if(!_options.showAnimationDuration) {
 			framework.removeClass( _controls, 'pswp__ui--hidden');
 		}
-		_listen('initialZoomIn', function() {
+		_listen('initialZoomIn', (function() {
 			if(_options.showAnimationDuration) {
 				framework.removeClass( _controls, 'pswp__ui--hidden');
 			}
-		});
-		_listen('initialZoomOut', function() {
+		}));
+		_listen('initialZoomOut', (function() {
 			framework.addClass( _controls, 'pswp__ui--hidden');
-		});
+		}));
 
 		_listen('parseVerticalMargin', _applyNavBarGaps);
 
@@ -4790,9 +4790,9 @@ var PhotoSwipeUI_Default =
 		if(e) {
 			// some browsers change window scroll position during the fullscreen
 			// so PhotoSwipe updates it just in case
-			setTimeout(function() {
+			setTimeout((function() {
 				pswp.setScrollOffset( 0, framework.getScrollY() );
-			}, 50);
+			}), 50);
 		}
 
 		// toogle pswp--fs class on root element
@@ -4948,7 +4948,7 @@ var PhotoSwipeUI_Default =
 return PhotoSwipeUI_Default;
 
 
-});
+}));
 /*! PhotoSwipe - v4.1.1 - 2015-12-24
 * http://photoswipe.com
 * Copyright (c) 2015 Dmitry Semenov; */
@@ -4960,7 +4960,7 @@ return PhotoSwipeUI_Default;
 	} else {
 		root.PhotoSwipe = factory();
 	}
-})(this, function () {
+})(this, (function () {
 
 	'use strict';
 	var PhotoSwipe = function(template, UiClass, items, options){
@@ -5188,7 +5188,7 @@ var framework = {
 			features.raf = function(fn) {
 				var currTime = new Date().getTime();
 				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-				var id = window.setTimeout(function() { fn(currTime + timeToCall); }, timeToCall);
+				var id = window.setTimeout((function() { fn(currTime + timeToCall); }), timeToCall);
 				lastTime = currTime + timeToCall;
 				return id;
 			};
@@ -5477,9 +5477,9 @@ var _isOpen,
 			_options.mouseUsed = true;
 			_shout('mouseUsed');
 		}
-		_mouseMoveTimeout = setTimeout(function() {
+		_mouseMoveTimeout = setTimeout((function() {
 			_mouseMoveTimeout = null;
-		}, 100);
+		}), 100);
 	},
 
 	_bindEvents = function() {
@@ -5869,7 +5869,7 @@ var publicMethods = {
 			framework.bind(self.scrollWrap, _downEvents, self); // no dragging for old IE
 		}	
 
-		_listen('initialZoomInEnd', function() {
+		_listen('initialZoomInEnd', (function() {
 			self.setContent(_itemHolders[0], _currentItemIndex-1);
 			self.setContent(_itemHolders[2], _currentItemIndex+1);
 
@@ -5884,7 +5884,7 @@ var publicMethods = {
 			 
 
 			_bindEvents();
-		});
+		}));
 
 		// set content for center slide (first time)
 		self.setContent(_itemHolders[1], _currentItemIndex);
@@ -5904,11 +5904,11 @@ var publicMethods = {
 			// 
 			// 10 Nov 2014: iOS 7 usage ~40%. iOS 8 usage 56%.
 			
-			_updateSizeInterval = setInterval(function() {
+			_updateSizeInterval = setInterval((function() {
 				if(!_numAnimations && !_isDragging && !_isZooming && (_currZoomLevel === self.currItem.initialZoomLevel)  ) {
 					self.updateSize();
 				}
-			}, 1000);
+			}), 1000);
 		}
 
 		framework.addClass(template, 'pswp--visible');
@@ -6440,7 +6440,7 @@ var _gestureStartTime,
 		} else {
 			_tempCounter = 0;
 			// we can use forEach, as pointer events are supported only in modern browsers
-			_currPointers.forEach(function(p) {
+			_currPointers.forEach((function(p) {
 				if(_tempCounter === 0) {
 					_tempPointsArr[0] = p;
 				} else if(_tempCounter === 1) {
@@ -6448,7 +6448,7 @@ var _gestureStartTime,
 				}
 				_tempCounter++;
 
-			});
+			}));
 		}
 		return _tempPointsArr;
 	},
@@ -6901,9 +6901,9 @@ var _gestureStartTime,
 			// so we block mousedown/up for 600ms
 			if( e.type.indexOf('touch') > -1 ) {
 				clearTimeout(_oldAndroidTouchEndTimeout);
-				_oldAndroidTouchEndTimeout = setTimeout(function() {
+				_oldAndroidTouchEndTimeout = setTimeout((function() {
 					_oldAndroidTouchEndTimeout = 0;
-				}, 600);
+				}), 600);
 			}
 			
 		}
@@ -7034,13 +7034,13 @@ var _gestureStartTime,
 				var initalPanY = _panOffset.y,
 					initialBgOpacity = _bgOpacity;
 
-				_animateProp('verticalDrag', 0, 1, 300, framework.easing.cubic.out, function(now) {
+				_animateProp('verticalDrag', 0, 1, 300, framework.easing.cubic.out, (function(now) {
 					
 					_panOffset.y = (self.currItem.initialPosition.y - initalPanY) * now + initalPanY;
 
 					_applyBgOpacity(  (1 - initialBgOpacity) * now + initialBgOpacity );
 					_applyCurrentZoomPan();
-				});
+				}));
 
 				_shout('onVerticalDrag', 1);
 			}
@@ -7143,10 +7143,10 @@ var _gestureStartTime,
 								s.backAnimDestination[axis], 
 								speed || 300, 
 								framework.easing.sine.out, 
-								function(pos) {
+								(function(pos) {
 									_panOffset[axis] = pos;
 									_applyCurrentZoomPan();
-								}
+								})
 							);
 
 						}
@@ -7306,7 +7306,7 @@ var _gestureStartTime,
 
 		_animateProp('mainScroll', _mainScrollPos.x, animateToX, finishAnimDuration, framework.easing.cubic.out, 
 			_moveMainScroll,
-			function() {
+			(function() {
 				_stopAllAnimations();
 				_mainScrollAnimating = false;
 				_currZoomedItemIndex = -1;
@@ -7316,7 +7316,7 @@ var _gestureStartTime,
 				}
 				
 				_shout('mainScrollAnimComplete');
-			}
+			})
 		);
 
 		if(itemChanged) {
@@ -7506,9 +7506,9 @@ var _showOrHideTimeout,
 			_applyBgOpacity(1);
 
 			if(duration) {
-				setTimeout(function() {
+				setTimeout((function() {
 					onComplete();
-				}, duration);
+				}), duration);
 			} else {
 				onComplete();
 			}
@@ -7544,13 +7544,13 @@ var _showOrHideTimeout,
 				if(out) {
 					framework[ (closeWithRaf ? 'remove' : 'add') + 'Class' ](template, 'pswp--animate_opacity');
 				} else {
-					setTimeout(function() {
+					setTimeout((function() {
 						framework.addClass(template, 'pswp--animate_opacity');
-					}, 30);
+					}), 30);
 				}
 			}
 
-			_showOrHideTimeout = setTimeout(function() {
+			_showOrHideTimeout = setTimeout((function() {
 
 				_shout('initialZoom' + (out ? 'Out' : 'In') );
 				
@@ -7612,7 +7612,7 @@ var _showOrHideTimeout,
 					}
 				}
 			
-			}, out ? 25 : 90); // Main purpose of this delay is to give browser time to paint and
+			}), out ? 25 : 90); // Main purpose of this delay is to give browser time to paint and
 					// create composite layers of PhotoSwipe UI parts (background, controls, caption, arrows).
 					// Which avoids lag at the beginning of scale transition.
 		};
@@ -7761,12 +7761,12 @@ var _getItemAt,
 			baseDiv.appendChild(img);
 
 			if(keepPlaceholder) {
-				setTimeout(function() {
+				setTimeout((function() {
 					if(item && item.loaded && item.placeholder) {
 						item.placeholder.style.display = 'none';
 						item.placeholder = null;
 					}
-				}, 500);
+				}), 500);
 			}
 		}
 	},
@@ -7881,7 +7881,7 @@ _registerModule('Controller', {
 				_options.loop = false; // disable loop if less then 3 items
 			}
 
-			_listen('beforeChange', function(diff) {
+			_listen('beforeChange', (function(diff) {
 
 				var p = _options.preload,
 					isNext = diff === null ? true : (diff >= 0),
@@ -7896,18 +7896,18 @@ _registerModule('Controller', {
 				for(i = 1; i <= (isNext ? preloadBefore : preloadAfter); i++) {
 					self.lazyLoadItem(_currentItemIndex-i);
 				}
-			});
+			}));
 
-			_listen('initialLayout', function() {
+			_listen('initialLayout', (function() {
 				self.currItem.initialLayout = _options.getThumbBoundsFn && _options.getThumbBoundsFn(_currentItemIndex);
-			});
+			}));
 
 			_listen('mainScrollAnimComplete', _appendImagesPool);
 			_listen('initialZoomInEnd', _appendImagesPool);
 
 
 
-			_listen('destroy', function() {
+			_listen('destroy', (function() {
 				var item;
 				for(var i = 0; i < _items.length; i++) {
 					item = _items[i];
@@ -7929,7 +7929,7 @@ _registerModule('Controller', {
 					}
 				}
 				_imagesToAppendPool = null;
-			});
+			}));
 		},
 
 
@@ -8148,10 +8148,10 @@ _registerModule('Tap', {
 		initTap: function() {
 			_listen('firstTouchStart', self.onTapStart);
 			_listen('touchRelease', self.onTapRelease);
-			_listen('destroy', function() {
+			_listen('destroy', (function() {
 				tapReleasePoint = {};
 				tapTimer = null;
-			});
+			}));
 		},
 		onTapStart: function(touchList) {
 			if(touchList.length > 1) {
@@ -8191,10 +8191,10 @@ _registerModule('Tap', {
 
 				_equalizePoints(tapReleasePoint, p0);
 
-				tapTimer = setTimeout(function() {
+				tapTimer = setTimeout((function() {
 					_dispatchTapEvent(e, releasePoint);
 					tapTimer = null;
-				}, 300);
+				}), 300);
 			}
 		}
 	}
@@ -8230,9 +8230,9 @@ _registerModule('DesktopZoom', {
 			if(_likelyTouchDevice) {
 				// if detected hardware touch support, we wait until mouse is used,
 				// and only then apply desktop-zoom features
-				_listen('mouseUsed', function() {
+				_listen('mouseUsed', (function() {
 					self.setupDesktopZoom();
-				});
+				}));
 			} else {
 				self.setupDesktopZoom(true);
 			}
@@ -8245,15 +8245,15 @@ _registerModule('DesktopZoom', {
 
 			var events = 'wheel mousewheel DOMMouseScroll';
 			
-			_listen('bindEvents', function() {
+			_listen('bindEvents', (function() {
 				framework.bind(template, events,  self.handleMouseWheel);
-			});
+			}));
 
-			_listen('unbindEvents', function() {
+			_listen('unbindEvents', (function() {
 				if(_wheelDelta) {
 					framework.unbind(template, events, self.handleMouseWheel);
 				}
-			});
+			}));
 
 			self.mouseZoomedIn = false;
 
@@ -8279,12 +8279,12 @@ _registerModule('DesktopZoom', {
 
 			_listen('resize' , updateZoomable);
 			_listen('afterChange' , updateZoomable);
-			_listen('pointerDown', function() {
+			_listen('pointerDown', (function() {
 				if(self.mouseZoomedIn) {
 					hasDraggingClass = true;
 					framework.addClass(template, 'pswp--dragging');
 				}
-			});
+			}));
 			_listen('pointerUp', removeDraggingClass);
 
 			if(!onInit) {
@@ -8519,9 +8519,9 @@ var _historyUpdateTimeout,
 		
 
 		_historyChanged = true;
-		_hashChangeTimeout = setTimeout(function() {
+		_hashChangeTimeout = setTimeout((function() {
 			_hashChangedByScript = false;
-		}, 60);
+		}), 60);
 	};
 
 
@@ -8557,9 +8557,9 @@ _registerModule('History', {
 			
 
 			_listen('afterChange', self.updateURL);
-			_listen('unbindEvents', function() {
+			_listen('unbindEvents', (function() {
 				framework.unbind(window, 'hashchange', self.onHashChange);
-			});
+			}));
 
 
 			var returnToOriginal = function() {
@@ -8589,21 +8589,21 @@ _registerModule('History', {
 			};
 
 
-			_listen('unbindEvents', function() {
+			_listen('unbindEvents', (function() {
 				if(_closedByScroll) {
 					// if PhotoSwipe is closed by scroll, we go "back" before the closing animation starts
 					// this is done to keep the scroll position
 					returnToOriginal();
 				}
-			});
-			_listen('destroy', function() {
+			}));
+			_listen('destroy', (function() {
 				if(!_hashReseted) {
 					returnToOriginal();
 				}
-			});
-			_listen('firstUpdate', function() {
+			}));
+			_listen('firstUpdate', (function() {
 				_currentItemIndex = _parseItemIndexFromURL().pid;
-			});
+			}));
 
 			
 
@@ -8617,11 +8617,11 @@ _registerModule('History', {
 			}
 			
 
-			setTimeout(function() {
+			setTimeout((function() {
 				if(_isOpen) { // hasn't destroyed yet
 					framework.bind(window, 'hashchange', self.onHashChange);
 				}
-			}, 40);
+			}), 40);
 			
 		},
 		onHashChange: function() {
@@ -8666,20 +8666,20 @@ _registerModule('History', {
 /*>>history*/
 	framework.extend(self, publicMethods); };
 	return PhotoSwipe;
-});
-ready(function () {
+}));
+ready((function () {
 	var mason = document.querySelector( '[data-masonry]' );
 	if ( !mason ) return;
-	imagesLoaded(mason, function () {
+	imagesLoaded(mason, (function () {
 		var msnry = new Masonry( mason, {
 			itemSelector: '[data-masonry-content]',
 			percentPosition: true,
 		});
-	});
-});
+	}));
+}));
 
 
-ready(function () {
+ready((function () {
 	var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 		var parseThumbnailElements = function(el) {
@@ -8756,9 +8756,9 @@ ready(function () {
 
 			var eTarget = e.target || e.srcElement;
 
-			var clickedListItem = closest(eTarget, function(el) {
+			var clickedListItem = closest(eTarget, (function(el) {
 				return el.tagName === 'A';
-			});
+			}));
 
 			if(!clickedListItem) {
 				return;
@@ -8906,7 +8906,7 @@ ready(function () {
 				firstResize = true,
 				imageSrcWillChange;
 
-			gallery.listen('beforeResize', function() {
+			gallery.listen('beforeResize', (function() {
 
 				var dpiRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
 				dpiRatio = Math.min(dpiRatio, 2.5);
@@ -8936,9 +8936,9 @@ ready(function () {
 
 				imageSrcWillChange = false;
 
-			});
+			}));
 
-			gallery.listen('gettingData', function(index, item) {
+			gallery.listen('gettingData', (function(index, item) {
 				if( useLargeImages || !('m' in item) ) {
 					item.src = item.o.src;
 					item.w = item.o.w;
@@ -8948,7 +8948,7 @@ ready(function () {
 					item.w = item.m.w;
 					item.h = item.m.h;
 				}
-			});
+			}));
 
 			gallery.init();
 		};
@@ -8968,4 +8968,4 @@ ready(function () {
 	};
 
 	initPhotoSwipeFromDOM('[data-photoswipe]');
-});
+}));

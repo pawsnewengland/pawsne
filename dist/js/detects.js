@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.18.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.19.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -7,25 +7,21 @@
  */
 
 /**
- * Run code after document is ready
- * @param  {Function} fn The function to run
+ * Run event after DOM is ready
+ * @param  {Function} fn Callback function
  */
 var ready = function ( fn ) {
 
 	// Sanity check
-	if ( typeof (fn) !== 'function' ) return;
+	if ( typeof fn !== 'function' ) return;
 
 	// If document is already loaded, run method
-	if ( document.readyState === 'interactive' ) {
+	if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
 		return fn();
 	}
 
 	// Otherwise, wait until document is loaded
-	document.onreadystatechange = function () {
-		if ( document.readyState === 'interactive' ) {
-			fn();
-		}
-	};
+	document.addEventListener( 'DOMContentLoaded', fn, false );
 
 };
 /*!
@@ -72,16 +68,16 @@ Licensed MIT
 					return cb();
 				}
 			}
-			setTimeout(function() {
+			setTimeout((function() {
 				onloadcssdefined( cb );
-			});
+			}));
 		};
 
 		// once loaded, set link's media back to `all` so that the stylesheet applies once it loads
 		ss.onloadcssdefined = onloadcssdefined;
-		onloadcssdefined(function() {
+		onloadcssdefined((function() {
 			ss.media = media || "all";
-		});
+		}));
 		return ss;
 	};
 	// commonjs
