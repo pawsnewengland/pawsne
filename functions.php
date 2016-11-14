@@ -16,7 +16,7 @@
 			'social' => true,
 			'footer' => true,
 			'pets' => true,
-			'paypal' => true,
+			'paypal' => false,
 			'events' => true,
 			'gallery' => true,
 			'hero' => true,
