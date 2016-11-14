@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.19.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.20.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -702,7 +702,7 @@ pre code {
  * Primary buttons
  */
 /* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn, input[type="submit"] {
+.btn, input[type="submit"], .gmt-donation-form-button {
   background-color: #68a20a;
   border: 0.125em solid #68a20a;
   border-radius: 1px;
@@ -718,13 +718,16 @@ pre code {
 }
 
 /* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn:hover, input[type="submit"]:hover,
+.btn:hover, input[type="submit"]:hover, .gmt-donation-form-button:hover,
 a .btn:hover, .link-block-styled .btn:hover,
-a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover, .btn:focus, input[type="submit"]:focus,
+a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover,
+a .gmt-donation-form-button:hover, .link-block-styled .gmt-donation-form-button:hover, .btn:focus, input[type="submit"]:focus, .gmt-donation-form-button:focus,
 a .btn:focus, .link-block-styled .btn:focus,
-a input[type="submit"]:focus, .link-block-styled input[type="submit"]:focus, .btn:active, input[type="submit"]:active,
+a input[type="submit"]:focus, .link-block-styled input[type="submit"]:focus,
+a .gmt-donation-form-button:focus, .link-block-styled .gmt-donation-form-button:focus, .btn:active, input[type="submit"]:active, .gmt-donation-form-button:active,
 a .btn:active, .link-block-styled .btn:active,
-a input[type="submit"]:active, .link-block-styled input[type="submit"]:active, .btn.active, input.active[type="submit"] {
+a input[type="submit"]:active, .link-block-styled input[type="submit"]:active,
+a .gmt-donation-form-button:active, .link-block-styled .gmt-donation-form-button:active, .btn.active, input.active[type="submit"], .active.gmt-donation-form-button {
   background-color: #3a5a06;
   border-color: #3a5a06;
   color: #ffffff;
@@ -754,28 +757,34 @@ a .btn-secondary:active, .link-block-styled .btn-secondary:active, .btn-secondar
  * Ghosted buttons
  */
 /* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn-ghost, .bg-dark .btn, .bg-dark input[type="submit"] {
+.btn-ghost, .bg-dark .btn, .bg-dark input[type="submit"], .bg-dark .gmt-donation-form-button {
   background-color: transparent;
   border-color: #ffffff;
 }
 
 /* line 67, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn-ghost:hover, .bg-dark .btn:hover, .bg-dark input[type="submit"]:hover,
+.btn-ghost:hover, .bg-dark .btn:hover, .bg-dark input[type="submit"]:hover, .bg-dark .gmt-donation-form-button:hover,
 a .btn-ghost:hover, .link-block-styled .btn-ghost:hover,
 a .bg-dark .btn:hover, .bg-dark
 a .btn:hover, .link-block-styled .bg-dark .btn:hover, .bg-dark .link-block-styled .btn:hover,
 a .bg-dark input[type="submit"]:hover, .bg-dark
-a input[type="submit"]:hover, .link-block-styled .bg-dark input[type="submit"]:hover, .bg-dark .link-block-styled input[type="submit"]:hover, .btn-ghost:focus, .bg-dark .btn:focus, .bg-dark input[type="submit"]:focus,
+a input[type="submit"]:hover, .link-block-styled .bg-dark input[type="submit"]:hover, .bg-dark .link-block-styled input[type="submit"]:hover,
+a .bg-dark .gmt-donation-form-button:hover, .bg-dark
+a .gmt-donation-form-button:hover, .link-block-styled .bg-dark .gmt-donation-form-button:hover, .bg-dark .link-block-styled .gmt-donation-form-button:hover, .btn-ghost:focus, .bg-dark .btn:focus, .bg-dark input[type="submit"]:focus, .bg-dark .gmt-donation-form-button:focus,
 a .btn-ghost:focus, .link-block-styled .btn-ghost:focus,
 a .bg-dark .btn:focus, .bg-dark
 a .btn:focus, .link-block-styled .bg-dark .btn:focus, .bg-dark .link-block-styled .btn:focus,
 a .bg-dark input[type="submit"]:focus, .bg-dark
-a input[type="submit"]:focus, .link-block-styled .bg-dark input[type="submit"]:focus, .bg-dark .link-block-styled input[type="submit"]:focus, .btn-ghost:active, .bg-dark .btn:active, .bg-dark input[type="submit"]:active,
+a input[type="submit"]:focus, .link-block-styled .bg-dark input[type="submit"]:focus, .bg-dark .link-block-styled input[type="submit"]:focus,
+a .bg-dark .gmt-donation-form-button:focus, .bg-dark
+a .gmt-donation-form-button:focus, .link-block-styled .bg-dark .gmt-donation-form-button:focus, .bg-dark .link-block-styled .gmt-donation-form-button:focus, .btn-ghost:active, .bg-dark .btn:active, .bg-dark input[type="submit"]:active, .bg-dark .gmt-donation-form-button:active,
 a .btn-ghost:active, .link-block-styled .btn-ghost:active,
 a .bg-dark .btn:active, .bg-dark
 a .btn:active, .link-block-styled .bg-dark .btn:active, .bg-dark .link-block-styled .btn:active,
 a .bg-dark input[type="submit"]:active, .bg-dark
-a input[type="submit"]:active, .link-block-styled .bg-dark input[type="submit"]:active, .bg-dark .link-block-styled input[type="submit"]:active, .btn-ghost.active, .bg-dark .active.btn, .bg-dark input.active[type="submit"] {
+a input[type="submit"]:active, .link-block-styled .bg-dark input[type="submit"]:active, .bg-dark .link-block-styled input[type="submit"]:active,
+a .bg-dark .gmt-donation-form-button:active, .bg-dark
+a .gmt-donation-form-button:active, .link-block-styled .bg-dark .gmt-donation-form-button:active, .bg-dark .link-block-styled .gmt-donation-form-button:active, .btn-ghost.active, .bg-dark .active.btn, .bg-dark input.active[type="submit"], .bg-dark .active.gmt-donation-form-button {
   background-color: #ffffff;
   border-color: #ffffff;
   color: #272727;
@@ -785,9 +794,10 @@ a input[type="submit"]:active, .link-block-styled .bg-dark input[type="submit"]:
  * Active state
  */
 /* line 84, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn:active, input[type="submit"]:active,
+.btn:active, input[type="submit"]:active, .gmt-donation-form-button:active,
 .btn.active,
-input.active[type="submit"] {
+input.active[type="submit"],
+.active.gmt-donation-form-button {
   box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
   outline: 0;
 }
@@ -796,9 +806,10 @@ input.active[type="submit"] {
  * Disabled state
  */
 /* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn.disabled, input.disabled[type="submit"],
+.btn.disabled, input.disabled[type="submit"], .disabled.gmt-donation-form-button,
 .btn[disabled],
-input[disabled][type="submit"] {
+input[disabled][type="submit"],
+[disabled].gmt-donation-form-button {
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.5;
@@ -809,7 +820,7 @@ input[disabled][type="submit"] {
  * Button size
  */
 /* line 106, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn-large {
+.btn-large, .gmt-donation-form-button {
   font-size: 1em;
   line-height: normal;
   padding: 0.6875em 0.9375em;
@@ -834,7 +845,7 @@ input[type="button"].btn-block {
  * General styles
  */
 /* line 131, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn, input[type="submit"],
+.btn, input[type="submit"], .gmt-donation-form-button,
 button,
 html input[type="button"],
 input[type="reset"],
@@ -853,9 +864,10 @@ input[type="submit"] {
  * Remove right margin on last element and inputs
  */
 /* line 152, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
-.btn:last-child, input[type="submit"]:last-child,
+.btn:last-child, input[type="submit"]:last-child, .gmt-donation-form-button:last-child,
 input.btn,
-input[type="submit"] {
+input[type="submit"],
+input.gmt-donation-form-button {
   margin-right: 0;
 }
 
@@ -1018,7 +1030,7 @@ select:focus {
  * Inline inputs
  */
 /* line 138, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
-.input-inline, input[type="submit"] {
+.input-inline, input[type="submit"], .gmt-donation-form-other {
   display: inline-block;
   margin-right: 0.5em;
   vertical-align: middle;
@@ -1029,7 +1041,7 @@ select:focus {
  * Condensed inputs
  */
 /* line 149, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
-.input-condensed {
+.input-condensed, .gmt-donation-form-other {
   padding: 1px 0.3125em;
   font-size: 0.9375em;
 }
@@ -1038,7 +1050,7 @@ select:focus {
  * Underlined inputs
  */
 /* line 158, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
-.input-underline {
+.input-underline, .gmt-donation-form-other {
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -1789,7 +1801,8 @@ td {
 }
 
 /* line 1, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
-.alert {
+.alert, .gmt-donation-form-alert,
+.gmt-donation-form-test-mode {
   color: #005580;
   background-color: #cce7f5;
   border: 1px solid #a6d5ed;
@@ -1806,7 +1819,8 @@ td {
 }
 
 /* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
-.alert-danger {
+.alert-danger, .gmt-donation-form-alert,
+.gmt-donation-form-test-mode {
   color: #43070a;
   background-color: #e7cfd0;
   border-color: #d5abad;
@@ -2767,6 +2781,80 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /**
+ * @section GMT Donations
+ * Custom styles for the GMT Donations plugin
+ */
+/**
+ * The "Donate Other" field
+ */
+/* line 15, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-other-currency {
+  display: inline-block;
+  float: left;
+  margin-right: -3em;
+}
+
+/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-other {
+  background-color: transparent;
+  padding-left: 1em;
+}
+
+/**
+ * Donation "in honor of"
+ */
+/* line 52, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-in-honor-content {
+  padding: 1em;
+}
+
+/* line 56, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-in-honor-content label {
+  font-weight: bold;
+}
+
+/* line 61, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-in-honor-message {
+  font-style: italic;
+}
+
+/**
+ * The donation goal thermometer
+ */
+/* line 70, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-goal-thermometer {
+  height: 1.5625em;
+  margin-bottom: 1.5625em;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  text-align: center;
+}
+
+/* line 78, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-goal-thermometer-small-percentage {
+  text-align: left;
+}
+
+/* line 82, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-goal-thermometer-progress {
+  float: left;
+  width: 0;
+  height: 100%;
+  color: #ffffff;
+  background-color: #880e14;
+}
+
+/* line 90, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-goal-thermometer-small-percentage .gmt-donation-form-goal-thermometer-progress {
+  margin-right: 0.5em;
+}
+
+/* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+.gmt-donation-form-goal-thermometer-goal-met .gmt-donation-form-goal-thermometer-progress {
+  background-color: #68a20a;
+}
+
+/**
  * @section Overrides
  * Nudge and tweak alignment, spacing, and visibility.
  */
@@ -2774,7 +2862,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * Backgrounds
  */
 /* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
-.bg-muted {
+.bg-muted, .gmt-donation-form-in-honor-content {
   background-color: #f2f2f2;
 }
 
@@ -2806,7 +2894,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
-.bg-dark .btn, .bg-dark input[type="submit"] {
+.bg-dark .btn, .bg-dark input[type="submit"], .bg-dark .gmt-donation-form-button {
   color: #ffffff;
   text-decoration: none;
 }
@@ -2940,7 +3028,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* line 166, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
-.margin-bottom-small {
+.margin-bottom-small, .gmt-donation-form-table, .gmt-donation-form-in-honor-message {
   margin-bottom: 0.5em;
 }
 
@@ -2968,7 +3056,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* line 191, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
-.padding-top {
+.padding-top, .gmt-donation-form-actions {
   padding-top: 1.5625em;
 }
 

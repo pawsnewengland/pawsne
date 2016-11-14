@@ -1,0 +1,96 @@
+/**
+ * @section GMT Donations
+ * Custom styles for the GMT Donations plugin
+ */
+
+// The donation table
+.gmt-donation-form-table {
+	@extend .margin-bottom-small;
+}
+
+
+/**
+ * The "Donate Other" field
+ */
+.gmt-donation-form-other-currency {
+	display: inline-block;
+	float: left;
+	margin-right: -3em;
+}
+
+.gmt-donation-form-other {
+	@extend .input-inline;
+	@extend .input-condensed;
+	@extend .input-underline;
+	background-color: transparent;
+	padding-left: 1em;
+}
+
+
+// Donation form buttons
+.gmt-donation-form-actions {
+	@extend .padding-top;
+}
+
+.gmt-donation-form-button {
+	@extend .btn;
+	@extend .btn-large;
+}
+
+
+// Donation form alerts
+.gmt-donation-form-alert,
+.gmt-donation-form-test-mode {
+	@extend .alert;
+	@extend .alert-danger;
+}
+
+
+/**
+ * Donation "in honor of"
+ */
+.gmt-donation-form-in-honor-content {
+	@extend .bg-muted;
+	padding: 1em;
+
+	label {
+		font-weight: bold;
+	}
+}
+
+.gmt-donation-form-in-honor-message {
+	@extend .margin-bottom-small;
+	font-style: italic;
+}
+
+
+/**
+ * The donation goal thermometer
+ */
+.gmt-donation-form-goal-thermometer {
+	height: $spacing;
+	margin-bottom: $spacing;
+	overflow: hidden;
+	background-color: $color-gray-light;
+	text-align: center;
+}
+
+.gmt-donation-form-goal-thermometer-small-percentage {
+	text-align: left;
+}
+
+.gmt-donation-form-goal-thermometer-progress {
+	float: left;
+	width: 0;
+	height: 100%;
+	color: $color-white;
+	background-color: $color-danger;
+}
+
+.gmt-donation-form-goal-thermometer-small-percentage .gmt-donation-form-goal-thermometer-progress {
+	margin-right: calc-em(8px);
+}
+
+.gmt-donation-form-goal-thermometer-goal-met .gmt-donation-form-goal-thermometer-progress {
+	background-color: $color-primary;
+}
