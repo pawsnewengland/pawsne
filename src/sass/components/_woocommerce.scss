@@ -1,0 +1,21 @@
+/**
+ * @section WooCommerce
+ * Custom styles for WooCommerce
+ */
+
+.shop_table tbody th,
+.shop_table tfoot th {
+	border-bottom: 0;
+}
+
+.shop_table tfoot .cart-subtotal th,
+.shop_table tfoot .cart-subtotal td, {
+	border-bottom: calc-em(2px) solid $color-gray-light;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li .input-radio {
+	// display: inline-block;
+	float: left;
+	margin-top: calc-em(7px);
+	margin-right: calc-em(8px);
+}

@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.20.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.21.0: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -2852,6 +2852,29 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer-goal-met .gmt-donation-form-goal-thermometer-progress {
   background-color: #68a20a;
+}
+
+/**
+ * @section WooCommerce
+ * Custom styles for WooCommerce
+ */
+/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+.shop_table tbody th,
+.shop_table tfoot th {
+  border-bottom: 0;
+}
+
+/* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+.shop_table tfoot .cart-subtotal th,
+.shop_table tfoot .cart-subtotal td {
+  border-bottom: 0.125em solid #e5e5e5;
+}
+
+/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+.woocommerce-checkout #payment ul.payment_methods li .input-radio {
+  float: left;
+  margin-top: 0.4375em;
+  margin-right: 0.5em;
 }
 
 /**
