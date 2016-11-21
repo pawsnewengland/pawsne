@@ -94,3 +94,16 @@
 .gmt-donation-form-goal-thermometer-goal-met .gmt-donation-form-goal-thermometer-progress {
 	background-color: $color-primary;
 }
+
+
+/**
+ * Donation invoices
+ */
+
+.gmt-donation-invoice-amount {
+    font-size: 1.2em;
+}
+
+.gmt-donation-invoice-amount-label {
+    font-weight: bold;
+}
