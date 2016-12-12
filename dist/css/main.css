@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.22.0: WordPress theme for PAWS New England
+ * pawsnewengland v6.22.1: WordPress theme for PAWS New England
  * (c) 2016 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -3148,6 +3148,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px;
 }
 
@@ -3156,7 +3157,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link https://www.drupal.org/node/897638
  */
-/* line 249, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 250, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
 .screen-reader-focusable:active,
 .screen-reader-focusable:focus {
   clip: auto;
@@ -3164,6 +3165,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   margin: 0;
   overflow: visible;
   position: static;
+  white-space: normal;
   width: auto;
 }
 
@@ -3172,7 +3174,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
-/* line 264, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 266, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
 [hidden], template, .tarpit, .pswp__caption small {
   display: none;
   visibility: hidden;
@@ -3183,7 +3185,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  */
-/* line 276, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 278, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
 .clearfix:before, .container:before,
 .row:before,
 .clearfix:after,
@@ -3193,7 +3195,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   content: " ";
 }
 
-/* line 282, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 284, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
 .clearfix:after, .container:after,
 .row:after {
   clear: both;
