@@ -1,6 +1,6 @@
 /*!
- * pawsnewengland v6.22.1: WordPress theme for PAWS New England
- * (c) 2016 Chris Ferdinandi
+ * pawsnewengland v6.22.2: WordPress theme for PAWS New England
+ * (c) 2017 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
  * Open Source Credits: https://github.com/ftlabs/fastclick, https://github.com/toddmotto/fluidvids, http://photoswipe.com, http://masonry.desandro.com, http://imagesloaded.desandro.com
