@@ -1,5 +1,5 @@
 /*!
- * pawsnewengland v6.22.2: WordPress theme for PAWS New England
+ * pawsnewengland v6.22.3: WordPress theme for PAWS New England
  * (c) 2017 Chris Ferdinandi
  * MIT License
  * https://github.com/pawsnewengland/pawsne
@@ -45,7 +45,7 @@
  * Remove the tap delay in webkit
  * @link https://medium.com/@adactio/delay-a9df9edceef3#.7dmbl3xow
  */
-/* line 23, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 23, src/sass/components/_normalize.scss */
 a, .link-block-styled,
 button,
 input,
@@ -61,7 +61,7 @@ summary {
  * Add box sizing to everything
  * @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  */
-/* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 38, src/sass/components/_normalize.scss */
 *,
 *:before,
 *:after {
@@ -74,7 +74,7 @@ summary {
  * 3. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-/* line 51, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 51, src/sass/components/_normalize.scss */
 html {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   /* 1 */
@@ -89,7 +89,7 @@ html {
 /**
  * Remove default margin.
  */
-/* line 60, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 60, src/sass/components/_normalize.scss */
 body {
   margin: 0;
 }
@@ -100,7 +100,7 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-/* line 70, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 70, src/sass/components/_normalize.scss */
 article,
 aside,
 cite,
@@ -122,7 +122,7 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-/* line 91, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 91, src/sass/components/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -137,7 +137,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-/* line 103, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 103, src/sass/components/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -146,7 +146,7 @@ audio:not([controls]) {
 /**
  * Prevent img and video elements from spilling outside of the page on smaller screens.
  */
-/* line 111, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 111, src/sass/components/_normalize.scss */
 img,
 video {
   max-width: 100%;
@@ -157,7 +157,7 @@ video {
  * Prevent iframe, object, and embed elements from spilling outside of the page on smaller screens.
  * height: auto causes iframes to smush, so it's omitted here.
  */
-/* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 121, src/sass/components/_normalize.scss */
 iframe,
 object,
 embed {
@@ -171,7 +171,7 @@ embed {
  * 1. Remove border when inside `a` element in IE 8/9/10.
  * 2. Prevents IE from making scaled images look like crap
  */
-/* line 138, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 138, src/sass/components/_normalize.scss */
 img {
   border: 0;
   /* 1 */
@@ -182,7 +182,7 @@ img {
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
-/* line 146, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 146, src/sass/components/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
@@ -190,7 +190,7 @@ svg:not(:root) {
 /**
  * Address inconsistent margin.
  */
-/* line 153, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 153, src/sass/components/_normalize.scss */
 figure {
   margin: 0;
 }
@@ -199,7 +199,7 @@ figure {
  * @workaround Remove focus from <main> element when using tabindex="-1" hack for skipnav link
  * @link https://code.google.com/p/chromium/issues/detail?id=37721
  */
-/* line 161, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_normalize.scss */
+/* line 161, src/sass/components/_normalize.scss */
 #main:focus {
   outline: none;
 }
@@ -211,7 +211,7 @@ figure {
 /**
  * Base grid styles: single column
  */
-/* line 9, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+/* line 9, src/sass/components/_grid.scss */
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -219,18 +219,18 @@ figure {
   width: 88%;
 }
 
-/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+/* line 16, src/sass/components/_grid.scss */
 .container-large {
   max-width: 80em;
 }
 
-/* line 20, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+/* line 20, src/sass/components/_grid.scss */
 .row {
   margin-left: -1.4%;
   margin-right: -1.4%;
 }
 
-/* line 25, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+/* line 25, src/sass/components/_grid.scss */
 .grid-fourth, .grid-third, .grid-half, .grid-two-thirds, .grid-three-fourths, .grid-full, .grid-dynamic {
   float: left;
   padding-left: 1.4%;
@@ -241,7 +241,7 @@ figure {
 /**
  * Reverses order of grid for content choreography
  */
-/* line 42, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+/* line 42, src/sass/components/_grid.scss */
 .grid-flip {
   float: right;
 }
@@ -250,78 +250,78 @@ figure {
  * Add columns to grid on bigger screens
  */
 @media (min-width: 20em) {
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-fourth {
     width: 25%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-third {
     width: 33.33333%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-half {
     width: 50%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-two-thirds {
     width: 66.66667%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-three-fourths {
     width: 75%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .row-start-xsmall .grid-full {
     width: 100%;
   }
 }
 
 @media (min-width: 60em) {
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-fourth {
     width: 25%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-third {
     width: 33.33333%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-half {
     width: 50%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-two-thirds {
     width: 66.66667%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-three-fourths {
     width: 75%;
   }
-  /* line 53, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 53, src/sass/components/_grid.scss */
   .grid-full {
     width: 100%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-fourth {
     margin-left: 25%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-third {
     margin-left: 33.33333%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-half {
     margin-left: 50%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-two-thirds {
     margin-left: 66.66667%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-three-fourths {
     margin-left: 75%;
   }
-  /* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 59, src/sass/components/_grid.scss */
   .offset-full {
     margin-left: 100%;
   }
@@ -331,14 +331,14 @@ figure {
  * Dynamic grid
  */
 @media (min-width: 20em) {
-  /* line 75, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 75, src/sass/components/_grid.scss */
   .grid-dynamic {
     width: 50%;
   }
 }
 
 @media (min-width: 40em) {
-  /* line 75, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_grid.scss */
+  /* line 75, src/sass/components/_grid.scss */
   .grid-dynamic {
     width: 33.33333%;
   }
@@ -348,7 +348,7 @@ figure {
  * @section Typography
  * Sets font styles for entire site
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 6, src/sass/components/_typography.scss */
 body {
   background: #ffffff;
   color: #272727;
@@ -358,13 +358,13 @@ body {
 }
 
 @media (min-width: 40em) {
-  /* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+  /* line 6, src/sass/components/_typography.scss */
   body {
     line-height: 1.5625;
   }
 }
 
-/* line 42, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 42, src/sass/components/_typography.scss */
 p {
   margin: 0 0 1.5625em;
 }
@@ -372,7 +372,7 @@ p {
 /**
  * Hyperlink styling
  */
-/* line 51, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 51, src/sass/components/_typography.scss */
 a, .link-block-styled {
   background-color: transparent;
   color: #e0812a;
@@ -383,18 +383,18 @@ a, .link-block-styled {
 	 */
 }
 
-/* line 60, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 60, src/sass/components/_typography.scss */
 a:active, .link-block-styled:active, a:hover, .link-block-styled:hover, .link-block:hover .link-block-styled {
   outline: 0;
 }
 
-/* line 65, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 65, src/sass/components/_typography.scss */
 a:hover, .link-block-styled:hover, .link-block:hover .link-block-styled, a:focus, .link-block-styled:focus, a:active, .link-block-styled:active {
   color: #a55c18;
   text-decoration: underline;
 }
 
-/* line 72, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 72, src/sass/components/_typography.scss */
 a img, .link-block-styled img {
   border: none;
   background: none;
@@ -403,7 +403,7 @@ a img, .link-block-styled img {
 /**
  * Creates block-level links
  */
-/* line 83, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 83, src/sass/components/_typography.scss */
 a.link-block, .link-block.link-block-styled {
   color: #272727;
   display: block;
@@ -413,14 +413,14 @@ a.link-block, .link-block.link-block-styled {
 /**
  * List styling
  */
-/* line 102, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 102, src/sass/components/_typography.scss */
 ul,
 ol {
   margin: 0 0 1.5625em 2em;
   padding: 0;
 }
 
-/* line 108, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 108, src/sass/components/_typography.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -428,19 +428,19 @@ ol ul {
   margin-bottom: 0;
 }
 
-/* line 115, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 115, src/sass/components/_typography.scss */
 dl,
 dd {
   margin: 0;
   padding: 0;
 }
 
-/* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 121, src/sass/components/_typography.scss */
 dd {
   margin-bottom: 1.5625em;
 }
 
-/* line 125, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 125, src/sass/components/_typography.scss */
 dt {
   font-weight: bold;
 }
@@ -449,7 +449,7 @@ dt {
  * Removes list styling.
  * For semantic reasons, should only be used on unordered lists.
  */
-/* line 133, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 133, src/sass/components/_typography.scss */
 .list-unstyled {
   margin-left: 0;
   list-style: none;
@@ -458,7 +458,7 @@ dt {
 /**
  * Display lists on a single line.
  */
-/* line 142, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 142, src/sass/components/_typography.scss */
 .list-inline {
   list-style: none;
   margin-left: -0.5em;
@@ -466,21 +466,21 @@ dt {
   padding: 0;
 }
 
-/* line 148, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 148, src/sass/components/_typography.scss */
 .list-inline > li {
   display: inline;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
 
-/* line 155, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 155, src/sass/components/_typography.scss */
 .list-inline-responsive > li {
   display: block;
   margin-bottom: 0.25em;
 }
 
 @media (min-width: 40em) {
-  /* line 155, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+  /* line 155, src/sass/components/_typography.scss */
   .list-inline-responsive > li {
     display: inline;
     margin-bottom: 0;
@@ -491,7 +491,7 @@ dt {
  * Heading styling for h1 through h6 elements.
  * Heading class lets you use one heading type for semantics, but style it as another heading type.
  */
-/* line 171, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 171, src/sass/components/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   line-height: 1.2;
@@ -500,7 +500,7 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
-/* line 179, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 179, src/sass/components/_typography.scss */
 h1,
 .h1 {
   font-size: 1.5em;
@@ -508,32 +508,32 @@ h1,
 }
 
 @media (min-width: 40em) {
-  /* line 179, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+  /* line 179, src/sass/components/_typography.scss */
   h1,
   .h1 {
     font-size: 1.75em;
   }
 }
 
-/* line 189, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 189, src/sass/components/_typography.scss */
 h2,
 .h2 {
   font-size: 1.3125em;
 }
 
-/* line 194, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 194, src/sass/components/_typography.scss */
 h3,
 .h3 {
   font-size: 1.1875em;
 }
 
-/* line 199, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 199, src/sass/components/_typography.scss */
 h4, h5, h6,
 .h4, .h5, .h6 {
   font-size: 1em;
 }
 
-/* line 204, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 204, src/sass/components/_typography.scss */
 h4,
 .h4 {
   text-transform: uppercase;
@@ -542,7 +542,7 @@ h4,
 /**
  * Lines, Quotes and Emphasis
  */
-/* line 214, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 214, src/sass/components/_typography.scss */
 hr {
   margin: 2em auto;
   border: 0;
@@ -550,13 +550,13 @@ hr {
   border-bottom: 0 solid #ffffff;
 }
 
-/* line 221, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 221, src/sass/components/_typography.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 226, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 226, src/sass/components/_typography.scss */
 i,
 em {
   font-style: italic;
@@ -565,7 +565,7 @@ em {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-/* line 234, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 234, src/sass/components/_typography.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -573,7 +573,7 @@ abbr[title] {
 /**
  * Address styling not present in Safari and Chrome.
  */
-/* line 241, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 241, src/sass/components/_typography.scss */
 dfn {
   font-style: italic;
 }
@@ -581,7 +581,7 @@ dfn {
 /**
  * Address styling not present in IE 8/9.
  */
-/* line 248, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 248, src/sass/components/_typography.scss */
 mark {
   background: #ff0;
 }
@@ -589,7 +589,7 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-/* line 255, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 255, src/sass/components/_typography.scss */
 small {
   font-size: 80%;
 }
@@ -597,7 +597,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 262, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 262, src/sass/components/_typography.scss */
 sub,
 sup {
   font-size: 75%;
@@ -606,12 +606,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 270, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 270, src/sass/components/_typography.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 274, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 274, src/sass/components/_typography.scss */
 sub {
   bottom: -0.25em;
 }
@@ -619,7 +619,7 @@ sub {
 /**
  * Blockquotes
  */
-/* line 283, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 283, src/sass/components/_typography.scss */
 blockquote {
   font-size: 1.1875em;
   font-style: italic;
@@ -628,20 +628,20 @@ blockquote {
   padding-right: 0.84211em;
 }
 
-/* line 290, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 290, src/sass/components/_typography.scss */
 blockquote cite {
   color: #808080;
   font-size: 0.84211em;
   padding-top: 1em;
 }
 
-/* line 297, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 297, src/sass/components/_typography.scss */
 blockquote,
 q {
   quotes: none;
 }
 
-/* line 302, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_typography.scss */
+/* line 302, src/sass/components/_typography.scss */
 blockquote:before,
 blockquote:after,
 q:before,
@@ -653,7 +653,7 @@ q:after {
  * @section Code
  * Styling for code and preformatted text.
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_code.scss */
+/* line 6, src/sass/components/_code.scss */
 code,
 kbd,
 pre,
@@ -663,14 +663,14 @@ samp {
   font-size: 0.875em;
 }
 
-/* line 15, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_code.scss */
+/* line 15, src/sass/components/_code.scss */
 code {
   background-color: #f7f7f7;
   color: #dd1144;
   padding: 0.25em;
 }
 
-/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_code.scss */
+/* line 21, src/sass/components/_code.scss */
 pre {
   background-color: #f4f4f4;
   display: block;
@@ -685,7 +685,7 @@ pre {
   word-break: break-all;
 }
 
-/* line 32, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_code.scss */
+/* line 32, src/sass/components/_code.scss */
 pre code {
   background-color: transparent;
   border: 0;
@@ -701,7 +701,7 @@ pre code {
 /**
  * Primary buttons
  */
-/* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 10, src/sass/components/_buttons.scss */
 .btn, input[type="submit"], .gmt-donation-form-button {
   background-color: #68a20a;
   border: 0.125em solid #68a20a;
@@ -717,7 +717,7 @@ pre code {
   text-decoration: none;
 }
 
-/* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 24, src/sass/components/_buttons.scss */
 .btn:hover, input[type="submit"]:hover, .gmt-donation-form-button:hover,
 a .btn:hover, .link-block-styled .btn:hover,
 a input[type="submit"]:hover, .link-block-styled input[type="submit"]:hover,
@@ -738,13 +738,13 @@ a .gmt-donation-form-button:active, .link-block-styled .gmt-donation-form-button
 /**
  * Secondary buttons
  */
-/* line 43, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 43, src/sass/components/_buttons.scss */
 .btn-secondary {
   background-color: #808080;
   border-color: #808080;
 }
 
-/* line 47, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 47, src/sass/components/_buttons.scss */
 .btn-secondary:hover,
 a .btn-secondary:hover, .link-block-styled .btn-secondary:hover, .btn-secondary:focus,
 a .btn-secondary:focus, .link-block-styled .btn-secondary:focus, .btn-secondary:active,
@@ -756,13 +756,13 @@ a .btn-secondary:active, .link-block-styled .btn-secondary:active, .btn-secondar
 /**
  * Ghosted buttons
  */
-/* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 63, src/sass/components/_buttons.scss */
 .btn-ghost, .bg-dark .btn, .bg-dark input[type="submit"], .bg-dark .gmt-donation-form-button {
   background-color: transparent;
   border-color: #ffffff;
 }
 
-/* line 67, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 67, src/sass/components/_buttons.scss */
 .btn-ghost:hover, .bg-dark .btn:hover, .bg-dark input[type="submit"]:hover, .bg-dark .gmt-donation-form-button:hover,
 a .btn-ghost:hover, .link-block-styled .btn-ghost:hover,
 a .bg-dark .btn:hover, .bg-dark
@@ -793,7 +793,7 @@ a .gmt-donation-form-button:active, .link-block-styled .bg-dark .gmt-donation-fo
 /**
  * Active state
  */
-/* line 84, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 84, src/sass/components/_buttons.scss */
 .btn:active, input[type="submit"]:active, .gmt-donation-form-button:active,
 .btn.active,
 input.active[type="submit"],
@@ -805,7 +805,7 @@ input.active[type="submit"],
 /**
  * Disabled state
  */
-/* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 94, src/sass/components/_buttons.scss */
 .btn.disabled, input.disabled[type="submit"], .disabled.gmt-donation-form-button,
 .btn[disabled],
 input[disabled][type="submit"],
@@ -819,7 +819,7 @@ input[disabled][type="submit"],
 /**
  * Button size
  */
-/* line 106, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 106, src/sass/components/_buttons.scss */
 .btn-large, .gmt-donation-form-button {
   font-size: 1em;
   line-height: normal;
@@ -829,7 +829,7 @@ input[disabled][type="submit"],
 /**
  * Block-level buttons
  */
-/* line 116, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 116, src/sass/components/_buttons.scss */
 .btn-block,
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
@@ -844,7 +844,7 @@ input[type="button"].btn-block {
 /**
  * General styles
  */
-/* line 131, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 131, src/sass/components/_buttons.scss */
 .btn, input[type="submit"], .gmt-donation-form-button,
 button,
 html input[type="button"],
@@ -863,7 +863,7 @@ input[type="submit"] {
 /**
  * Remove right margin on last element and inputs
  */
-/* line 152, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_buttons.scss */
+/* line 152, src/sass/components/_buttons.scss */
 .btn:last-child, input[type="submit"]:last-child, .gmt-donation-form-button:last-child,
 input.btn,
 input[type="submit"],
@@ -875,19 +875,19 @@ input.gmt-donation-form-button {
  * @section Forms
  * Styling for form elements.
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 6, src/sass/components/_forms.scss */
 form,
 fieldset {
   margin-bottom: 1.5625em;
 }
 
-/* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 11, src/sass/components/_forms.scss */
 fieldset {
   border: 0;
   padding: 0;
 }
 
-/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 16, src/sass/components/_forms.scss */
 legend,
 label {
   display: block;
@@ -896,7 +896,7 @@ label {
   padding: 0;
 }
 
-/* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 24, src/sass/components/_forms.scss */
 legend {
   font-weight: bold;
   margin-bottom: 1em;
@@ -908,7 +908,7 @@ legend {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-/* line 35, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 35, src/sass/components/_forms.scss */
 button,
 input,
 optgroup,
@@ -926,7 +926,7 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-/* line 49, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 49, src/sass/components/_forms.scss */
 button {
   overflow: visible;
 }
@@ -937,13 +937,13 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-/* line 59, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 59, src/sass/components/_forms.scss */
 button,
 select {
   text-transform: none;
 }
 
-/* line 64, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 64, src/sass/components/_forms.scss */
 input,
 textarea,
 select {
@@ -956,7 +956,7 @@ select {
 }
 
 @media (min-width: 40em) {
-  /* line 64, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+  /* line 64, src/sass/components/_forms.scss */
   input,
   textarea,
   select {
@@ -968,24 +968,24 @@ select {
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
-/* line 83, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 83, src/sass/components/_forms.scss */
 optgroup {
   font-weight: bold;
 }
 
-/* line 87, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 87, src/sass/components/_forms.scss */
 form button,
 form .button {
   margin-bottom: 1.1875em;
 }
 
-/* line 92, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 92, src/sass/components/_forms.scss */
 textarea {
   height: 12em;
   overflow: auto;
 }
 
-/* line 97, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 97, src/sass/components/_forms.scss */
 input[type="image"],
 input[type="checkbox"],
 input[type="radio"] {
@@ -1002,13 +1002,13 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-/* line 113, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 113, src/sass/components/_forms.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
-/* line 118, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 118, src/sass/components/_forms.scss */
 input:focus,
 textarea:focus {
   border-color: rgba(82, 168, 236, 0.8);
@@ -1017,7 +1017,7 @@ textarea:focus {
   outline: thin dotted \9;
 }
 
-/* line 126, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 126, src/sass/components/_forms.scss */
 input[type="file"]:focus,
 input[type="checkbox"]:focus,
 select:focus {
@@ -1029,7 +1029,7 @@ select:focus {
 /**
  * Inline inputs
  */
-/* line 138, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 138, src/sass/components/_forms.scss */
 .input-inline, input[type="submit"], .gmt-donation-form-other {
   display: inline-block;
   margin-right: 0.5em;
@@ -1040,7 +1040,7 @@ select:focus {
 /**
  * Condensed inputs
  */
-/* line 149, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 149, src/sass/components/_forms.scss */
 .input-condensed, .gmt-donation-form-other {
   padding: 1px 0.3125em;
   font-size: 0.9375em;
@@ -1049,7 +1049,7 @@ select:focus {
 /**
  * Underlined inputs
  */
-/* line 158, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 158, src/sass/components/_forms.scss */
 .input-underline, .gmt-donation-form-other {
   border-top: 0;
   border-left: 0;
@@ -1064,7 +1064,7 @@ select:focus {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-/* line 174, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 174, src/sass/components/_forms.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -1073,7 +1073,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Create rounded search bar
  */
-/* line 183, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 183, src/sass/components/_forms.scss */
 .input-search {
   width: 85%;
   padding-left: 0.9375em;
@@ -1083,13 +1083,13 @@ input[type="search"]::-webkit-search-decoration {
   transition: width 300ms ease-in;
 }
 
-/* line 190, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 190, src/sass/components/_forms.scss */
 .svg .input-search {
   padding-right: 2.5em;
 }
 
 @media (min-width: 40em) {
-  /* line 183, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+  /* line 183, src/sass/components/_forms.scss */
   .input-search {
     width: 65%;
   }
@@ -1098,7 +1098,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Special styling for search icon as button
  */
-/* line 203, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 203, src/sass/components/_forms.scss */
 .btn-search {
   display: inline;
   color: #808080;
@@ -1108,22 +1108,22 @@ input[type="search"]::-webkit-search-decoration {
   margin-bottom: 0;
 }
 
-/* line 211, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 211, src/sass/components/_forms.scss */
 .svg .btn-search {
   margin-left: -2.5em;
 }
 
-/* line 215, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 215, src/sass/components/_forms.scss */
 .btn-search .icon {
   fill: #808080;
 }
 
-/* line 219, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 219, src/sass/components/_forms.scss */
 .btn-search:hover {
   color: #5a5a5a;
 }
 
-/* line 222, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_forms.scss */
+/* line 222, src/sass/components/_forms.scss */
 .btn-search:hover .icon {
   fill: #5a5a5a;
 }
@@ -1135,7 +1135,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Styling for for WP subscribe to comment checkbox label
  */
-/* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-forms.scss */
+/* line 10, src/sass/components/_wordpress-forms.scss */
 #subscribe-label {
   display: inline;
 }
@@ -1150,7 +1150,7 @@ input[type="search"]::-webkit-search-decoration {
  * Basic styles
  * Only displayed when SVGs are supported to avoid large empty spaces
  */
-/* line 12, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 12, src/sass/components/_svg.scss */
 .icon {
   display: inline-block;
   fill: currentColor;
@@ -1158,7 +1158,7 @@ input[type="search"]::-webkit-search-decoration {
   width: 0;
 }
 
-/* line 18, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 18, src/sass/components/_svg.scss */
 .svg .icon {
   height: 1em;
   width: 1em;
@@ -1167,13 +1167,13 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Icon sizes
  */
-/* line 29, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 29, src/sass/components/_svg.scss */
 .svg .icon-large {
   height: 1.5em;
   width: 1.5em;
 }
 
-/* line 34, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 34, src/sass/components/_svg.scss */
 .svg .icon-xlarge {
   height: 4em;
   width: 4em;
@@ -1182,68 +1182,68 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Colors
  */
-/* line 44, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 44, src/sass/components/_svg.scss */
 .icon-facebook {
   fill: #3b5997;
 }
 
-/* line 45, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 45, src/sass/components/_svg.scss */
 .icon-twitter {
   fill: #41b7d8;
 }
 
-/* line 46, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 46, src/sass/components/_svg.scss */
 .icon-youtube,
 .icon-google {
   fill: #d64937;
 }
 
-/* line 48, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 48, src/sass/components/_svg.scss */
 .icon-instagram {
   fill: #125688;
 }
 
-/* line 49, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 49, src/sass/components/_svg.scss */
 .icon-pinterest {
   fill: #cb2027;
 }
 
-/* line 50, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 50, src/sass/components/_svg.scss */
 .icon-flickr {
   fill: #f91881;
 }
 
-/* line 51, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 51, src/sass/components/_svg.scss */
 .icon-heart {
   fill: #e8a1b0;
 }
 
-/* line 52, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 52, src/sass/components/_svg.scss */
 .icon-muted {
   fill: #808080;
 }
 
-/* line 56, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 56, src/sass/components/_svg.scss */
 .bg-dark .icon-link {
   fill: #ffffff;
 }
 
-/* line 60, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 60, src/sass/components/_svg.scss */
 a:hover .icon-link, .link-block-styled:hover .icon-link, .link-block:hover .link-block-styled .icon-link {
   fill: #a55c18;
 }
 
-/* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 63, src/sass/components/_svg.scss */
 .bg-dark a:hover .icon-link, .bg-dark .link-block-styled:hover .icon-link, .bg-dark .link-block:hover .link-block-styled .icon-link, .link-block:hover .bg-dark .link-block-styled .icon-link {
   fill: #e5e5e5;
 }
 
-/* line 69, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 69, src/sass/components/_svg.scss */
 a.link-icon, .link-icon.link-block-styled {
   text-decoration: none;
 }
 
-/* line 72, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_svg.scss */
+/* line 72, src/sass/components/_svg.scss */
 .bg-dark a.link-icon, .bg-dark .link-icon.link-block-styled,
 .bg-dark a.link-icon:active,
 .bg-dark .link-icon.link-block-styled:active,
@@ -1260,13 +1260,13 @@ a.link-icon, .link-icon.link-block-styled {
  * Hide fallback text if browser supports SVG
  */
 /*  Adds a border */
-/* line 2, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_snapshot.scss */
+/* line 2, src/sass/components/_snapshot.scss */
 .img-border, .img-photo, .avatar {
   border: 1px solid #cccccc;
 }
 
 /*  Adds padding and a white border */
-/* line 7, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_snapshot.scss */
+/* line 7, src/sass/components/_snapshot.scss */
 .img-photo {
   padding: 0.25em;
   background-color: #ffffff;
@@ -1275,7 +1275,7 @@ a.link-icon, .link-icon.link-block-styled {
 
 /*  Adds a 50% border radius,
  *  turning square images into a circle. */
-/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_snapshot.scss */
+/* line 16, src/sass/components/_snapshot.scss */
 .img-circle, .avatar {
   border-radius: 50%;
 }
@@ -1283,12 +1283,12 @@ a.link-icon, .link-icon.link-block-styled {
 /**
  * Limit image height
  */
-/* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_snapshot.scss */
+/* line 24, src/sass/components/_snapshot.scss */
 .img-limit-height {
   max-height: 12em;
 }
 
-/* line 28, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_snapshot.scss */
+/* line 28, src/sass/components/_snapshot.scss */
 .img-limit-height-large {
   max-height: 25em;
 }
@@ -1301,7 +1301,7 @@ a.link-icon, .link-icon.link-block-styled {
  * Comment Avatar Styling
  * Class automatically applied to comment avatars.
  */
-/* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+/* line 10, src/sass/components/_wordpress-images.scss */
 .avatar {
   float: left;
   margin-right: 0.5em;
@@ -1314,7 +1314,7 @@ a.link-icon, .link-icon.link-block-styled {
 /**
  * Image alignment
  */
-/* line 25, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+/* line 25, src/sass/components/_wordpress-images.scss */
 .aligncenter, .alignleft, .alignright, .alignnone {
   display: block;
   text-align: center;
@@ -1323,7 +1323,7 @@ a.link-icon, .link-icon.link-block-styled {
 }
 
 @media (min-width: 30em) {
-  /* line 32, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+  /* line 32, src/sass/components/_wordpress-images.scss */
   .alignleft {
     float: left;
     margin-right: 0.5em;
@@ -1331,7 +1331,7 @@ a.link-icon, .link-icon.link-block-styled {
 }
 
 @media (min-width: 30em) {
-  /* line 41, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+  /* line 41, src/sass/components/_wordpress-images.scss */
   .alignright {
     float: right;
     margin-left: 0.5em;
@@ -1339,7 +1339,7 @@ a.link-icon, .link-icon.link-block-styled {
 }
 
 @media (min-width: 30em) {
-  /* line 50, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+  /* line 50, src/sass/components/_wordpress-images.scss */
   .alignnone {
     margin-left: 0;
     margin-right: 0;
@@ -1349,7 +1349,7 @@ a.link-icon, .link-icon.link-block-styled {
 /**
  * Image Caption Styling
  */
-/* line 62, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_wordpress-images.scss */
+/* line 62, src/sass/components/_wordpress-images.scss */
 .wp-caption-text {
   font-size: 0.9375em;
   font-style: italic;
@@ -1362,7 +1362,7 @@ a.link-icon, .link-icon.link-block-styled {
  * @section Tables
  * Styling for tables
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 6, src/sass/components/_tables.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -1371,21 +1371,21 @@ table {
   width: 100%;
 }
 
-/* line 14, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 14, src/sass/components/_tables.scss */
 th,
 td {
   text-align: left;
   padding: 0.5em;
 }
 
-/* line 20, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 20, src/sass/components/_tables.scss */
 th {
   border-bottom: 0.125em solid #e5e5e5;
   font-weight: bold;
   vertical-align: bottom;
 }
 
-/* line 27, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 27, src/sass/components/_tables.scss */
 td {
   border-top: 1px solid #e5e5e5;
   vertical-align: top;
@@ -1394,7 +1394,7 @@ td {
 /**
  * Adds zebra striping
  */
-/* line 35, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 35, src/sass/components/_tables.scss */
 .table-striped tbody tr:nth-child(odd) {
   background-color: #f7f7f7;
 }
@@ -1402,7 +1402,7 @@ td {
 /**
  * Reduces padding on condensed tables
  */
-/* line 43, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+/* line 43, src/sass/components/_tables.scss */
 .table-condensed th,
 .table-condensed td {
   padding: 0.25em;
@@ -1414,24 +1414,24 @@ td {
  * @link https://techblog.livingsocial.com/blog/2015/04/06/responsive-tables-in-pure-css/
  */
 @media (max-width: 40em) {
-  /* line 57, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+  /* line 57, src/sass/components/_tables.scss */
   .table-responsive thead {
     display: none;
     visibility: hidden;
   }
-  /* line 62, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+  /* line 62, src/sass/components/_tables.scss */
   .table-responsive tr {
     border-top: 1px solid #ededed;
     display: block;
     padding: 0.5em;
   }
-  /* line 68, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+  /* line 68, src/sass/components/_tables.scss */
   .table-responsive td {
     border: 0;
     display: block;
     padding: 0.25em;
   }
-  /* line 73, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_tables.scss */
+  /* line 73, src/sass/components/_tables.scss */
   .table-responsive td:before {
     content: attr(data-label);
     display: block;
@@ -1446,7 +1446,7 @@ td {
 /**
  * Text alignment
  */
-/* line 9, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 9, src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar {
   background-color: #68a20a;
   padding-top: 0.25em;
@@ -1455,26 +1455,26 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 16, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-wrap-navbar.nav-collapse {
     text-align: left;
   }
 }
 
 @media (min-width: 60em) {
-  /* line 9, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 9, src/sass/components/_astro-navbar.scss */
   .nav-wrap-navbar {
     text-align: left;
   }
 }
 
-/* line 25, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 25, src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar a, .nav-wrap-navbar .link-block-styled {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 29, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 29, src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar a:hover, .nav-wrap-navbar .link-block-styled:hover, .nav-wrap-navbar .link-block:hover .link-block-styled, .link-block:hover .nav-wrap-navbar .link-block-styled {
   text-decoration: underline;
 }
@@ -1482,7 +1482,7 @@ td {
 /**
  * Logo
  */
-/* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 39, src/sass/components/_astro-navbar.scss */
 .logo-navbar {
   display: inline-block;
   font-size: 1.2em;
@@ -1491,26 +1491,26 @@ td {
   text-decoration: none;
 }
 
-/* line 46, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 46, src/sass/components/_astro-navbar.scss */
 .logo-navbar:hover {
   text-decoration: none;
 }
 
 @media (max-width: 60em) {
-  /* line 51, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 51, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .logo-navbar {
     float: left;
   }
 }
 
 @media (min-width: 60em) {
-  /* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 39, src/sass/components/_astro-navbar.scss */
   .logo-navbar {
     float: left;
   }
 }
 
-/* line 60, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 60, src/sass/components/_astro-navbar.scss */
 .logo-navbar svg {
   display: inline-block;
   fill: currentColor;
@@ -1518,7 +1518,7 @@ td {
   width: 0;
 }
 
-/* line 66, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 66, src/sass/components/_astro-navbar.scss */
 .svg .logo-navbar svg {
   height: auto;
   width: auto;
@@ -1528,22 +1528,22 @@ td {
  * Navigation Menu Container
  */
 @media (max-width: 60em) {
-  /* line 77, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 77, src/sass/components/_astro-navbar.scss */
   .nav-menu-navbar {
     clear: left;
     padding-top: 0.5em;
   }
-  /* line 82, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 82, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar {
     box-sizing: border-box;
     display: none;
     width: 100%;
   }
-  /* line 87, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 87, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar.active {
     display: block;
   }
-  /* line 91, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 91, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar li {
     display: block;
     width: 100%;
@@ -1551,13 +1551,13 @@ td {
     padding-bottom: 0.25em;
     box-sizing: border-box;
   }
-  /* line 100, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 100, src/sass/components/_astro-navbar.scss */
   .nav-menu-navbar a, .nav-menu-navbar .link-block-styled {
     display: block;
   }
 }
 
-/* line 105, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 105, src/sass/components/_astro-navbar.scss */
 .nav-menu-navbar ul {
   list-style: none;
 }
@@ -1565,14 +1565,14 @@ td {
 /**
  * Navigation Menu
  */
-/* line 114, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 114, src/sass/components/_astro-navbar.scss */
 .nav-navbar {
   list-style: none;
   margin: 0 -0.5em;
   padding: 0;
 }
 
-/* line 119, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 119, src/sass/components/_astro-navbar.scss */
 .nav-navbar > li {
   display: inline-block;
   float: none;
@@ -1581,14 +1581,14 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 135, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 135, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-navbar {
     text-align: left;
   }
 }
 
 @media (min-width: 60em) {
-  /* line 114, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 114, src/sass/components/_astro-navbar.scss */
   .nav-navbar {
     text-align: right;
   }
@@ -1597,13 +1597,13 @@ td {
 /**
  * Navigation Toggle
  */
-/* line 149, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 149, src/sass/components/_astro-navbar.scss */
 .nav-toggle-navbar {
   display: none;
   visibility: hidden;
 }
 
-/* line 153, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 153, src/sass/components/_astro-navbar.scss */
 .nav-toggle-navbar:after {
   content: "+";
   display: inline-block;
@@ -1611,13 +1611,13 @@ td {
   width: 1em;
 }
 
-/* line 160, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 160, src/sass/components/_astro-navbar.scss */
 .nav-toggle-navbar.active:after {
   content: "\2013";
 }
 
 @media (max-width: 60em) {
-  /* line 165, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+  /* line 165, src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-toggle-navbar {
     display: block;
     float: right;
@@ -1628,14 +1628,14 @@ td {
 /**
  * Clearfix
  */
-/* line 178, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 178, src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar:before,
 .nav-wrap-navbar:after {
   display: table;
   content: "";
 }
 
-/* line 184, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_astro-navbar.scss */
+/* line 184, src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar:after {
   clear: both;
 }
@@ -1643,12 +1643,12 @@ td {
 /**
  * Dropdown links
  */
-/* line 5, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 5, src/sass/components/_drop.scss */
 .nav-navbar .menu-item-has-children {
   position: relative;
 }
 
-/* line 8, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 8, src/sass/components/_drop.scss */
 .nav-navbar .menu-item-has-children > a:after, .nav-navbar .menu-item-has-children > .link-block-styled:after {
   content: "+";
   display: inline-block;
@@ -1657,13 +1657,13 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 14, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 14, src/sass/components/_drop.scss */
   .js-astro .nav-navbar .menu-item-has-children > a:after, .js-astro .nav-navbar .menu-item-has-children > .link-block-styled:after {
     content: "";
   }
 }
 
-/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 21, src/sass/components/_drop.scss */
 .nav-navbar .menu-item-has-children:focus > a:after, .nav-navbar .menu-item-has-children:focus > .link-block-styled:after,
 .nav-navbar .menu-item-has-children:hover > a:after,
 .nav-navbar .menu-item-has-children:hover > .link-block-styled:after,
@@ -1673,7 +1673,7 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 27, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 27, src/sass/components/_drop.scss */
   .js-astro .nav-navbar .menu-item-has-children:focus > a:after, .js-astro .nav-navbar .menu-item-has-children:focus > .link-block-styled:after, .js-astro
   .nav-navbar .menu-item-has-children:hover > a:after, .js-astro
   .nav-navbar .menu-item-has-children:hover > .link-block-styled:after, .js-astro
@@ -1686,7 +1686,7 @@ td {
 /**
  * Dropdown content
  */
-/* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 39, src/sass/components/_drop.scss */
 .sub-menu {
   background-color: #ffffff;
   border: 0;
@@ -1712,20 +1712,20 @@ td {
 }
 
 @media (min-width: 60em) {
-  /* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 39, src/sass/components/_drop.scss */
   .sub-menu {
     min-width: 12em;
   }
 }
 
-/* line 63, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 63, src/sass/components/_drop.scss */
 .sub-menu ul,
 .sub-menu ol {
   list-style: none;
   margin-left: 0;
 }
 
-/* line 69, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 69, src/sass/components/_drop.scss */
 .sub-menu a, .sub-menu .link-block-styled {
   color: #272727;
   display: block;
@@ -1733,7 +1733,7 @@ td {
   padding-right: 0.5em;
 }
 
-/* line 75, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 75, src/sass/components/_drop.scss */
 .sub-menu a:focus, .sub-menu .link-block-styled:focus, .sub-menu a:hover, .sub-menu .link-block-styled:hover, .sub-menu .link-block:hover .link-block-styled, .link-block:hover .sub-menu .link-block-styled {
   background-color: #68a20a;
   color: #ffffff;
@@ -1741,18 +1741,18 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 83, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 83, src/sass/components/_drop.scss */
   .js-astro.js-drop .sub-menu a:hover, .js-astro.js-drop .sub-menu .link-block-styled:hover, .js-astro.js-drop .sub-menu .link-block:hover .link-block-styled, .link-block:hover .js-astro.js-drop .sub-menu .link-block-styled {
     background-color: transparent;
     text-decoration: underline;
   }
-  /* line 89, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 89, src/sass/components/_drop.scss */
   .js-astro.js-drop .sub-menu a, .js-astro.js-drop .sub-menu .link-block-styled {
     color: #ffffff;
   }
 }
 
-/* line 98, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 98, src/sass/components/_drop.scss */
 .menu-item-has-children:focus .sub-menu,
 .menu-item-has-children:hover .sub-menu,
 .menu-item-has-children.active .sub-menu {
@@ -1766,7 +1766,7 @@ td {
   width: auto;
 }
 
-/* line 110, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+/* line 110, src/sass/components/_drop.scss */
 .js-drop .menu-item-has-children:focus .sub-menu, .js-drop
 .menu-item-has-children:hover .sub-menu, .js-drop
 .menu-item-has-children.active .sub-menu {
@@ -1774,7 +1774,7 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 114, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 114, src/sass/components/_drop.scss */
   .js-astro.js-drop .menu-item-has-children:focus .sub-menu, .js-astro.js-drop
   .menu-item-has-children:hover .sub-menu, .js-astro.js-drop
   .menu-item-has-children.active .sub-menu {
@@ -1783,7 +1783,7 @@ td {
 }
 
 @media (max-width: 60em) {
-  /* line 125, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_drop.scss */
+  /* line 125, src/sass/components/_drop.scss */
   .js-astro .sub-menu,
   .js-astro .menu-item-has-children.active .sub-menu {
     background-color: transparent;
@@ -1800,7 +1800,7 @@ td {
   }
 }
 
-/* line 1, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
+/* line 1, src/sass/components/_alerts.scss */
 .alert, .gmt-donation-form-alert,
 .gmt-donation-form-test-mode {
   color: #005580;
@@ -1811,14 +1811,14 @@ td {
   border-radius: 1px;
 }
 
-/* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
+/* line 10, src/sass/components/_alerts.scss */
 .alert-success {
   color: #3a5a06;
   background-color: #e1ecce;
   border-color: #cadea9;
 }
 
-/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
+/* line 16, src/sass/components/_alerts.scss */
 .alert-danger, .gmt-donation-form-alert,
 .gmt-donation-form-test-mode {
   color: #43070a;
@@ -1826,7 +1826,7 @@ td {
   border-color: #d5abad;
 }
 
-/* line 22, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_alerts.scss */
+/* line 22, src/sass/components/_alerts.scss */
 .alert-warning {
   color: #794312;
   background-color: #f9e6d4;
@@ -1837,13 +1837,13 @@ td {
  * @section Form Saver
  * Styling for form saver modules.
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_form-saver.scss */
+/* line 6, src/sass/components/_form-saver.scss */
 .form-saver {
   display: none;
   visibility: hidden;
 }
 
-/* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_form-saver.scss */
+/* line 11, src/sass/components/_form-saver.scss */
 .js-form-saver .form-saver {
   display: block;
   visibility: visible;
@@ -1856,21 +1856,21 @@ td {
 /**
  * Filters for "All Pets" page
  */
-/* line 10, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+/* line 10, src/sass/components/_pets.scss */
 .petfinder-filters {
   display: none;
   visibility: hidden;
 }
 
 @media (min-width: 60em) {
-  /* line 15, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+  /* line 15, src/sass/components/_pets.scss */
   .js-petfinder-sort .petfinder-filters {
     display: block;
     visibility: visible;
   }
 }
 
-/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+/* line 21, src/sass/components/_pets.scss */
 .js-petfinder-sort .petfinder-filters.active {
   display: block;
   visibility: visible;
@@ -1879,14 +1879,14 @@ td {
 /**
  * Filters toggle
  */
-/* line 31, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+/* line 31, src/sass/components/_pets.scss */
 .petfinder-filters-toggle {
   display: none;
   visibility: hidden;
 }
 
 @media (max-width: 60em) {
-  /* line 36, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+  /* line 36, src/sass/components/_pets.scss */
   .js-petfinder-sort .petfinder-filters-toggle {
     display: inline-block;
     visibility: visible;
@@ -1897,11 +1897,11 @@ td {
  * Content for "All Pets" page
  */
 @media (min-width: 60em) {
-  /* line 46, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+  /* line 46, src/sass/components/_pets.scss */
   .petfinder-content {
     margin-left: 25%;
   }
-  /* line 50, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_pets.scss */
+  /* line 50, src/sass/components/_pets.scss */
   .js-petfinder-sort .petfinder-content {
     margin-left: 0;
   }
@@ -1926,7 +1926,7 @@ td {
 
  */
 /* <button> css reset */
-/* line 20, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 20, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button {
   width: 44px;
   height: 44px;
@@ -1946,31 +1946,31 @@ td {
   box-shadow: none;
 }
 
-/* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 38, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button:focus,
 .pswp__button:hover {
   opacity: 1;
 }
 
-/* line 41, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 41, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button:active {
   outline: none;
   opacity: 0.9;
 }
 
-/* line 44, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 44, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
 /* pswp__ui--over-close class it added when mouse is over element that should close gallery */
-/* line 49, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 49, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--over-close .pswp__button--close {
   opacity: 1;
 }
 
-/* line 52, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 52, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button,
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
@@ -1982,62 +1982,62 @@ td {
 
 @media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
   /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
-  /* line 62, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+  /* line 62, src/sass/components/_photoswipe-default-skin.scss */
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
   .pswp--svg .pswp__button--arrow--right:before {
     background-image: url(../svg/default-skin.svg);
   }
-  /* line 66, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+  /* line 66, src/sass/components/_photoswipe-default-skin.scss */
   .pswp--svg .pswp__button--arrow--left,
   .pswp--svg .pswp__button--arrow--right {
     background: none;
   }
 }
 
-/* line 70, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 70, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--close {
   background-position: 0 -44px;
 }
 
-/* line 73, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 73, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--share {
   background-position: -44px -44px;
 }
 
-/* line 76, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 76, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--fs {
   display: none;
 }
 
-/* line 79, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 79, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--supports-fs .pswp__button--fs {
   display: block;
 }
 
-/* line 82, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 82, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--fs .pswp__button--fs {
   background-position: -44px 0;
 }
 
-/* line 85, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 85, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--zoom {
   display: none;
   background-position: -88px 0;
 }
 
-/* line 89, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 89, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--zoom-allowed .pswp__button--zoom {
   display: block;
 }
 
-/* line 92, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 92, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--zoomed-in .pswp__button--zoom {
   background-position: -132px 0;
 }
 
 /* no arrows on touch screens */
-/* line 96, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 96, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--touch .pswp__button--arrow--left,
 .pswp--touch .pswp__button--arrow--right {
   visibility: hidden;
@@ -2047,7 +2047,7 @@ td {
 	Arrow buttons hit area
 	(icon is added to :before pseudo-element)
 */
-/* line 104, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 104, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--left,
 .pswp__button--arrow--right {
   background: none;
@@ -2058,17 +2058,17 @@ td {
   position: absolute;
 }
 
-/* line 113, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 113, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--left {
   left: 0;
 }
 
-/* line 116, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 116, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--right {
   right: 0;
 }
 
-/* line 119, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 119, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
   content: '';
@@ -2079,13 +2079,13 @@ td {
   position: absolute;
 }
 
-/* line 128, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 128, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--left:before {
   left: 6px;
   background-position: -138px -44px;
 }
 
-/* line 132, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 132, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__button--arrow--right:before {
   right: 6px;
   background-position: -94px -44px;
@@ -2096,7 +2096,7 @@ td {
 	2. Share modal/popup and links
 
  */
-/* line 141, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 141, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__counter,
 .pswp__share-modal {
   -webkit-user-select: none;
@@ -2105,7 +2105,7 @@ td {
   user-select: none;
 }
 
-/* line 148, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 148, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-modal {
   display: block;
   background: rgba(0, 0, 0, 0.5);
@@ -2123,12 +2123,12 @@ td {
   will-change: opacity;
 }
 
-/* line 164, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 164, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-modal--hidden {
   display: none;
 }
 
-/* line 167, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 167, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-tooltip {
   z-index: 1620;
   position: absolute;
@@ -2149,7 +2149,7 @@ td {
   will-change: transform;
 }
 
-/* line 185, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 185, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-tooltip a, .pswp__share-tooltip .link-block-styled {
   display: block;
   padding: 8px 12px;
@@ -2159,41 +2159,41 @@ td {
   line-height: 18px;
 }
 
-/* line 192, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 192, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-tooltip a:hover, .pswp__share-tooltip .link-block-styled:hover, .pswp__share-tooltip .link-block:hover .link-block-styled, .link-block:hover .pswp__share-tooltip .link-block-styled {
   text-decoration: none;
   color: #000;
 }
 
-/* line 195, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 195, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-tooltip a:first-child, .pswp__share-tooltip .link-block-styled:first-child {
   /* round corners on the first/last list item */
   border-radius: 2px 2px 0 0;
 }
 
-/* line 198, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 198, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-tooltip a:last-child, .pswp__share-tooltip .link-block-styled:last-child {
   border-radius: 0 0 2px 2px;
 }
 
-/* line 201, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 201, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-modal--fade-in {
   opacity: 1;
 }
 
-/* line 203, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 203, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__share-modal--fade-in .pswp__share-tooltip {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
 /* increase size of share links on touch devices */
-/* line 209, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 209, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--touch .pswp__share-tooltip a, .pswp--touch .pswp__share-tooltip .link-block-styled {
   padding: 16px 12px;
 }
 
-/* line 212, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 212, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--facebook:before, .pswp__share--facebook.link-block-styled:before {
   content: '';
   display: block;
@@ -2209,30 +2209,30 @@ a.pswp__share--facebook:before, .pswp__share--facebook.link-block-styled:before 
   pointer-events: none;
 }
 
-/* line 226, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 226, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--facebook:hover, .pswp__share--facebook.link-block-styled:hover, .link-block:hover .pswp__share--facebook.link-block-styled {
   background: #3E5C9A;
   color: #FFF;
 }
 
-/* line 229, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 229, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--facebook:hover:before, .pswp__share--facebook.link-block-styled:hover:before, .link-block:hover .pswp__share--facebook.link-block-styled:before {
   border-bottom-color: #3E5C9A;
 }
 
-/* line 232, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 232, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--twitter:hover, .pswp__share--twitter.link-block-styled:hover, .link-block:hover .pswp__share--twitter.link-block-styled {
   background: #55ACEE;
   color: #FFF;
 }
 
-/* line 236, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 236, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--pinterest:hover, .pswp__share--pinterest.link-block-styled:hover, .link-block:hover .pswp__share--pinterest.link-block-styled {
   background: #CCC;
   color: #CE272D;
 }
 
-/* line 240, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 240, src/sass/components/_photoswipe-default-skin.scss */
 a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .link-block:hover .pswp__share--download.link-block-styled {
   background: #DDD;
 }
@@ -2242,7 +2242,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	3. Index indicator ("1 of X" counter)
 
  */
-/* line 248, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 248, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__counter {
   position: absolute;
   left: 0;
@@ -2260,7 +2260,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	4. Caption
 
  */
-/* line 264, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 264, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__caption {
   position: absolute;
   left: 0;
@@ -2269,7 +2269,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   min-height: 44px;
 }
 
-/* line 276, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 276, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__caption__center {
   text-align: left;
   max-width: 420px;
@@ -2280,13 +2280,13 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   color: #CCC;
 }
 
-/* line 285, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 285, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__caption--empty {
   display: none;
 }
 
 /* Fake caption element, used to calculate height of next/prev image */
-/* line 289, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 289, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__caption--fake {
   visibility: hidden;
 }
@@ -2298,7 +2298,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
 
  */
-/* line 299, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 299, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__preloader {
   width: 44px;
   height: 44px;
@@ -2313,42 +2313,42 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   direction: ltr;
 }
 
-/* line 312, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 312, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__preloader__icn {
   width: 20px;
   height: 20px;
   margin: 12px;
 }
 
-/* line 317, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 317, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__preloader--active {
   opacity: 1;
 }
 
-/* line 319, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 319, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__preloader--active .pswp__preloader__icn {
   /* We use .gif in browsers that don't support CSS animation */
   background: url(../img/preloader.gif) 0 0 no-repeat;
 }
 
-/* line 323, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 323, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader--active {
   opacity: 1;
 }
 
-/* line 325, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 325, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader--active .pswp__preloader__icn {
   -webkit-animation: clockwise 500ms linear infinite;
   animation: clockwise 500ms linear infinite;
 }
 
-/* line 328, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 328, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader--active .pswp__preloader__donut {
   -webkit-animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
   animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
 }
 
-/* line 332, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 332, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader__icn {
   background: none;
   opacity: 0.75;
@@ -2360,7 +2360,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   margin: 0;
 }
 
-/* line 342, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 342, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader__cut {
   /*
 			The idea of animating inner circle is based on Polymer ("material") loading indicator
@@ -2372,7 +2372,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   overflow: hidden;
 }
 
-/* line 352, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 352, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--css_animation .pswp__preloader__donut {
   box-sizing: border-box;
   width: 14px;
@@ -2389,7 +2389,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 @media screen and (max-width: 1024px) {
-  /* line 368, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+  /* line 368, src/sass/components/_photoswipe-default-skin.scss */
   .pswp__preloader {
     position: relative;
     left: auto;
@@ -2457,7 +2457,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 
  */
 /* root element of UI */
-/* line 419, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 419, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui {
   -webkit-font-smoothing: auto;
   visibility: visible;
@@ -2466,7 +2466,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* top black bar with buttons and "1 of X" indicator */
-/* line 426, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 426, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__top-bar {
   position: absolute;
   left: 0;
@@ -2475,7 +2475,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   width: 100%;
 }
 
-/* line 433, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 433, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__caption,
 .pswp__top-bar,
 .pswp--has_mouse .pswp__button--arrow--left,
@@ -2487,32 +2487,32 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* pswp--has_mouse class is added only when two subsequent mousemove events occur */
-/* line 443, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 443, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--has_mouse .pswp__button--arrow--left,
 .pswp--has_mouse .pswp__button--arrow--right {
   visibility: visible;
 }
 
-/* line 447, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 447, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__top-bar,
 .pswp__caption {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
-/* line 452, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 452, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
-/* line 457, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 457, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--idle .pswp__top-bar {
   opacity: 0;
 }
 
-/* line 460, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 460, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--idle .pswp__button--arrow--left,
 .pswp__ui--idle .pswp__button--arrow--right {
   opacity: 0;
@@ -2522,7 +2522,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	pswp__ui--hidden class is added when controls are hidden
 	e.g. when user taps to toggle visibility of controls
 */
-/* line 468, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 468, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--hidden .pswp__top-bar,
 .pswp__ui--hidden .pswp__caption,
 .pswp__ui--hidden .pswp__button--arrow--left,
@@ -2532,19 +2532,19 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* pswp__ui--one-slide class is added when there is just one item in gallery */
-/* line 476, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 476, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__ui--one-slide .pswp__button--arrow--left,
 .pswp__ui--one-slide .pswp__button--arrow--right,
 .pswp__ui--one-slide .pswp__counter {
   display: none;
 }
 
-/* line 481, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 481, src/sass/components/_photoswipe-default-skin.scss */
 .pswp__element--disabled {
   display: none !important;
 }
 
-/* line 484, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe-default-skin.scss */
+/* line 484, src/sass/components/_photoswipe-default-skin.scss */
 .pswp--minimal--dark .pswp__top-bar {
   background: none;
 }
@@ -2554,7 +2554,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
 */
 /* pswp = photoswipe */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 6, src/sass/components/_photoswipe.scss */
 .pswp {
   display: none;
   position: absolute;
@@ -2572,18 +2572,18 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   outline: none;
 }
 
-/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 21, src/sass/components/_photoswipe.scss */
 .pswp * {
   box-sizing: border-box;
 }
 
-/* line 24, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 24, src/sass/components/_photoswipe.scss */
 .pswp img {
   max-width: none;
 }
 
 /* style is added when JS option showHideOpacity is set to true */
-/* line 28, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 28, src/sass/components/_photoswipe.scss */
 .pswp--animate_opacity {
   /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
   opacity: 0.001;
@@ -2593,12 +2593,12 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
-/* line 36, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 36, src/sass/components/_photoswipe.scss */
 .pswp--open {
   display: block;
 }
 
-/* line 39, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 39, src/sass/components/_photoswipe.scss */
 .pswp--zoom-allowed .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-zoom-in;
@@ -2606,7 +2606,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   cursor: zoom-in;
 }
 
-/* line 45, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 45, src/sass/components/_photoswipe.scss */
 .pswp--zoomed-in .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-grab;
@@ -2614,7 +2614,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   cursor: grab;
 }
 
-/* line 51, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 51, src/sass/components/_photoswipe.scss */
 .pswp--dragging .pswp__img {
   /* autoprefixer: off */
   cursor: -webkit-grabbing;
@@ -2626,7 +2626,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	Background is added as a separate element.
 	As animating opacity is much faster than animating rgba() background-color.
 */
-/* line 61, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 61, src/sass/components/_photoswipe.scss */
 .pswp__bg {
   position: absolute;
   left: 0;
@@ -2639,7 +2639,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   will-change: opacity;
 }
 
-/* line 72, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 72, src/sass/components/_photoswipe.scss */
 .pswp__scroll-wrap {
   position: absolute;
   left: 0;
@@ -2649,7 +2649,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   overflow: hidden;
 }
 
-/* line 80, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 80, src/sass/components/_photoswipe.scss */
 .pswp__container,
 .pswp__zoom-wrap {
   -ms-touch-action: none;
@@ -2662,7 +2662,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 }
 
 /* Prevent selection and tap highlights */
-/* line 91, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 91, src/sass/components/_photoswipe.scss */
 .pswp__container,
 .pswp__img {
   -webkit-user-select: none;
@@ -2673,7 +2673,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   -webkit-touch-callout: none;
 }
 
-/* line 100, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 100, src/sass/components/_photoswipe.scss */
 .pswp__zoom-wrap {
   position: absolute;
   width: 100%;
@@ -2686,7 +2686,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1), -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
-/* line 110, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 110, src/sass/components/_photoswipe.scss */
 .pswp__bg {
   will-change: opacity;
   /* for open/close transition */
@@ -2694,20 +2694,20 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
 }
 
-/* line 116, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 116, src/sass/components/_photoswipe.scss */
 .pswp--animated-in .pswp__bg,
 .pswp--animated-in .pswp__zoom-wrap {
   -webkit-transition: none;
   transition: none;
 }
 
-/* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 121, src/sass/components/_photoswipe.scss */
 .pswp__container,
 .pswp__zoom-wrap {
   -webkit-backface-visibility: hidden;
 }
 
-/* line 125, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 125, src/sass/components/_photoswipe.scss */
 .pswp__item {
   position: absolute;
   left: 0;
@@ -2717,7 +2717,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   overflow: hidden;
 }
 
-/* line 133, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 133, src/sass/components/_photoswipe.scss */
 .pswp__img {
   position: absolute;
   width: auto;
@@ -2730,7 +2730,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	stretched thumbnail or div placeholder element (see below)
 	style is added to avoid flickering in webkit/blink when layers overlap
 */
-/* line 144, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 144, src/sass/components/_photoswipe.scss */
 .pswp__img--placeholder {
   -webkit-backface-visibility: hidden;
 }
@@ -2739,12 +2739,12 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	div element that matches size of large image
 	large image loads on top of it
 */
-/* line 151, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 151, src/sass/components/_photoswipe.scss */
 .pswp__img--placeholder--blank {
   background: #222;
 }
 
-/* line 154, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 154, src/sass/components/_photoswipe.scss */
 .pswp--ie .pswp__img {
   width: 100% !important;
   height: auto !important;
@@ -2756,7 +2756,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	Error message appears when image is not loaded
 	(JS option errorMsg controls markup)
 */
-/* line 164, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 164, src/sass/components/_photoswipe.scss */
 .pswp__error-msg {
   position: absolute;
   left: 0;
@@ -2769,13 +2769,13 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   color: #CCC;
 }
 
-/* line 175, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 175, src/sass/components/_photoswipe.scss */
 .pswp__error-msg a, .pswp__error-msg .link-block-styled {
   color: #CCC;
   text-decoration: underline;
 }
 
-/* line 179, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_photoswipe.scss */
+/* line 179, src/sass/components/_photoswipe.scss */
 .js-photoswipe .media-modal-content .gallery-settings {
   display: none;
 }
@@ -2787,14 +2787,14 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * The "Donate Other" field
  */
-/* line 15, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 15, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-other-currency {
   display: inline-block;
   float: left;
   margin-right: -3em;
 }
 
-/* line 21, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 21, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-other {
   background-color: transparent;
   padding-left: 1em;
@@ -2803,17 +2803,17 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Donation "in honor of"
  */
-/* line 52, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 52, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-in-honor-content {
   padding: 1em;
 }
 
-/* line 56, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 56, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-in-honor-content label {
   font-weight: bold;
 }
 
-/* line 61, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 61, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-in-honor-message {
   font-style: italic;
 }
@@ -2821,7 +2821,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * The donation goal thermometer
  */
-/* line 70, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 70, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer {
   height: 1.5625em;
   margin-bottom: 1.5625em;
@@ -2830,12 +2830,12 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   text-align: center;
 }
 
-/* line 78, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 78, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer-small-percentage {
   text-align: left;
 }
 
-/* line 82, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 82, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer-progress {
   float: left;
   width: 0;
@@ -2844,12 +2844,12 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   background-color: #880e14;
 }
 
-/* line 90, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 90, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer-small-percentage .gmt-donation-form-goal-thermometer-progress {
   margin-right: 0.5em;
 }
 
-/* line 94, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 94, src/sass/components/_gmt-donations.scss */
 .gmt-donation-form-goal-thermometer-goal-met .gmt-donation-form-goal-thermometer-progress {
   background-color: #68a20a;
 }
@@ -2857,12 +2857,12 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Donation invoices
  */
-/* line 103, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 103, src/sass/components/_gmt-donations.scss */
 .gmt-donation-invoice-amount {
   font-size: 1.2em;
 }
 
-/* line 107, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_gmt-donations.scss */
+/* line 107, src/sass/components/_gmt-donations.scss */
 .gmt-donation-invoice-amount-label {
   font-weight: bold;
 }
@@ -2871,19 +2871,19 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @section WooCommerce
  * Custom styles for WooCommerce
  */
-/* line 6, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+/* line 6, src/sass/components/_woocommerce.scss */
 .shop_table tbody th,
 .shop_table tfoot th {
   border-bottom: 0;
 }
 
-/* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+/* line 11, src/sass/components/_woocommerce.scss */
 .shop_table tfoot .cart-subtotal th,
 .shop_table tfoot .cart-subtotal td {
   border-bottom: 0.125em solid #e5e5e5;
 }
 
-/* line 16, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_woocommerce.scss */
+/* line 16, src/sass/components/_woocommerce.scss */
 .woocommerce-checkout #payment ul.payment_methods li .input-radio {
   float: left;
   margin-top: 0.4375em;
@@ -2897,45 +2897,45 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Backgrounds
  */
-/* line 11, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 11, src/sass/components/_overrides.scss */
 .bg-muted, .gmt-donation-form-in-honor-content {
   background-color: #f2f2f2;
 }
 
-/* line 15, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 15, src/sass/components/_overrides.scss */
 .bg-dark {
   background-color: #68a20a;
   color: #ffffff;
 }
 
-/* line 19, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 19, src/sass/components/_overrides.scss */
 .bg-dark a, .bg-dark .link-block-styled {
   color: #e5e5e5;
   text-decoration: underline;
 }
 
-/* line 23, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 23, src/sass/components/_overrides.scss */
 .bg-dark a.link-block, .bg-dark .link-block.link-block-styled {
   text-decoration: none;
 }
 
-/* line 27, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 27, src/sass/components/_overrides.scss */
 .bg-dark a.link-block-styled, .bg-dark .link-block-styled {
   text-decoration: underline;
 }
 
-/* line 31, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 31, src/sass/components/_overrides.scss */
 .bg-dark a:active, .bg-dark .link-block-styled:active, .bg-dark a:focus, .bg-dark .link-block-styled:focus, .bg-dark a:hover, .bg-dark .link-block-styled:hover, .bg-dark .link-block:hover .link-block-styled, .link-block:hover .bg-dark .link-block-styled {
   color: #ffffff;
 }
 
-/* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 38, src/sass/components/_overrides.scss */
 .bg-dark .btn, .bg-dark input[type="submit"], .bg-dark .gmt-donation-form-button {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 45, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 45, src/sass/components/_overrides.scss */
 .bg-hero {
   background-position: center;
   background-size: cover;
@@ -2945,7 +2945,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Borders
  */
-/* line 56, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 56, src/sass/components/_overrides.scss */
 .border {
   border: 1px solid #e5e5e5;
 }
@@ -2953,7 +2953,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Text shadow
  */
-/* line 64, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 64, src/sass/components/_overrides.scss */
 .text-shadow {
   text-shadow: 1px 1px 1px #272727;
 }
@@ -2961,19 +2961,19 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Text sizes
  */
-/* line 73, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 73, src/sass/components/_overrides.scss */
 .text-small {
   font-size: 0.9375em;
 }
 
-/* line 77, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 77, src/sass/components/_overrides.scss */
 .text-large {
   font-size: 1.1875em;
   line-height: 1.4;
 }
 
 @media (min-width: 40em) {
-  /* line 77, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+  /* line 77, src/sass/components/_overrides.scss */
   .text-large {
     font-size: 1.3125em;
   }
@@ -2982,7 +2982,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Text colors
  */
-/* line 91, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 91, src/sass/components/_overrides.scss */
 .text-muted {
   color: #808080;
 }
@@ -2990,31 +2990,31 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Text alignment
  */
-/* line 100, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 100, src/sass/components/_overrides.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 104, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 104, src/sass/components/_overrides.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 108, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 108, src/sass/components/_overrides.scss */
 .text-left {
   text-align: left;
 }
 
 @media (min-width: 60em) {
-  /* line 113, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+  /* line 113, src/sass/components/_overrides.scss */
   .text-center-large {
     text-align: center;
   }
-  /* line 117, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+  /* line 117, src/sass/components/_overrides.scss */
   .text-right-large {
     text-align: right;
   }
-  /* line 121, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+  /* line 121, src/sass/components/_overrides.scss */
   .text-left-large {
     text-align: left;
   }
@@ -3023,19 +3023,19 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Floats
  */
-/* line 131, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 131, src/sass/components/_overrides.scss */
 .float-left {
   float: left;
 }
 
-/* line 135, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 135, src/sass/components/_overrides.scss */
 .float-center {
   float: none;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 141, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 141, src/sass/components/_overrides.scss */
 .float-right {
   float: right;
 }
@@ -3043,32 +3043,32 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Margins
  */
-/* line 150, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 150, src/sass/components/_overrides.scss */
 .no-margin-top {
   margin-top: 0;
 }
 
-/* line 154, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 154, src/sass/components/_overrides.scss */
 .no-margin-bottom {
   margin-bottom: 0;
 }
 
-/* line 158, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 158, src/sass/components/_overrides.scss */
 .margin-top {
   margin-top: 1.5625em;
 }
 
-/* line 162, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 162, src/sass/components/_overrides.scss */
 .margin-bottom {
   margin-bottom: 1.5625em;
 }
 
-/* line 166, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 166, src/sass/components/_overrides.scss */
 .margin-bottom-small, .gmt-donation-form-table, .gmt-donation-form-in-honor-message {
   margin-bottom: 0.5em;
 }
 
-/* line 170, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 170, src/sass/components/_overrides.scss */
 .margin-bottom-large {
   margin-bottom: 2em;
 }
@@ -3076,57 +3076,57 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 /**
  * Padding
  */
-/* line 179, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 179, src/sass/components/_overrides.scss */
 .no-padding-top {
   padding-top: 0;
 }
 
-/* line 183, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 183, src/sass/components/_overrides.scss */
 .no-padding-bottom {
   padding-bottom: 0;
 }
 
-/* line 187, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 187, src/sass/components/_overrides.scss */
 .padding {
   padding: 1.5625em;
 }
 
-/* line 191, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 191, src/sass/components/_overrides.scss */
 .padding-top, .gmt-donation-form-actions {
   padding-top: 1.5625em;
 }
 
-/* line 195, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 195, src/sass/components/_overrides.scss */
 .padding-top-small {
   padding-top: 0.5em;
 }
 
-/* line 199, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 199, src/sass/components/_overrides.scss */
 .padding-top-large {
   padding-top: 2em;
 }
 
-/* line 203, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 203, src/sass/components/_overrides.scss */
 .padding-top-xlarge {
   padding-top: 4em;
 }
 
-/* line 207, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 207, src/sass/components/_overrides.scss */
 .padding-bottom {
   padding-bottom: 1.5625em;
 }
 
-/* line 211, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 211, src/sass/components/_overrides.scss */
 .padding-bottom-small {
   padding-bottom: 0.5em;
 }
 
-/* line 215, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 215, src/sass/components/_overrides.scss */
 .padding-bottom-large {
   padding-bottom: 2em;
 }
 
-/* line 219, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 219, src/sass/components/_overrides.scss */
 .padding-bottom-xlarge {
   padding-bottom: 4em;
 }
@@ -3139,7 +3139,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
-/* line 233, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 233, src/sass/components/_overrides.scss */
 .screen-reader, .svg .icon-fallback-text {
   border: 0;
   clip: rect(0 0 0 0);
@@ -3157,7 +3157,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link https://www.drupal.org/node/897638
  */
-/* line 250, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 250, src/sass/components/_overrides.scss */
 .screen-reader-focusable:active,
 .screen-reader-focusable:focus {
   clip: auto;
@@ -3174,7 +3174,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
-/* line 266, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 266, src/sass/components/_overrides.scss */
 [hidden], template, .tarpit, .pswp__caption small {
   display: none;
   visibility: hidden;
@@ -3185,7 +3185,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
  * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  */
-/* line 278, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 278, src/sass/components/_overrides.scss */
 .clearfix:before, .container:before,
 .row:before,
 .clearfix:after,
@@ -3195,7 +3195,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   content: " ";
 }
 
-/* line 284, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_overrides.scss */
+/* line 284, src/sass/components/_overrides.scss */
 .clearfix:after, .container:after,
 .row:after {
   clear: both;
@@ -3211,7 +3211,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	 * Universal selector.
 	 * Reset all content to transparent background, black color, and remove box and text shadows.
 	 */
-  /* line 13, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 13, src/sass/components/_print.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -3227,7 +3227,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   /**
 	 * Underline all links
 	 */
-  /* line 30, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 30, src/sass/components/_print.scss */
   a, .link-block-styled,
   a:visited,
   .link-block-styled:visited {
@@ -3236,21 +3236,21 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   /**
 	 * Show URL after links
 	 */
-  /* line 38, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 38, src/sass/components/_print.scss */
   a[href]:after, [href].link-block-styled:after {
     content: " (" attr(href) ")";
   }
   /**
 	 * Don't show URL for internal links
 	 */
-  /* line 45, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 45, src/sass/components/_print.scss */
   a[href^="#"]:after, [href^="#"].link-block-styled:after {
     content: "";
   }
   /**
 	 * Specifies the minimum number of lines to print at the top and bottom of a page.
 	 */
-  /* line 52, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 52, src/sass/components/_print.scss */
   p,
   h1, h2, h3 {
     orphans: 3;
@@ -3259,7 +3259,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   /**
 	 * Avoid inserting a page break after headers
 	 */
-  /* line 61, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 61, src/sass/components/_print.scss */
   h1, h2, h3 {
     page-break-after: avoid;
   }
@@ -3267,7 +3267,7 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
 	 * Change border color on blockquotes and preformatted text.
 	 * Avoid page breaks inside the content
 	 */
-  /* line 69, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 69, src/sass/components/_print.scss */
   pre,
   blockquote {
     border-color: #999;
@@ -3276,14 +3276,14 @@ a.pswp__share--download:hover, .pswp__share--download.link-block-styled:hover, .
   /**
 	 * Displayed as a table header row group
 	 */
-  /* line 78, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 78, src/sass/components/_print.scss */
   thead {
     display: table-header-group;
   }
   /**
 	 * Avoid inserting a page break inside table rows and images
 	 */
-  /* line 85, /Users/cferdinandi/Sites/paws-new-england/wordpress/wp-content/themes/pawsne/src/sass/components/_print.scss */
+  /* line 85, src/sass/components/_print.scss */
   tr,
   img {
     page-break-inside: avoid;

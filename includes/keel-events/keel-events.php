@@ -470,7 +470,7 @@
 		if ( is_admin() || !isset( $query->query['post_type'] ) || $query->query['post_type'] !== 'keel-events' || !isset( $query->query['date'] )  || !$query->is_main_query() ) return $query;
 
 		//Get original meta query
-		$meta_query = $query->get('meta_query');
+		$meta_query = (array) $query->get('meta_query');
 
 		// if filtering by past events
 		if ( $query->query['date'] === 'past' ) {
@@ -506,6 +506,7 @@
 
 		// If filtering by upcoming events
 		if ( $query->query['date'] === 'upcoming' ) {
+
 			//Add our meta query to the original meta queries
 			$meta_query[] = array(
 				'relation' => 'AND',
